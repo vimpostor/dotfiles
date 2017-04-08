@@ -8,7 +8,7 @@ super + Return
 
 # program launcher
 super + space
-	rofi -show drun -lines 10 -padding 300 -opacity "100" -font "Roboto Mono 15" -bw 8 -width 800 -separator-style "solid" -hide-scrollbar -color-window "argb:dd37474f, argb:AA4caf50, argb:7be91e63" -color-normal "argb:0fff1744, #cfd8dc, argb:0eee8d5, #e8f5e9, #ff1744" -color-active "argb:0fff1744, #268bd2, argb:0eee8d5, #268bd2, #fdf6e3" -color-urgent "argb:0fdf6e3, #dc322f, argb:0eee8d5, #dc322f, #fdf6e3"
+	rofi -modi drun -show drun -lines 10 -font "Fira Mono 14" -bw 8 -width 30% -separator-style "solid" -hide-scrollbar -color-window "argb:dd37474f, argb:AA4caf50, argb:7be91e63" -color-normal "argb:0fff1744, #cfd8dc, argb:0eee8d5, #e8f5e9, #ff1744" -color-active "argb:0fff1744, #268bd2, argb:0eee8d5, #268bd2, #fdf6e3" -color-urgent "argb:0fdf6e3, #dc322f, argb:0eee8d5, #dc322f, #fdf6e3"
 
 # make sxhkd reload its configuration files:
 super + Escape
