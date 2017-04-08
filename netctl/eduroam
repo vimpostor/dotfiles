@@ -1,0 +1,15 @@
+Description='A wireless connection using a custom network block configuration'
+Interface=wlp8s0
+Connection=wireless
+Security=wpa-configsection
+IP=dhcp
+ESSID=eduroam
+WPAConfigSection=(
+    'ssid="eduroam"'
+    'key_mgmt=WPA-EAP'
+    'eap=PEAP'
+    'identity="abcdefgh@rwth-aachen.de"'
+    'password=hash:PASSWORDHASH'
+    'phase2="auth=MSCHAPV2"'
+    'ca_cert="/etc/ssl/certs/Deutsche_Telekom_Root_CA_2.pem"'
+)
