@@ -1,7 +1,5 @@
 #! /bin/sh
 
-export QT_QPA_PLATFORMTHEME="qt5ct"
-setxkbmap de -option caps:escape # keyboard layout
 sxhkd &
 feh --bg-scale ~/Pictures/Wallpaper/arch_minimalistic.jpg
 #compton --config ~/.config/compton/compton.conf -b
