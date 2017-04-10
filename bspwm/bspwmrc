@@ -8,6 +8,8 @@ polybar magnus &
 
 bspc monitor -d Term Web Code Study Chat Music Doc VIII
 
+bspc rule -a feh state=floating
+
 bspc config border_width         6
 bspc config window_gap          12
 
