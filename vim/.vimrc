@@ -34,6 +34,8 @@ set hlsearch "highlight search
 set incsearch "highlight while you type
 set laststatus=2 "always show status line
 set noshowmode "airline already shows the mode
+set number "show line numbers
+set mouse=a "enable mouse input
 
 "syntastic
 set statusline+=%#warningmsg#
