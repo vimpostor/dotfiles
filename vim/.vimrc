@@ -10,6 +10,7 @@ Plug 'terryma/vim-multiple-cursors' "multiple cursors
 Plug 'sirver/ultisnips' "code snippets
 Plug 'honza/vim-snippets' "snippet collection
 Plug 'lervag/vimtex' "LaTeX
+Plug 'tpope/vim-surround' "surround commands
 call plug#end()
 
 set clipboard=unnamedplus "use X clipboard
