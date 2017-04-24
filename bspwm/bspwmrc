@@ -10,6 +10,7 @@ feh --bg-scale /tmp/wallpaper.png
 bspc monitor -d Term Web Code Study Chat Music Doc VIII
 
 bspc rule -a feh state=floating
+bspc rule -a fluid-demo state=floating
 
 bspc config border_width         6
 bspc config window_gap          12
@@ -17,8 +18,6 @@ bspc config window_gap          12
 bspc config borderless_monocle   true
 bspc config gapless_monocle      true
 bspc config single_monocle       true
-
-bspc rule -a Screenkey manage=off
 
 bsps config pointer_action1 move
 bspc config pointer_action2 none

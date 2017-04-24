@@ -109,7 +109,7 @@ interval = 10.0
 format-connected-underline = #55aa55
 format-connected-prefix = " "
 format-connected-prefix-foreground = ${colors.foreground-alt}
-label-connected = %linkspeed%
+label-connected = %local_ip%
 format-disconnected =
 
 [module/wireless-network]
