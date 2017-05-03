@@ -157,3 +157,7 @@ super + shift + r
 # Gaps
 super + {_,shift} + z
 	bspc config window_gap $((`bspc config window_gap` {+,-} 5))
+
+# tdrop
+super + v
+	tdrop -a -w 80% -x 5% termite
