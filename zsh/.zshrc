@@ -10,7 +10,7 @@
 ZSH_THEME="powerlevel9k/powerlevel9k"
 
 # color terminal
-# export TERM="xterm-256color"
+export TERM="xterm-256color"
 
 # POWERLEVEL9k customization
 #POWERLEVEL9K_MODE='awesome-fontconfig'
