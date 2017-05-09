@@ -11,7 +11,7 @@ rofi.bw: 0
 rofi.location: 2
 rofi.lines: 7
 rofi.eh: 1
-rofi.line-margin: 16
+rofi.line-margin: 8
 rofi.terminal: termite
 rofi.ssh-command: {terminal} -e "{ssh-client} {host}"
 rofi.parse-known-hosts: false
