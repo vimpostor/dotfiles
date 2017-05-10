@@ -22,6 +22,8 @@ set wildmode=longest:full,full
 set ttyfast "fast terminal connection
 set gdefault "replace globally by default
 set encoding=utf-8 "latin1? what year is it? fuckin 1991?
+map j gj
+map k gk
 "indentation
 set autoindent
 set smartindent
