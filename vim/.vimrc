@@ -1,7 +1,7 @@
 "vim-plug, automatically enables filetype plugin indent and syntax
 call plug#begin('~/.vim/plugged')
 Plug 'altercation/vim-colors-solarized' "color scheme
-Plug 'scrooloose/syntastic' "syntax checking
+"Plug 'scrooloose/syntastic' "syntax checking
 Plug 'bling/vim-airline' "status line
 Plug 'scrooloose/nerdcommenter' "easier commenting
 Plug 'airblade/vim-gitgutter' "view git changes
@@ -41,14 +41,14 @@ set number "show line numbers
 set mouse=a "enable mouse input
 
 "syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 0
-let g:syntastic_check_on_wq = 0
-let g:syntastic_enable_balloons = 1
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
+"let g:syntastic_always_populate_loc_list = 1
+"let g:syntastic_auto_loc_list = 1
+"let g:syntastic_check_on_open = 0
+"let g:syntastic_check_on_wq = 0
+"let g:syntastic_enable_balloons = 1
 "airline
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#syntastic#enabled = 1
