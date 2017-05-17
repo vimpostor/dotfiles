@@ -5,7 +5,7 @@ Plug 'altercation/vim-colors-solarized' "color scheme
 Plug 'bling/vim-airline' "status line
 Plug 'scrooloose/nerdcommenter' "easier commenting
 Plug 'airblade/vim-gitgutter' "view git changes
-"Plug 'valloric/youcompleteme' "autocompletions
+Plug 'valloric/youcompleteme' "autocompletions
 Plug 'terryma/vim-multiple-cursors' "multiple cursors
 Plug 'sirver/ultisnips' "code snippets
 Plug 'honza/vim-snippets' "snippet collection
@@ -55,4 +55,4 @@ let g:airline#extensions#syntastic#enabled = 1
 "snippets
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwwardTrigger="<c-z>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"

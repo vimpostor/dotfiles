@@ -16,7 +16,7 @@ primary = #e91e63
 secondary = #ef6c00
 alert = #d50000
 
-[bar/magnus]
+[bar/material]
 ;monitor = ${env:MONITOR:HDMI-1}
 monitor= eDP1
 width = 100%
