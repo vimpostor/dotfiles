@@ -8,7 +8,7 @@ super + Return
 
 # program launcher
 super + space
-	rofi -modi drun,ssh -show drun -font "Fira Sans 13"
+	rofi -modi drun,ssh -show drun -font "Roboto 13"
 
 # make sxhkd reload its configuration files:
 super + Escape
