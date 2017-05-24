@@ -4,7 +4,7 @@ sxhkd &
 polybar material &
 ~/Documents/scripts/gen-wallpaper.sh ~/Pictures/Wallpaper/arch_minimalistic.jpg
 feh --bg-scale /tmp/wallpaper.png
-#compton --config ~/.config/compton/compton.conf -b
+compton --config ~/.config/compton/compton.conf -b
 #libinput-gestures-setup start
 
 bspc monitor -d Term Web Code Study Chat Music Doc VIII
