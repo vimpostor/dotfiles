@@ -13,7 +13,7 @@ bspc rule -a feh state=floating
 bspc rule -a fluid-demo state=floating
 
 bspc config border_width         6
-bspc config window_gap          12
+bspc config window_gap           7
 
 bspc config borderless_monocle   true
 bspc config gapless_monocle      true
