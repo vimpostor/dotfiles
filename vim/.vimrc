@@ -5,12 +5,13 @@ Plug 'altercation/vim-colors-solarized' "color scheme
 Plug 'bling/vim-airline' "status line
 Plug 'scrooloose/nerdcommenter' "easier commenting
 Plug 'airblade/vim-gitgutter' "view git changes
-Plug 'valloric/youcompleteme' "autocompletions
 Plug 'terryma/vim-multiple-cursors' "multiple cursors
 Plug 'sirver/ultisnips' "code snippets
 Plug 'honza/vim-snippets' "snippet collection
 Plug 'lervag/vimtex' "LaTeX
 Plug 'tpope/vim-surround' "surround commands
+Plug 'shougo/neocomplete.vim' "autocomplete
+Plug 'vim-scripts/delimitMate.vim' "automatically close brackets
 call plug#end()
 
 set clipboard=unnamedplus "use X clipboard
@@ -56,3 +57,27 @@ let g:airline#extensions#syntastic#enabled = 1
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+"neocomplete
+let g:neocomplete#enable_at_startup = 1
+if !exists('g:neocomplete#sources#omni#input_patterns')
+	let g:neocomplete#sources#omni#input_patterns = {}
+endif
+let g:neocomplete#sources#omni#input_patterns.tex =
+        \ '\v\\%('
+        \ . '\a*cite\a*%(\s*\[[^]]*\]){0,2}\s*\{[^}]*'
+        \ . '|\a*ref%(\s*\{[^}]*|range\s*\{[^,}]*%(}\{)?)'
+        \ . '|hyperref\s*\[[^]]*'
+        \ . '|includegraphics\*?%(\s*\[[^]]*\]){0,2}\s*\{[^}]*'
+        \ . '|%(include%(only)?|input)\s*\{[^}]*'
+        \ . '|\a*(gls|Gls|GLS)(pl)?\a*%(\s*\[[^]]*\]){0,2}\s*\{[^}]*'
+        \ . '|includepdf%(\s*\[[^]]*\])?\s*\{[^}]*'
+        \ . '|includestandalone%(\s*\[[^]]*\])?\s*\{[^}]*'
+        \ . '|usepackage%(\s*\[[^]]*\])?\s*\{[^}]*'
+        \ . '|documentclass%(\s*\[[^]]*\])?\s*\{[^}]*'
+        \ . '|\a*'
+        \ . ')'
+
+" <TAB>: completion.
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
