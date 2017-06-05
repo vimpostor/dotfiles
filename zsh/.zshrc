@@ -88,6 +88,7 @@ source /etc/profile.d/vte.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias qmakecpp="qmake -project \"CONFIG += console c++11\" \"CONFIG -= APP_BUNDLE\" \"CONFIG -= qt\" \"QMAKE_CXXFLAGS += -O2 -Wall -Wextra -Wshadow -pedantic -Werror\""
 
 # query youtube and play audio only
 function ytaudio() {
@@ -101,3 +102,4 @@ function yt() {
 function yturl() {
 	mpv --no-resume-playback --fullscreen --ytdl-format='bestvideo[height<=1080]+bestaudio/best' --ytdl "$@"
 }
+
