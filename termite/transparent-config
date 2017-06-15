@@ -1,0 +1,5 @@
+[options]
+font = Roboto Mono for Powerline 14
+
+[colors]
+background = rgba(0, 0, 0, 0.0)
