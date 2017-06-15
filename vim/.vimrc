@@ -10,7 +10,7 @@ Plug 'sirver/ultisnips' "code snippets
 Plug 'honza/vim-snippets' "snippet collection
 Plug 'lervag/vimtex' "LaTeX
 Plug 'tpope/vim-surround' "surround commands
-Plug 'shougo/neocomplete.vim' "autocomplete
+"Plug 'shougo/neocomplete.vim' "autocomplete
 Plug 'vim-scripts/delimitMate.vim' "automatically close brackets
 call plug#end()
 
@@ -59,11 +59,11 @@ let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 "neocomplete
-let g:neocomplete#enable_at_startup = 1
-if !exists('g:neocomplete#sources#omni#input_patterns')
-	let g:neocomplete#sources#omni#input_patterns = {}
-endif
-let g:neocomplete#sources#omni#input_patterns.tex =
+"let g:neocomplete#enable_at_startup = 1
+"if !exists('g:neocomplete#sources#omni#input_patterns')
+""	let g:neocomplete#sources#omni#input_patterns = {}
+"endif
+"let g:neocomplete#sources#omni#input_patterns.tex =
         \ '\v\\%('
         \ . '\a*cite\a*%(\s*\[[^]]*\]){0,2}\s*\{[^}]*'
         \ . '|\a*ref%(\s*\{[^}]*|range\s*\{[^,}]*%(}\{)?)'
@@ -79,5 +79,5 @@ let g:neocomplete#sources#omni#input_patterns.tex =
         \ . ')'
 
 " <TAB>: completion.
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
+"inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+"inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
