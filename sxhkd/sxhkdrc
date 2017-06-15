@@ -161,3 +161,7 @@ super + {_,shift} + z
 # tdrop
 super + v
 	tdrop -a -w 80% -x 5% termite
+
+# spawn transparent cava
+super + shift + v
+	~/Documents/scripts/transparent-cava.sh
