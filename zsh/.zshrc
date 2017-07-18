@@ -103,3 +103,6 @@ function yturl() {
 	mpv --no-resume-playback --fullscreen --ytdl-format='bestvideo[height<=1080]+bestaudio/best' --ytdl "$@"
 }
 
+function record() {
+	sleep 1 && rm $@; ffmpeg -f x11grab -s 1920x1080 -i :0.0+0,0 -r 20 -c:v libx264 -preset veryslow -b:v 1000k $@
+}
