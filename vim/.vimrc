@@ -1,6 +1,6 @@
 "vim-plug, automatically enables filetype plugin indent and syntax
 call plug#begin('~/.vim/plugged')
-Plug 'altercation/vim-colors-solarized' "color scheme
+"Plug 'altercation/vim-colors-solarized' "color scheme
 "Plug 'scrooloose/syntastic' "syntax checking
 Plug 'bling/vim-airline' "status line
 Plug 'scrooloose/nerdcommenter' "easier commenting
@@ -16,7 +16,6 @@ call plug#end()
 
 set clipboard=unnamedplus "use X clipboard
 set background=dark
-colorscheme solarized
 "better tab completion
 set wildmenu
 set wildmode=longest:full,full
