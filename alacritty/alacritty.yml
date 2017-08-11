@@ -91,8 +91,8 @@ custom_cursor_colors: false
 colors:
   # Default colors
   primary:
-    background: '0x002b36'
-    foreground: '0x839496'
+    background: '0x263238'
+    foreground: '0xcfd8dc'
 
   # Colors the cursor will use if `custom_cursor_colors` is true
   cursor:
@@ -124,13 +124,13 @@ colors:
   # Dim colors (Optional)
   dim:
 ￼   black:   '0x000000'
-￼   red:     '0x000000'
-￼   green:   '0x000000'
-￼   yellow:  '0x000000'
-￼   blue:    '0x000000'
-￼   magenta: '0x000000'
-￼   cyan:    '0x000000'
-￼   white:   '0x000000'
+￼   red:     '0xd50000'
+￼   green:   '0x00c853'
+￼   yellow:  '0xffd600'
+￼   blue:    '0x2962ff'
+￼   magenta: '0xc51162'
+￼   cyan:    '0x00b8d4'
+￼   white:   '0xededed'
 
 # Visual Bell
 #
