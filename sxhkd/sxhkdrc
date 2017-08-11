@@ -4,7 +4,7 @@
 
 # terminal emulator
 super + Return
-	termite
+	alacritty
 
 # program launcher
 super + space
@@ -165,3 +165,7 @@ super + v
 # spawn transparent cava
 super + shift + v
 	~/Documents/scripts/transparent-cava.sh
+
+# kde padding
+super + shift + m
+	~/Documents/scripts/kdePadding.sh

@@ -1,16 +1,14 @@
 #! /bin/sh
 
 sxhkd &
-polybar material &
-~/Documents/scripts/gen-wallpaper.sh ~/Pictures/Wallpaper/arch_minimalistic.jpg
-feh --bg-scale /tmp/wallpaper.png
 compton --config ~/.config/compton/compton.conf -b
 #libinput-gestures-setup start
 
-bspc monitor -d Term Web Code Study Chat Music Doc VIII
+bspc monitor -d 1 2 3 4
 
 bspc rule -a feh state=floating
-bspc rule -a fluid-demo state=floating
+bspc rule -a plasmashell state=floating
+bspc rule -a lattedock state=floating
 
 bspc config border_width         6
 bspc config window_gap           7
