@@ -106,11 +106,3 @@ function yturl() {
 function record() {
 	sleep 1 && rm $@; ffmpeg -f x11grab -s 1920x1080 -i :0.0+0,0 -r 20 -c:v libx264 -b:v 1000k $@
 }
-
-function autogource() {
-	if [ -z "$@" ]; then
-		gource -1920x1080 -r 25 -f -b 263238 --key --dir-colour cfd8dc -s 1 --highlight-dirs
-	else
-		gource -1920x1080 -r 25 -f -b 263238 --key --dir-colour cfd8dc -s 1 --highlight-dirs -o - | ffmpeg -y -r 25 -f image2pipe -vcodec ppm -i - -vcodec libvpx -b 10000K "$@"
-	fi
-}
