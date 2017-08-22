@@ -1,0 +1,31 @@
+color normal default default
+color error red default
+color tilde white default
+color header brightmagenta default .
+color header blue default "^Date: "
+color header brightcyan default "^From: "
+color header brightgreen default "^To: "
+color header green default "^Subject: "
+color message green default
+color markers red black
+color attachment black default
+color search cyan brightmagenta
+color status brightblack yellow
+color indicator yellow magenta
+color signature blue default
+color prompt brightgreen default
+
+color quoted0 red default
+color quoted1 brightred default
+color quoted2 green default
+color quoted3 brightgreen default
+color quoted4 cyan default
+color quoted5 brightcyan default
+color quoted6 yellow default
+color quoted7 brightyellow default
+color quoted8 magenta default
+color quoted9 brightmagenta default
+
+color index magenta default "~P" # messages from me
+color index brightcyan default "~N" # new
+color index red default "~D" # deleted

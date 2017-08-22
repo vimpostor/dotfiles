@@ -1,0 +1,42 @@
+# Personal settings
+source ~/.mutt/personal.rc
+# IMAP
+set imap_keepalive = 30
+set imap_check_subscribed
+
+# Cache mails
+set header_cache = ~/.cache/mutt
+set message_cachedir = $header_cache
+
+# Check for new emails every 10 minutes
+set mail_check = 600
+
+# SMTP
+set record = +Sent
+set ssl_starttls = yes
+
+# colors
+source ~/.mutt/colors.rc
+# key bindings
+source ~/.mutt/bindings.rc
+# GnuPG
+source ~/.mutt/gpg.rc
+set crypt_autosign
+
+# signature
+set signature="~/.mutt/signature.txt"
+
+# preview pane
+# set pager_index_lines = 10
+set pager_context = 3
+
+set tilde
+unset markers
+
+# Its not 1991 anymore, we can use UTF8
+set send_charset="utf-8"
+
+# HTML mails
+set mailcap_path = ~/.mutt/mailcap
+auto_view text/html
+alternative_order text/plain text/html
