@@ -10,6 +10,8 @@ bspc rule -a feh state=floating
 bspc rule -a plasmashell state=floating
 bspc rule -a lattedock state=floating
 
+bspc rule -a Zathura state=tiled
+
 bspc config border_width         6
 bspc config window_gap           7
 
