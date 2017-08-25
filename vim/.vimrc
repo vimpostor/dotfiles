@@ -40,6 +40,9 @@ set noshowmode "airline already shows the mode
 set number "show line numbers
 set mouse=a "enable mouse input
 
+"mutt
+au BufRead /tmp/mutt-* set tw=72
+
 "syntastic
 "set statusline+=%#warningmsg#
 "set statusline+=%{SyntasticStatuslineFlag()}
