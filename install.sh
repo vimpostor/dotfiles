@@ -74,7 +74,7 @@ for ((i = 1; i <= $(echo "$SOURCES"| wc -l); i++)); do
 	# expand ~ and $HOME
 	DEST="${DEST/#\~/$HOME}"
 	DEST="${DEST/#'$HOME'/$HOME}"
-	echo -e "Attempting to install $BLUE$SOURCE$WHITE at $RED$DEST$WHITE"
+	echo -e "\nAttempting to install $BLUE$SOURCE$WHITE at $RED$DEST$WHITE"
 	if [ -e "$DEST" ]; then
 		echo -e "${YELLOW}WARNING$WHITE: $RED$DEST$WHITE already exists!"
 		if "$BACKUP"; then
