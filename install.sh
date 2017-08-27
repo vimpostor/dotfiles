@@ -94,9 +94,10 @@ for ((i = 1; i <= $(echo "$SOURCES"| wc -l); i++)); do
 	if [ "$answer" == "n" ]; then
 		echo "Skipping..."
 	else
-		if [ -e "$DEST" ]; then
-			rm -r "$DEST"
+		if ! [ -e "$DEST" ]; then
+			mkdir -p "$DEST"
 		fi
+		rm -r "$DEST"
 		# finally install
 		ln -s "$PWD/$SOURCE" "$DEST"
 	fi
