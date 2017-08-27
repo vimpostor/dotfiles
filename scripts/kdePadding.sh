@@ -2,7 +2,7 @@
 
 # Toggles the left padding
 
-PANELWIDTH=48
+PANELWIDTH=53
 NEWPADDING=0
 
 if (( $(bspc config left_padding) == $NEWPADDING )); then
