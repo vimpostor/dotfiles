@@ -79,8 +79,8 @@ for ((i = 1; i <= $(echo "$SOURCES"| wc -l); i++)); do
 		echo -e "${YELLOW}WARNING$WHITE: $RED$DEST$WHITE already exists!"
 		if "$BACKUP"; then
 			BACKUPFILE="$DEST.backup"
-			cp -r "$DEST" "$BACKUPFILE"
-			echo -e "Created backup of $RED$DEST$WHITE as $GREEN$BACKUPFILE$WHITE"
+			echo -e "Creating backup of $RED$DEST$WHITE as $GREEN$BACKUPFILE$WHITE"
+			cp -r "$DEST" "$BACKUPFILE" || echo -e "${RED}ERROR$WHITE: Could not create backup"
 		fi
 	fi
 	answer="y"
