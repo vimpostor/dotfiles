@@ -95,9 +95,9 @@ for ((i = 1; i <= $(echo "$SOURCES"| wc -l); i++)); do
 		echo "Skipping..."
 	else
 		if ! [ -e "$DEST" ]; then
-			mkdir -p "$DEST"
+			mkdir -p "$DEST" || echo -e "${RED}ERROR$WHITE: No permission in this directory"
 		fi
-		rm -r "$DEST"
+		rm -r "$DEST" || echo -e "${RED}ERROR$WHITE: No permission to delete this file"
 		# finally install
 		ln -s "$PWD/$SOURCE" "$DEST" || echo -e "${RED}ERROR$WHITE: Could not create symlink"
 	fi
