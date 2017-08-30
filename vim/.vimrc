@@ -15,6 +15,13 @@ Plug 'vim-scripts/delimitMate.vim' "automatically close brackets
 call plug#end()
 
 set clipboard=unnamedplus "use X clipboard
+set confirm " Ask to confirm instead of failing
+set ignorecase "case insensitive search
+set smartcase " case sensitive if search term contains capitals
+set scrolloff=2 " start scrolling a few lines from the border
+set display+=lastline " always display the last line of the screen
+set showmatch " when inserting brackets, highlight the matching one
+set colorcolumn=80,120 " highlight too wide columns
 set background=dark
 "better tab completion
 set wildmenu
