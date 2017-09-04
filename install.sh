@@ -85,20 +85,20 @@ for ((i = 1; i <= $(echo "$SOURCES"| wc -l); i++)); do
 	fi
 	answer="y"
 	if ! "$ALWAYSINSTALL"; then
-		echo -e "${GREEN}Install?$WHITE ((Y)es, (n)o) \c"
+		echo -e "${GREEN}Install?$WHITE ((y)es, (N)o) \c"
 		read -r answer
 	fi
 	if "$NEVERINSTALL"; then
 		answer="n"
 	fi
-	if [ "$answer" == "n" ]; then
-		echo "Skipping..."
-	else
+	if [ "$answer" == "y" ]; then
 		if ! [ -e "$DEST" ]; then
 			mkdir -p "$DEST" || echo -e "${RED}ERROR$WHITE: No permission in this directory"
 		fi
 		rm -r "$DEST" || echo -e "${RED}ERROR$WHITE: No permission to delete this file"
 		# finally install
 		ln -s "$PWD/$SOURCE" "$DEST" || echo -e "${RED}ERROR$WHITE: Could not create symlink"
+	else
+		echo "Skipping..."
 	fi
 done
