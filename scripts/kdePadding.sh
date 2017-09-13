@@ -5,8 +5,11 @@
 PANELWIDTH=53
 NEWPADDING=0
 
-if (( $(bspc config left_padding) == $NEWPADDING )); then
+MONITORS=$(bspc query -M)
+PRIMMONITOR=$(echo "$MONITORS"| head -1)
+
+if (( $(bspc config -m "$PRIMMONITOR" left_padding) == $NEWPADDING )); then
 	NEWPADDING=$PANELWIDTH
 fi
 
-bspc config left_padding $NEWPADDING
+bspc config -m "$PRIMMONITOR" left_padding $NEWPADDING
