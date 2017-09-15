@@ -169,3 +169,7 @@ super + shift + v
 # kde padding
 super + shift + m
 	~/Documents/scripts/kdePadding.sh
+
+# switch to next desktop
+super + shift + {Left,Right}
+	bspc desktop -f {prev,next}.local
