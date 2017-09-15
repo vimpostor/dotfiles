@@ -5,3 +5,11 @@ set recolor-lightcolor "#fdf6e3"
 set recolor-darkcolor "#002b36"
 set guioptions ""
 set selection-clipboard clipboard
+
+# Rebind keys
+map d feedkeys 5j
+map u feedkeys 5k
+map D feedkeys 10j
+map U feedkeys 10k
+map J jumplist backward
+map K jumplist forward
