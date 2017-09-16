@@ -13,5 +13,7 @@ rofi.lines: 7
 rofi.eh: 1
 rofi.line-margin: 8
 rofi.terminal: alacritty
-rofi.ssh-command: {terminal} -e "{ssh-client} {host}"
+rofi.ssh-command: {terminal} -e {ssh-client} {host}
 rofi.parse-known-hosts: false
+rofi.font: Roboto 13
+rofi.modi: drun,ssh
