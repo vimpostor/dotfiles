@@ -92,7 +92,7 @@ alias qmakecpp="qmake -project \"CONFIG += console c++11\" \"CONFIG -= APP_BUNDL
 
 # query youtube and play audio only
 function ytaudio() {
-	mpv --no-resume-playback --no-video --ytdl-format=bestaudio ytdl://ytsearch10:"$@"
+	mpv --no-resume-playback --no-video --ytdl-format=bestaudio --ytdl "$@"
 }
 
 function yt() {
