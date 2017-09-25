@@ -20,7 +20,7 @@ bspc config borderless_monocle   true
 bspc config gapless_monocle      true
 bspc config single_monocle       true
 
-bsps config pointer_action1 resize_corner
+bspc config pointer_action1 resize_corner
 bspc config pointer_action2 none
 bspc config pointer_action3 move
 bspc config click_to_focus true
