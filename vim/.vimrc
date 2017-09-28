@@ -1,6 +1,6 @@
 "vim-plug, automatically enables filetype plugin indent and syntax
 call plug#begin('~/.vim/plugged')
-Plug 'tyrannicaltoucan/vim-quantum' "color scheme
+Plug 'jdkanani/vim-material-theme' "color scheme
 "Plug 'scrooloose/syntastic' "syntax checking
 Plug 'bling/vim-airline' "status line
 Plug 'scrooloose/nerdcommenter' "easier commenting
@@ -22,10 +22,7 @@ set scrolloff=2 " start scrolling a few lines from the border
 set display+=lastline " always display the last line of the screen
 set showmatch " when inserting brackets, highlight the matching one
 set background=dark
-" quantum color scheme
-let g:quantum_black=1
-let g:quantum_italics=1
-colorscheme quantum
+colorscheme material-theme
 "better tab completion
 set wildmenu
 set wildmode=longest:full,full
