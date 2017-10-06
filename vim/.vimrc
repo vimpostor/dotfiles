@@ -1,6 +1,6 @@
 "vim-plug, automatically enables filetype plugin indent and syntax
 call plug#begin('~/.vim/plugged')
-Plug 'jdkanani/vim-material-theme' "color scheme
+Plug 'rakr/vim-two-firewatch' "color scheme
 "Plug 'scrooloose/syntastic' "syntax checking
 Plug 'bling/vim-airline' "status line
 Plug 'scrooloose/nerdcommenter' "easier commenting
@@ -22,7 +22,9 @@ set scrolloff=2 " start scrolling a few lines from the border
 set display+=lastline " always display the last line of the screen
 set showmatch " when inserting brackets, highlight the matching one
 set background=dark
-colorscheme material-theme
+let g:two_firewatch_italics=1
+colorscheme two-firewatch
+let g:airline_theme='twofirewatch'
 "better tab completion
 set wildmenu
 set wildmode=longest:full,full
