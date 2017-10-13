@@ -1,17 +1,18 @@
 "vim-plug, automatically enables filetype plugin indent and syntax
 call plug#begin('~/.vim/plugged')
-Plug 'rakr/vim-two-firewatch' "color scheme
-"Plug 'scrooloose/syntastic' "syntax checking
+Plug 'dracula/vim' "color scheme
 Plug 'bling/vim-airline' "status line
 Plug 'scrooloose/nerdcommenter' "easier commenting
 Plug 'airblade/vim-gitgutter' "view git changes
 Plug 'terryma/vim-multiple-cursors' "multiple cursors
-Plug 'sirver/ultisnips' "code snippets
 Plug 'honza/vim-snippets' "snippet collection
 Plug 'lervag/vimtex' "LaTeX
 Plug 'tpope/vim-surround' "surround commands
-"Plug 'shougo/neocomplete.vim' "autocomplete
 Plug 'vim-scripts/delimitMate.vim' "automatically close brackets
+Plug 'Shougo/neocomplete' " autocompletion
+Plug 'Shougo/neosnippet' " snippets
+Plug 'Shougo/neosnippet-snippets' " more snippets
+Plug 'lervag/vimtex' " contains latex completions
 call plug#end()
 
 set clipboard=unnamedplus "use X clipboard
@@ -22,9 +23,7 @@ set scrolloff=2 " start scrolling a few lines from the border
 set display+=lastline " always display the last line of the screen
 set showmatch " when inserting brackets, highlight the matching one
 set background=dark
-let g:two_firewatch_italics=1
-colorscheme two-firewatch
-let g:airline_theme='twofirewatch'
+colorscheme dracula
 "better tab completion
 set wildmenu
 set wildmode=longest:full,full
@@ -65,16 +64,16 @@ au BufRead /tmp/mutt-* set tw=72
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#syntastic#enabled = 1
 "snippets
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-k>     <Plug>(neosnippet_expand_target)
 
 "neocomplete
-"let g:neocomplete#enable_at_startup = 1
-"if !exists('g:neocomplete#sources#omni#input_patterns')
-""	let g:neocomplete#sources#omni#input_patterns = {}
-"endif
-"let g:neocomplete#sources#omni#input_patterns.tex =
+let g:neocomplete#enable_at_startup = 1
+if !exists('g:neocomplete#sources#omni#input_patterns')
+	let g:neocomplete#sources#omni#input_patterns = {}
+endif
+let g:neocomplete#sources#omni#input_patterns.tex =
         \ '\v\\%('
         \ . '\a*cite\a*%(\s*\[[^]]*\]){0,2}\s*\{[^}]*'
         \ . '|\a*ref%(\s*\{[^}]*|range\s*\{[^,}]*%(}\{)?)'
@@ -90,8 +89,8 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
         \ . ')'
 
 " <TAB>: completion.
-"inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-"inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
 "true colors
 if has('termguicolors')
 	set termguicolors
