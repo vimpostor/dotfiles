@@ -13,6 +13,8 @@ Plug 'Shougo/neocomplete' " autocompletion
 Plug 'Shougo/neosnippet' " snippets
 Plug 'Shougo/neosnippet-snippets' " more snippets
 Plug 'lervag/vimtex' " contains latex completions
+Plug 'scrooloose/nerdtree' " file system tree
+Plug 'justinmk/vim-sneak' " sneak to locations
 call plug#end()
 
 set clipboard=unnamedplus "use X clipboard
@@ -97,3 +99,6 @@ if has('termguicolors')
 	let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 	let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 endif
+
+" nerd tree
+map <C-t> :NERDTreeToggle<CR>
