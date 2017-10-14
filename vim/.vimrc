@@ -1,6 +1,6 @@
 "vim-plug, automatically enables filetype plugin indent and syntax
 call plug#begin('~/.vim/plugged')
-Plug 'dracula/vim' "color scheme
+Plug 'altercation/vim-colors-solarized' "color scheme
 Plug 'bling/vim-airline' "status line
 Plug 'scrooloose/nerdcommenter' "easier commenting
 Plug 'airblade/vim-gitgutter' "view git changes
@@ -15,6 +15,7 @@ Plug 'Shougo/neosnippet-snippets' " more snippets
 Plug 'lervag/vimtex' " contains latex completions
 Plug 'scrooloose/nerdtree' " file system tree
 Plug 'justinmk/vim-sneak' " sneak to locations
+Plug 'petrushka/vim-gap'
 call plug#end()
 
 set clipboard=unnamedplus "use X clipboard
@@ -24,8 +25,10 @@ set smartcase " case sensitive if search term contains capitals
 set scrolloff=2 " start scrolling a few lines from the border
 set display+=lastline " always display the last line of the screen
 set showmatch " when inserting brackets, highlight the matching one
-set background=dark
-colorscheme dracula
+syntax enable
+set background=light
+let g:solarized_termcolors=256
+colorscheme solarized
 "better tab completion
 set wildmenu
 set wildmode=longest:full,full
@@ -53,15 +56,6 @@ set mouse=a "enable mouse input
 "mutt
 au BufRead /tmp/mutt-* set tw=72
 
-"syntastic
-"set statusline+=%#warningmsg#
-"set statusline+=%{SyntasticStatuslineFlag()}
-"set statusline+=%*
-"let g:syntastic_always_populate_loc_list = 1
-"let g:syntastic_auto_loc_list = 1
-"let g:syntastic_check_on_open = 0
-"let g:syntastic_check_on_wq = 0
-"let g:syntastic_enable_balloons = 1
 "airline
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#syntastic#enabled = 1
@@ -95,7 +89,6 @@ inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
 "true colors
 if has('termguicolors')
-	set termguicolors
 	let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 	let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 endif
