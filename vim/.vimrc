@@ -43,9 +43,6 @@ set smartindent
 set noexpandtab
 set shiftwidth=2
 set tabstop=2
-"trailing spaces
-set listchars=trail:·,tab:▸\ 
-set list
 set hlsearch "highlight search
 set incsearch "highlight while you type
 set laststatus=2 "always show status line
