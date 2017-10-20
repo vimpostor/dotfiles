@@ -60,7 +60,7 @@ DISABLE_AUTO_UPDATE="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git colored-man-pages sudo)
+plugins=(git colored-man-pages sudo zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -88,6 +88,10 @@ source /etc/profile.d/vte.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# autocompletion for command forecast
+bindkey '^ ' autosuggest-accept
+
 alias qmakecpp="qmake -project \"CONFIG += console c++11\" \"CONFIG -= APP_BUNDLE\" \"CONFIG -= qt\" \"QMAKE_CXXFLAGS += -O2 -Wall -Wextra -Wshadow -pedantic -Werror\""
 
 # query youtube and play audio only
