@@ -16,6 +16,7 @@ Plug 'lervag/vimtex' " contains latex completions
 Plug 'scrooloose/nerdtree' " file system tree
 Plug 'justinmk/vim-sneak' " sneak to locations
 Plug 'petrushka/vim-gap'
+Plug 'tpope/vim-fugitive' " handy git tools
 call plug#end()
 
 set clipboard=unnamedplus "use X clipboard
