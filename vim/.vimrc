@@ -14,7 +14,7 @@ Plug 'Shougo/neosnippet' " snippets
 Plug 'Shougo/neosnippet-snippets' " more snippets
 Plug 'lervag/vimtex' " contains latex completions
 Plug 'scrooloose/nerdtree' " file system tree
-Plug 'justinmk/vim-sneak' " sneak to locations
+Plug 'easymotion/vim-easymotion' " even faster movement
 Plug 'petrushka/vim-gap'
 Plug 'tpope/vim-fugitive' " handy git tools
 call plug#end()
@@ -93,3 +93,14 @@ endif
 
 " nerd tree
 map <C-t> :NERDTreeToggle<CR>
+
+let mapleader = "-"
+" easy motion
+nmap s <Plug>(easymotion-s2)
+nmap t <Plug>(easymotion-t2)
+map <Leader> <Plug>(easymotion-prefix)
+map <Leader>l <Plug>(easymotion-lineforward)
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
+map <Leader>h <Plug>(easymotion-linebackward)
+let g:EasyMotion_startofline = 0 " keep cursor column when JK motion
