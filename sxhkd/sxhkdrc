@@ -173,3 +173,7 @@ super + shift + m
 # switch to next desktop
 super + shift + {Left,Right}
 	bspc desktop -f {prev,next}.local
+
+# add new desktop to current monitor
+super + KP_Add
+	bspc monitor "$(bspc query -M -m)" -a "New Desktop"
