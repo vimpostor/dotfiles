@@ -1,19 +1,20 @@
 rofi.color-enabled: true
-rofi.color-window: #263238, argb:00000000, #545d62
+rofi.color-window: argb:ee263238, argb:ee000000, argb:ee545d62
 rofi.color-normal: argb:00000000, #ffffff, argb:00000000, argb:00000000, #80cbc4
 rofi.color-active: argb:00000000, #80cbc4, argb:00000000, argb:00000000, #80cbc4
 rofi.color-urgent: argb:00000000, #f4511e, argb:00000000, argb:00000000, #f4511e
 rofi.separator-style: solid
-rofi.hide-scrollbar: true
 rofi.scrollbar-width: 2
 rofi.padding: 24
 rofi.bw: 0
-rofi.location: 2
+rofi.location: 0
 rofi.lines: 7
 rofi.eh: 1
 rofi.line-margin: 8
 rofi.terminal: alacritty
 rofi.ssh-command: {terminal} -e {ssh-client} {host}
 rofi.parse-known-hosts: false
-rofi.font: Roboto 13
+rofi.font: Roboto 24
 rofi.modi: drun,ssh
+rofi.show-icons: true
+rofi.drun-icon-theme: Paper
