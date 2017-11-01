@@ -3,7 +3,6 @@ call plug#begin('~/.vim/plugged')
 Plug 'altercation/vim-colors-solarized' "color scheme
 Plug 'bling/vim-airline' "status line
 Plug 'scrooloose/nerdcommenter' "easier commenting
-Plug 'airblade/vim-gitgutter' "view git changes
 Plug 'terryma/vim-multiple-cursors' "multiple cursors
 Plug 'honza/vim-snippets' "snippet collection
 Plug 'lervag/vimtex' "LaTeX
@@ -104,3 +103,5 @@ map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
 map <Leader>h <Plug>(easymotion-linebackward)
 let g:EasyMotion_startofline = 0 " keep cursor column when JK motion
+hi link EasyMotionTarget2First Search
+hi link EasyMotionTarget2Second ErrorMsg
