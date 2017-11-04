@@ -22,9 +22,10 @@ source ~/.mutt/bindings.rc
 # GnuPG
 source ~/.mutt/gpg.rc
 set crypt_autosign
+set pgp_use_gpg_agent
 
 # signature
-set signature="~/.mutt/signature.txt"
+# set signature="~/.mutt/signature.txt"
 
 # preview pane
 # set pager_index_lines = 10
