@@ -1,6 +1,6 @@
 "vim-plug, automatically enables filetype plugin indent and syntax
 call plug#begin('~/.vim/plugged')
-Plug 'altercation/vim-colors-solarized' "color scheme
+Plug 'lifepillar/vim-wwdc17-theme'
 Plug 'bling/vim-airline' "status line
 Plug 'scrooloose/nerdcommenter' "easier commenting
 Plug 'terryma/vim-multiple-cursors' "multiple cursors
@@ -27,8 +27,7 @@ set display+=lastline " always display the last line of the screen
 set showmatch " when inserting brackets, highlight the matching one
 syntax enable
 set background=light
-let g:solarized_termcolors=256
-colorscheme solarized
+colorscheme wwdc17
 "better tab completion
 set wildmenu
 set wildmode=longest:full,full
