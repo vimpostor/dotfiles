@@ -92,7 +92,7 @@ source /etc/profile.d/vte.sh
 # autocompletion for command forecast
 bindkey '^ ' autosuggest-accept
 
-alias qmakecpp="qmake -project \"CONFIG += console c++11\" \"CONFIG -= APP_BUNDLE\" \"CONFIG -= qt\" \"QMAKE_CXXFLAGS += -O2 -Wall -Wextra -Wshadow -pedantic -Werror\""
+alias qmakecpp="qmake -project \"CONFIG += console c++11\" \"CONFIG -= APP_BUNDLE\" \"CONFIG -= qt\""
 
 # query youtube and play audio only
 function ytaudio() {
