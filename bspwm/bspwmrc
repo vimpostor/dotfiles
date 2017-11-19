@@ -14,7 +14,7 @@ bspc rule -a Pinentry state=floating
 bspc rule -a Zathura state=tiled
 
 bspc config border_width         6
-bspc config window_gap           7
+bspc config window_gap           2
 
 bspc config borderless_monocle   true
 bspc config gapless_monocle      true
