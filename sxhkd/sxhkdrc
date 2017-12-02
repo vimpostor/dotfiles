@@ -177,3 +177,7 @@ super + shift + {Left,Right}
 # add new desktop to current monitor
 super + KP_Add
 	bspc monitor "$(bspc query -M -m)" -a "New Desktop"
+
+# equalize, balance layout
+super + {_,shift} + e
+	bspc node focused -{E,B}
