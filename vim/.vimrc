@@ -10,7 +10,6 @@ Plug 'vim-scripts/delimitMate.vim' "automatically close brackets
 Plug 'Shougo/neocomplete' " autocompletion
 Plug 'Shougo/neosnippet' " snippets
 Plug 'Shougo/neosnippet-snippets' " more snippets
-Plug 'lervag/vimtex' " contains latex completions
 Plug 'scrooloose/nerdtree' " file system tree
 Plug 'easymotion/vim-easymotion' " even faster movement
 Plug 'petrushka/vim-gap'
