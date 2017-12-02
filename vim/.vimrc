@@ -25,6 +25,7 @@ set display+=lastline " always display the last line of the screen
 set showmatch " when inserting brackets, highlight the matching one
 syntax enable
 set background=dark
+highlight Comment cterm=italic
 "better tab completion
 set wildmenu
 set wildmode=longest:full,full
@@ -90,6 +91,7 @@ endif
 map <C-t> :NERDTreeToggle<CR>
 
 let mapleader = "-"
+let maplocalleader = "ö"
 " easy motion
 nmap s <Plug>(easymotion-s2)
 nmap t <Plug>(easymotion-t2)
@@ -103,4 +105,6 @@ hi link EasyMotionTarget2First Search
 hi link EasyMotionTarget2Second ErrorMsg
 let g:EasyMotion_keys = "asdghklqwertyuiopzxcvbnmfj,"
 
-highlight Comment cterm=italic
+" vimtex
+let g:vimtex_view_method = "zathura"
+let g:vimtex_quickfix_mode = 0
