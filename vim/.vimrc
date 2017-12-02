@@ -1,6 +1,5 @@
 "vim-plug, automatically enables filetype plugin indent and syntax
 call plug#begin('~/.vim/plugged')
-Plug 'lifepillar/vim-wwdc17-theme'
 Plug 'bling/vim-airline' "status line
 Plug 'scrooloose/nerdcommenter' "easier commenting
 Plug 'terryma/vim-multiple-cursors' "multiple cursors
@@ -26,8 +25,7 @@ set scrolloff=2 " start scrolling a few lines from the border
 set display+=lastline " always display the last line of the screen
 set showmatch " when inserting brackets, highlight the matching one
 syntax enable
-set background=light
-colorscheme wwdc17
+set background=dark
 "better tab completion
 set wildmenu
 set wildmode=longest:full,full
