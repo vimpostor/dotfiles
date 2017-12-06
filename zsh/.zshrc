@@ -94,6 +94,7 @@ bindkey '^ ' autosuggest-accept
 
 alias qmakecpp="qmake -project \"CONFIG += console c++11\" \"CONFIG -= APP_BUNDLE\" \"CONFIG -= qt\""
 alias vim='vim --servername vim'
+alias lazyCommit='git commit -m "$(curl -s whatthecommit.com/index.txt)"'
 
 # query youtube and play audio only
 function ytaudio() {
