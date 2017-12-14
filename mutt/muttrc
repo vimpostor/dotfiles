@@ -47,3 +47,7 @@ set alias_file = "~/.mutt/aliases"
 set sort_alias = alias
 set reverse_alias = yes
 source $alias_file
+
+# smooth scrolling
+set menu_scroll
+set menu_context=2
