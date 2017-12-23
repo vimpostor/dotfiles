@@ -72,7 +72,6 @@ source $ZSH/oh-my-zsh.sh
 # export LANG=en_US.UTF-8
 
 export EDITOR='vim'
-source /etc/profile.d/vte.sh
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
