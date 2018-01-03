@@ -2,7 +2,6 @@
 
 sxhkd &
 compton --config ~/.config/compton/compton.conf -b
-#libinput-gestures-setup start
 
 bspc monitor -d 1 2 3 4
 
