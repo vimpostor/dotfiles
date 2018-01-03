@@ -20,7 +20,7 @@ set clipboard=unnamedplus "use X clipboard
 set confirm " Ask to confirm instead of failing
 set ignorecase "case insensitive search
 set smartcase " case sensitive if search term contains capitals
-set scrolloff=2 " start scrolling a few lines from the border
+set scrolloff=4 " start scrolling a few lines from the border
 set display+=lastline " always display the last line of the screen
 set showmatch " when inserting brackets, highlight the matching one
 syntax enable
