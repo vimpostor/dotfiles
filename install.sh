@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# This script interactively copies every source to its target, as defined in the install.config file.
+# This script interactively copies every source to its target, as defined in the install.conf file.
 
 ARGS="hc:ynb"
 CONFIGFILE="install.conf"
