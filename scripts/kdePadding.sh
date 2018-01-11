@@ -2,7 +2,7 @@
 
 # Toggles the left padding
 
-PANELWIDTH=53
+PANELWIDTH=55
 NEWPADDING=0
 
 MON="$(bspc query -M -m)"
