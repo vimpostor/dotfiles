@@ -118,9 +118,7 @@ let g:racer_cmd = "/usr/bin/racer"
 " multiple cursors
 function! Multiple_cursors_before()
 	exe 'NeoCompleteLock'
-	echo 'Disabled autocomplete'
 endfunction
 function! Multiple_cursors_after()
 	exe 'NeoCompleteUnlock'
-	echo 'Reenabled autocomplete'
 endfunction
