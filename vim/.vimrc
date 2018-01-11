@@ -14,6 +14,8 @@ Plug 'scrooloose/nerdtree' " file system tree
 Plug 'easymotion/vim-easymotion' " even faster movement
 Plug 'petrushka/vim-gap'
 Plug 'tpope/vim-fugitive' " handy git tools
+Plug 'rust-lang/rust.vim' " rust support
+Plug 'racer-rust/vim-racer' " rust autocompletion
 call plug#end()
 
 set clipboard=unnamedplus "use X clipboard
@@ -108,3 +110,17 @@ let g:EasyMotion_keys = "asdghklqwertyuiopzxcvbnmfj,"
 " vimtex
 let g:vimtex_view_method = "zathura"
 let g:vimtex_quickfix_mode = 0
+" rust.vim
+let g:rust_recommended_style = 0
+" racer rust
+let g:racer_cmd = "/usr/bin/racer"
+
+" multiple cursors
+function! Multiple_cursors_before()
+	exe 'NeoCompleteLock'
+	echo 'Disabled autocomplete'
+endfunction
+function! Multiple_cursors_after()
+	exe 'NeoCompleteUnlock'
+	echo 'Reenabled autocomplete'
+endfunction
