@@ -1,6 +1,4 @@
 # Dotfiles
 
-Here are the dotfiles for my Arch Linux Laptop running bspwm.
-The current setup looks like this:
-
-![alt tag](http://imgur.com/5viKOYH.png)
+This is the config for my Arch Linux setup.
+I use KDE with bspwm as window manager.
