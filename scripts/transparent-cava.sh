@@ -3,7 +3,7 @@
 # This option configures how high the window will be. 1 means fullscreen and 0 means no height.
 REL_HEIGHT='0.2'
 
-YOFFSET=10
+YOFFSET=20
 MONITOR_HEIGHT=$(xwininfo -root| grep -Eo 'Height.*'| cut -d ' ' -f2)
 WIDTH=$(xwininfo -root| grep -Eo 'Width.*'| cut -d ' ' -f2)
 ABS_HEIGHT=$(echo "$REL_HEIGHT * $MONITOR_HEIGHT / 1" | bc)
