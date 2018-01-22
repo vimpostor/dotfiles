@@ -49,6 +49,9 @@ set noshowmode "airline already shows the mode
 set number "show line numbers
 set mouse=a "enable mouse input
 
+"file types
+autocmd Filetype tex setlocal tw=80
+
 "mutt
 au BufRead /tmp/mutt-* set tw=72
 
