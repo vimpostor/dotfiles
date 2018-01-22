@@ -62,7 +62,9 @@ DISABLE_AUTO_UPDATE="true"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git colored-man-pages sudo zsh-autosuggestions)
 
-source $ZSH/oh-my-zsh.sh
+if [ -f "$ZSH/oh-my-zsh.sh" ]; then
+	source $ZSH/oh-my-zsh.sh
+fi
 
 # User configuration
 
@@ -96,6 +98,7 @@ if [[ $(vim --version| grep +clientserver) ]]; then
 	alias vim='vim --servername vim'
 fi
 alias lazyCommit='git commit -m "$(curl -s whatthecommit.com/index.txt)"'
+alias vi=vim
 
 # query youtube and play audio only
 function ytaudio() {
@@ -118,4 +121,6 @@ function autogource() {
 	git log --pretty='%at|%s' | sort -n > /tmp/gourceCaption.txt && gource -1920x1080 -r 25 -f -b 263238 --key --dir-colour cfd8dc -s 1 --highlight-dirs --caption-file /tmp/gourceCaption.txt --caption-duration 1 --caption-size 13
 }
 
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+if [ -f '/usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh' ]; then
+	source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+fi
