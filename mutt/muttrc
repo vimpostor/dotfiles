@@ -51,3 +51,6 @@ source $alias_file
 # smooth scrolling
 set menu_scroll
 set menu_context=2
+
+# don't bottleneck me with unnecessary messages
+set sleep_time = 0

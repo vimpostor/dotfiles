@@ -15,7 +15,10 @@ bind pager h "exit"
 bind pager g "top"
 bind pager G "bottom"
 bind pager N "search-opposite"
-bind pager d "half-down"
-bind pager u "half-up"
 bind pager x "delete-message"
 bind pager X "undelete-message"
+
+macro pager <up> <previous-line>
+macro pager <down> <next-line>
+macro pager d <next-line><next-line><next-line><next-line><next-line><next-line><next-line><next-line><next-line><next-line>
+macro pager u <previous-line><previous-line><previous-line><previous-line><previous-line><previous-line><previous-line><previous-line><previous-line><previous-line>
