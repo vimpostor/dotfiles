@@ -16,6 +16,9 @@ Plug 'petrushka/vim-gap'
 Plug 'tpope/vim-fugitive' " handy git tools
 Plug 'rust-lang/rust.vim' " rust support
 Plug 'racer-rust/vim-racer' " rust autocompletion
+Plug 'junegunn/limelight.vim' "limelight
+Plug 'junegunn/goyo.vim' "distraction free editing
+Plug 'morhetz/gruvbox' "gruvbox colorscheme
 call plug#end()
 
 set clipboard=unnamedplus "use X clipboard
@@ -26,6 +29,7 @@ set scrolloff=4 " start scrolling a few lines from the border
 set display+=lastline " always display the last line of the screen
 set showmatch " when inserting brackets, highlight the matching one
 syntax enable
+colorscheme gruvbox
 set background=dark
 highlight Comment cterm=italic
 "better tab completion
@@ -90,6 +94,7 @@ inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
 if has('termguicolors')
 	let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 	let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+	set termguicolors
 endif
 
 " nerd tree
@@ -126,3 +131,15 @@ function! Multiple_cursors_after()
 	exe 'NeoCompleteUnlock'
 endfunction
 let g:multi_cursor_exit_from_insert_mode = 0
+
+" goyo
+function! s:goyo_enter()
+  Limelight
+endfunction
+
+function! s:goyo_leave()
+  Limelight!
+endfunction
+
+autocmd! User GoyoEnter nested call <SID>goyo_enter()
+autocmd! User GoyoLeave nested call <SID>goyo_leave()
