@@ -99,6 +99,7 @@ if [[ $(vim --version| grep +clientserver) ]]; then
 fi
 alias lazyCommit='git commit -m "$(curl -s whatthecommit.com/index.txt)"'
 alias vi=vim
+alias o=xdg-open
 
 # query youtube and play audio only
 function ytaudio() {

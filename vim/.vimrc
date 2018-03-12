@@ -30,7 +30,7 @@ set display+=lastline " always display the last line of the screen
 set showmatch " when inserting brackets, highlight the matching one
 syntax enable
 colorscheme gruvbox
-set background=dark
+set background=light
 highlight Comment cterm=italic
 "better tab completion
 set wildmenu
