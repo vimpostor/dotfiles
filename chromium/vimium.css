@@ -1,0 +1,60 @@
+/*
+ * Based on the Button Component in the Material Design Guidelines by Google
+ * (https://material.io/guidelines/components/buttons.html)
+ * with 1dp = 0.5px and 1sp = 6/7px
+ */
+
+div > .vimiumHintMarker {
+	/*
+	 * Sets vertical padding to 16dp (= 8px) and height to 32dp (= 16px) as specified in
+	 * https://material.io/guidelines/components/buttons.html (minimum width is ignored)
+	 * The height is calculated as follows:
+	 * height = font_size + 2 * h_padding, with font_size = 14sp = 12px and h_padding = 6dp = 3px
+	 */
+	padding: 3px 8px;
+	border: 0;
+	border-radius: 1px;
+
+	/*
+	 * Creates a material shadow with 2 dp (= 1px) elevation.
+	 * Calculated by https://codepen.io/HugoGiraudel/pen/yyaGaP
+	 */
+	box-shadow: 0 1.5px 4px rgba(0, 0, 0, 0.24), 0 1.5px 6px rgba(0, 0, 0, 0.12);
+
+	/*
+	 * Sets background color to a type 500 color as specified in
+	 * https://material.io/guidelines/components/buttons.html
+	 * The colors are defined in
+	 * https://material.io/guidelines/style/color.html
+	 * This is Teal 500
+	 */
+	background-color: #FF3D00;
+
+	background-image:none;
+}
+
+div > .vimiumHintMarker span {
+	/*
+	 * Sets font color of normal text 87% of White as specified in
+	 * https://material.io/guidelines/style/typography.html
+	 */
+	color: rgba(255, 255, 255, 0.87);
+
+	/*
+	 * Sets the font to 14sp (= 12px) as specified in
+	 * https://material.io/guidelines/style/typography.html
+	 */
+	font-weight: bold;
+	font-size: 12px;
+
+	text-shadow: none;
+}
+
+div > .vimiumHintMarker > .matchingCharacter {
+	/*
+	 * Sets font color of matching text to 30% of White.
+	 * The color is the same as disabled text on a button as specified in
+	 * https://material.io/guidelines/components/buttons.html
+	 */
+	color: rgba(255, 255, 255, 0.3);
+}
