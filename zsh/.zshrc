@@ -105,6 +105,7 @@ fi
 alias lazyCommit='git commit -m "$(curl -s whatthecommit.com/index.txt)"'
 alias vi=vim
 alias o=xdg-open
+alias diff='git diff --no-index'
 
 # query youtube and play audio only
 function ytaudio() {
