@@ -7,22 +7,10 @@
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="powerlevel9k/powerlevel9k"
+ZSH_THEME="sunrise"
 
 # color terminal
 export TERM="xterm-256color"
-
-# POWERLEVEL9k customization
-#POWERLEVEL9K_MODE='awesome-fontconfig'
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir vcs status)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=()
-POWERLEVEL9K_TIME_FORMAT="%D{%H:%M:%S  %d.%m.%y}"
-POWERLEVEL9K_PROMPT_ON_NEWLINE=true
-POWERLEVEL9K_STATUS_VERBOSE=false
-# POWERLEVEL9K_COLOR_SCHEME='light'
-POWERLEVEL9K_TIME_BACKGROUND='cyan'
-POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX="%{%F{249}%}\u250f"
-POWERLEVEL9K_MULTILINE_SECOND_PROMPT_PREFIX="%{%F{249}%}\u2517%{%F{default}%} "
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
