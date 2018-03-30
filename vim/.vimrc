@@ -31,7 +31,7 @@ set showmatch " when inserting brackets, highlight the matching one
 syntax enable
 colorscheme gruvbox
 set background=light
-highlight Comment cterm=italic
+"highlight Comment cterm=italic
 "better tab completion
 set wildmenu
 set wildmode=longest:full,full

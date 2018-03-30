@@ -10,7 +10,7 @@
 ZSH_THEME="sunrise"
 
 # color terminal
-export TERM="xterm-256color"
+export TERM="screen-256color"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"

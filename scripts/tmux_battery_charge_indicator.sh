@@ -15,7 +15,7 @@ if [[ $charged_slots -gt 10 ]]; then
   charged_slots=10
 fi
 
-echo -n '#[fg=red]'
+echo -n '#[fg=colour196]'
 for i in `seq 1 $charged_slots`; do echo -n "$HEART"; done
 
 if [[ $charged_slots -lt 10 ]]; then
