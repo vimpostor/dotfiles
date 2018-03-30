@@ -10,7 +10,7 @@
 ZSH_THEME="gnzh"
 
 # color terminal
-export TERM="screen-256color"
+export TERM="xterm-256color"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
