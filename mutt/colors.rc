@@ -10,8 +10,8 @@ color message green default
 color markers red black
 color attachment black default
 color search cyan brightmagenta
-color status brightblack yellow
-color indicator yellow magenta
+color status default color250
+color indicator default color45
 color signature blue default
 color prompt brightgreen default
 
