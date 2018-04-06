@@ -177,3 +177,7 @@ super + KP_Add
 # equalize, balance layout
 super + {_,shift +} e
 	bspc node focused -{E,B}
+
+# swap window manager
+super + shift + s
+	~/Documents/scripts/swapWindowManager.sh
