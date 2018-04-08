@@ -22,7 +22,6 @@ bspc config single_monocle       true
 bspc config pointer_action1 resize_corner
 bspc config pointer_action2 none
 bspc config pointer_action3 move
-bspc config click_to_focus true
 
 bspc config presel_feedback_color \#FF3D00
 bspc config normal_border_color \#78909C
