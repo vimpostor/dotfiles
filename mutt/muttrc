@@ -21,7 +21,6 @@ source ~/.mutt/colors.rc
 source ~/.mutt/bindings.rc
 # GnuPG
 source ~/.mutt/gpg.rc
-set crypt_autosign
 set pgp_use_gpg_agent
 
 # signature
