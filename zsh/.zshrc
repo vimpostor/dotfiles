@@ -95,22 +95,25 @@ alias vi=vim
 alias diff='diff --color=auto'
 alias clipboard='xclip -selection c'
 
+# use xdg-open to open all passed files
 function o() {
 	for i in "$@"; do
 		xdg-open "$i"
 	done
 }
-# query youtube and play audio only
+
+# play youtube audio by URL
 function ytaudio() {
 	mpv --no-resume-playback --no-video --ytdl-format=bestaudio --ytdl "$@"
 }
 
-function yt() {
-	mpv --no-resume-playback --fullscreen --ytdl-format='bestvideo[height<=1080]+bestaudio/best' ytdl://ytsearch10:"$@"
+# play youtube video by URL
+function ytvideo() {
+	mpv --no-resume-playback --fullscreen --ytdl-format='bestvideo[height<=1080]+bestaudio/best' --ytdl "$@"
 }
 
-function yturl() {
-	mpv --no-resume-playback --fullscreen --ytdl-format='bestvideo[height<=1080]+bestaudio/best' --ytdl "$@"
+function ytsearch() {
+	mpv --no-resume-playback --fullscreen --ytdl-format='bestvideo[height<=1080]+bestaudio/best' ytdl://ytsearch10:"$@"
 }
 
 function record() {
