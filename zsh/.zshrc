@@ -54,11 +54,6 @@ if [ -f "$ZSH/oh-my-zsh.sh" ]; then
 	source $ZSH/oh-my-zsh.sh
 fi
 
-# Add ruby paths
-for r in "$HOME/.gem/ruby/"*"/bin"; do
-	export PATH="$PATH:$r"
-done
-
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
