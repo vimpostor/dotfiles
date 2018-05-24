@@ -52,6 +52,7 @@ set laststatus=2 "always show status line
 set noshowmode "airline already shows the mode
 set number "show line numbers
 set mouse=a "enable mouse input
+set t_ut=''
 
 "file types
 autocmd Filetype tex setlocal tw=80
