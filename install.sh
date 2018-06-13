@@ -110,8 +110,11 @@ for ((i = 1; i <= $(echo "$SOURCES"| wc -l); i++)); do
 	fi
 	answer="y"
 	if ! "$ALWAYSINSTALL"; then
-		echo -e "${GREEN}Install?$WHITE ((y)es, (N)o) \c"
+		echo -e "${GREEN}Install?$WHITE ((y)es, (N)o, go (b)ack) \c"
 		read -r answer
+	fi
+	if [ "$answer" == "b" ]; then
+		i=$((i - 2))
 	fi
 	if "$NEVERINSTALL"; then
 		answer="n"
