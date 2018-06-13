@@ -7,6 +7,8 @@ CONFIGFILE="install.conf"
 ALWAYSINSTALL=false
 NEVERINSTALL=false
 BACKUP=false
+EXPLICIT_INSTALL=false
+INSTALL_LIST=""
 HELPMSG='This script interactively creates symlinks.
 
 Usage:
@@ -15,6 +17,8 @@ Usage:
 -y: Always install.
 -n: Dry run. This never installs anything, just see what happens.
 -b: Backup existing files before overwriting. Disabled by default.
+
+If you want to install files by name, just pass them as trailing argument.
 '
 
 WHITE="\e[0m"
@@ -62,6 +66,13 @@ while getopts $ARGS OPT; do
 	esac
 done
 
+# trailing arguments
+shift "$(( $OPTIND - 1 ))"
+INSTALL_LIST="$(echo "$@" | sed 's/\s\+/\n/g')"
+if ! [[ -z "$INSTALL_LIST" ]]; then
+	EXPLICIT_INSTALL=true
+fi
+
 # Now that we have finished parsing the CLI args, continue with stowing everything
 
 # First load the config file
@@ -74,6 +85,20 @@ for ((i = 1; i <= $(echo "$SOURCES"| wc -l); i++)); do
 	# expand ~ and $HOME
 	DEST="${DEST/#\~/$HOME}"
 	DEST="${DEST/#'$HOME'/$HOME}"
+	# skip if not in explicit install list
+	if "$EXPLICIT_INSTALL"; then
+		FOUND=false
+		for expl in $INSTALL_LIST; do
+			if [[ "$expl" == "$SOURCE" ]]; then
+				FOUND=true
+				break
+			fi
+		done
+		if ! "$FOUND"; then
+			continue
+		fi
+	fi
+
 	echo -e "\nAttempting to install $BLUE$SOURCE$WHITE at $RED$DEST$WHITE"
 	if [ -e "$DEST" ]; then
 		echo -e "${YELLOW}WARNING$WHITE: $RED$DEST$WHITE already exists!"
