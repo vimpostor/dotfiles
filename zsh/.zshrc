@@ -9,9 +9,6 @@
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="gnzh"
 
-# color terminal
-export TERM="xterm-256color"
-
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
@@ -60,8 +57,6 @@ fi
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
-
-export EDITOR='vim'
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
