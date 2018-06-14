@@ -72,18 +72,10 @@ fi
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+source ~/.zshalias
 
 # autocompletion for command forecast
 bindkey '^ ' autosuggest-accept
-
-alias qmakecpp="qmake -project \"CONFIG += console c++11\" \"CONFIG -= APP_BUNDLE\" \"CONFIG -= qt\""
-if [[ $(vim --version| grep +clientserver) ]]; then
-	alias vim='vim --servername vim'
-fi
-alias lazyCommit='git commit -m "$(curl -s whatthecommit.com/index.txt)"'
-alias vi=vim
-alias diff='diff --color=auto'
-alias clipboard='xclip -selection c'
 
 # use xdg-open to open all passed files
 function o() {
