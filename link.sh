@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
-# This script interactively copies every source to its target, as defined in the install.conf file.
+# This script interactively copies every source to its target, as defined in the link.conf file.
 
 ARGS="hc:ynb"
-CONFIGFILE="install.conf"
+CONFIGFILE="link.conf"
 ALWAYSINSTALL=false
 NEVERINSTALL=false
 BACKUP=false
@@ -13,7 +13,7 @@ HELPMSG='This script interactively creates symlinks.
 
 Usage:
 -h: Show help
--c FILE: The configuration file to use. Defaults to install.conf
+-c FILE: The configuration file to use. Defaults to link.conf
 -y: Always install.
 -n: Dry run. This never installs anything, just see what happens.
 -b: Backup existing files before overwriting. Disabled by default.
