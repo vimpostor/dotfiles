@@ -10,8 +10,8 @@ source ~/.zshfunction
 # complete autosuggestions with <c-space>
 bindkey '^ ' autosuggest-accept
 # history search
-bindkey '^[[A' history-substring-search-up
-bindkey '^[[B' history-substring-search-down
+bindkey '^[[A' up-line-or-search
+bindkey '^[[B' down-line-or-search
 # general keybindings
 bindkey '^[[1;5C' forward-word
 bindkey '^[[1;5D' backward-word

@@ -7,3 +7,4 @@ alias vi=vim
 alias diff='diff --color=auto'
 alias clipboard='xclip -selection c'
 alias ip='ip --color'
+alias ls='ls --color=auto'
