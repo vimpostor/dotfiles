@@ -1,24 +1,20 @@
 "vim-plug, automatically enables filetype plugin indent and syntax
 call plug#begin('~/.vim/plugged')
-Plug 'bling/vim-airline' "status line
 Plug 'scrooloose/nerdcommenter' "easier commenting
 Plug 'terryma/vim-multiple-cursors' "multiple cursors
 Plug 'honza/vim-snippets' "snippet collection
 Plug 'lervag/vimtex' "LaTeX
 Plug 'tpope/vim-surround' "surround commands
-Plug 'vim-scripts/delimitMate.vim' "automatically close brackets
 Plug 'Shougo/neocomplete' " autocompletion
 Plug 'Shougo/neosnippet' " snippets
 Plug 'Shougo/neosnippet-snippets' " more snippets
 Plug 'scrooloose/nerdtree' " file system tree
 Plug 'easymotion/vim-easymotion' " even faster movement
-Plug 'petrushka/vim-gap'
 Plug 'tpope/vim-fugitive' " handy git tools
 Plug 'rust-lang/rust.vim' " rust support
 Plug 'racer-rust/vim-racer' " rust autocompletion
 Plug 'junegunn/limelight.vim' "limelight
 Plug 'junegunn/goyo.vim' "distraction free editing
-Plug 'morhetz/gruvbox' "gruvbox colorscheme
 call plug#end()
 
 set clipboard=unnamedplus "use X clipboard
@@ -29,8 +25,6 @@ set scrolloff=4 " start scrolling a few lines from the border
 set display+=lastline " always display the last line of the screen
 set showmatch " when inserting brackets, highlight the matching one
 syntax enable
-colorscheme gruvbox
-set background=light
 "highlight Comment cterm=italic
 "better tab completion
 set wildmenu
@@ -48,8 +42,10 @@ set shiftwidth=2
 set tabstop=2
 set hlsearch "highlight search
 set incsearch "highlight while you type
-set laststatus=2 "always show status line
-set noshowmode "airline already shows the mode
+set laststatus=0 "never show status line
+set noshowmode " dont show mode
+set noruler " no curser position
+set noshowcmd " don't show cmds
 set number "show line numbers
 set mouse=a "enable mouse input
 set t_ut="" "prevents a weird background on some terminals
@@ -62,9 +58,6 @@ autocmd Filetype tex setlocal tw=80
 "mutt
 au BufRead /tmp/mutt-* set tw=72
 
-"airline
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#syntastic#enabled = 1
 "snippets
 imap <C-k>     <Plug>(neosnippet_expand_or_jump)
 smap <C-k>     <Plug>(neosnippet_expand_or_jump)
