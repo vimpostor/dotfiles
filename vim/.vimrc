@@ -15,6 +15,7 @@ Plug 'rust-lang/rust.vim' " rust support
 Plug 'racer-rust/vim-racer' " rust autocompletion
 Plug 'junegunn/limelight.vim' "limelight
 Plug 'junegunn/goyo.vim' "distraction free editing
+Plug 'markonm/traces.vim' " pattern preview
 call plug#end()
 
 set clipboard=unnamedplus "use X clipboard
