@@ -12,6 +12,12 @@ bindkey '^ ' autosuggest-accept
 # history search
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
+# general keybindings
+bindkey '^[[1;5C' forward-word
+bindkey '^[[1;5D' backward-word
+bindkey '^[[Z' reverse-menu-complete
+bindkey '^A' beginning-of-line
+bindkey '^E' end-of-line
 
 # history
 export HISTFILE="$HOME/.zsh_history"
