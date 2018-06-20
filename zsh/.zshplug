@@ -1,26 +1,22 @@
-# Check if zplug is installed
-if [[ ! -d ~/.zplug ]]; then
-	curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
+# Check if zgen is installed
+if [[ ! -d ~/.zgen ]]; then
+	echo 'Installing zgen...'
+	git clone https://github.com/tarjoilija/zgen.git ~/.zgen
 fi
 
-source ~/.zplug/init.zsh
+source ~/.zgen/zgen.zsh
 
-# Plugins to load
-zplug 'akz92/clean', as:theme
+if ! zgen saved; then
+	echo 'Installing plugins...'
+	zgen load akz92/clean clean
 
-zplug "plugins/git", from:oh-my-zsh
-zplug "plugins/colored-man-pages", from:oh-my-zsh
-zplug "plugins/sudo", from:oh-my-zsh
-zplug "lib/completion", from:oh-my-zsh
+	zgen oh-my-zsh
+	zgen oh-my-zsh plugins/git
+	zgen oh-my-zsh plugins/colored-man-pages
+	zgen oh-my-zsh plugins/sudo
 
-zplug "zsh-users/zsh-completions"
-zplug "zsh-users/zsh-autosuggestions"
-zplug "zsh-users/zsh-syntax-highlighting", defer:2
-
-# Install plugins if there are plugins that have not been installed
-if ! zplug check --verbose; then
-	zplug install
+	zgen load zsh-users/zsh-completions
+	zgen load zsh-users/zsh-autosuggestions
+	zgen load zsh-users/zsh-syntax-highlighting
+	zgen save
 fi
-
-# Then, source plugins and add commands to $PATH
-zplug load
