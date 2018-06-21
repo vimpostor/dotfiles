@@ -14,3 +14,5 @@ map U feedkeys 10k
 map o jumplist backward
 map J navigate next
 map K navigate previous
+map <Right> navigate next
+map <Left> navigate previous
