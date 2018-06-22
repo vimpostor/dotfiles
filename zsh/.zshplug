@@ -8,7 +8,6 @@ source ~/.zgen/zgen.zsh
 
 if ! zgen saved; then
 	echo 'Installing plugins...'
-	zgen load akz92/clean clean
 
 	zgen oh-my-zsh
 	zgen oh-my-zsh plugins/git

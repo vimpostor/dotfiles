@@ -1,5 +1,5 @@
 alias qmakecpp="qmake -project \"CONFIG += console c++11\" \"CONFIG -= APP_BUNDLE\" \"CONFIG -= qt\""
-if [[ $(vim --version| grep +clientserver) ]]; then
+if vim --version| grep +clientserver &>/dev/null; then
 	alias vim='vim --servername vim'
 fi
 alias lazyCommit='git commit -m "$(curl -s whatthecommit.com/index.txt)"'

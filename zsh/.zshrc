@@ -1,3 +1,4 @@
+export ZSH_THEME=kphoen
 # zplug
 source ~/.zshplug
 
