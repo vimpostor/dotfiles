@@ -1,4 +1,4 @@
-export ZSH_THEME=kphoen
+export BULLETTRAIN_PROMPT_ORDER=(status context dir git cmd_exec_time)
 # zplug
 source ~/.zshplug
 
