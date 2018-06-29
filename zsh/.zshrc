@@ -1,4 +1,7 @@
-export BULLETTRAIN_PROMPT_ORDER=(status context dir git cmd_exec_time)
+# bullet train status prompt
+BULLETTRAIN_PROMPT_ORDER=(status context dir git cmd_exec_time)
+BULLETTRAIN_STATUS_EXIT_SHOW=true
+
 # zplug
 source ~/.zshplug
 
