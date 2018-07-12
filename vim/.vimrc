@@ -1,22 +1,22 @@
-"vim-plug, automatically enables filetype plugin indent and syntax
 call plug#begin('~/.vim/plugged')
-Plug 'scrooloose/nerdcommenter' "easier commenting
-Plug 'terryma/vim-multiple-cursors' "multiple cursors
-Plug 'honza/vim-snippets' "snippet collection
-Plug 'lervag/vimtex' "LaTeX
-Plug 'tpope/vim-surround' "surround commands
+Plug 'scrooloose/nerdcommenter' " easier commenting
+Plug 'terryma/vim-multiple-cursors' " multiple cursors
+Plug 'honza/vim-snippets' " snippet collection
+Plug 'lervag/vimtex' " LaTeX
+Plug 'tpope/vim-surround' " surround commands
 Plug 'Shougo/neocomplete' " autocompletion
 Plug 'Shougo/neosnippet' " snippets
 Plug 'Shougo/neosnippet-snippets' " more snippets
 Plug 'scrooloose/nerdtree' " file system tree
 Plug 'easymotion/vim-easymotion' " even faster movement
 Plug 'tpope/vim-fugitive' " handy git tools
-Plug 'junegunn/limelight.vim' "limelight
-Plug 'junegunn/goyo.vim' "distraction free editing
+Plug 'junegunn/limelight.vim' " limelight
+Plug 'junegunn/goyo.vim' " distraction free editing
 Plug 'markonm/traces.vim' " pattern preview
 Plug 'w0rp/ale' " ale
 call plug#end()
 
+" general vim options
 set clipboard=unnamedplus "use X clipboard
 set confirm " Ask to confirm instead of failing
 set ignorecase "case insensitive search
@@ -25,20 +25,15 @@ set scrolloff=4 " start scrolling a few lines from the border
 set display+=lastline " always display the last line of the screen
 set showmatch " when inserting brackets, highlight the matching one
 syntax enable
-"highlight Comment cterm=italic
-"better tab completion
-set wildmenu
+set wildmenu " better tab completion
 set wildmode=longest:full,full
-set ttyfast "fast terminal connection
-set gdefault "replace globally by default
-set encoding=utf-8 "latin1? what year is it? fuckin 1991?
-map j gj
-map k gk
-"indentation
+set ttyfast " fast terminal connection
+set gdefault " replace globally by default
+set encoding=utf-8 " latin1? what year is it? fuckin 1991?
 set autoindent
 set smartindent
 set noexpandtab
-set shiftwidth=4
+set shiftwidth=4 " tab = 4 spaces
 set tabstop=4
 set hlsearch "highlight search
 set incsearch "highlight while you type
@@ -46,24 +41,36 @@ set laststatus=0 "never show status line
 set noshowmode " dont show mode
 set noruler " no curser position
 set noshowcmd " don't show cmds
-set number "show line numbers
-set mouse=a "enable mouse input
-set t_ut="" "prevents a weird background on some terminals
-nnoremap Q @@ "last macro
+set number " show line numbers
+set mouse=a " enable mouse input
+set t_ut="" " prevents a weird background on some terminals
 set lazyredraw
+if has('termguicolors') " true colors
+	let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+	let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+	set termguicolors
+endif
+" highlight Comment cterm=italic
 
-"file types
+" file type specific settings
+" tex
 autocmd Filetype tex setlocal tw=80
-
-"mutt
+" mutt
 au BufRead /tmp/mutt-* set tw=72
 
-"snippets
+" general key mappings
+let mapleader = "-"
+let maplocalleader = "ö"
+map j gj
+map k gk
+nnoremap Q @@ "last macro
+
+" plugin settings
+" neosnippet
 imap <C-k>     <Plug>(neosnippet_expand_or_jump)
 smap <C-k>     <Plug>(neosnippet_expand_or_jump)
 xmap <C-k>     <Plug>(neosnippet_expand_target)
-
-"neocomplete
+" neocomplete
 let g:neocomplete#enable_at_startup = 1
 if !exists('g:neocomplete#sources#omni#input_patterns')
 	let g:neocomplete#sources#omni#input_patterns = {}
@@ -82,22 +89,12 @@ let g:neocomplete#sources#omni#input_patterns.tex =
         \ . '|documentclass%(\s*\[[^]]*\])?\s*\{[^}]*'
         \ . '|\a*'
         \ . ')'
-
-" <TAB>: completion.
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
-"true colors
-if has('termguicolors')
-	let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-	let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-	set termguicolors
-endif
 
 " nerd tree
 map <C-t> :NERDTreeToggle<CR>
 
-let mapleader = "-"
-let maplocalleader = "ö"
 " easy motion
 nmap s <Plug>(easymotion-s2)
 nmap t <Plug>(easymotion-t2)
@@ -128,13 +125,12 @@ let g:multi_cursor_exit_from_insert_mode = 0
 function! s:goyo_enter()
   Limelight
 endfunction
-
 function! s:goyo_leave()
   Limelight!
 endfunction
-
 autocmd! User GoyoEnter nested call <SID>goyo_enter()
 autocmd! User GoyoLeave nested call <SID>goyo_leave()
 
+" ale
 " let g:ale_completion_enabled = 1
 let g:ale_lint_on_text_changed="never"
