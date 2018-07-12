@@ -11,11 +11,10 @@ Plug 'Shougo/neosnippet-snippets' " more snippets
 Plug 'scrooloose/nerdtree' " file system tree
 Plug 'easymotion/vim-easymotion' " even faster movement
 Plug 'tpope/vim-fugitive' " handy git tools
-Plug 'rust-lang/rust.vim' " rust support
-Plug 'racer-rust/vim-racer' " rust autocompletion
 Plug 'junegunn/limelight.vim' "limelight
 Plug 'junegunn/goyo.vim' "distraction free editing
 Plug 'markonm/traces.vim' " pattern preview
+Plug 'w0rp/ale' " ale
 call plug#end()
 
 set clipboard=unnamedplus "use X clipboard
@@ -39,8 +38,8 @@ map k gk
 set autoindent
 set smartindent
 set noexpandtab
-set shiftwidth=2
-set tabstop=2
+set shiftwidth=4
+set tabstop=4
 set hlsearch "highlight search
 set incsearch "highlight while you type
 set laststatus=0 "never show status line
@@ -115,10 +114,6 @@ let g:EasyMotion_keys = "asdghklqwertyuiopzxcvbnmfj,"
 " vimtex
 let g:vimtex_view_method = "zathura"
 let g:vimtex_quickfix_mode = 0
-" rust.vim
-let g:rust_recommended_style = 0
-" racer rust
-let g:racer_cmd = "/usr/bin/racer"
 
 " multiple cursors
 function! Multiple_cursors_before()
@@ -140,3 +135,6 @@ endfunction
 
 autocmd! User GoyoEnter nested call <SID>goyo_enter()
 autocmd! User GoyoLeave nested call <SID>goyo_leave()
+
+" let g:ale_completion_enabled = 1
+let g:ale_lint_on_text_changed="never"
