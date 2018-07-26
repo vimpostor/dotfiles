@@ -19,6 +19,7 @@ call plug#end()
 
 " color scheme
 set background=dark
+let g:gruvbox_guisp_fallback = "bg"
 colorscheme gruvbox
 " general vim options
 set clipboard=unnamedplus "use X clipboard
