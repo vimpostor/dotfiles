@@ -14,8 +14,12 @@ Plug 'junegunn/limelight.vim' " limelight
 Plug 'junegunn/goyo.vim' " distraction free editing
 Plug 'markonm/traces.vim' " pattern preview
 Plug 'w0rp/ale' " ale
+Plug 'morhetz/gruvbox' " colorscheme
 call plug#end()
 
+" color scheme
+set background=dark
+colorscheme gruvbox
 " general vim options
 set clipboard=unnamedplus "use X clipboard
 set confirm " Ask to confirm instead of failing
