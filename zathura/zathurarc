@@ -16,3 +16,5 @@ map J navigate next
 map K navigate previous
 map <Right> navigate next
 map <Left> navigate previous
+map [fullscreen] <Right> navigate next
+map [fullscreen] <Left> navigate previous
