@@ -22,6 +22,7 @@ set background=dark
 let g:gruvbox_guisp_fallback = "bg"
 colorscheme gruvbox
 " general vim options
+set cursorline " highlight current line
 set clipboard=unnamedplus "use X clipboard
 set confirm " Ask to confirm instead of failing
 set ignorecase "case insensitive search
@@ -55,6 +56,8 @@ if has('termguicolors') " true colors
 	let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 	set termguicolors
 endif
+vnoremap < <gv " keep selected text selected when indenting
+vnoremap > >gv
 " highlight Comment cterm=italic
 
 " file type specific settings
@@ -69,6 +72,14 @@ let maplocalleader = " "
 map j gj
 map k gk
 nnoremap Q @@ "last macro
+" use backspace to go back a paragraph
+nnoremap <BS> {
+onoremap <BS> {
+vnoremap <BS> {
+" use Enter to go forward one paragraph
+nnoremap <expr> <CR> empty(&buftype) ? '}' : '<CR>'
+onoremap <expr> <CR> empty(&buftype) ? '}' : '<CR>'
+vnoremap <CR> }
 
 " plugin settings
 " neosnippet
