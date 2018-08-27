@@ -7,7 +7,7 @@ NEWPADDING=0
 
 MON="$(bspc query -M -m)"
 
-if (( $(bspc config -m "$MON" left_padding) == $NEWPADDING )); then
+if (( $(bspc config -m "$MON" left_padding) == NEWPADDING )); then
 	NEWPADDING=$PANELWIDTH
 fi
 

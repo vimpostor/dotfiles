@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-bspc subscribe pointer_action | while read -a msg; do
+bspc subscribe pointer_action | while read -ra msg; do
 	EVENT=${msg[5]}
 	WID=${msg[3]}
 	if [ "$EVENT" = "begin" ]; then
