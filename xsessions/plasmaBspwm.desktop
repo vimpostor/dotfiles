@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=XSession
+Exec=/usr/bin/env KDEWM=bspwm /usr/bin/startkde
+TryExec=/usr/bin/startkde
+DesktopNames=KDE
+Name=Plasma + bspwm
+Comment=Plasma with bspwm
+X-KDE-PluginInfo-Version=5.13.4
