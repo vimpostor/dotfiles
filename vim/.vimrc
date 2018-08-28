@@ -15,6 +15,7 @@ Plug 'junegunn/goyo.vim' " distraction free editing
 Plug 'markonm/traces.vim' " pattern preview
 Plug 'w0rp/ale' " ale
 Plug 'morhetz/gruvbox' " colorscheme
+Plug 'https://gitlab.com/dbeniamine/cheat.sh-vim.git' " cheat sheets
 call plug#end()
 
 " color scheme
