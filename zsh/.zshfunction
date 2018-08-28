@@ -32,7 +32,7 @@ function autogource() {
 
 # man page for plebs
 function cheat() {
-	if ! curl -s cheat.sh/"$*"; then
+	if ! curl -s "cheat.sh/${*//\ /+}"; then
 		echo "Failed to get the cheatsheet" >&2
 		return 1
 	fi
