@@ -21,11 +21,11 @@ Usage:
 If you want to install files by name, just pass them as trailing argument.
 '
 
-WHITE="\e[0m"
-RED="\e[01;31m"
-GREEN="\e[01;32m"
-YELLOW="\e[01;33m"
-BLUE="\e[01;34m"
+WHITE='\e[0m'
+RED='\e[01;31m'
+GREEN='\e[01;32m'
+YELLOW='\e[01;33m'
+BLUE='\e[01;34m'
 # Exit on error
 set -e
 error() {
