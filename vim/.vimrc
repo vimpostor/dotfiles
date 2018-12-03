@@ -16,6 +16,7 @@ Plug 'markonm/traces.vim' " pattern preview
 Plug 'w0rp/ale' " ale
 Plug 'morhetz/gruvbox' " colorscheme
 Plug 'https://gitlab.com/dbeniamine/cheat.sh-vim.git' " cheat sheets
+Plug 'autozimu/LanguageClient-neovim', {'branch': 'next', 'do': 'bash install.sh'} " lsp
 call plug#end()
 
 " color scheme
@@ -52,6 +53,7 @@ set number " show line numbers
 set mouse=a " enable mouse input
 set t_ut="" " prevents a weird background on some terminals
 set lazyredraw
+set hidden " allow buffers to be hidden
 if has('termguicolors') " true colors
 	let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 	let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
@@ -153,3 +155,16 @@ autocmd! User GoyoLeave nested call <SID>goyo_leave()
 let g:ale_lint_on_text_changed="never"
 map <Leader>ad <Plug>(ALEGoToDefinition)
 map <Leader>au <Plug>(ALEFindReferences)
+
+" language client
+let g:LanguageClient_serverCommands = {
+	\ 'c': ['ccls'],
+	\ 'cpp': ['ccls'],
+	\ 'rust': ['rls'],
+	\ }
+nnoremap <F5> :call LanguageClient_contextMenu()<CR>
+nnoremap <silent> <LocalLeader>h :call LanguageClient#textDocument_hover()<CR>
+nnoremap <silent> <LocalLeader>gd :call LanguageClient#textDocument_definition()<CR>
+nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
+nnoremap <silent> <LocalLeader>f :call LanguageClient#textDocument_codeAction()<CR>
+nnoremap <silent> <LocalLeader>e :call LanguageClient#explainErrorAtPoint()<CR>
