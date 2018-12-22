@@ -17,6 +17,7 @@ Plug 'w0rp/ale' " ale
 Plug 'morhetz/gruvbox' " colorscheme
 Plug 'https://gitlab.com/dbeniamine/cheat.sh-vim.git' " cheat sheets
 Plug 'autozimu/LanguageClient-neovim', {'branch': 'next', 'do': 'bash install.sh'} " lsp
+Plug 'fatih/vim-go' " golang support
 call plug#end()
 
 " color scheme
