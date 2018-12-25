@@ -1,7 +1,7 @@
 # Check if zgen is installed
 if [[ ! -d ~/.zgen ]]; then
 	echo 'Installing zgen...'
-	git clone https://github.com/tarjoilija/zgen.git ~/.zgen
+	git clone -q https://github.com/tarjoilija/zgen.git ~/.zgen
 fi
 
 source ~/.zgen/zgen.zsh
