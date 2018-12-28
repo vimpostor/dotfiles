@@ -26,7 +26,6 @@ let g:gruvbox_guisp_fallback = "bg"
 colorscheme gruvbox
 " general vim options
 set cursorline " highlight current line
-set clipboard=unnamedplus "use X clipboard
 set confirm " Ask to confirm instead of failing
 set ignorecase "case insensitive search
 set smartcase " case sensitive if search term contains capitals
@@ -76,6 +75,10 @@ let maplocalleader = " "
 map j gj
 map k gk
 nnoremap Q @@ "last macro
+" Use the system clipboard only when explicitly yanking
+xnoremap <silent> y "+y
+nnoremap <silent> y "+y
+nnoremap <silent> p "+p
 " use backspace to go back a paragraph
 nnoremap <BS> {
 onoremap <BS> {
