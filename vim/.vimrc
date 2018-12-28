@@ -27,7 +27,7 @@ colorscheme gruvbox
 " general vim options
 set cursorline " highlight current line
 set confirm " Ask to confirm instead of failing
-set ignorecase "case insensitive search
+set ignorecase " case insensitive search
 set smartcase " case sensitive if search term contains capitals
 set scrolloff=4 " start scrolling a few lines from the border
 set display+=lastline " always display the last line of the screen
@@ -43,9 +43,9 @@ set smartindent
 set noexpandtab
 set shiftwidth=4 " tab = 4 spaces
 set tabstop=4
-set hlsearch "highlight search
-set incsearch "highlight while you type
-set laststatus=0 "never show status line
+set hlsearch " highlight search
+set incsearch " highlight while you type
+set laststatus=0 " never show status line
 set noshowmode " dont show mode
 set noruler " no curser position
 set noshowcmd " don't show cmds
