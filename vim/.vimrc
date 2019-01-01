@@ -79,6 +79,7 @@ nnoremap Q @@ "last macro
 xnoremap <silent> y "+y
 nnoremap <silent> y "+y
 nnoremap <silent> p "+p
+nnoremap <silent> P "+P
 " use backspace to go back a paragraph
 nnoremap <BS> {
 onoremap <BS> {
