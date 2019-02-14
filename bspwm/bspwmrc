@@ -9,6 +9,7 @@ bspc rule -a feh state=floating
 bspc rule -a plasmashell state=floating
 bspc rule -a lattedock state=floating
 bspc rule -a Pinentry state=floating
+bspc rule -a Steam state=floating
 
 bspc rule -a Zathura state=tiled
 
