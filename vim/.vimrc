@@ -68,6 +68,9 @@ vnoremap > >gv
 autocmd Filetype tex setlocal tw=80
 " mutt
 au BufRead /tmp/mutt-* set tw=72
+" pandoc
+command PandocDisable autocmd! Pandoc BufWritePost *
+command PandocEnable exe 'silent! PandocDisable!' | exe 'augroup Pandoc' | exe 'silent !pandoc % -o /tmp/%:t.pdf && xdg-open /tmp/%:t.pdf' | exe 'autocmd BufWritePost * silent! !pandoc % -o /tmp/%:t.pdf' | exe 'augroup END' | exe 'redraw!'
 
 " general key mappings
 let mapleader = ","
