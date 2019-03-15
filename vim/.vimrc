@@ -1,23 +1,23 @@
 call plug#begin('~/.vim/plugged')
-Plug 'scrooloose/nerdcommenter' " easier commenting
-Plug 'terryma/vim-multiple-cursors' " multiple cursors
-Plug 'honza/vim-snippets' " snippet collection
-Plug 'lervag/vimtex' " LaTeX
-Plug 'tpope/vim-surround' " surround commands
-Plug 'Shougo/neocomplete' " autocompletion
-Plug 'Shougo/neosnippet' " snippets
-Plug 'Shougo/neosnippet-snippets' " more snippets
-Plug 'scrooloose/nerdtree' " file system tree
-Plug 'easymotion/vim-easymotion' " even faster movement
-Plug 'tpope/vim-fugitive' " handy git tools
-Plug 'junegunn/limelight.vim' " limelight
-Plug 'junegunn/goyo.vim' " distraction free editing
-Plug 'markonm/traces.vim' " pattern preview
-Plug 'w0rp/ale' " ale
-Plug 'morhetz/gruvbox' " colorscheme
-Plug 'https://gitlab.com/dbeniamine/cheat.sh-vim.git' " cheat sheets
-Plug 'autozimu/LanguageClient-neovim', {'branch': 'next', 'do': 'bash install.sh'} " lsp
-Plug 'fatih/vim-go' " golang support
+Plug 'scrooloose/nerdcommenter' "easier commenting
+Plug 'terryma/vim-multiple-cursors' "multiple cursors
+Plug 'honza/vim-snippets' "snippet collection
+Plug 'lervag/vimtex' "LaTeX
+Plug 'tpope/vim-surround' "surround commands
+Plug 'Shougo/neocomplete' "autocompletion
+Plug 'Shougo/neosnippet' "snippets
+Plug 'Shougo/neosnippet-snippets' "more snippets
+Plug 'scrooloose/nerdtree' "file system tree
+Plug 'easymotion/vim-easymotion' "even faster movement
+Plug 'tpope/vim-fugitive' "handy git tools
+Plug 'junegunn/limelight.vim' "limelight
+Plug 'junegunn/goyo.vim' "distraction free editing
+Plug 'markonm/traces.vim' "pattern preview
+Plug 'w0rp/ale' "ale
+Plug 'morhetz/gruvbox' "colorscheme
+Plug 'https://gitlab.com/dbeniamine/cheat.sh-vim.git' "cheat sheets
+Plug 'autozimu/LanguageClient-neovim', {'branch': 'next', 'do': 'bash install.sh'} "lsp
+Plug 'fatih/vim-go' "golang support
 call plug#end()
 
 " color scheme
@@ -25,41 +25,41 @@ set background=dark
 let g:gruvbox_guisp_fallback = "bg"
 colorscheme gruvbox
 " general vim options
-set cursorline " highlight current line
-set confirm " Ask to confirm instead of failing
-set ignorecase " case insensitive search
-set smartcase " case sensitive if search term contains capitals
-set scrolloff=4 " start scrolling a few lines from the border
-set display+=lastline " always display the last line of the screen
-set showmatch " when inserting brackets, highlight the matching one
+set cursorline "highlight current line
+set confirm "Ask to confirm instead of failing
+set ignorecase "case insensitive search
+set smartcase "case sensitive if search term contains capitals
+set scrolloff=4 "start scrolling a few lines from the border
+set display+=lastline "always display the last line of the screen
+set showmatch "when inserting brackets, highlight the matching one
 syntax enable
-set wildmenu " better tab completion
+set wildmenu "better tab completion
 set wildmode=longest:full,full
-set ttyfast " fast terminal connection
-set gdefault " replace globally by default
-set encoding=utf-8 " latin1? what year is it? fuckin 1991?
+set ttyfast "fast terminal connection
+set gdefault "replace globally by default
+set encoding=utf-8 "latin1? what year is it? fuckin 1991?
 set autoindent
 set smartindent
 set noexpandtab
-set shiftwidth=4 " tab = 4 spaces
+set shiftwidth=4 "tab = 4 spaces
 set tabstop=4
-set hlsearch " highlight search
-set incsearch " highlight while you type
-set laststatus=0 " never show status line
-set noshowmode " dont show mode
-set noruler " no curser position
-set noshowcmd " don't show cmds
-set number " show line numbers
-set mouse=a " enable mouse input
-set t_ut="" " prevents a weird background on some terminals
+set hlsearch "highlight search
+set incsearch "highlight while you type
+set laststatus=0 "never show status line
+set noshowmode "dont show mode
+set noruler "no curser position
+set noshowcmd "don't show cmds
+set number "show line numbers
+set mouse=a "enable mouse input
+set t_ut="" "prevents a weird background on some terminals
 set lazyredraw
-set hidden " allow buffers to be hidden
-if has('termguicolors') " true colors
+set hidden "allow buffers to be hidden
+if has('termguicolors') "true colors
 	let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 	let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 	set termguicolors
 endif
-vnoremap < <gv " keep selected text selected when indenting
+vnoremap < <gv "keep selected text selected when indenting
 vnoremap > >gv
 " highlight Comment cterm=italic
 
@@ -135,7 +135,7 @@ map <Leader>l <Plug>(easymotion-lineforward)
 map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
 map <Leader>h <Plug>(easymotion-linebackward)
-let g:EasyMotion_startofline = 0 " keep cursor column when JK motion
+let g:EasyMotion_startofline = 0 "keep cursor column when JK motion
 hi link EasyMotionTarget2First Search
 hi link EasyMotionTarget2Second ErrorMsg
 let g:EasyMotion_keys = "asdghklqwertyuiopzxcvbnmfj,"
