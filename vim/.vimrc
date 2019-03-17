@@ -19,11 +19,11 @@ Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
 Plug 'fatih/vim-go' "golang support
 call plug#end()
 
-" color scheme
+"color scheme
 set background=dark
 let g:gruvbox_guisp_fallback = "bg"
 colorscheme gruvbox
-" general vim options
+"general vim options
 set cursorline "highlight current line
 set confirm "Ask to confirm instead of failing
 set ignorecase "case insensitive search
@@ -60,44 +60,44 @@ if has('termguicolors') "true colors
 endif
 vnoremap < <gv "keep selected text selected when indenting
 vnoremap > >gv
-" highlight Comment cterm=italic
+"highlight Comment cterm=italic
 
-" file type specific settings
-" tex
+"file type specific settings
+"tex
 autocmd Filetype tex setlocal tw=80
-" mutt
+"mutt
 au BufRead /tmp/mutt-* set tw=72
-" pandoc
+"pandoc
 command PandocDisable autocmd! Pandoc BufWritePost *
 command PandocEnable exe 'silent! PandocDisable!' | exe 'augroup Pandoc' | exe 'silent !pandoc % -o /tmp/%:t.pdf && xdg-open /tmp/%:t.pdf' | exe 'autocmd BufWritePost * silent! !pandoc % -o /tmp/%:t.pdf' | exe 'augroup END' | exe 'redraw!'
 
-" general key mappings
+"general key mappings
 let mapleader = ","
 let maplocalleader = " "
 map j gj
 map k gk
 nnoremap Q @@ "last macro
-" Use the system clipboard only when explicitly yanking
+"Use the system clipboard only when explicitly yanking
 xnoremap <silent> y "+y
 nnoremap <silent> y "+y
 nnoremap <silent> p "+p
 nnoremap <silent> P "+P
-" use backspace to go back a paragraph
+"use backspace to go back a paragraph
 nnoremap <BS> {
 onoremap <BS> {
 vnoremap <BS> {
-" use Enter to go forward one paragraph
+"use Enter to go forward one paragraph
 nnoremap <expr> <CR> empty(&buftype) ? '}' : '<CR>'
 onoremap <expr> <CR> empty(&buftype) ? '}' : '<CR>'
 vnoremap <CR> }
-" move lines around
+"move lines around
 nnoremap J :m .+1<CR>==
 nnoremap K :m .-2<CR>==
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 
-" plugin settings
-" neosnippet
+"plugin settings
+"neosnippet
 imap <C-l> <Plug>(neosnippet_expand_or_jump)
 smap <C-l> <Plug>(neosnippet_expand_or_jump)
 xmap <C-l> <Plug>(neosnippet_expand_target)
@@ -138,10 +138,10 @@ command! -nargs=? Fold :call CocAction('fold', <f-args>)
 nnoremap <silent> <LocalLeader>p :<C-u>CocList outline<cr>
 nnoremap <silent> <LocalLeader>P :<C-u>CocListResume<CR>
 
-" nerd tree
+"nerd tree
 map <C-t> :NERDTreeToggle<CR>
 
-" easy motion
+"easy motion
 nmap s <Plug>(easymotion-s2)
 nmap t <Plug>(easymotion-t2)
 map <Leader> <Plug>(easymotion-prefix)
@@ -154,14 +154,14 @@ hi link EasyMotionTarget2First Search
 hi link EasyMotionTarget2Second ErrorMsg
 let g:EasyMotion_keys = "asdghklqwertyuiopzxcvbnmfj,"
 
-" vimtex
+"vimtex
 let g:vimtex_view_method = "zathura"
 let g:vimtex_quickfix_mode = 0
 
-" multiple cursors
+"multiple cursors
 let g:multi_cursor_exit_from_insert_mode = 0
 
-" goyo
+"goyo
 function! s:goyo_enter()
   Limelight
 endfunction
@@ -171,8 +171,8 @@ endfunction
 autocmd! User GoyoEnter nested call <SID>goyo_enter()
 autocmd! User GoyoLeave nested call <SID>goyo_leave()
 
-" ale
-" let g:ale_completion_enabled = 1
+"ale
+"let g:ale_completion_enabled = 1
 let g:ale_lint_on_text_changed="never"
 map <Leader>ad <Plug>(ALEGoToDefinition)
 map <Leader>au <Plug>(ALEFindReferences)
