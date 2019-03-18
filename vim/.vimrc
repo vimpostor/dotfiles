@@ -24,6 +24,8 @@ set background=dark
 let g:gruvbox_guisp_fallback = "bg"
 colorscheme gruvbox
 "general vim options
+set noswapfile "no swap
+set updatetime=300 "updatetime for CursorHold
 set cursorline "highlight current line
 set confirm "Ask to confirm instead of failing
 set ignorecase "case insensitive search
