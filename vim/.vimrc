@@ -17,6 +17,7 @@ Plug 'morhetz/gruvbox' "colorscheme
 Plug 'https://gitlab.com/dbeniamine/cheat.sh-vim.git' "cheat sheets
 Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
 Plug 'fatih/vim-go' "golang support
+Plug 'junegunn/vim-slash' "improved search
 call plug#end()
 
 "color scheme
@@ -178,3 +179,7 @@ autocmd! User GoyoLeave nested call <SID>goyo_leave()
 let g:ale_lint_on_text_changed="never"
 map <Leader>ad <Plug>(ALEGoToDefinition)
 map <Leader>au <Plug>(ALEFindReferences)
+"vim-slash
+if has('timers')
+	noremap <expr> <plug>(slash-after) slash#blink(1, 200)
+endif
