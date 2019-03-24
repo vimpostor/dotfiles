@@ -20,11 +20,6 @@ function ytsearch() {
 	mpv --no-resume-playback --fullscreen --ytdl-format='bestvideo[height<=1080]+bestaudio/best' ytdl://ytsearch10:"$*"
 }
 
-# record the desktop
-function record() {
-	rm "$*"; notify-send -i simplescreenrecorder Recording... && ffmpeg -f x11grab -s 1920x1080 -i :0.0+0,0 -r 20 -c:v libx264 -b:v 1000k "$*" && notify-send -i simplescreenrecorder Finished!
-}
-
 # gource, but with sane defaults
 function autogource() {
 	git log --pretty='%at|%s' | sort -n > /tmp/gourceCaption.txt && gource -1920x1080 -r 25 -f -b 263238 --key --dir-colour cfd8dc -s 1 --highlight-dirs --caption-file /tmp/gourceCaption.txt --caption-duration 1 --caption-size 13
