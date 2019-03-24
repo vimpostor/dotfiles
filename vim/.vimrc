@@ -181,11 +181,17 @@ endif
 let g:LanguageClient_serverCommands = {
 	\ 'c': ['ccls'],
 	\ 'cpp': ['ccls'],
+	\ 'python': ['pyls'],
 	\ 'rust': ['rls'],
+	\ 'sh': ['bash-language-server', 'start'],
 	\ }
-nnoremap <F5> :call LanguageClient_contextMenu()<CR>
+nnoremap <F3> :call LanguageClient_contextMenu()<CR>
 nnoremap <silent> <LocalLeader>h :call LanguageClient#textDocument_hover()<CR>
 nnoremap <silent> <LocalLeader>gd :call LanguageClient#textDocument_definition()<CR>
 nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
-nnoremap <silent> <LocalLeader>f :call LanguageClient#textDocument_codeAction()<CR>
+nnoremap <silent> <LocalLeader>q :call LanguageClient#textDocument_codeAction()<CR>
 nnoremap <silent> <LocalLeader>e :call LanguageClient#explainErrorAtPoint()<CR>
+nnoremap <silent> <LocalLeader>u :call LanguageClient#textDocument_references()<CR>
+nnoremap <silent> <LocalLeader>p :call LanguageClient#textDocument_documentSymbol()<CR>
+nnoremap <silent> <LocalLeader>gt :call LanguageClient#textDocument_typeDefinition()<CR>
+nnoremap <silent> <LocalLeader>f :call LanguageClient#textDocument_formatting()<CR>
