@@ -1,4 +1,0 @@
-coc-neosnippet
-coc-vimtex
-coc-json
-coc-pyls

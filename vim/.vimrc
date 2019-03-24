@@ -4,6 +4,7 @@ Plug 'terryma/vim-multiple-cursors' "multiple cursors
 Plug 'honza/vim-snippets' "snippet collection
 Plug 'lervag/vimtex' "LaTeX
 Plug 'tpope/vim-surround' "surround commands
+Plug 'Shougo/neocomplete' "autocompletion
 Plug 'Shougo/neosnippet' "snippets
 Plug 'Shougo/neosnippet-snippets' "more snippets
 Plug 'scrooloose/nerdtree' "file system tree
@@ -15,7 +16,7 @@ Plug 'markonm/traces.vim' "pattern preview
 Plug 'w0rp/ale' "ale
 Plug 'morhetz/gruvbox' "colorscheme
 Plug 'https://gitlab.com/dbeniamine/cheat.sh-vim.git' "cheat sheets
-Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
+Plug 'autozimu/LanguageClient-neovim', {'branch': 'next', 'do': 'bash install.sh'} "lsp
 Plug 'fatih/vim-go' "golang support
 Plug 'junegunn/vim-slash' "improved search
 call plug#end()
@@ -101,44 +102,30 @@ vnoremap K :m '<-2<CR>gv=gv
 
 "plugin settings
 "neosnippet
-imap <C-l> <Plug>(neosnippet_expand_or_jump)
-smap <C-l> <Plug>(neosnippet_expand_or_jump)
-xmap <C-l> <Plug>(neosnippet_expand_target)
-"coc.nvim
-inoremap <silent><expr> <TAB> pumvisible() ? "\<C-n>" : <SID>check_back_space() ? "\<TAB>" : coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-function! s:check_back_space() abort
-	let col = col('.') - 1
-	return !col || getline('.')[col - 1] =~# '\s'
-endfunction
-inoremap <silent><expr> <c-space> coc#refresh()
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-nmap <silent> [c <Plug>(coc-diagnostic-prev)
-nmap <silent> ]c <Plug>(coc-diagnostic-next)
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-nnoremap <silent> gD :call <SID>show_documentation()<CR>
-function! s:show_documentation()
-	if &filetype == 'vim'
-		execute 'h '.expand('<cword>')
-	else
-		call CocAction('doHover')
-	endif
-endfunction
-autocmd CursorHold * silent call CocActionAsync('highlight')
-nmap <leader>R <Plug>(coc-rename)
-vmap <leader>f <Plug>(coc-format-selected)
-nmap <leader>f <Plug>(coc-format-selected)
-autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
-vmap <leader>a <Plug>(coc-codeaction-selected)
-nmap <leader>a <Plug>(coc-codeaction-selected)
-nmap <leader>ac <Plug>(coc-codeaction)
-nmap <leader>qf <Plug>(coc-fix-current)
-command! -nargs=0 Format :call CocAction('format')
-command! -nargs=? Fold :call CocAction('fold', <f-args>)
-nnoremap <silent> <LocalLeader>p :<C-u>CocList outline<cr>
-nnoremap <silent> <LocalLeader>P :<C-u>CocListResume<CR>
+imap <C-k> <Plug>(neosnippet_expand_or_jump)
+smap <C-k> <Plug>(neosnippet_expand_or_jump)
+xmap <C-k> <Plug>(neosnippet_expand_target)
+"neocomplete
+let g:neocomplete#enable_at_startup = 1
+if !exists('g:neocomplete#sources#omni#input_patterns')
+	let g:neocomplete#sources#omni#input_patterns = {}
+endif
+let g:neocomplete#sources#omni#input_patterns.tex =
+        \ '\v\\%('
+        \ . '\a*cite\a*%(\s*\[[^]]*\]){0,2}\s*\{[^}]*'
+        \ . '|\a*ref%(\s*\{[^}]*|range\s*\{[^,}]*%(}\{)?)'
+        \ . '|hyperref\s*\[[^]]*'
+        \ . '|includegraphics\*?%(\s*\[[^]]*\]){0,2}\s*\{[^}]*'
+        \ . '|%(include%(only)?|input)\s*\{[^}]*'
+        \ . '|\a*(gls|Gls|GLS)(pl)?\a*%(\s*\[[^]]*\]){0,2}\s*\{[^}]*'
+        \ . '|includepdf%(\s*\[[^]]*\])?\s*\{[^}]*'
+        \ . '|includestandalone%(\s*\[[^]]*\])?\s*\{[^}]*'
+        \ . '|usepackage%(\s*\[[^]]*\])?\s*\{[^}]*'
+        \ . '|documentclass%(\s*\[[^]]*\])?\s*\{[^}]*'
+        \ . '|\a*'
+        \ . ')'
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
 
 "nerd tree
 map <C-t> :NERDTreeToggle<CR>
@@ -161,6 +148,12 @@ let g:vimtex_view_method = "zathura"
 let g:vimtex_quickfix_mode = 0
 
 "multiple cursors
+function! Multiple_cursors_before()
+	exe 'NeoCompleteLock'
+endfunction
+function! Multiple_cursors_after()
+	exe 'NeoCompleteUnlock'
+endfunction
 let g:multi_cursor_exit_from_insert_mode = 0
 
 "goyo
@@ -178,7 +171,21 @@ autocmd! User GoyoLeave nested call <SID>goyo_leave()
 let g:ale_lint_on_text_changed="never"
 map <Leader>ad <Plug>(ALEGoToDefinition)
 map <Leader>au <Plug>(ALEFindReferences)
+
 "vim-slash
 if has('timers')
 	noremap <expr> <plug>(slash-after) slash#blink(1, 200)
 endif
+
+"language client
+let g:LanguageClient_serverCommands = {
+	\ 'c': ['ccls'],
+	\ 'cpp': ['ccls'],
+	\ 'rust': ['rls'],
+	\ }
+nnoremap <F5> :call LanguageClient_contextMenu()<CR>
+nnoremap <silent> <LocalLeader>h :call LanguageClient#textDocument_hover()<CR>
+nnoremap <silent> <LocalLeader>gd :call LanguageClient#textDocument_definition()<CR>
+nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
+nnoremap <silent> <LocalLeader>f :call LanguageClient#textDocument_codeAction()<CR>
+nnoremap <silent> <LocalLeader>e :call LanguageClient#explainErrorAtPoint()<CR>
