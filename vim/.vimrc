@@ -24,7 +24,7 @@ call plug#end()
 "color scheme
 set background=dark
 let g:gruvbox_guisp_fallback = "bg"
-colorscheme gruvbox
+silent! colorscheme gruvbox
 "general vim options
 set noswapfile "no swap
 set updatetime=300 "updatetime for CursorHold
