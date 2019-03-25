@@ -181,6 +181,7 @@ endif
 let g:LanguageClient_serverCommands = {
 	\ 'c': ['ccls'],
 	\ 'cpp': ['ccls'],
+	\ 'go': ['go-langserver'],
 	\ 'python': ['pyls'],
 	\ 'rust': ['rls'],
 	\ 'sh': ['bash-language-server', 'start'],
