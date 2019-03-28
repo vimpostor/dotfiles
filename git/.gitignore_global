@@ -6,3 +6,5 @@
 *.swp
 # LibreOffice
 .~lock.*.ods#
+# ccls
+.ccls-cache/
