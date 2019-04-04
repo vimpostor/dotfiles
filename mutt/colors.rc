@@ -1,31 +1,33 @@
-color normal default default
-color error red default
-color tilde white default
-color header brightmagenta default .
-color header blue default "^Date: "
-color header brightcyan default "^From: "
-color header brightgreen default "^To: "
-color header green default "^Subject: "
-color message green default
-color markers red black
-color attachment black default
-color search cyan brightmagenta
-color status default color250
-color indicator default color45
-color signature blue default
-color prompt brightgreen default
-
-color quoted0 red default
-color quoted1 brightred default
-color quoted2 green default
-color quoted3 brightgreen default
-color quoted4 cyan default
-color quoted5 brightcyan default
-color quoted6 yellow default
-color quoted7 brightyellow default
-color quoted8 magenta default
-color quoted9 brightmagenta default
-
-color index magenta default "~P" # messages from me
-color index brightcyan default "~N" # new
-color index red default "~D" # deleted
+color attachment color109 color234
+color bold color229 color234
+color error color167 color234
+color hdrdefault color246 color234
+color header color108 color234 "^Date: "
+color header color214 color234 "^From: "
+color header color214 color234 "^To: "
+color header color142 color234 "^Subject: "
+color index color109 color234 "~P" # messages from me
+color index color142 color234 "~N" # new
+color index color234 color167 "~D" # deleted
+color indicator color223 color237
+color markers color243 color234
+color normal color223 color234
+color quoted color250 color234
+color quoted0 color108 color234
+color quoted1 color108 color234
+color quoted2 color250 color234
+color quoted3 color108 color234
+color quoted4 color250 color234
+color quoted5 color108 color234
+color quoted6 yellow color234
+color quoted7 brightyellow color234
+color quoted8 magenta color234
+color quoted9 brightmagenta color234
+color search color234 color208
+color sidebar_divider color250 color234
+color sidebar_new color142 color234
+color signature color108 color234
+color status color234 color250
+color tilde color243 color234
+color tree color142 color234
+color underline color223 color239
