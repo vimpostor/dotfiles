@@ -71,11 +71,13 @@ vnoremap > >gv
 autocmd Filetype tex setlocal tw=80
 "mutt
 au BufRead /tmp/mutt-* set tw=72
+"haskell
+autocmd FileType haskell setlocal expandtab
 "pandoc
 command PandocDisable autocmd! Pandoc BufWritePost *
 command PandocEnable exe 'silent! PandocDisable!' | exe 'augroup Pandoc' | exe 'silent !pandoc % -o /tmp/%:t.pdf && xdg-open /tmp/%:t.pdf' | exe 'autocmd BufWritePost * silent! !pandoc % -o /tmp/%:t.pdf' | exe 'augroup END' | exe 'redraw!'
 
-"general key mappings
+"general keybindings
 let mapleader = ","
 let maplocalleader = " "
 map j gj
@@ -99,6 +101,8 @@ nnoremap J :m .+1<CR>==
 nnoremap K :m .-2<CR>==
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
+"ctrl space for omnicomplete
+inoremap <Nul> <C-x><C-o>
 
 "plugin settings
 "neosnippet
@@ -110,20 +114,24 @@ let g:neocomplete#enable_at_startup = 1
 if !exists('g:neocomplete#sources#omni#input_patterns')
 	let g:neocomplete#sources#omni#input_patterns = {}
 endif
+if !exists('neocomplete#force_omni_input_patterns')
+	let g:neocomplete#force_omni_input_patterns = {}
+endif
+let g:neocomplete#sources#omni#input_patterns.haskell = 'import\s.*\|[:alpha:]\.\w*'
 let g:neocomplete#sources#omni#input_patterns.tex =
-        \ '\v\\%('
-        \ . '\a*cite\a*%(\s*\[[^]]*\]){0,2}\s*\{[^}]*'
-        \ . '|\a*ref%(\s*\{[^}]*|range\s*\{[^,}]*%(}\{)?)'
-        \ . '|hyperref\s*\[[^]]*'
-        \ . '|includegraphics\*?%(\s*\[[^]]*\]){0,2}\s*\{[^}]*'
-        \ . '|%(include%(only)?|input)\s*\{[^}]*'
-        \ . '|\a*(gls|Gls|GLS)(pl)?\a*%(\s*\[[^]]*\]){0,2}\s*\{[^}]*'
-        \ . '|includepdf%(\s*\[[^]]*\])?\s*\{[^}]*'
-        \ . '|includestandalone%(\s*\[[^]]*\])?\s*\{[^}]*'
-        \ . '|usepackage%(\s*\[[^]]*\])?\s*\{[^}]*'
-        \ . '|documentclass%(\s*\[[^]]*\])?\s*\{[^}]*'
-        \ . '|\a*'
-        \ . ')'
+		\ '\v\\%('
+		\ . '\a*cite\a*%(\s*\[[^]]*\]){0,2}\s*\{[^}]*'
+		\ . '|\a*ref%(\s*\{[^}]*|range\s*\{[^,}]*%(}\{)?)'
+		\ . '|hyperref\s*\[[^]]*'
+		\ . '|includegraphics\*?%(\s*\[[^]]*\]){0,2}\s*\{[^}]*'
+		\ . '|%(include%(only)?|input)\s*\{[^}]*'
+		\ . '|\a*(gls|Gls|GLS)(pl)?\a*%(\s*\[[^]]*\]){0,2}\s*\{[^}]*'
+		\ . '|includepdf%(\s*\[[^]]*\])?\s*\{[^}]*'
+		\ . '|includestandalone%(\s*\[[^]]*\])?\s*\{[^}]*'
+		\ . '|usepackage%(\s*\[[^]]*\])?\s*\{[^}]*'
+		\ . '|documentclass%(\s*\[[^]]*\])?\s*\{[^}]*'
+		\ . '|\a*'
+		\ . ')'
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
 
@@ -182,10 +190,14 @@ let g:LanguageClient_serverCommands = {
 	\ 'c': ['ccls'],
 	\ 'cpp': ['ccls'],
 	\ 'go': ['go-langserver'],
+	\ 'haskell': ['hie-wrapper'],
 	\ 'python': ['pyls'],
 	\ 'rust': ['rls'],
 	\ 'sh': ['bash-language-server', 'start'],
-	\ }
+\}
+let g:LanguageClient_rootMarkers = {
+	\ 'haskell': ['*.cabal', 'stack.yaml'],
+\}
 nnoremap <F3> :call LanguageClient_contextMenu()<CR>
 nnoremap <silent> <LocalLeader>h :call LanguageClient#textDocument_hover()<CR>
 nnoremap <silent> <LocalLeader>gd :call LanguageClient#textDocument_definition()<CR>
