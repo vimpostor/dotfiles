@@ -10,8 +10,6 @@ Plug 'Shougo/neosnippet-snippets' "more snippets
 Plug 'scrooloose/nerdtree' "file system tree
 Plug 'easymotion/vim-easymotion' "even faster movement
 Plug 'tpope/vim-fugitive' "handy git tools
-Plug 'junegunn/limelight.vim' "limelight
-Plug 'junegunn/goyo.vim' "distraction free editing
 Plug 'markonm/traces.vim' "pattern preview
 Plug 'w0rp/ale' "ale
 Plug 'morhetz/gruvbox' "colorscheme
@@ -165,16 +163,6 @@ function! Multiple_cursors_after()
 	exe 'NeoCompleteUnlock'
 endfunction
 let g:multi_cursor_exit_from_insert_mode = 0
-
-"goyo
-function! s:goyo_enter()
-  Limelight
-endfunction
-function! s:goyo_leave()
-  Limelight!
-endfunction
-autocmd! User GoyoEnter nested call <SID>goyo_enter()
-autocmd! User GoyoLeave nested call <SID>goyo_leave()
 
 "ale
 "let g:ale_completion_enabled = 1
