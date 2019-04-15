@@ -68,9 +68,10 @@ vnoremap > >gv
 
 "file type specific settings
 "tex
-autocmd Filetype tex setlocal tw=80
+autocmd Filetype tex setlocal textwidth=80
+autocmd Filetype tex setlocal conceallevel=1
 "mutt
-au BufRead /tmp/mutt-* set tw=72
+au BufRead /tmp/mutt-* setlocal textwidth=72
 "haskell
 autocmd FileType haskell setlocal expandtab
 "pandoc
@@ -154,6 +155,7 @@ let g:EasyMotion_keys = "asdghklqwertyuiopzxcvbnmfj,"
 "vimtex
 let g:vimtex_view_method = "zathura"
 let g:vimtex_quickfix_mode = 0
+let g:tex_conceal='abdmgs'
 
 "multiple cursors
 function! Multiple_cursors_before()
