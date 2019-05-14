@@ -60,7 +60,8 @@ if has('termguicolors') "true colors
 	let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 	set termguicolors
 endif
-vnoremap < <gv "keep selected text selected when indenting
+"keep selected text selected when indenting
+vnoremap < <gv
 vnoremap > >gv
 "highlight Comment cterm=italic
 
