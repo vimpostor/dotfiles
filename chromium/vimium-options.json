@@ -1,0 +1,21 @@
+{
+  "settingsVersion": "1.64.6",
+  "exclusionRules": [],
+  "filterLinkHints": false,
+  "waitForEnterForFilteredHints": true,
+  "hideHud": false,
+  "keyMappings": "map H previousTab\nmap L nextTab\nmap J goBack\nmap K goForward\nmap gm Marks.activateGotoMode",
+  "linkHintCharacters": "sadfjklewcmpgh",
+  "linkHintNumbers": "0123456789",
+  "newTabUrl": "about:newtab",
+  "nextPatterns": "next,more,newer,>,›,→,»,≫,>>",
+  "previousPatterns": "prev,previous,back,older,<,‹,←,«,≪,<<",
+  "regexFindMode": true,
+  "ignoreKeyboardLayout": false,
+  "scrollStepSize": 60,
+  "smoothScroll": true,
+  "grabBackFocus": true,
+  "searchEngines": "w: http://www.wikipedia.org/w/index.php?title=Special:Search&search=%s Wikipedia\ng: http://www.google.com/search?q=%s Google\nl: http://www.google.com/search?q=%s&btnI I'm feeling lucky... Lucky\nyt: http://www.youtube.com/results?search_query=%s Youtube\ngm: https://www.google.com/maps?q=%s Google maps\nddg: https://duckduckgo.com/?q=%s DuckDuckGo\namazon: http://www.amazon.com/s/?field-keywords=%s Amazon\narchp: https://www.archlinux.org/packages/?name=%s Arch Linux packages\narch: https://wiki.archlinux.org/index.php?title=Special:Search&search=%s Arch Wiki\ngh: https://github.com/search?q=%s&ref=opensearch Github\ngt: http://translate.google.com/?source=osdd#auto|auto|%s Google Translate\nms: https://musescore.com/sheetmusic?text=%s Musescore",
+  "searchUrl": "https://www.google.com/search?q=",
+  "userDefinedLinkHintCss": "div > .vimiumHintMarker {\n\tpadding: 3px 8px;\n\tborder: 0;\n\tborder-radius: 1px;\n\tbox-shadow: 0 1.5px 4px rgba(0, 0, 0, 0.24), 0 1.5px 6px rgba(0, 0, 0, 0.12);\n\tbackground-color: #FF3D00;\n\tbackground-image:none;\n}\n\ndiv > .vimiumHintMarker span {\n\tcolor: rgba(255, 255, 255, 0.87);\n\tfont-weight: bold;\n\tfont-size: 12px;\n\ttext-shadow: none;\n}\n\ndiv > .vimiumHintMarker > .matchingCharacter {\n\tcolor: rgba(255, 255, 255, 0.3);\n}"
+}
