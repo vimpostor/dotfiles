@@ -34,6 +34,7 @@ bindkey "^[OB" down-line-or-beginning-search
 bindkey -M vicmd '/' history-incremental-search-backward
 bindkey -M vicmd "k" up-line-or-beginning-search
 bindkey -M vicmd "j" down-line-or-beginning-search
+bindkey "^x^e" edit-command-line
 
 # aliases
 if vim --version| grep +clientserver &>/dev/null; then
