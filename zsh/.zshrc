@@ -1,6 +1,6 @@
 # powerlevel10k status prompt
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(ssh context dir dir_writable vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs vi_mode command_execution_time)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status command_execution_time root_indicator background_jobs vi_mode)
 POWERLEVEL9K_PROMPT_ON_NEWLINE=true
 
 # plugins
