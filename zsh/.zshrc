@@ -1,7 +1,3 @@
-# bullet train status prompt
-BULLETTRAIN_PROMPT_ORDER=(status context dir git cmd_exec_time)
-BULLETTRAIN_STATUS_EXIT_SHOW=true
-
 # plugins
 # Check if zgen is installed
 if [[ ! -d ~/.zgen ]]; then
@@ -21,7 +17,7 @@ if ! zgen saved; then
 	zgen load zsh-users/zsh-autosuggestions
 	zgen load zdharma/fast-syntax-highlighting
 
-	zgen load caiogondim/bullet-train.zsh bullet-train
+	zgen load romkatv/powerlevel10k powerlevel10k
 	zgen save
 fi
 
