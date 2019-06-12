@@ -26,6 +26,15 @@ if ! zgen saved; then
 	zgen save
 fi
 
+# vi mode
+bindkey -v
+export KEYTIMEOUT=1
+bindkey "^[OA" up-line-or-beginning-search
+bindkey "^[OB" down-line-or-beginning-search
+bindkey -M vicmd '/' history-incremental-search-backward
+bindkey -M vicmd "k" up-line-or-beginning-search
+bindkey -M vicmd "j" down-line-or-beginning-search
+
 # aliases
 if vim --version| grep +clientserver &>/dev/null; then
 	alias vim='vim --servername vim'
