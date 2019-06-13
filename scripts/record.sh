@@ -69,8 +69,8 @@ if [ "$RECORD_AUDIO" = true ]; then
 	RECORD_ARGS="$RECORD_ARGS -f pulse -ac 2 -i default"
 fi
 ffmpeg -y $RECORD_ARGS "$TEMP_FILE"
-notify "Encoding..."
+notify-send -i simplescreenrecorder -h string:x-kde-urls:"file://$TEMP_FILE" "Encoding..."
 # See https://trac.ffmpeg.org/wiki/Encode/VP9
 ffmpeg -y -i "$TEMP_FILE" -c:v libvpx-vp9 -b:v "$VIDEO_BITRATE" -pass 1 -an -f webm /dev/null && \
 	ffmpeg -i "$TEMP_FILE" -c:v libvpx-vp9 -b:v "$VIDEO_BITRATE" -pass 2 -c:a libopus "$OUTPUT_FILE"
-notify "Finished converting!"
+notify-send -i simplescreenrecorder -h string:x-kde-urls:"file://$OUTPUT_FILE" "Finished encoding!"
