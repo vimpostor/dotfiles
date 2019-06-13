@@ -90,5 +90,6 @@ bindkey "^y" accept-and-hold
 bindkey "^w" backward-kill-word
 bindkey "^u" backward-kill-line
 bindkey "^?" backward-delete-char
+bindkey "^[h" run-help
 # complete autosuggestions with <c-space>
 bindkey '^ ' autosuggest-accept
