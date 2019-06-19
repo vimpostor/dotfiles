@@ -1,6 +1,6 @@
 # powerlevel10k status prompt
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(ssh context dir dir_writable vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status command_execution_time root_indicator background_jobs vi_mode)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status command_execution_time root_indicator background_jobs)
 POWERLEVEL9K_SHOW_RULER=true
 POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
 POWERLEVEL9K_PROMPT_ON_NEWLINE=true
@@ -75,21 +75,6 @@ function cheat() {
 	fi
 }
 
-# vi mode
-bindkey -v
 export KEYTIMEOUT=1
-bindkey "^[OA" up-line-or-beginning-search
-bindkey "^[OB" down-line-or-beginning-search
-bindkey -M vicmd '/' history-incremental-search-backward
-bindkey -M vicmd "k" up-line-or-beginning-search
-bindkey -M vicmd "j" down-line-or-beginning-search
-bindkey "^x^e" edit-command-line
-bindkey "^a" beginning-of-line
-bindkey "^e" end-of-line
-bindkey "^y" accept-and-hold
-bindkey "^w" backward-kill-word
-bindkey "^u" backward-kill-line
-bindkey "^?" backward-delete-char
-bindkey "^[h" run-help
 # complete autosuggestions with <c-space>
 bindkey '^ ' autosuggest-accept
