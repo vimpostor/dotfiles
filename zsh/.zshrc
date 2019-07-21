@@ -75,6 +75,11 @@ function cheat() {
 	fi
 }
 
+# vote for AUR packages
+function aurvote() {
+	ssh aur@aur.archlinux.org vote "$*"
+}
+
 export KEYTIMEOUT=1
 # complete autosuggestions with <c-space>
 bindkey '^ ' autosuggest-accept
