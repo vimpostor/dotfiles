@@ -8,10 +8,10 @@ rofi.scrollbar-width: 2
 rofi.padding: 24
 rofi.bw: 0
 rofi.location: 0
-rofi.lines: 7
+rofi.lines: 10
 rofi.eh: 1
 rofi.line-margin: 8
-rofi.terminal: alacritty
+rofi.terminal: konsole
 rofi.ssh-command: {terminal} -e {ssh-client} {host}
 rofi.parse-known-hosts: false
 rofi.font: Roboto 24
