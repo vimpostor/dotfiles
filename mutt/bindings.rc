@@ -1,12 +1,18 @@
+bind index,pager @ "compose-to-sender"
+bind index,pager R "group-reply"
+bind index,pager x "delete-message"
+bind index,pager X "undelete-message"
+bind index,pager N "search-opposite"
+
+bind attach <return> view-mailcap
+bind attach l view-mailcap
+
 bind index l "display-message"
 bind index g "first-entry"
 bind index G "last-entry"
 bind index d "half-down"
 bind index u "half-up"
-bind index x "delete-message"
-bind index X "undelete-message"
 bind index <F5> "imap-fetch-mail"
-bind index N "search-opposite"
 bind index S "toggle-new"
 
 bind pager j "next-line"
@@ -14,9 +20,6 @@ bind pager k "previous-line"
 bind pager h "exit"
 bind pager g "top"
 bind pager G "bottom"
-bind pager N "search-opposite"
-bind pager x "delete-message"
-bind pager X "undelete-message"
 
 macro pager <up> <previous-line>
 macro pager <down> <next-line>

@@ -70,7 +70,7 @@ vnoremap > >gv
 autocmd Filetype tex setlocal textwidth=80
 autocmd Filetype tex setlocal conceallevel=1
 "mutt
-au BufRead /tmp/mutt-* setlocal fo+=w
+au BufRead /tmp/mutt-* setlocal fo+=aw
 "haskell
 autocmd FileType haskell setlocal expandtab
 "pandoc

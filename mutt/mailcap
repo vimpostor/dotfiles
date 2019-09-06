@@ -1,1 +1,5 @@
 text/html; w3m -I %{charset} -T text/html; copiousoutput;
+text/plain; less; copiousoutput;
+image/*; gwenview %s;
+application/pdf; okular %s;
+video/*; vlc %s;

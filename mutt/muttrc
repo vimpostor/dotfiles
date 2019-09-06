@@ -55,3 +55,5 @@ set menu_context=2
 set sleep_time = 0
 # f=f, see https://nullprogram.com/blog/2017/06/15/
 set text_flowed
+# include message in replies
+set include
