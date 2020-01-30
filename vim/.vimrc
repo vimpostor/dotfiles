@@ -104,7 +104,6 @@ let g:coc_global_extensions = [
 \ 'coc-yaml',
 \ 'coc-lists',
 \ ]
-call coc#add_extension(join(get(s:, 'coc_extensions', [])))
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
       \ <SID>check_back_space() ? "\<TAB>" :
