@@ -1,0 +1,15 @@
+{
+	"coc.preferences.extensionUpdateCheck": "never",
+	"latex.build.onSave": true,
+	"latex.forwardSearch.executable": "zathura",
+	"languageserver": {
+		"bash": {
+			"command": "bash-language-server",
+			"args": ["start"],
+			"filetypes": ["sh"],
+			"ignoredRootPaths": ["~"]
+		}
+	},
+	"lists.disabledLists": ["cmdhistory", "colors", "searchhistory", "sessions"],
+	"session.saveOnVimLeave": false
+}
