@@ -32,9 +32,7 @@ if ! zgen saved; then
 fi
 
 # aliases
-if vim --version| grep +clientserver &>/dev/null; then
-	alias vim='vim --servername vim'
-fi
+alias vim='vim --servername vim'
 alias lazyCommit='git commit -m "$(curl -s whatthecommit.com/index.txt)"'
 alias vi=vim
 alias diff='diff --color=auto'
