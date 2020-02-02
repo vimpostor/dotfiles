@@ -1,6 +1,13 @@
 {
 	"coc.preferences.extensionUpdateCheck": "never",
+	"latex.build.args": [
+		"-pdf",
+		"-interaction=nonstopmode",
+		"-synctex=1",
+		"-pvc"
+	],
 	"latex.build.onSave": true,
+	"latex.forwardSearch.args": ["--synctex-forward", "%l:1:%f", "%p"],
 	"latex.forwardSearch.executable": "zathura",
 	"languageserver": {
 		"bash": {
