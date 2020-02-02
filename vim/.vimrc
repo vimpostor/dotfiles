@@ -11,6 +11,7 @@ Plug 'morhetz/gruvbox' "colorscheme
 Plug 'https://gitlab.com/dbeniamine/cheat.sh-vim.git' "cheat sheets
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'junegunn/vim-slash' "improved search
+Plug 'puremourning/vimspector' "debugging
 call plug#end()
 
 "color scheme
@@ -164,6 +165,9 @@ imap <C-j> <Plug>(coc-snippets-expand-jump)
 nnoremap <silent> <LocalLeader>P :<C-u>CocList -A files<CR>
 nnoremap <silent> <LocalLeader>b :<C-u>CocList -A buffers<CR>
 nnoremap <silent> <LocalLeader>f :<C-u>CocList -A -I grep<CR>
+
+"vimspector
+let g:vimspector_enable_mappings = 'VISUAL_STUDIO'
 
 "nerd tree
 map <C-t> :NERDTreeToggle<CR>
