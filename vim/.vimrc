@@ -165,6 +165,8 @@ imap <C-j> <Plug>(coc-snippets-expand-jump)
 nnoremap <silent> <LocalLeader>P :<C-u>CocList -A files<CR>
 nnoremap <silent> <LocalLeader>b :<C-u>CocList -A buffers<CR>
 nnoremap <silent> <LocalLeader>f :<C-u>CocList -A -I grep<CR>
+"coc-texlab
+nnoremap <silent> <LocalLeader>ll :<C-u>CocCommand latex.Build<CR>
 
 "vimspector
 let g:vimspector_enable_mappings = 'VISUAL_STUDIO'

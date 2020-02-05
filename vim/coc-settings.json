@@ -6,7 +6,6 @@
 		"-synctex=1",
 		"-pvc"
 	],
-	"latex.build.onSave": true,
 	"latex.forwardSearch.args": ["--synctex-forward", "%l:1:%f", "%p"],
 	"latex.forwardSearch.executable": "zathura",
 	"languageserver": {
