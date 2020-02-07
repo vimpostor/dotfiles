@@ -14,6 +14,14 @@ Plug 'junegunn/vim-slash' "improved search
 Plug 'puremourning/vimspector' "debugging
 call plug#end()
 
+"vim/nvim specific differences
+if has('nvim')
+	"nvim does not currently support signcolumn=number
+	set signcolumn=yes
+else
+	set signcolumn=number
+endif
+
 "color scheme
 set background=dark
 let g:gruvbox_guisp_fallback = "bg"
@@ -51,7 +59,6 @@ set t_ut="" "prevents a weird background on some terminals
 set lazyredraw
 set hidden "allow buffers to be hidden
 set shortmess+=c "don't give ins-completion-menu messages
-set signcolumn=number
 "do not write backup files, they cause more problems than they solve
 set nobackup
 set nowritebackup
