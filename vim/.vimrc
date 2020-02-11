@@ -73,6 +73,8 @@ vnoremap > >gv
 "highlight Comment cterm=italic
 
 "file type specific settings
+"yaml
+autocmd Filetype yaml setlocal ts=2 sw=2 et
 "tex
 autocmd Filetype tex setlocal textwidth=80
 autocmd Filetype tex setlocal conceallevel=1
