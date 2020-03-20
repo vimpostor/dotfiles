@@ -97,6 +97,7 @@ xnoremap <silent> y "+y
 nnoremap <silent> y "+y
 nnoremap <silent> p "+p
 nnoremap <silent> P "+P
+nnoremap Y y$
 "move lines around
 nnoremap J :m .+1<CR>==
 nnoremap K :m .-2<CR>==
