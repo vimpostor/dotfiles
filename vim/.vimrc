@@ -12,6 +12,8 @@ Plug 'https://gitlab.com/dbeniamine/cheat.sh-vim.git' "cheat sheets
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'junegunn/vim-slash' "improved search
 Plug 'puremourning/vimspector' "debugging
+Plug 'camspiers/animate.vim' "animation library
+Plug 'camspiers/lens.vim' "automatic window resizing
 call plug#end()
 
 "vim/nvim specific differences
@@ -205,3 +207,7 @@ let g:multi_cursor_exit_from_insert_mode = 0
 if has('timers')
 	noremap <expr> <plug>(slash-after) slash#blink(1, 200)
 endif
+
+"lens
+let g:lens#disabled = 1
+nnoremap <silent> <LocalLeader>L :call lens#toggle()<cr>
