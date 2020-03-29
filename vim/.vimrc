@@ -72,7 +72,7 @@ endif
 "keep selected text selected when indenting
 vnoremap < <gv
 vnoremap > >gv
-"highlight Comment cterm=italic
+highlight Comment cterm=italic
 
 "file type specific settings
 "yaml
@@ -211,3 +211,4 @@ endif
 "lens
 let g:lens#disabled = 1
 nnoremap <silent> <LocalLeader>L :call lens#toggle()<cr>
+let g:animate#duration = 200.0
