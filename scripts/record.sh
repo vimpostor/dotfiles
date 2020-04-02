@@ -71,6 +71,6 @@ fi
 ffmpeg -y $RECORD_ARGS "$TEMP_FILE"
 notify-send -i simplescreenrecorder -h string:x-kde-urls:"file://$TEMP_FILE" "Encoding..."
 # See https://trac.ffmpeg.org/wiki/Encode/VP9
-ffmpeg -y -i "$TEMP_FILE" -c:v libvpx-vp9 -b:v "$VIDEO_BITRATE" -pass 1 -an -f webm /dev/null && \
-	ffmpeg -i "$TEMP_FILE" -c:v libvpx-vp9 -b:v "$VIDEO_BITRATE" -pass 2 -c:a libopus "$OUTPUT_FILE"
+ffmpeg -y -i "$TEMP_FILE" -c:v libaom-av1 -strict experimental -b:v "$VIDEO_BITRATE" -pass 1 -an -f matroska /dev/null && \
+	ffmpeg -i "$TEMP_FILE" -c:v libaom-av1 -strict experimental -b:v "$VIDEO_BITRATE" -pass 2 -c:a libopus "$OUTPUT_FILE"
 notify-send -i simplescreenrecorder -h string:x-kde-urls:"file://$OUTPUT_FILE" "Finished encoding!"
