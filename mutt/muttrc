@@ -1,19 +1,13 @@
+# Mails are handled by mbsync
+set folder = ~/.local/share/mail
+set mbox_type = Maildir
+set mail_check = 0
 # Personal settings
 source ~/.mutt/personal.rc
-# IMAP
-set imap_keepalive = 30
-set imap_check_subscribed
 
 # Cache mails
-set header_cache = ~/.cache/mutt
-set message_cachedir = $header_cache
-
-# Check for new emails every 10 minutes
-set mail_check = 600
-
-# SMTP
-set record = +Sent
-set ssl_starttls = yes
+set header_cache = ~/.cache/mutt/headers
+set message_cachedir = ~/.cache/mutt/bodies
 
 # colors
 source ~/.mutt/colors.rc
@@ -22,9 +16,6 @@ source ~/.mutt/bindings.rc
 # GnuPG
 source ~/.mutt/gpg.rc
 set pgp_use_gpg_agent
-
-# signature
-# set signature="~/.mutt/signature.txt"
 
 # preview pane
 # set pager_index_lines = 10

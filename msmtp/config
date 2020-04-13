@@ -1,0 +1,14 @@
+defaults
+auth on
+tls on
+tls_trust_file /etc/ssl/certs/ca-certificates.crt
+protocol smtp
+
+account name
+host mail.domain.com
+port 587
+user "username"
+passwordeval "gpg -dq ~/.mutt/mailpw.txt.gpg"
+from "name@domain.com"
+
+account default : name

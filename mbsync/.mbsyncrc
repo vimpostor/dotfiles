@@ -1,0 +1,21 @@
+IMAPAccount name
+Host mail.domain.com
+User "username"
+PassCmd "gpg -dq ~/.mutt/mailpw.txt.gpg"
+SSLType IMAPS
+CertificateFile /etc/ssl/certs/ca-certificates.crt
+
+IMAPStore name-remote
+Account name
+
+MaildirStore name-local
+Flatten .
+Path ~/.local/share/mail/name/
+Inbox ~/.local/share/mail/name/INBOX
+
+Channel name
+Master :name-remote:
+Slave :name-local:
+Patterns INBOX Sent
+Create Both
+SyncState *
