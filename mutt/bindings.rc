@@ -13,7 +13,7 @@ bind index G "last-entry"
 bind index d "half-down"
 bind index u "half-up"
 bind index S "toggle-new"
-macro index <F5> "<shell-escape>mbsync -a &>/dev/null &<enter>"
+macro index <F5> "<shell-escape>mbsync -aq &>/dev/null &<enter>"
 
 bind pager j "next-line"
 bind pager k "previous-line"
