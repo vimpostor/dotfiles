@@ -103,6 +103,11 @@ function aurvote() {
 	ssh aur@aur.archlinux.org vote "$*"
 }
 
+# modifies grep to highlight instead of filter
+function highlight() {
+	rg -e '^' $*
+}
+
 export KEYTIMEOUT=1
 # complete autosuggestions with <c-space>
 bindkey '^ ' autosuggest-accept
