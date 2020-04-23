@@ -6,3 +6,5 @@
 	pager = /usr/share/git/diff-highlight/diff-highlight| less
 [diff]
 	algorithm = patience
+[commit]
+	gpgsign = true
