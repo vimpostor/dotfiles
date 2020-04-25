@@ -3,7 +3,6 @@ Plug 'scrooloose/nerdcommenter' "easier commenting
 Plug 'terryma/vim-multiple-cursors' "multiple cursors
 Plug 'honza/vim-snippets' "snippets
 Plug 'tpope/vim-surround' "surround commands
-Plug 'scrooloose/nerdtree' "file system tree
 Plug 'easymotion/vim-easymotion' "even faster movement
 Plug 'tpope/vim-fugitive' "handy git tools
 Plug 'markonm/traces.vim' "pattern preview
@@ -106,6 +105,13 @@ nnoremap K :m .-2<CR>==
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 
+"netrw
+map <C-t> :Lexplore<CR>
+let g:netrw_banner = 0
+let g:netrw_liststyle = 3
+let g:netrw_browse_split = 4
+let g:netrw_winsize = 25
+
 "plugin settings
 "coc.nvim
 "extensions
@@ -183,9 +189,6 @@ nnoremap <silent> <LocalLeader>ll :<C-u>CocCommand latex.Build<CR>
 
 "vimspector
 let g:vimspector_enable_mappings = 'VISUAL_STUDIO'
-
-"nerd tree
-map <C-t> :NERDTreeToggle<CR>
 
 "easy motion
 nmap s <Plug>(easymotion-s2)
