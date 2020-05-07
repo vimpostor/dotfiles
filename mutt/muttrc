@@ -13,6 +13,8 @@ set message_cachedir = ~/.cache/mutt/bodies
 source ~/.mutt/colors.rc
 # key bindings
 source ~/.mutt/bindings.rc
+# threads
+set sort = threads
 # GnuPG
 source ~/.mutt/gpg.rc
 set pgp_use_gpg_agent
