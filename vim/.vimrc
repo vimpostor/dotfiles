@@ -185,6 +185,7 @@ nnoremap <silent> <LocalLeader>b :<C-u>CocList -A buffers<CR>
 nnoremap <silent> <LocalLeader>f :<C-u>CocList -A -I grep<CR>
 "coc-texlab
 nnoremap <silent> <LocalLeader>ll :<C-u>CocCommand latex.Build<CR>
+nnoremap <silent> <LocalLeader>lr :<C-u>CocCommand latex.ForwardSearch<CR>
 
 "vimspector
 let g:vimspector_enable_mappings = 'VISUAL_STUDIO'
