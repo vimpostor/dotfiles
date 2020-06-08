@@ -8,3 +8,5 @@
 	algorithm = patience
 [commit]
 	gpgsign = true
+[pull]
+	ff = only
