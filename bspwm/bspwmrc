@@ -3,6 +3,7 @@
 sxhkd &
 #compton -b
 
+setxkbmap us -option caps:escape -variant de_se_fi
 bspc monitor -d 1 2 3 4
 
 bspc rule -a feh state=floating
