@@ -108,6 +108,12 @@ function highlight() {
 	rg -e '^' $*
 }
 
+# creates a file from a template
+# Usage: templ newscript.sh
+function templ() {
+	cp ~/.config/.filetemplates/*."${*##*.}" "$*"
+}
+
 export KEYTIMEOUT=1
 # complete autosuggestions with <c-space>
 bindkey '^ ' autosuggest-accept
