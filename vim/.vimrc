@@ -103,6 +103,8 @@ nnoremap J :m .+1<CR>==
 nnoremap K :m .-2<CR>==
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
+"do not overwrite my keybindings in rebase mode
+let g:no_gitrebase_maps = 1
 
 "netrw
 map <C-t> :Lexplore<CR>

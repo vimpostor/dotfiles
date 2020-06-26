@@ -114,6 +114,5 @@ function templ() {
 	cp ~/.config/.filetemplates/*."${*##*.}" "$*"
 }
 
-export KEYTIMEOUT=1
 # complete autosuggestions with <c-space>
 bindkey '^ ' autosuggest-accept
