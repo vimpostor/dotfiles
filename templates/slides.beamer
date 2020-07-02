@@ -1,0 +1,28 @@
+\documentclass[usenames,dvipsnames]{beamer}
+\usetheme[block=fill]{metropolis}
+\setbeamertemplate{section in toc}[sections numbered]
+
+\title{My title}
+\date{\today}
+\author{Magnus Groß}
+
+\usepackage{amsthm}
+\usepackage{complexity}
+\usepackage{tikz}
+\usepackage{xcolor}
+\usetikzlibrary{calc, shapes, arrows, positioning, patterns, decorations.pathreplacing, backgrounds}
+
+\begin{document}
+\maketitle
+
+\begin{frame}{Outline}
+  \tableofcontents
+\end{frame}
+
+\section{My section}
+
+\begin{frame}{Introduction}
+	Body
+\end{frame}
+
+\end{document}
