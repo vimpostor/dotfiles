@@ -104,6 +104,9 @@ nnoremap J :m .+1<CR>==
 nnoremap K :m .-2<CR>==
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
+"autocorrect last misspelling
+imap <c-f> <c-g>u<Esc>[s1z=`]a<c-g>u
+nmap <c-f> [s1z=<c-o>
 "do not overwrite my keybindings in rebase mode
 let g:no_gitrebase_maps = 1
 
