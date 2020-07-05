@@ -69,19 +69,20 @@ if has('termguicolors') "true colors
 	let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 	set termguicolors
 endif
+highlight Comment cterm=italic
 "keep selected text selected when indenting
 vnoremap < <gv
 vnoremap > >gv
-highlight Comment cterm=italic
+"allow completions from the dictionary
+set complete+=kspell
+set diffopt+=vertical
 
 "file type specific settings
-"yaml
 autocmd Filetype yaml setlocal ts=2 sw=2 et
-"tex
-autocmd Filetype tex setlocal conceallevel=1
-"mutt
+autocmd Filetype tex setlocal conceallevel=1 spell
+autocmd Filetype markdown setlocal spell
+autocmd Filetype gitcommit setlocal spell
 au BufRead /tmp/mutt-* setlocal fo+=aw
-"haskell
 autocmd FileType haskell setlocal expandtab
 "pandoc
 command PandocDisable autocmd! Pandoc BufWritePost *
