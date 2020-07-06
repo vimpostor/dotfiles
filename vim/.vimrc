@@ -13,6 +13,7 @@ Plug 'junegunn/vim-slash' "improved search
 Plug 'puremourning/vimspector' "debugging
 Plug 'camspiers/animate.vim' "animation library
 Plug 'camspiers/lens.vim' "automatic window resizing
+Plug 'psliwka/vim-smoothie' "smooth scrolling
 call plug#end()
 
 "vim/nvim specific differences
