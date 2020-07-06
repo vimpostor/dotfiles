@@ -95,19 +95,21 @@ map j gj
 map k gk
 nnoremap Q @@ "last macro
 "Use the system clipboard only when explicitly yanking
-xnoremap <silent> y "+y
-nnoremap <silent> y "+y
-nnoremap <silent> p "+p
-nnoremap <silent> P "+P
+xnoremap y "+y
+nnoremap y "+y
+nnoremap p "+p
+nnoremap P "+P
 nnoremap Y y$
 "move lines around
-nnoremap J :m .+1<CR>==
-nnoremap K :m .-2<CR>==
-vnoremap J :m '>+1<CR>gv=gv
-vnoremap K :m '<-2<CR>gv=gv
+nnoremap <silent> J :m .+1<CR>==
+nnoremap <silent> K :m .-2<CR>==
+vnoremap <silent> J :m '>+1<CR>gv=gv
+vnoremap <silent> K :m '<-2<CR>gv=gv
 "autocorrect last misspelling
 imap <c-f> <c-g>u<Esc>[s1z=`]a<c-g>u
 nmap <c-f> [s1z=<c-o>
+"Thesaurus
+nnoremap <silent> <localleader>t :call popup_atcursor(split(system('aiksaurus '.expand('<cWORD>')), '\n')[:-2], #{})<CR>
 "do not overwrite my keybindings in rebase mode
 let g:no_gitrebase_maps = 1
 
