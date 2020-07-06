@@ -10,7 +10,6 @@ Plug 'morhetz/gruvbox' "colorscheme
 Plug 'https://gitlab.com/dbeniamine/cheat.sh-vim.git' "cheat sheets
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'junegunn/vim-slash' "improved search
-Plug 'danilamihailov/beacon.nvim' "highlights the cursor upon jumps
 Plug 'puremourning/vimspector' "debugging
 Plug 'camspiers/animate.vim' "animation library
 Plug 'camspiers/lens.vim' "automatic window resizing
@@ -219,9 +218,6 @@ let g:multi_cursor_exit_from_insert_mode = 0
 if has('timers')
 	noremap <expr> <plug>(slash-after) slash#blink(1, 200)
 endif
-
-"beacon
-let g:beacon_minimal_jump = 5
 
 "lens
 let g:lens#disabled = 1
