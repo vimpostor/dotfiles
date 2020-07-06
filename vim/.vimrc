@@ -106,8 +106,8 @@ nnoremap <silent> K :m .-2<CR>==
 vnoremap <silent> J :m '>+1<CR>gv=gv
 vnoremap <silent> K :m '<-2<CR>gv=gv
 "autocorrect last misspelling
-imap <c-f> <c-g>u<Esc>[s1z=`]a<c-g>u
-nmap <c-f> [s1z=<c-o>
+imap <c-v> <c-g>u<Esc>[s1z=`]a<c-g>u
+nmap <c-v> [s1z=<c-o>
 "Thesaurus
 nnoremap <silent> <localleader>t :call popup_atcursor(split(system('aiksaurus '.shellescape(substitute(expand('<cWORD>'), '[^[:alpha:]]', '', 'g'))), '\n')[:-2], #{title: expand('<cWORD>'), border: [], col: min([col('.')%&columns, &columns/2])})<CR>
 "do not overwrite my keybindings in rebase mode
