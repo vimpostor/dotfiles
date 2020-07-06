@@ -109,7 +109,7 @@ vnoremap <silent> K :m '<-2<CR>gv=gv
 imap <c-f> <c-g>u<Esc>[s1z=`]a<c-g>u
 nmap <c-f> [s1z=<c-o>
 "Thesaurus
-nnoremap <silent> <localleader>t :call popup_atcursor(split(system('aiksaurus '.expand('<cWORD>')), '\n')[:-2], #{})<CR>
+nnoremap <silent> <localleader>t :call popup_atcursor(split(system('aiksaurus '.expand('<cWORD>')), '\n')[:-2], #{title: expand('<cWORD>'), border: []})<CR>
 "do not overwrite my keybindings in rebase mode
 let g:no_gitrebase_maps = 1
 
