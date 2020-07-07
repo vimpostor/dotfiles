@@ -25,8 +25,11 @@ else
 endif
 
 "color scheme
-set background=dark
 let g:gruvbox_guisp_fallback = "bg"
+let g:gruvbox_invert_selection='0'
+let g:gruvbox_contrast_dark = 'hard'
+let g:gruvbox_italic='1'
+set background=dark
 silent! colorscheme gruvbox
 "general vim options
 set noswapfile "no swap
@@ -69,7 +72,6 @@ if has('termguicolors') "true colors
 	let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 	set termguicolors
 endif
-highlight Comment cterm=italic
 "keep selected text selected when indenting
 vnoremap < <gv
 vnoremap > >gv
