@@ -88,7 +88,7 @@ autocmd Filetype yaml setlocal ts=2 sw=2 et
 autocmd Filetype tex setlocal conceallevel=1 spell
 autocmd Filetype markdown setlocal spell
 autocmd Filetype gitcommit setlocal spell
-au BufRead /tmp/mutt-* setlocal fo+=aw
+au BufRead /tmp/mutt-* setlocal fo+=aw spell spelllang=en,de
 autocmd FileType haskell setlocal expandtab
 "pandoc
 command PandocDisable autocmd! Pandoc BufWritePost *
