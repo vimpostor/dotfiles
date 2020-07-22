@@ -25,7 +25,6 @@ else
 endif
 
 "color scheme
-autocmd ColorScheme * highlight ExtraWhitespace ctermbg=lightgreen guibg=lightgreen
 let g:gruvbox_guisp_fallback = "bg"
 let g:gruvbox_invert_selection='0'
 let g:gruvbox_contrast_dark = 'hard'
@@ -33,7 +32,6 @@ let g:gruvbox_contrast_light = 'hard'
 let g:gruvbox_italic='1'
 set background=dark
 silent! colorscheme gruvbox
-match ExtraWhitespace /\s\+\%#\@<!$/
 "general vim options
 set noswapfile "no swap
 set updatetime=300 "updatetime for CursorHold
