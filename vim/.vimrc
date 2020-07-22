@@ -106,6 +106,8 @@ nnoremap y "+y
 nnoremap p "+p
 nnoremap P "+P
 nnoremap Y y$
+"write with sudo
+command SudoWrite w !sudo tee "%" > /dev/null
 "move lines around
 nnoremap <silent> J :m .+1<CR>==
 nnoremap <silent> K :m .-2<CR>==
