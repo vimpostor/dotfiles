@@ -186,7 +186,7 @@ omap af <Plug>(coc-funcobj-a)
 xmap <silent> <Tab> <Plug>(coc-range-select)
 command! -nargs=0 Format :call CocAction('format')
 command! -nargs=? Fold :call CocAction('fold', <f-args>)
-nnoremap <silent> <LocalLeader>a  :<C-u>CocList diagnostics<cr>
+nnoremap <silent> <LocalLeader>e  :<C-u>CocList diagnostics<cr>
 nnoremap <silent> <LocalLeader>c  :<C-u>CocList commands<cr>
 nnoremap <silent> <LocalLeader>o  :<C-u>CocList outline<cr>
 nnoremap <silent> <LocalLeader>s  :<C-u>CocList -I symbols<cr>
