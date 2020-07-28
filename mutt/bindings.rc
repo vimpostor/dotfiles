@@ -25,3 +25,4 @@ macro pager <up> <previous-line>
 macro pager <down> <next-line>
 macro pager d <next-line><next-line><next-line><next-line><next-line><next-line><next-line><next-line><next-line><next-line>
 macro pager u <previous-line><previous-line><previous-line><previous-line><previous-line><previous-line><previous-line><previous-line><previous-line><previous-line>
+macro pager \cb "<pipe-message> urlscan<Enter>" "call urlscan to extract URLs out of a message"
