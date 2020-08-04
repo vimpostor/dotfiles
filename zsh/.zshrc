@@ -114,5 +114,10 @@ function templ() {
 	cp ~/.config/.filetemplates/*."${*##*.}" "$*"
 }
 
+# generates an Ansible role using molecule
+function gen-molecule() {
+	molecule init role -d podman "$*" && cd "$*" && rm README.md .travis.yml meta/main.yml molecule/default/INSTALL.rst
+}
+
 # complete autosuggestions with <c-space>
 bindkey '^ ' autosuggest-accept
