@@ -1,0 +1,13 @@
+---
+dependency:
+  name: galaxy
+driver:
+  name: podman
+platforms:
+  - name: instance
+    image: vimperator97/arch-molecule
+    pre_build_image: true
+provisioner:
+  name: ansible
+verifier:
+  name: ansible

@@ -1,0 +1,10 @@
+---
+- name: Ensure pacman is configured
+  blockinfile:
+    path: /etc/pacman.conf
+    insertafter: '^\[options\]$'
+    block: "{{ lookup('file', 'files/pacman.conf.block') }}"
+- name: Ensure pacman mirrorlist uses RWTH servers
+  copy:
+    dest: /etc/pacman.d/mirrorlist
+    content: "{{ lookup('file', 'files/mirrorlist') }}\n"
