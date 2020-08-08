@@ -119,7 +119,7 @@ nnoremap <silent> <localleader>t :call popup_atcursor(split(system('aiksaurus '.
 let g:no_gitrebase_maps = 1
 
 "netrw
-map <C-t> :Lexplore<CR>
+nnoremap <silent> <C-t> :Lexplore<CR>
 let g:netrw_banner = 0
 let g:netrw_liststyle = 3
 let g:netrw_browse_split = 4
