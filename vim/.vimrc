@@ -103,8 +103,6 @@ nnoremap y "+y
 nnoremap p "+p
 nnoremap P "+P
 nnoremap Y y$
-"write with sudo
-command SudoWrite w !sudo tee "%" > /dev/null
 "move lines around
 nnoremap <silent> J :m .+1<CR>==
 nnoremap <silent> K :m .-2<CR>==
@@ -117,6 +115,8 @@ nmap <c-v> [s1z=<c-o>
 nnoremap <silent> <localleader>t :call popup_atcursor(split(system('aiksaurus '.shellescape(substitute(expand('<cWORD>'), '[^[:alpha:]]', '', 'g'))), '\n')[:-2], #{title: expand('<cWORD>'), border: [], col: min([col('.')%&columns, &columns/2])})<CR>
 "do not overwrite my keybindings in rebase mode
 let g:no_gitrebase_maps = 1
+"write with sudo
+command SudoWrite w !sudo tee "%" > /dev/null
 
 "netrw
 nnoremap <silent> <C-t> :Lexplore<CR>
