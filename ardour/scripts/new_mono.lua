@@ -1,13 +1,14 @@
 ardour {
 	["type"] = "EditorAction",
 	name = "Create new mono track",
+	author = "Magnus Groß",
 	license = "MIT",
 	description = [[Creates a track and connects the first Stereo channel as only input source]]
 }
 
 function factory() return function()
 	-- add a new audio track
-	local tracks = Session:new_audio_track(1, 1, nil, 1, "", ARDOUR.PresentationInfo.max_order, ARDOUR.TrackMode.Normal, false)
+	local tracks = Session:new_audio_track(1, 2, nil, 1, "", ARDOUR.PresentationInfo.max_order, ARDOUR.TrackMode.Normal, false)
 	if tracks:size() == 0 then
 		return
 	end

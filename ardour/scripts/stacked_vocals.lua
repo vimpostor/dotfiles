@@ -1,6 +1,7 @@
 ardour {
 	["type"] = "EditorAction",
 	name = "Initialize tracks with a single mic",
+	author = "Magnus Groß",
 	license = "MIT",
 	description = [[Assigns the same stereo channel to all selected mono tracks]]
 }
