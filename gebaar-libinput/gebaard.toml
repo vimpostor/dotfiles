@@ -1,5 +1,0 @@
-[commands.swipe.three]
-up = "xdotool key ctrl+F10"
-down = "xdotool key ctrl+F8"
-left = "qdbus org.kde.KWin /KWin nextDesktop"
-right = "qdbus org.kde.KWin /KWin previousDesktop"
