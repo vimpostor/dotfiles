@@ -32,4 +32,12 @@ function factory() return function()
 	end
 	-- connect the Stereo channel to our mono audio track
 	current_port:connect(p)
+	-- disarm all armed tracks
+	for route in Session:get_tracks():iter() do
+		if route:rec_enable_control():get_value() == 1.0 then
+			route:rec_enable_control():set_value(0, PBD.GroupControlDisposition.NoGroup)
+		end
+	end
+	-- then arm our track
+	track:rec_enable_control():set_value(1, PBD.GroupControlDisposition.NoGroup)
 end end
