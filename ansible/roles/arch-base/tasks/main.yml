@@ -1,3 +1,13 @@
+- name: Configure timezone
+  file:
+    src: /usr/share/zoneinfo/Europe/Berlin
+    dest: /etc/localtime
+    state: link
+- name: Ensure hardware clock is interpreted as UTC
+  command:
+    cmd: hwclock --systohc
+    creates: /etc/adjtime
+
 - name: Ensure locale.gen is configured
   blockinfile:
     path: /etc/locale.gen
