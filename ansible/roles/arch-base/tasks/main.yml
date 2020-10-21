@@ -1,4 +1,14 @@
----
+- name: Ensure locale.gen is configured
+  blockinfile:
+    path: /etc/locale.gen
+    insertbefore: BOF
+    content: "{{ lookup('file', 'files/locale.gen.block', rstrip=false) }}"
+  notify: locale-gen
+- name: Ensure locale is configured
+  copy:
+    dest: /etc/locale.conf
+    content: "{{ lookup('file', 'files/locale.conf') }}\n"
+
 - name: Ensure pacman is configured
   blockinfile:
     path: /etc/pacman.conf

@@ -1,2 +1,2 @@
----
-# handlers file for arch-base
+- name: locale-gen
+  command: locale-gen
