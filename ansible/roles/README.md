@@ -1,5 +1,7 @@
 ```bash
 # Create a new role
+gen-molecule role-name
+# Or without alias
 molecule init role -d podman role-name
 # Run role
 molecule converge
