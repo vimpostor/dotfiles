@@ -28,3 +28,13 @@
   copy:
     dest: /etc/pacman.d/mirrorlist
     content: "{{ lookup('file', 'files/mirrorlist') }}\n"
+
+- name: Configure hostname
+  copy:
+    dest: /etc/hostname
+    content: "{{ myhostname }}\n"
+- name: Ensure hosts contains localhost
+  blockinfile:
+    path: /etc/hosts
+    insertafter: '^# See hosts\(5\) for details\.$'
+    content: "{{ lookup('template', 'templates/hosts.j2') }}"
