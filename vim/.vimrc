@@ -35,6 +35,8 @@ silent! colorscheme gruvbox
 "general vim options
 set noswapfile "no swap
 set updatetime=300 "updatetime for CursorHold
+set timeoutlen=1000 "mapping delays
+set ttimeoutlen=10 "keycode delays
 set cursorline "highlight current line
 set confirm "Ask to confirm instead of failing
 set ignorecase "case insensitive search
