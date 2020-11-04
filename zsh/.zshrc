@@ -119,5 +119,10 @@ function gen-molecule() {
 	molecule init role -d podman "$*" && cd "$*" && rm README.md .travis.yml meta/main.yml
 }
 
+# generate vim compatible cmake build
+function gen-cmake-debug() {
+	cmake -B build -G Ninja -DCMAKE_BUILD_TYPE=Debug -DCMAKE_EXPORT_COMPILE_COMMANDS=1 && ln -s build/compile_commands.json .
+}
+
 # complete autosuggestions with <c-space>
 bindkey '^ ' autosuggest-accept

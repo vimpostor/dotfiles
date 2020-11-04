@@ -138,6 +138,7 @@ let g:coc_global_extensions = [
 \ 'coc-yaml',
 \ 'coc-lists',
 \ 'coc-tsserver',
+\ 'coc-clangd',
 \ ]
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
