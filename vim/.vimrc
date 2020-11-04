@@ -14,6 +14,7 @@ Plug 'puremourning/vimspector' "debugging
 Plug 'camspiers/animate.vim' "animation library
 Plug 'camspiers/lens.vim' "automatic window resizing
 Plug 'psliwka/vim-smoothie' "smooth scrolling
+Plug 'peterhoeg/vim-qml' "qml syntax highlighting
 call plug#end()
 
 "vim/nvim specific differences
@@ -137,7 +138,6 @@ let g:coc_global_extensions = [
 \ 'coc-json',
 \ 'coc-yaml',
 \ 'coc-lists',
-\ 'coc-tsserver',
 \ 'coc-clangd',
 \ ]
 inoremap <silent><expr> <TAB>
