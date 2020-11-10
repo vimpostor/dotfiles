@@ -50,3 +50,4 @@ set delete = yes
 set text_flowed
 # include message in replies
 set include
+set attach_save_dir = "/tmp"
