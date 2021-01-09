@@ -55,11 +55,11 @@ fi
 
 # aliases
 alias vim='vim --servername vim'
-alias lazyCommit='git commit -m "$(curl -s whatthecommit.com/index.txt)"'
+alias lazycommit='git commit -m "$(curl -s whatthecommit.com/index.txt)"'
 alias vi=vim
 alias diff='diff --color=auto'
 alias clipboard='xclip -selection c'
-alias ip='ip --color'
+alias ip='ip -c'
 alias ls='ls --color=auto'
 
 # functions
