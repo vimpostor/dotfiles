@@ -10,3 +10,5 @@
 	gpgsign = true
 [pull]
 	ff = only
+[init]
+	defaultBranch = master
