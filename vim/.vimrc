@@ -15,6 +15,7 @@ Plug 'camspiers/animate.vim' "animation library
 Plug 'camspiers/lens.vim' "automatic window resizing
 Plug 'psliwka/vim-smoothie' "smooth scrolling
 Plug 'peterhoeg/vim-qml' "qml syntax highlighting
+Plug 'vimpostor/vim-tpipeline' "outsource statusline to tmux
 call plug#end()
 
 "vim/nvim specific differences
