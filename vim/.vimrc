@@ -232,3 +232,6 @@ endif
 let g:lens#disabled = 1
 nnoremap <silent> <LocalLeader>L :call lens#toggle()<cr>
 let g:animate#duration = 200.0
+
+"tpipeline
+let g:tpipeline_split = 1
