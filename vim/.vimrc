@@ -6,14 +6,11 @@ Plug 'tpope/vim-surround' "surround commands
 Plug 'easymotion/vim-easymotion' "even faster movement
 Plug 'tpope/vim-fugitive' "handy git tools
 Plug 'markonm/traces.vim' "pattern preview
-Plug 'morhetz/gruvbox' "colorscheme
+Plug 'vimpostor/vim-prism' "colorscheme
 Plug 'https://gitlab.com/dbeniamine/cheat.sh-vim.git' "cheat sheets
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'junegunn/vim-slash' "improved search
 Plug 'puremourning/vimspector' "debugging
-Plug 'camspiers/animate.vim' "animation library
-Plug 'camspiers/lens.vim' "automatic window resizing
-Plug 'psliwka/vim-smoothie' "smooth scrolling
 Plug 'peterhoeg/vim-qml' "qml syntax highlighting
 Plug 'vimpostor/vim-tpipeline' "outsource statusline to tmux
 call plug#end()
@@ -27,13 +24,8 @@ else
 endif
 
 "color scheme
-let g:gruvbox_guisp_fallback = "bg"
-let g:gruvbox_invert_selection='0'
-let g:gruvbox_contrast_dark = 'hard'
-let g:gruvbox_contrast_light = 'hard'
-let g:gruvbox_italic='1'
 set background=dark
-silent! colorscheme gruvbox
+silent! colorscheme prism
 "general vim options
 set noswapfile "no swap
 set updatetime=300 "updatetime for CursorHold
@@ -59,11 +51,11 @@ set shiftwidth=4 "tab = 4 spaces
 set tabstop=4
 set hlsearch "highlight search
 set incsearch "highlight while you type
-set laststatus=0 "never show status line
+set stl=%!tpipeline#stl#line()
+set laststatus=2 "always show the statusline
 set noshowmode "dont show mode
 set noruler "no curser position
 set noshowcmd "don't show cmds
-set number "show line numbers
 set mouse=a "enable mouse input
 set t_ut="" "prevents a weird background on some terminals
 set lazyredraw
@@ -227,11 +219,6 @@ let g:multi_cursor_exit_from_insert_mode = 0
 if has('timers')
 	noremap <expr> <plug>(slash-after) slash#blink(1, 200)
 endif
-
-"lens
-let g:lens#disabled = 1
-nnoremap <silent> <LocalLeader>L :call lens#toggle()<cr>
-let g:animate#duration = 200.0
 
 "tpipeline
 let g:tpipeline_split = 1
