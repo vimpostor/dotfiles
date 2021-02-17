@@ -32,6 +32,7 @@ set updatetime=300 "updatetime for CursorHold
 set timeoutlen=1000 "mapping delays
 set ttimeoutlen=10 "keycode delays
 set cursorline "highlight current line
+set guicursor=
 set confirm "Ask to confirm instead of failing
 set ignorecase "case insensitive search
 set smartcase "case sensitive if search term contains capitals
