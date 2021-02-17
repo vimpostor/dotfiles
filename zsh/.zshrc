@@ -124,5 +124,10 @@ function gen-cmake-debug() {
 	cmake -B build -G Ninja -DCMAKE_BUILD_TYPE=Debug -DCMAKE_EXPORT_COMPILE_COMMANDS=1 && ln -s build/compile_commands.json .
 }
 
+# deletes a git branch
+function git-del-branch() {
+	git branch -D "$*" && git push origin --delete "$*"
+}
+
 # complete autosuggestions with <c-space>
 bindkey '^ ' autosuggest-accept
