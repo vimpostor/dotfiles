@@ -9,19 +9,9 @@ Plug 'markonm/traces.vim' "pattern preview
 Plug 'vimpostor/vim-prism' "colorscheme
 Plug 'https://gitlab.com/dbeniamine/cheat.sh-vim.git' "cheat sheets
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'junegunn/vim-slash' "improved search
 Plug 'puremourning/vimspector' "debugging
-Plug 'peterhoeg/vim-qml' "qml syntax highlighting
 Plug 'vimpostor/vim-tpipeline' "outsource statusline to tmux
 call plug#end()
-
-"vim/nvim specific differences
-if has('nvim')
-	"nvim does not currently support signcolumn=number
-	set signcolumn=yes
-else
-	set signcolumn=number
-endif
 
 "color scheme
 set background=dark
@@ -105,11 +95,13 @@ nnoremap <silent> J :m .+1<CR>==
 nnoremap <silent> K :m .-2<CR>==
 vnoremap <silent> J :m '>+1<CR>gv=gv
 vnoremap <silent> K :m '<-2<CR>gv=gv
+"clear search
+nnoremap <silent> <LocalLeader>/ :nohl<CR>
 "autocorrect last misspelling
 imap <c-v> <c-g>u<Esc>[s1z=`]a<c-g>u
 nmap <c-v> [s1z=<c-o>
 "Thesaurus
-nnoremap <silent> <localleader>t :call popup_atcursor(split(system('aiksaurus '.shellescape(substitute(expand('<cWORD>'), '[^[:alpha:]]', '', 'g'))), '\n')[:-2], #{title: expand('<cWORD>'), border: [], col: min([col('.')%&columns, &columns/2])})<CR>
+nnoremap <silent> <LocalLeader>t :call popup_atcursor(split(system('aiksaurus '.shellescape(substitute(expand('<cWORD>'), '[^[:alpha:]]', '', 'g'))), '\n')[:-2], #{title: expand('<cWORD>'), border: [], col: min([col('.')%&columns, &columns/2])})<CR>
 "do not overwrite my keybindings in rebase mode
 let g:no_gitrebase_maps = 1
 "write with sudo
@@ -216,10 +208,6 @@ let g:EasyMotion_keys = "asdghklqwertyuiopzxcvbnmfj,"
 "multiple cursors
 let g:multi_cursor_exit_from_insert_mode = 0
 
-"vim-slash
-if has('timers')
-	noremap <expr> <plug>(slash-after) slash#blink(1, 200)
-endif
-
 "tpipeline
 let g:tpipeline_split = 1
+let g:tpipeline_cursormoved = 1
