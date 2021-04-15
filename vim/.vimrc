@@ -26,6 +26,9 @@ set guicursor=
 set confirm "Ask to confirm instead of failing
 set ignorecase "case insensitive search
 set smartcase "case sensitive if search term contains capitals
+set hlsearch "highlight search
+set incsearch "highlight while you type
+set nowrapscan "no search wraparound
 set scrolloff=4 "start scrolling a few lines from the border
 set display+=lastline "always display the last line of the screen
 set showmatch "when inserting brackets, highlight the matching one
@@ -40,8 +43,6 @@ set smartindent
 set noexpandtab
 set shiftwidth=4 "tab = 4 spaces
 set tabstop=4
-set hlsearch "highlight search
-set incsearch "highlight while you type
 set stl=%!tpipeline#stl#line()
 set laststatus=2 "always show the statusline
 set noshowmode "dont show mode
