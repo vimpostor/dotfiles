@@ -74,7 +74,7 @@ while true; do
 			diff "$FILEPATH" "$NEWFILEPATH" > "$DIFFPATH"
 			case "$CALLBACK" in
 			notify-send)
-				notify-send -i web-browser -h string:x-kde-urls:"file://$DIFFPATH" 'Website Activity' "Click <a href=\"$URL\">here</a> to visit the page now!"
+				notify-send -i web-browser -u critical -h string:x-kde-urls:"file://$DIFFPATH" 'Website Activity' "Click <a href=\"$URL\">here</a> to visit the page now!"
 				;;
 			echo)
 				echo "Activity on website $URL"
