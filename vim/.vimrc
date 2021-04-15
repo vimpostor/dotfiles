@@ -28,7 +28,6 @@ set ignorecase "case insensitive search
 set smartcase "case sensitive if search term contains capitals
 set hlsearch "highlight search
 set incsearch "highlight while you type
-set nowrapscan "no search wraparound
 set scrolloff=4 "start scrolling a few lines from the border
 set display+=lastline "always display the last line of the screen
 set showmatch "when inserting brackets, highlight the matching one
@@ -53,6 +52,7 @@ set t_ut="" "prevents a weird background on some terminals
 set lazyredraw
 set hidden "allow buffers to be hidden
 set shortmess+=c "don't give ins-completion-menu messages
+set shortmess-=S "show number of search matches
 "do not write backup files, they cause more problems than they solve
 set nobackup
 set nowritebackup
