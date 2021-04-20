@@ -47,7 +47,7 @@ set smartindent
 set noexpandtab
 set shiftwidth=4 "tab = 4 spaces
 set tabstop=4
-set stl=%!tpipeline#stl#line()
+silent! set stl=%!tpipeline#stl#line()
 set laststatus=2 "always show the statusline
 set noshowmode "dont show mode
 set noruler "no curser position
