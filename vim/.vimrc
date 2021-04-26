@@ -131,6 +131,7 @@ let g:coc_global_extensions = [
 \ 'coc-yaml',
 \ 'coc-lists',
 \ 'coc-clangd',
+\ 'coc-rust-analyzer',
 \ ]
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
