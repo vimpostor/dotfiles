@@ -12,6 +12,8 @@ GREPSTRING=''
 CHECK=0
 ARGS="A:c:g:hn:"
 HELPMSG="This script can poll websites for changes and notifies you.
+If you want to run multiple instances simultaneously, you can set the \$FILESUFFIX variable.
+It must be unique for every instance, the default is the empty string.
 
 Usage:
 poll.sh [OPTIONS] URL
