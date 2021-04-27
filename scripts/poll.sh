@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-FILEPATH="/tmp/.poll"
-DIFFPATH="/tmp/.poll.diff"
-GREPPATH="/tmp/.poll.grep"
+FILEPATH="/tmp/.poll$FILESUFFIX"
+DIFFPATH="$FILEPATH.diff"
+GREPPATH="$FILEPATH.grep"
 NEWFILEPATH="$FILEPATH.new"
 INTERVAL=60
 USERAGENT='Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.128 Safari/537.36'
