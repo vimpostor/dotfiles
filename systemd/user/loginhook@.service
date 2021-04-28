@@ -1,5 +1,7 @@
 [Unit]
-Description=Runs a custom user command when the user logs in. Example (Script must be in ~/.script.sh): systemctl --user enable loginhook@script.service
+Description=Run a custom script when the user logs in.
+; Example: systemctl --user enable loginhook@script.service
+; For this to work, the file ~/.script.sh must exist.
 
 [Service]
 Type=simple
