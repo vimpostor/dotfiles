@@ -97,10 +97,10 @@ nnoremap p "+p
 nnoremap P "+P
 nnoremap Y y$
 "move lines around
-nnoremap <silent> J :m .+1<CR>==
-nnoremap <silent> K :m .-2<CR>==
-vnoremap <silent> J :m '>+1<CR>gv=gv
-vnoremap <silent> K :m '<-2<CR>gv=gv
+nnoremap <silent> J :<C-U>exec "exec 'norm m`' \| move +" . (0+v:count1)<CR>==``
+nnoremap <silent> K :<C-U>exec "exec 'norm m`' \| move -" . (1+v:count1)<CR>==``
+vnoremap <silent> J :<C-U>exec "'<,'>move '>+" . (0+v:count1)<CR>gv=gv
+vnoremap <silent> K :<C-U>exec "'<,'>move '<-" . (1+v:count1)<CR>gv=gv
 "clear search
 nnoremap <silent> <LocalLeader>/ :nohl<CR>
 "autocorrect last misspelling
