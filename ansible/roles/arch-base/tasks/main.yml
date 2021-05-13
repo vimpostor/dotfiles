@@ -24,6 +24,11 @@
     path: /etc/pacman.conf
     insertafter: '^\[options\]$'
     block: "{{ lookup('file', 'files/pacman.conf.block') }}"
+- name: Enable multilib repo
+  blockinfile:
+    path: /etc/pacman.conf
+    insertbefore: '^#\[multilib\]$'
+    block: "{{ lookup('file', 'files/pacman.conf-multilib.block') }}"
 - name: Use RWTH server for pacman
   copy:
     dest: /etc/pacman.d/mirrorlist

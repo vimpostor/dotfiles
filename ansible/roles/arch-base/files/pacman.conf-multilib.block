@@ -1,0 +1,2 @@
+[multilib]
+Include = /etc/pacman.d/mirrorlist
