@@ -38,3 +38,10 @@
     path: /etc/hosts
     insertafter: '^# See hosts\(5\) for details\.$'
     content: "{{ lookup('template', 'templates/hosts.j2') }}"
+- name: Update system
+  pacman:
+    update_cache: yes
+    upgrade: yes
+- name: Install base packages
+  pacman:
+    name: "{{ query('file', 'files/packages.txt') }}"

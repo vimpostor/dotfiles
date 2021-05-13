@@ -5,8 +5,9 @@ driver:
   name: podman
 platforms:
   - name: instance
-    image: vimperator97/arch-molecule
+    image: vimpostor/arch-molecule
     pre_build_image: true
+    network: host
 provisioner:
   name: ansible
 verifier:
