@@ -3,28 +3,28 @@
     src: /usr/share/zoneinfo/Europe/Berlin
     dest: /etc/localtime
     state: link
-- name: Ensure hardware clock is interpreted as UTC
+- name: Interpret hardware clock as UTC
   command:
     cmd: hwclock --systohc
     creates: /etc/adjtime
 
-- name: Ensure locale.gen is configured
+- name: Generate locale.gen
   blockinfile:
     path: /etc/locale.gen
     insertbefore: BOF
     content: "{{ lookup('file', 'files/locale.gen.block', rstrip=false) }}"
   notify: locale-gen
-- name: Ensure locale is configured
+- name: Configure locale
   copy:
     dest: /etc/locale.conf
     content: "{{ lookup('file', 'files/locale.conf') }}\n"
 
-- name: Ensure pacman is configured
+- name: Configure pacman
   blockinfile:
     path: /etc/pacman.conf
     insertafter: '^\[options\]$'
     block: "{{ lookup('file', 'files/pacman.conf.block') }}"
-- name: Ensure pacman mirrorlist uses RWTH servers
+- name: Use RWTH server for pacman
   copy:
     dest: /etc/pacman.d/mirrorlist
     content: "{{ lookup('file', 'files/mirrorlist') }}\n"
