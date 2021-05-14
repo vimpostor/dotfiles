@@ -2,6 +2,6 @@
 - name: Converge
   hosts: all
   tasks:
-    - name: "Include arch-base"
+    - name: "Include base"
       include_role:
-        name: "arch-base"
+        name: "base"
