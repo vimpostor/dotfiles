@@ -19,7 +19,7 @@
     dest: /etc/locale.conf
     content: "{{ lookup('file', 'files/locale.conf') }}\n"
 
-- name: Configure pacman
+- name: Configure pacman options
   blockinfile:
     path: /etc/pacman.conf
     insertafter: '^\[options\]$'
@@ -27,6 +27,7 @@
 - name: Enable multilib repo
   blockinfile:
     path: /etc/pacman.conf
+    marker: "# {mark} ANSIBLE MANAGED BLOCK (multilib)"
     insertbefore: '^#\[multilib\]$'
     block: "{{ lookup('file', 'files/pacman.conf-multilib.block') }}"
 - name: Use RWTH server for pacman
