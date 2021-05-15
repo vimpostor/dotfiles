@@ -1,0 +1,7 @@
+---
+- name: Converge
+  hosts: all
+  tasks:
+    - name: "Include pro-audio"
+      include_role:
+        name: "pro-audio"
