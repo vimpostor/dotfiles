@@ -50,4 +50,4 @@
     upgrade: yes
 - name: Install base packages
   pacman:
-    name: "{{ query('file', 'files/packages.txt') }}"
+    name: "{{ lookup('file', 'files/packages.txt').splitlines() | list }}"
