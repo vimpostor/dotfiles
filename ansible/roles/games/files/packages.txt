@@ -1,0 +1,12 @@
+gameconqueror
+gamemode
+lib32-gamemode
+lib32-vulkan-icd-loader
+mesa-demos
+mumble
+steam
+steam-native-runtime
+teeworlds
+ttf-liberation
+vulkan-tools
+wine
