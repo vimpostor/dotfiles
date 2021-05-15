@@ -1,0 +1,3 @@
+- name: Install productivity packages
+  pacman:
+    name: "{{ lookup('file', 'files/packages.txt').splitlines() | list }}"

@@ -1,7 +1,5 @@
 ---
 - hosts: localhost
-  become: true
+  remote_user: root
   roles:
-    - base
     - productivity
-    - dev
