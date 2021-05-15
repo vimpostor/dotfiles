@@ -8,6 +8,7 @@ bind
 binutils
 dhcpcd
 fd
+git
 gvim
 inetutils
 linux-firmware

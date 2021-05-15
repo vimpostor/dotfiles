@@ -24,7 +24,6 @@ gammaray
 gcovr
 gdb
 ghc
-git
 go
 go-tools
 gource
