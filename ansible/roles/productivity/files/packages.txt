@@ -7,7 +7,6 @@ aspell-en
 biber
 blender
 bluedevil
-bluez-firmware
 bluez-utils
 bspwm
 chromium

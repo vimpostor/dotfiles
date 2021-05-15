@@ -6,7 +6,6 @@ dragonfly-reverb
 fluidsynth
 gst-plugin-pipewire
 jack2
-jamulus
 linuxsampler
 musescore
 pavucontrol
@@ -23,7 +22,6 @@ sonic-pi
 sonic-visualiser
 sox
 speech-dispatcher
-spotify
 surge
 timidity++
 x42-plugins
