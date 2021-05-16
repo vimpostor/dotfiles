@@ -7,6 +7,11 @@
     chdir: "{{ dotfiles_dir }}"
     cmd: ./link.sh -y
     creates: '~/.zshrc'
+- name: Create XDG directories
+  command:
+    chdir: '~'
+    cmd: mkdir Desktop Downloads Music Pictures Videos
+    creates: '~/Downloads'
 - name: Clone AUR helper (yay)
   git:
     repo: 'https://aur.archlinux.org/yay.git'
