@@ -1,2 +1,6 @@
 - name: locale-gen
   command: locale-gen
+- name: enable rngd
+  systemd:
+    name: rngd.service
+    enabled: yes
