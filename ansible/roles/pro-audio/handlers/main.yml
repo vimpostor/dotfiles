@@ -1,2 +1,5 @@
----
-# handlers file for pro-audio
+- name: add to realtime group
+  user:
+    name: magnus
+    groups: realtime
+    append: yes

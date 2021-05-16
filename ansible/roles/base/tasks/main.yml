@@ -44,6 +44,7 @@
     name: magnus
     shell: /usr/bin/zsh
     groups: "{{ lookup('file', 'files/groups').splitlines() | list }}"
+    append: yes
 - name: Allow group wheel to use sudo
   lineinfile:
     path: /etc/sudoers
