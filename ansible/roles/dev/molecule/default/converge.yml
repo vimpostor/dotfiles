@@ -4,4 +4,7 @@
   tasks:
     - name: "Include dev"
       include_role:
-        name: "dev"
+        name: "{{ item }}"
+      loop:
+        - "base"
+        - "dev"

@@ -4,4 +4,7 @@
   tasks:
     - name: "Include productivity"
       include_role:
-        name: "productivity"
+        name: "{{ item }}"
+      loop:
+        - "base"
+        - "productivity"

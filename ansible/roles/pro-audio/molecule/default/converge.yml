@@ -4,4 +4,7 @@
   tasks:
     - name: "Include pro-audio"
       include_role:
-        name: "pro-audio"
+        name: "{{ item }}"
+      loop:
+        - "base"
+        - "pro-audio"
