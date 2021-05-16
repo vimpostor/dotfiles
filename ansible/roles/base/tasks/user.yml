@@ -1,0 +1,9 @@
+- name: Clone dotfiles
+  git:
+    repo: 'https://gitlab.com/vimpostor/dotfiles.git'
+    dest: '{{ dotfiles_dir }}'
+- name: Install dotfiles
+  command:
+    chdir: '{{ dotfiles_dir }}'
+    cmd: ./link.sh -y
+    creates: '~/.zshrc'

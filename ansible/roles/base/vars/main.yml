@@ -1,2 +1,1 @@
----
-# vars file for base
+dotfiles_dir: '~/.dotfiles'
