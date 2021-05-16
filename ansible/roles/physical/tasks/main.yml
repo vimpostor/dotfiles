@@ -1,0 +1,8 @@
+- name: Interpret hardware clock as UTC
+  command:
+    cmd: hwclock --systohc
+    creates: /etc/adjtime
+- name: Configure hostname
+  copy:
+    dest: /etc/hostname
+    content: "{{ myhostname }}\n"

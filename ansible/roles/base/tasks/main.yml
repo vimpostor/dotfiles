@@ -3,10 +3,6 @@
     src: /usr/share/zoneinfo/Europe/Berlin
     dest: /etc/localtime
     state: link
-- name: Interpret hardware clock as UTC
-  command:
-    cmd: hwclock --systohc
-    creates: /etc/adjtime
 
 - name: Generate locale.gen
   blockinfile:
@@ -35,10 +31,6 @@
     dest: /etc/pacman.d/mirrorlist
     content: "{{ lookup('file', 'files/mirrorlist') }}\n"
 
-- name: Configure hostname
-  copy:
-    dest: /etc/hostname
-    content: "{{ myhostname }}\n"
 - name: Ensure hosts contains localhost
   blockinfile:
     path: /etc/hosts
