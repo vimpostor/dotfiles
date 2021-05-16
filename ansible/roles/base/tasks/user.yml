@@ -1,9 +1,18 @@
 - name: Clone dotfiles
   git:
     repo: 'https://gitlab.com/vimpostor/dotfiles.git'
-    dest: '{{ dotfiles_dir }}'
+    dest: "{{ dotfiles_dir }}"
 - name: Install dotfiles
   command:
-    chdir: '{{ dotfiles_dir }}'
+    chdir: "{{ dotfiles_dir }}"
     cmd: ./link.sh -y
     creates: '~/.zshrc'
+- name: Clone AUR helper (yay)
+  git:
+    repo: 'https://aur.archlinux.org/yay.git'
+    dest: "{{ aur_helper_dir }}"
+- name: Build AUR helper
+  command:
+    chdir: "{{ aur_helper_dir }}"
+    cmd: makepkg -s
+    creates: "{{ aur_helper_dir }}/pkg"

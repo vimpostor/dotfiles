@@ -1,1 +1,2 @@
 dotfiles_dir: '~/.dotfiles'
+aur_helper_dir: '/tmp/.aur'
