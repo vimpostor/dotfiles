@@ -73,6 +73,7 @@ networkmanager-vpnc
 nextcloud-client
 nm-cloud-setup
 ntfs-3g
+obs-studio
 octave
 okular
 openconnect
