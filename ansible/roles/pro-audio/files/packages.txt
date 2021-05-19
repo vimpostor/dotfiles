@@ -12,7 +12,6 @@ pavucontrol
 pipewire-alsa
 pipewire-jack
 pipewire-pulse
-pulseaudio-alsa
 qjackctl
 qsampler
 realtime-privileges
