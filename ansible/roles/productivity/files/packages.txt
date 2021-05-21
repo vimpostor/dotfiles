@@ -49,6 +49,8 @@ kwallet-pam
 kwalletmanager
 kwin
 latte-dock
+lib32-libva-mesa-driver
+lib32-mesa-vdpau
 libnotify
 libreoffice-still
 libva-mesa-driver
