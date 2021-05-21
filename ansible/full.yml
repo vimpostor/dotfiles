@@ -4,7 +4,7 @@
   roles:
     - physical
     - base
-    - productivity
     - pro-audio
+    - productivity
     - dev
     - games
