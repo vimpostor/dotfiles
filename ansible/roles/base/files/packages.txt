@@ -9,7 +9,6 @@ binutils
 dhcpcd
 fd
 git
-go
 gvim
 inetutils
 linux-firmware

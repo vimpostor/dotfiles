@@ -16,6 +16,9 @@
   git:
     repo: 'https://aur.archlinux.org/yay.git'
     dest: "{{ aur_helper_dir }}"
+- name: Install AUR helper dependencies
+  pacman:
+    name: go
 - name: Build AUR helper
   command:
     chdir: "{{ aur_helper_dir }}"
