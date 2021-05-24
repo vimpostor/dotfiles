@@ -1,4 +1,8 @@
 - name: Install dev packages
   pacman:
     name: "{{ lookup('file', 'files/packages.txt').splitlines() | list }}"
-  notify: add to wireshark group
+- name: Add to wireshark group
+  user:
+    name: magnus
+    groups: wireshark
+    append: yes

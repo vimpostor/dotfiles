@@ -1,6 +1,11 @@
 - name: Install productivity packages
   pacman:
     name: "{{ lookup('file', 'files/packages.txt').splitlines() | list }}"
-  notify:
-    - enable networkmanager
-    - enable sddm
+- name: Enable NetworkManager
+  systemd:
+    name: NetworkManager.service
+    enabled: yes
+- name: Enable sddm
+  systemd:
+    name: sddm.service
+    enabled: yes

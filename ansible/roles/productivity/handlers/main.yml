@@ -1,8 +1,0 @@
-- name: enable networkmanager
-  systemd:
-    name: NetworkManager.service
-    enabled: yes
-- name: enable sddm
-  systemd:
-    name: sddm.service
-    enabled: yes

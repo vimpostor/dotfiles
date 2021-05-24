@@ -1,4 +1,8 @@
 - name: Install pro-audio packages
   pacman:
     name: "{{ lookup('file', 'files/packages.txt').splitlines() | list }}"
-  notify: add to realtime group
+- name: Add to realtime group
+  user:
+    name: magnus
+    groups: realtime
+    append: yes

@@ -1,5 +1,0 @@
-- name: add to realtime group
-  user:
-    name: magnus
-    groups: realtime
-    append: yes

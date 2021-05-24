@@ -4,12 +4,15 @@
     dest: /etc/localtime
     state: link
 
-- name: Generate locale.gen
+- name: Configure locale.gen
   blockinfile:
     path: /etc/locale.gen
     insertbefore: BOF
     content: "{{ lookup('file', 'files/locale.gen.block', rstrip=false) }}"
-  notify: locale-gen
+- name: Generate locale
+  command:
+    cmd: locale-gen
+    creates: /usr/lib/locale/locale-archive
 - name: Configure locale
   copy:
     dest: /etc/locale.conf
@@ -37,7 +40,10 @@
 - name: Install base packages
   pacman:
     name: "{{ lookup('file', 'files/packages.txt').splitlines() | list }}"
-  notify: enable rngd
+- name: Enable rngd service
+  systemd:
+    name: rngd.service
+    enabled: yes
 
 - name: Create user magnus
   user:

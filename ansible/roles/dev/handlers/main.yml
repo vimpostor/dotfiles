@@ -1,5 +1,0 @@
-- name: add to wireshark group
-  user:
-    name: magnus
-    groups: wireshark
-    append: yes
