@@ -14,8 +14,8 @@ Path ~/.local/share/mail/name/
 Inbox ~/.local/share/mail/name/INBOX
 
 Channel name
-Master :name-remote:
-Slave :name-local:
+Far :name-remote:
+Near :name-local:
 Patterns INBOX Sent
 Create Both
 SyncState *
