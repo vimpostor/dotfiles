@@ -218,3 +218,6 @@ let g:multi_cursor_exit_from_insert_mode = 0
 "tpipeline
 let g:tpipeline_split = 1
 let g:tpipeline_cursormoved = 1
+
+"nerdcommenter
+let g:NERDSpaceDelims = 1
