@@ -1,13 +1,14 @@
 {
 	"coc.preferences.extensionUpdateCheck": "never",
-	"latex.build.args": [
+	"texlab.build.args": [
 		"-pdf",
 		"-interaction=nonstopmode",
 		"-synctex=1",
-		"-pvc"
+		"-pvc",
+		"%f"
 	],
-	"latex.forwardSearch.args": ["--synctex-forward", "%l:1:%f", "%p"],
-	"latex.forwardSearch.executable": "zathura",
+	"texlab.forwardSearch.args": ["--synctex-forward", "%l:1:%f", "%p"],
+	"texlab.forwardSearch.executable": "zathura",
 	"languageserver": {
 		"bash": {
 			"command": "bash-language-server",
