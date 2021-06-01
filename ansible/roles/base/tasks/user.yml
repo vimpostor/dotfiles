@@ -12,15 +12,3 @@
     chdir: '~'
     cmd: mkdir Desktop Downloads Music Pictures Videos
     creates: '~/Downloads'
-- name: Clone AUR helper (yay)
-  git:
-    repo: 'https://aur.archlinux.org/yay.git'
-    dest: "{{ aur_helper_dir }}"
-- name: Install AUR helper dependencies
-  pacman:
-    name: go
-- name: Build AUR helper
-  command:
-    chdir: "{{ aur_helper_dir }}"
-    cmd: makepkg -s
-    creates: "{{ aur_helper_dir }}/pkg"

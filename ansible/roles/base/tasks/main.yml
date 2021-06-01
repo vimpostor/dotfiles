@@ -59,7 +59,4 @@
 - include: user.yml
   become: yes
   become_user: magnus
-- name: Install AUR helper
-  command:
-    cmd: "sh -c 'pacman -U --noconfirm {{ aur_helper_dir }}/yay-*.pkg.tar.zst'"
-    creates: /usr/bin/yay
+- include: aur_helper.yml
