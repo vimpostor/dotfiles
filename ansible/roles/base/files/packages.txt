@@ -6,7 +6,6 @@ base
 base-devel
 bind
 binutils
-dhcpcd
 fd
 git
 gvim
