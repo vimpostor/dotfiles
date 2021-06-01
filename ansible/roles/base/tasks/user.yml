@@ -1,7 +1,8 @@
 - name: Clone dotfiles
-  git:
-    repo: 'https://gitlab.com/vimpostor/dotfiles.git'
-    dest: "{{ dotfiles_dir }}"
+  command:
+    chdir: '~'
+    cmd: git clone 'https://gitlab.com/vimpostor/dotfiles.git' "{{ dotfiles_dir }}"
+    creates: "{{ dotfiles_dir }}"
 - name: Install dotfiles
   command:
     chdir: "{{ dotfiles_dir }}"
