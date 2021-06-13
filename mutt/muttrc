@@ -48,6 +48,7 @@ set wait_key = no
 set delete = yes
 # f=f, see https://nullprogram.com/blog/2017/06/15/
 set text_flowed
+set user_agent = yes
 # include message in replies
 set include
 set attach_save_dir = "/tmp"
