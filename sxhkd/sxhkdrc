@@ -164,7 +164,7 @@ super + shift + v
 
 # kde padding
 super + shift + m
-	~/Documents/scripts/kdePadding.sh
+	~/Documents/scripts/kde-padding.sh
 
 # switch to next desktop
 super + shift + {Left,Right}
@@ -180,4 +180,4 @@ super + {_,shift +} e
 
 # swap window manager
 super + shift + s
-	~/Documents/scripts/swapWindowManager.sh
+	~/Documents/scripts/swap-wm.sh
