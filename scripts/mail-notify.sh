@@ -5,7 +5,7 @@ set -e
 
 # do not notify about individual messages, but summarize as soon as this number of new messages is reached
 SUMMARY_THRESHOLD=5
-MSG_CACHE="$HOME/.cache/mbsync-notify.cache"
+MSG_CACHE="$HOME/.cache/mail-notify.cache"
 
 if [[ -z "$MAILDIR_INBOX" ]]; then
 	# use default maildir
@@ -23,8 +23,8 @@ fi
 
 # Decodes MIME RFC 2047 to UTF8
 function decode() {
-	DECODER="print decode("\""MIME-Header"\"", "\""$*"\"")"
-	DECODED="$(echo "" | perl -CS -MEncode -ne "$DECODER")"
+	DECODER="print decode("\""MIME-Header"\"", "\""$(echo $* | sed 's/"//g')"\"")"
+	DECODED="$(echo "" | perl -CS -MEncode -ne "$DECODER" || echo 'Parse Error')"
 }
 
 # sends a notification with title and body
