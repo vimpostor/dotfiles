@@ -23,7 +23,7 @@ fi
 
 # Decodes MIME RFC 2047 to UTF8
 function decode() {
-	DECODER="print decode("\""MIME-Header"\"", "\""$(echo $* | sed 's/"//g')"\"")"
+	DECODER="print decode(\"MIME-Header\", \"${*//\"/}\")"
 	DECODED="$(echo "" | perl -CS -MEncode -ne "$DECODER" || echo 'Parse Error')"
 }
 
@@ -41,10 +41,10 @@ elif [[ "$COUNT" -lt "$SUMMARY_THRESHOLD" ]]; then
 	for MSG in "$MAILDIR_NEW"/*; do
 		# only notify if we haven't already for this message
 		if ! grep -Fq "$(basename "$MSG")" "$MSG_CACHE"; then
-			SENDER="$(grep -E '^From: ' $MSG | sed 's/From: //')"
+			SENDER="$(grep -E '^From: ' "$MSG" | sed 's/From: //')"
 			decode "$SENDER"
 			PARSED_SENDER="$(echo "$DECODED"| sed 's/ <.*>//g')"
-			SUBJECT="$(grep -E '^Subject: ' $MSG | sed 's/Subject: //')"
+			SUBJECT="$(grep -E '^Subject: ' "$MSG" | sed 's/Subject: //')"
 			decode "$SUBJECT"
 			notify "$PARSED_SENDER" "$DECODED"
 		fi
