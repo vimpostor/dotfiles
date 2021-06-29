@@ -1,8 +1,0 @@
-- name: Install refind package
-  package:
-    name: refind
-    state: present
-- name: Install refind as bootloader
-  command:
-    cmd: refind-install
-    creates: /boot/refind_linux.conf
