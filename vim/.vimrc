@@ -105,7 +105,6 @@ vnoremap <silent> K :<C-U>exec "'<,'>move '<-" . (1+v:count1)<CR>gv=gv
 nnoremap <silent> <LocalLeader>/ :nohl<CR>
 "autocorrect last misspelling
 imap <c-v> <c-g>u<Esc>[s1z=`]a<c-g>u
-nmap <c-v> [s1z=<c-o>
 "Thesaurus
 nnoremap <silent> <LocalLeader>t :call popup_atcursor(split(system('aiksaurus '.shellescape(substitute(expand('<cWORD>'), '[^[:alpha:]]', '', 'g'))), '\n')[:-2], #{title: expand('<cWORD>'), border: [], col: min([col('.')%&columns, &columns/2])})<CR>
 "do not overwrite my keybindings in rebase mode
