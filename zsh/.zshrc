@@ -3,7 +3,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 # powerlevel10k status prompt
 typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
-typeset -g POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(ssh context dir vcs newline prompt_char)
+typeset -g POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(ssh context dir vcs kubecontext newline prompt_char)
 typeset -g POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status command_execution_time root_indicator background_jobs)
 typeset -g POWERLEVEL9K_MODE=nerdfont-complete
 typeset -g POWERLEVEL9K_MULTILINE_FIRST_PROMPT_GAP_CHAR='·'
@@ -26,6 +26,7 @@ typeset -g POWERLEVEL9K_DIR_ANCHOR_BOLD=true
 typeset -g POWERLEVEL9K_SHORTEN_DIR_LENGTH=1
 typeset -g POWERLEVEL9K_DIR_SHOW_WRITABLE=true
 typeset -g POWERLEVEL9K_VCS_{STAGED,UNSTAGED,UNTRACKED,CONFLICTED,COMMITS_AHEAD,COMMITS_BEHIND}_MAX_NUM=-1
+typeset -g POWERLEVEL9K_KUBECONTEXT_SHOW_ON_COMMAND='kubectl|helm'
 typeset -g POWERLEVEL9K_TRANSIENT_PROMPT=same-dir
 typeset -g POWERLEVEL9K_DISABLE_HOT_RELOAD=true
 typeset -g ZLE_RPROMPT_INDENT=0
