@@ -112,7 +112,7 @@ function highlight() {
 # creates a file from a template
 # Usage: templ newscript.sh
 function templ() {
-	cp ~/.config/.filetemplates/*."${*##*.}" "$*"
+	cp ~/Templates/.filetemplates/*."${*##*.}" "$*"
 }
 
 # generates an Ansible role using molecule

@@ -11,5 +11,5 @@
 - name: Create XDG directories
   command:
     chdir: '~'
-    cmd: mkdir Desktop Downloads Music Pictures Public Templates Videos
+    cmd: mkdir -p Desktop Documents Downloads Music Pictures Public Templates Videos
     creates: '~/Downloads'
