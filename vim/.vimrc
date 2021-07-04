@@ -197,6 +197,10 @@ nnoremap <silent> <LocalLeader>lv :<C-u>CocCommand latex.ForwardSearch<CR>
 
 "vimspector
 let g:vimspector_enable_mappings = 'HUMAN'
+nmap <Leader>di <Plug>VimspectorBalloonEval
+xmap <Leader>di <Plug>VimspectorBalloonEval
+nmap <LocalLeader><F11> <Plug>VimspectorUpFrame
+nmap <LocalLeader><F12> <Plug>VimspectorDownFrame
 
 "easy motion
 nmap s <Plug>(easymotion-s2)
