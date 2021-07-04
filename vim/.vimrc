@@ -196,7 +196,7 @@ nnoremap <silent> <LocalLeader>ll :<C-u>CocCommand latex.Build<CR>
 nnoremap <silent> <LocalLeader>lv :<C-u>CocCommand latex.ForwardSearch<CR>
 
 "vimspector
-let g:vimspector_enable_mappings = 'VISUAL_STUDIO'
+let g:vimspector_enable_mappings = 'HUMAN'
 
 "easy motion
 nmap s <Plug>(easymotion-s2)
