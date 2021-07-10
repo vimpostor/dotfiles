@@ -80,6 +80,26 @@ autocmd Filetype markdown setlocal spell
 autocmd Filetype gitcommit setlocal spell
 au BufRead /tmp/mutt-* setlocal fo+=aw spell spelllang=en,de
 autocmd FileType haskell setlocal expandtab
+"switch between header and source
+func HeaderToggle()
+	let l:f = expand("%<")
+	let l:e = expand("%:e")
+	let l:h = ['hpp', 'h', 'hh', 'hxx']
+	let l:s = ['cpp', 'c', 'cc', 'cxx']
+	let l:i = index(l:h, l:e)
+	let l:l = l:h
+	if index(l:s, l:e) == -1
+		let l:l = l:s
+	endif
+	for i in l:l
+		if filereadable(l:f . '.' . i)
+			exe 'e ' . l:f . '.' . i
+			return
+		endif
+	endfor
+endfunc
+autocmd Filetype cpp,c nnoremap <silent> <F4> :call HeaderToggle()<CR>
+
 "pandoc
 command PandocDisable autocmd! Pandoc BufWritePost *
 command PandocEnable exe 'silent! PandocDisable!' | exe 'augroup Pandoc' | exe 'silent !pandoc % -o /tmp/%:t.pdf && xdg-open /tmp/%:t.pdf' | exe 'autocmd BufWritePost * silent! !pandoc % -o /tmp/%:t.pdf' | exe 'augroup END' | exe 'redraw!'
