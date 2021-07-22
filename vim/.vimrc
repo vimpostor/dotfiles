@@ -86,14 +86,13 @@ func HeaderToggle()
 	let l:e = expand("%:e")
 	let l:h = ['hpp', 'h', 'hh', 'hxx']
 	let l:s = ['cpp', 'c', 'cc', 'cxx']
-	let l:i = index(l:h, l:e)
 	let l:l = l:h
 	if index(l:s, l:e) == -1
 		let l:l = l:s
 	endif
-	for i in l:l
-		if filereadable(l:f . '.' . i)
-			exe 'e ' . l:f . '.' . i
+	for l:i in l:l
+		if filereadable(l:f . '.' . l:i)
+			exe 'e ' . l:f . '.' . l:i
 			return
 		endif
 	endfor
