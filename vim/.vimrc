@@ -16,6 +16,7 @@ Plug 'https://gitlab.com/dbeniamine/cheat.sh-vim.git' "cheat sheets
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'puremourning/vimspector' "debugging
 Plug 'vimpostor/vim-tpipeline' "outsource statusline to tmux
+Plug 'junegunn/fzf.vim' "fzf integration
 call plug#end()
 
 "color scheme
@@ -206,13 +207,13 @@ nnoremap <silent> <LocalLeader>k  :<C-u>CocPrev<CR>
 nnoremap <silent> <LocalLeader>p  :<C-u>CocListResume<CR>
 "snippets
 imap <C-j> <Plug>(coc-snippets-expand-jump)
-"lists
-nnoremap <silent> <LocalLeader>P :<C-u>CocList -A files<CR>
-nnoremap <silent> <LocalLeader>b :<C-u>CocList -A buffers<CR>
-nnoremap <silent> <LocalLeader>f :<C-u>CocList -A -I grep<CR>
 "coc-texlab
 nnoremap <silent> <LocalLeader>ll :<C-u>CocCommand latex.Build<CR>
 nnoremap <silent> <LocalLeader>lv :<C-u>CocCommand latex.ForwardSearch<CR>
+"lists
+nnoremap <silent> <LocalLeader>P :<C-u>Files<CR>
+nnoremap <silent> <LocalLeader>b :<C-u>Buffers<CR>
+nnoremap <silent> <LocalLeader>f :<C-u>Rg<CR>
 
 "vimspector
 let g:vimspector_enable_mappings = 'HUMAN'
