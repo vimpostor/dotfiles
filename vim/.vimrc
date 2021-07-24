@@ -82,23 +82,7 @@ autocmd Filetype gitcommit setlocal spell
 au BufRead /tmp/mutt-* setlocal fo+=aw spell spelllang=en,de
 autocmd FileType haskell setlocal expandtab
 "switch between header and source
-func HeaderToggle()
-	let l:f = expand("%<")
-	let l:e = expand("%:e")
-	let l:h = ['hpp', 'h', 'hh', 'hxx']
-	let l:s = ['cpp', 'c', 'cc', 'cxx']
-	let l:l = l:h
-	if index(l:s, l:e) == -1
-		let l:l = l:s
-	endif
-	for l:i in l:l
-		if filereadable(l:f . '.' . l:i)
-			exe 'e ' . l:f . '.' . l:i
-			return
-		endif
-	endfor
-endfunc
-autocmd Filetype cpp,c nnoremap <silent> <F4> :call HeaderToggle()<CR>
+autocmd Filetype c,cpp nnoremap <silent> <F4> :<C-u>CocCommand clangd.switchSourceHeader<CR>
 
 "pandoc
 command PandocDisable autocmd! Pandoc BufWritePost *
