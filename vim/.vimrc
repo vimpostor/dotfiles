@@ -232,4 +232,4 @@ let g:tpipeline_cursormoved = 1
 let g:NERDSpaceDelims = 1
 
 "fzf
-let g:fzf_layout = { 'window': { 'width': 1, 'height': 0.4, 'yoffset': 1 }}
+let g:fzf_layout = {'window': {'width': 1, 'height': 0.4, 'yoffset': 1, 'border': 'horizontal'}}
