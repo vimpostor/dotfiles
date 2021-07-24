@@ -6,4 +6,4 @@ export GOPATH="$HOME/Documents/Go"
 export TDESKTOP_DISABLE_TRAY_COUNTER=1
 export KEYTIMEOUT=1
 export FZF_COMPLETION_TRIGGER='~~'
-export FZF_DEFAULT_OPTS="--history=$HOME/.cache/.fzf_history --layout=reverse"
+export FZF_DEFAULT_OPTS="--history=$HOME/.cache/.fzf_history"
