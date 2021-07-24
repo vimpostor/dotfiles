@@ -73,6 +73,9 @@ vnoremap > >gv
 "allow completions from the dictionary
 set complete+=kspell
 set diffopt+=vertical
+"split like a normal human being
+set splitbelow
+set splitright
 
 "file type specific settings
 autocmd Filetype yaml setlocal ts=2 sw=2 et
