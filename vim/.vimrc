@@ -207,6 +207,7 @@ nmap <LocalLeader>di <Plug>VimspectorBalloonEval
 xmap <LocalLeader>di <Plug>VimspectorBalloonEval
 nmap <Leader><F11> <Plug>VimspectorUpFrame
 nmap <Leader><F12> <Plug>VimspectorDownFrame
+nmap <silent> <Leader><F3> :<C-u>VimspectorReset<CR>
 
 "easy motion
 nmap s <Plug>(easymotion-s2)
