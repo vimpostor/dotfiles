@@ -92,8 +92,8 @@ command PandocDisable autocmd! Pandoc BufWritePost *
 command PandocEnable exe 'silent! PandocDisable!' | exe 'augroup Pandoc' | exe 'silent !pandoc % -o /tmp/%:t.pdf && xdg-open /tmp/%:t.pdf' | exe 'autocmd BufWritePost * silent! !pandoc % -o /tmp/%:t.pdf' | exe 'augroup END' | exe 'redraw!'
 
 "general keybindings
-let mapleader = ","
-let maplocalleader = " "
+let mapleader = " "
+let maplocalleader = ","
 map j gj
 map k gk
 nnoremap Q @@ "last macro
@@ -109,7 +109,7 @@ nnoremap <silent> K :<C-U>exec "exec 'norm m`' \| move -" . (1+v:count1)<CR>==``
 vnoremap <silent> J :<C-U>exec "'<,'>move '>+" . (0+v:count1)<CR>gv=gv
 vnoremap <silent> K :<C-U>exec "'<,'>move '<-" . (1+v:count1)<CR>gv=gv
 "clear search
-nnoremap <silent> <LocalLeader>/ :nohl<CR>
+nnoremap <silent> <Leader>/ :nohl<CR>
 "autocorrect last misspelling
 imap <c-v> <c-g>u<Esc>[s1z=`]a<c-g>u
 "Thesaurus
@@ -165,18 +165,18 @@ function! s:show_documentation()
   endif
 endfunction
 autocmd CursorHold * silent call CocActionAsync('highlight') "highlight symbol on cursor hold
-nmap <leader>rn <Plug>(coc-rename)
-xmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
+nmap <LocalLeader>rn <Plug>(coc-rename)
+xmap <LocalLeader>f  <Plug>(coc-format-selected)
+nmap <LocalLeader>f  <Plug>(coc-format-selected)
 augroup mygroup
   autocmd!
   autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected') "Setup formatexpr specified filetype(s).
   autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp') "Update signature help on jump placeholder
 augroup end
-xmap <leader>a  <Plug>(coc-codeaction-selected)
-nmap <leader>a  <Plug>(coc-codeaction-selected)
-nmap <leader>ac  <Plug>(coc-codeaction)
-nmap <leader>qf  <Plug>(coc-fix-current)
+xmap <LocalLeader>a  <Plug>(coc-codeaction-selected)
+nmap <LocalLeader>a  <Plug>(coc-codeaction-selected)
+nmap <LocalLeader>ac  <Plug>(coc-codeaction)
+nmap <LocalLeader>qf  <Plug>(coc-fix-current)
 "function text objects
 xmap if <Plug>(coc-funcobj-i)
 xmap af <Plug>(coc-funcobj-a)
@@ -185,38 +185,37 @@ omap af <Plug>(coc-funcobj-a)
 xmap <silent> <Tab> <Plug>(coc-range-select)
 command! -nargs=0 Format :call CocAction('format')
 command! -nargs=? Fold :call CocAction('fold', <f-args>)
-nnoremap <silent> <LocalLeader>e  :<C-u>CocList diagnostics<cr>
-nnoremap <silent> <LocalLeader>c  :<C-u>CocList commands<cr>
-nnoremap <silent> <LocalLeader>o  :<C-u>CocList outline<cr>
-nnoremap <silent> <LocalLeader>s  :<C-u>CocList -I symbols<cr>
-nnoremap <silent> <LocalLeader>j  :<C-u>CocNext<CR>
-nnoremap <silent> <LocalLeader>k  :<C-u>CocPrev<CR>
-nnoremap <silent> <LocalLeader>p  :<C-u>CocListResume<CR>
+nnoremap <silent> <Leader>e  :<C-u>CocList diagnostics<cr>
+nnoremap <silent> <Leader>o  :<C-u>CocList outline<cr>
+nnoremap <silent> <Leader>s  :<C-u>CocList -I symbols<cr>
+nnoremap <silent> <Leader>j  :<C-u>CocNext<CR>
+nnoremap <silent> <Leader>k  :<C-u>CocPrev<CR>
+nnoremap <silent> <Leader>p  :<C-u>CocListResume<CR>
 "snippets
 imap <C-j> <Plug>(coc-snippets-expand-jump)
 "coc-texlab
-nnoremap <silent> <LocalLeader>ll :<C-u>CocCommand latex.Build<CR>
+nnoremap <silent> <Leader>ll :<C-u>CocCommand latex.Build<CR>
 nnoremap <silent> <LocalLeader>lv :<C-u>CocCommand latex.ForwardSearch<CR>
 "lists
-nnoremap <silent> <LocalLeader>P :<C-u>Files<CR>
-nnoremap <silent> <LocalLeader>b :<C-u>Buffers<CR>
-nnoremap <silent> <LocalLeader>f :<C-u>Rg<CR>
+nnoremap <silent> <Leader>P :<C-u>Files<CR>
+nnoremap <silent> <Leader>b :<C-u>Buffers<CR>
+nnoremap <silent> <Leader>f :<C-u>Rg<CR>
 
 "vimspector
 let g:vimspector_enable_mappings = 'HUMAN'
-nmap <Leader>di <Plug>VimspectorBalloonEval
-xmap <Leader>di <Plug>VimspectorBalloonEval
-nmap <LocalLeader><F11> <Plug>VimspectorUpFrame
-nmap <LocalLeader><F12> <Plug>VimspectorDownFrame
+nmap <LocalLeader>di <Plug>VimspectorBalloonEval
+xmap <LocalLeader>di <Plug>VimspectorBalloonEval
+nmap <Leader><F11> <Plug>VimspectorUpFrame
+nmap <Leader><F12> <Plug>VimspectorDownFrame
 
 "easy motion
 nmap s <Plug>(easymotion-s2)
 nmap t <Plug>(easymotion-t2)
-map <Leader> <Plug>(easymotion-prefix)
-map <Leader>l <Plug>(easymotion-lineforward)
-map <Leader>j <Plug>(easymotion-j)
-map <Leader>k <Plug>(easymotion-k)
-map <Leader>h <Plug>(easymotion-linebackward)
+map <LocalLeader> <Plug>(easymotion-prefix)
+map <LocalLeader>l <Plug>(easymotion-lineforward)
+map <LocalLeader>j <Plug>(easymotion-j)
+map <LocalLeader>k <Plug>(easymotion-k)
+map <LocalLeader>h <Plug>(easymotion-linebackward)
 let g:EasyMotion_startofline = 0 "keep cursor column when JK motion
 hi link EasyMotionTarget2First Search
 hi link EasyMotionTarget2Second ErrorMsg
