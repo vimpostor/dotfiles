@@ -230,7 +230,10 @@ let g:multi_cursor_exit_from_insert_mode = 0
 let g:tpipeline_cursormoved = 1
 
 "nerdcommenter
+let g:NERDCreateDefaultMappings = 0
 let g:NERDSpaceDelims = 1
+nmap <LocalLeader>c<Space> <Plug>NERDCommenterToggle
+xmap <LocalLeader>c<Space> <Plug>NERDCommenterToggle
 
 "fzf
 let g:fzf_layout = {'window': {'width': 1, 'height': 0.4, 'yoffset': 1, 'border': 'horizontal'}}
