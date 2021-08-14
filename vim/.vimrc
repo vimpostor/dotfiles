@@ -69,8 +69,8 @@ if has('termguicolors') "true colors
 	set termguicolors
 endif
 "keep selected text selected when indenting
-vnoremap < <gv
-vnoremap > >gv
+xnoremap < <gv
+xnoremap > >gv
 "allow completions from the dictionary
 set complete+=kspell
 set diffopt+=vertical
@@ -107,8 +107,11 @@ nmap Y yg_
 "move lines around
 nnoremap <silent> J :<C-U>exec "exec 'norm m`' \| move +" . (0+v:count1)<CR>==``
 nnoremap <silent> K :<C-U>exec "exec 'norm m`' \| move -" . (1+v:count1)<CR>==``
-vnoremap <silent> J :<C-U>exec "'<,'>move '>+" . (0+v:count1)<CR>gv=gv
-vnoremap <silent> K :<C-U>exec "'<,'>move '<-" . (1+v:count1)<CR>gv=gv
+xnoremap <silent> J :<C-U>exec "'<,'>move '>+" . (0+v:count1)<CR>gv=gv
+xnoremap <silent> K :<C-U>exec "'<,'>move '<-" . (1+v:count1)<CR>gv=gv
+"join lines
+nnoremap <LocalLeader>J J
+xnoremap <LocalLeader>J J
 "clear search
 nnoremap <silent> <Leader>/ :nohl<CR>
 "autocorrect last misspelling
