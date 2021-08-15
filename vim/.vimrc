@@ -114,6 +114,7 @@ nnoremap <LocalLeader>J J
 xnoremap <LocalLeader>J J
 "clear search
 nnoremap <silent> <Leader>/ :nohl<CR>
+nnoremap <Leader><Leader> <c-^>
 "autocorrect last misspelling
 imap <c-v> <c-g>u<Esc>[s1z=`]a<c-g>u
 "Thesaurus
