@@ -114,6 +114,7 @@ nnoremap <LocalLeader>J J
 xnoremap <LocalLeader>J J
 "clear search
 nnoremap <silent> <Leader>/ :nohl<CR>
+"switch to last buffer
 nnoremap <Leader><Leader> <c-^>
 "autocorrect last misspelling
 imap <c-v> <c-g>u<Esc>[s1z=`]a<c-g>u
@@ -122,7 +123,7 @@ nnoremap <silent> <LocalLeader>t :call popup_atcursor(split(system('aiksaurus '.
 "do not overwrite my keybindings in rebase mode
 let g:no_gitrebase_maps = 1
 "write with sudo
-command SudoWrite w !sudo tee "%" > /dev/null
+command SudoWrite execute 'silent! write !sudo tee % >/dev/null' <bar> edit!
 
 "netrw
 nnoremap <silent> <C-t> :Lexplore<CR>
