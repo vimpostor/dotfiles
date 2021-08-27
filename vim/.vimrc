@@ -233,7 +233,6 @@ let g:multi_cursor_exit_from_insert_mode = 0
 
 "tpipeline
 let g:tpipeline_cursormoved = 1
-let g:tpipeline_autoembed = 1
 
 "nerdcommenter
 let g:NERDCreateDefaultMappings = 0
