@@ -109,6 +109,12 @@ nnoremap <silent> J :<C-U>exec "exec 'norm m`' \| move +" . (0+v:count1)<CR>==``
 nnoremap <silent> K :<C-U>exec "exec 'norm m`' \| move -" . (1+v:count1)<CR>==``
 xnoremap <silent> J :<C-U>exec "'<,'>move '>+" . (0+v:count1)<CR>gv=gv
 xnoremap <silent> K :<C-U>exec "'<,'>move '<-" . (1+v:count1)<CR>gv=gv
+"quickfix
+nmap <silent> <C-q> :call ToggleQf()<CR>
+nmap <silent> <Leader>J :cnext<CR>
+nmap <silent> <Leader>K :cprev<CR>
+nmap <silent> <Leader>j :lbelow<CR>
+nmap <silent> <Leader>k :labove<CR>
 "join lines
 nnoremap <LocalLeader>J J
 xnoremap <LocalLeader>J J
@@ -131,6 +137,15 @@ let g:netrw_banner = 0
 let g:netrw_liststyle = 3
 let g:netrw_browse_split = 4
 let g:netrw_winsize = 25
+
+"toggle qflist
+function! ToggleQf()
+	if getqflist({'winid': 0}).winid
+		cclose
+	else
+		copen
+	endif
+endfunction
 
 "plugin settings
 "coc.nvim
@@ -194,8 +209,6 @@ command! -nargs=? Fold :call CocAction('fold', <f-args>)
 nnoremap <silent> <Leader>e  :<C-u>CocList diagnostics<cr>
 nnoremap <silent> <Leader>o  :<C-u>CocList outline<cr>
 nnoremap <silent> <Leader>s  :<C-u>CocList -I symbols<cr>
-nnoremap <silent> <Leader>j  :<C-u>CocNext<CR>
-nnoremap <silent> <Leader>k  :<C-u>CocPrev<CR>
 nnoremap <silent> <Leader>p  :<C-u>CocListResume<CR>
 "snippets
 imap <C-j> <Plug>(coc-snippets-expand-jump)
@@ -242,3 +255,6 @@ xmap <LocalLeader>c<Space> <Plug>NERDCommenterToggle
 
 "fzf
 let g:fzf_layout = {'window': {'width': 1, 'height': 0.4, 'yoffset': 1, 'border': 'horizontal'}}
+
+"cheat.sh
+let g:CheatSheetDoNotMap=1
