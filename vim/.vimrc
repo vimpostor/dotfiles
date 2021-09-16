@@ -97,7 +97,7 @@ let mapleader = " "
 let maplocalleader = ","
 map j gj
 map k gk
-nnoremap Q @@ "last macro
+nnoremap Q @@
 "Use the system clipboard only when explicitly yanking
 xnoremap y "+y
 nnoremap y "+y
