@@ -13,6 +13,7 @@ Plug 'tpope/vim-fugitive' "handy git tools
 Plug 'markonm/traces.vim' "pattern preview
 Plug 'vimpostor/vim-prism' "colorscheme
 Plug 'https://gitlab.com/dbeniamine/cheat.sh-vim.git' "cheat sheets
+Plug 'dense-analysis/ale' "linting
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'puremourning/vimspector' "debugging
 Plug 'vimpostor/vim-tpipeline' "outsource statusline to tmux
@@ -148,8 +149,14 @@ function! ToggleQf()
 endfunction
 
 "plugin settings
+"ale
+let g:ale_disable_lsp = 1
+let g:ale_lint_on_text_changed = 'never'
+let g:ale_lint_on_insert_leave = 0
+let g:ale_sign_error = '✘'
+let g:ale_sign_warning = '⚠'
+
 "coc.nvim
-"extensions
 let g:coc_global_extensions = [
 \ 'coc-snippets',
 \ 'coc-texlab',

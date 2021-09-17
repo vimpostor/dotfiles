@@ -1,5 +1,6 @@
 {
 	"coc.preferences.extensionUpdateCheck": "never",
+	"diagnostic.displayByAle": true,
 	"texlab.build.args": [
 		"-pdf",
 		"-interaction=nonstopmode",
