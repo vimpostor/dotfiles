@@ -155,6 +155,10 @@ let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_insert_leave = 0
 let g:ale_sign_error = '✘'
 let g:ale_sign_warning = '⚠'
+let g:ale_virtualtext_cursor = 1
+let g:ale_virtualtext_prefix = "🔧 "
+exec 'hi ALEVirtualTextWarning cterm=italic guifg='.synIDattr(hlID('WarningMsg'),'fg').' guibg='.synIDattr(hlID('CursorLine'),'bg')
+exec 'hi ALEVirtualTextError cterm=italic guifg='.synIDattr(hlID('ErrorMsg'),'fg').' guibg='.synIDattr(hlID('CursorLine'),'bg')
 
 "coc.nvim
 let g:coc_global_extensions = [
