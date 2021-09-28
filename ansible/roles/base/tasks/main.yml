@@ -45,9 +45,9 @@
     name: rngd.service
     enabled: yes
 
-- name: Create user magnus
+- name: Create local user
   user:
-    name: magnus
+    name: "{{ local_user }}"
     shell: /usr/bin/zsh
     groups: "{{ lookup('file', 'files/groups').splitlines() | list }}"
     append: yes
@@ -58,5 +58,5 @@
     line: '%wheel ALL=(ALL) ALL'
 - include: user.yml
   become: yes
-  become_user: magnus
+  become_user: "{{ local_user }}"
 - include: aur_helper.yml
