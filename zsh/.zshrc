@@ -63,6 +63,7 @@ alias diff='diff --color=auto'
 alias clipboard='xclip -selection c'
 alias ip='ip -c'
 alias ls='ls --color=auto'
+alias gce='git commit --amend --no-edit'
 
 # functions
 # use xdg-open to open all passed files
