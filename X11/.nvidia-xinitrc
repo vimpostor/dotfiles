@@ -1,4 +1,0 @@
-#!/bin/sh
-
-setxkbmap de -option caps:escape
-exec bspwm
