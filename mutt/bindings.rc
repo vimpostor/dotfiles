@@ -12,7 +12,7 @@ bind index g "first-entry"
 bind index G "last-entry"
 bind index d "half-down"
 bind index u "half-up"
-bind index S "toggle-new"
+bind index U "toggle-new"
 macro index <F5> "<shell-escape>mbsync -a<enter>:echo 'Mail synced 📥'<enter>"
 
 bind pager j "next-line"
