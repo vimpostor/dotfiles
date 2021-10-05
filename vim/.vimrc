@@ -81,6 +81,7 @@ set splitright
 
 "file type specific settings
 autocmd Filetype yaml setlocal ts=2 sw=2 et
+autocmd Filetype yaml if expand('%:p:h') =~# 'playbooks\|tasks\|handlers' | setlocal ft=yaml.ansible | endif
 autocmd Filetype tex setlocal conceallevel=1 spell
 autocmd Filetype markdown setlocal spell
 autocmd Filetype gitcommit setlocal spell
