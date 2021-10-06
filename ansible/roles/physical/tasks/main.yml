@@ -6,6 +6,7 @@
   copy:
     dest: /etc/hostname
     content: "{{ myhostname }}\n"
+    mode: preserve
 - name: Ensure hosts contains localhost
   blockinfile:
     path: /etc/hosts
