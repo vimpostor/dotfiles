@@ -269,4 +269,6 @@ xmap <LocalLeader>c<Space> <Plug>NERDCommenterToggle
 let g:fzf_layout = {'window': {'width': 1, 'height': 0.4, 'yoffset': 1, 'border': 'horizontal'}}
 
 "cheat.sh
-let g:CheatSheetDoNotMap=1
+let g:CheatSheetDoNotMap = 1
+nnoremap <silent> <LocalLeader>KB :call cheat#cheat("", getcurpos()[1], getcurpos()[1], 0, 0, '!')<CR>
+vnoremap <silent> <LocalLeader>KB :call cheat#cheat("", -1, -1, 2, 0, '!')<CR>
