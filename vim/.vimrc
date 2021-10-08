@@ -226,7 +226,7 @@ nnoremap <silent> <Leader>p  :<C-u>CocListResume<CR>
 imap <C-j> <Plug>(coc-snippets-expand-jump)
 "coc-texlab
 nnoremap <silent> <Leader>ll :<C-u>CocCommand latex.Build<CR>
-nnoremap <silent> <LocalLeader>lv :<C-u>CocCommand latex.ForwardSearch<CR>
+nnoremap <silent> <Leader>lv :<C-u>CocCommand latex.ForwardSearch<CR>
 "lists
 nnoremap <silent> <Leader>P :<C-u>Files<CR>
 nnoremap <silent> <Leader>b :<C-u>Buffers<CR>
@@ -248,10 +248,7 @@ map <LocalLeader>l <Plug>(easymotion-lineforward)
 map <LocalLeader>j <Plug>(easymotion-j)
 map <LocalLeader>k <Plug>(easymotion-k)
 map <LocalLeader>h <Plug>(easymotion-linebackward)
-let g:EasyMotion_startofline = 0 "keep cursor column when JK motion
-hi link EasyMotionTarget2First Search
-hi link EasyMotionTarget2Second ErrorMsg
-let g:EasyMotion_keys = "asdghklqwertyuiopzxcvbnmfj,"
+let g:EasyMotion_startofline = 0 "keep cursor column JK motion
 
 "multiple cursors
 let g:multi_cursor_exit_from_insert_mode = 0
