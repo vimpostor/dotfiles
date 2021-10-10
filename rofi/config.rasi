@@ -1,0 +1,20 @@
+configuration {
+	modi: "drun,ssh,window";
+	lines: 10;
+	font: "Roboto 24";
+	bw: 0;
+	location: 0;
+	padding: 24;
+	show-icons: true;
+	terminal: "konsole";
+	ssh-command: "{terminal} -e {ssh-client} {host}";
+	eh: 1;
+	parse-known-hosts: false;
+	line-margin: 8;
+	separator-style: "solid";
+	scrollbar-width: 2;
+	color-normal: "argb:00000000, #ffffff, argb:00000000, argb:00000000, #80cbc4";
+	color-urgent: "argb:00000000, #f4511e, argb:00000000, argb:00000000, #f4511e";
+	color-active: "argb:00000000, #80cbc4, argb:00000000, argb:00000000, #80cbc4";
+	color-window: "argb:60263238, argb:60000000, argb:60545d62";
+}
