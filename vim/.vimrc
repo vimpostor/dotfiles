@@ -107,9 +107,9 @@ nnoremap p "+p
 nnoremap P "+P
 nmap Y yg_
 "move lines around
-nnoremap <silent> J :<C-U>exec "exec 'norm m`' \| move +" . (0+v:count1)<CR>==``
+nnoremap <silent> J :<C-U>exec "exec 'norm m`' \| move +" . v:count1<CR>==``
 nnoremap <silent> K :<C-U>exec "exec 'norm m`' \| move -" . (1+v:count1)<CR>==``
-xnoremap <silent> J :<C-U>exec "'<,'>move '>+" . (0+v:count1)<CR>gv=gv
+xnoremap <silent> J :<C-U>exec "'<,'>move '>+" . v:count1<CR>gv=gv
 xnoremap <silent> K :<C-U>exec "'<,'>move '<-" . (1+v:count1)<CR>gv=gv
 "quickfix
 nmap <silent> <C-q> :call ToggleQf()<CR>
