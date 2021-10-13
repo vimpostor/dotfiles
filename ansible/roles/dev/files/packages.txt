@@ -12,7 +12,6 @@ cppcheck
 crun
 dialog
 diffutils
-docker-compose
 dos2unix
 doxygen
 eigen
@@ -47,6 +46,7 @@ npm
 openmp
 parallel
 patch
+patchelf
 perf
 perl
 pkgconf
@@ -76,8 +76,8 @@ qt5-webview
 qt6-base
 qt6-declarative
 qt6-examples
+qt6-multimedia
 qt6-networkauth
-qt6-quickcontrols2
 qt6-shadertools
 qt6-svg
 qt6-tools
