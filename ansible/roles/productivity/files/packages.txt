@@ -105,7 +105,6 @@ ranger
 remmina
 rofi
 s-nail
-s-tui
 samba
 sane
 scantailor-advanced

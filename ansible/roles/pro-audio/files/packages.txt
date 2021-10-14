@@ -4,7 +4,6 @@ alsa-utils
 ardour
 dragonfly-reverb
 easyeffects
-fluidsynth
 gst-plugin-pipewire
 jack2
 linuxsampler
