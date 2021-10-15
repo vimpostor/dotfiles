@@ -132,5 +132,11 @@ function git-del-branch() {
 	git branch -D "$*" && git push origin --delete "$*"
 }
 
+# rebase current branch on top of upstream remote changes
+function greb() {
+	DEFAULT_BRANCH="$(git branch -rl \*/HEAD | head -1 | rev | cut -d/ -f1 | rev)"
+	git fetch upstream && git rebase "upstream/$DEFAULT_BRANCH"
+}
+
 # complete autosuggestions with <c-space>
 bindkey '^ ' autosuggest-accept
