@@ -126,8 +126,6 @@ nnoremap <silent> <Leader>/ :nohl<CR>
 nnoremap <Leader><Leader> <c-^>
 "autocorrect last misspelling
 imap <c-v> <c-g>u<Esc>[s1z=`]a<c-g>u
-"Thesaurus
-nnoremap <silent> <LocalLeader>t :call popup_atcursor(split(system('aiksaurus '.shellescape(substitute(expand('<cWORD>'), '[^[:alpha:]]', '', 'g'))), '\n')[:-2], #{title: expand('<cWORD>'), border: [], col: min([col('.')%&columns, &columns/2])})<CR>
 "do not overwrite my keybindings in rebase mode
 let g:no_gitrebase_maps = 1
 "write with sudo
@@ -148,6 +146,31 @@ function! ToggleQf()
 		copen
 	endif
 endfunction
+"thesaurus
+func Thesaur(findstart, base)
+	if a:findstart
+		let line = getline('.')
+		let start = col('.') - 1
+		while start > 0 && line[start - 1] =~ '\a'
+			let start -= 1
+		endwhile
+		return start
+	else
+		let res = []
+		let h = ''
+		for l in split(system('aiksaurus '.shellescape(a:base)), '\n')
+			if l[:3] == '=== '
+				let h = substitute(l[4:], ' =*$', '', '')
+			elseif l[0] =~ '\a'
+				call extend(res, map(split(l, ', '), {_, val -> {'word': val, 'menu': '('.h.')'}}))
+			endif
+		endfor
+		return res
+	endif
+endfunc
+if has('patch-8.2.3520')
+	set thesaurusfunc=Thesaur
+endif
 
 "plugin settings
 "ale
