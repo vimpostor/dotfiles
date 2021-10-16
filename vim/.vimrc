@@ -160,9 +160,9 @@ func Thesaur(findstart, base)
 		let h = ''
 		for l in split(system('aiksaurus '.shellescape(a:base)), '\n')
 			if l[:3] == '=== '
-				let h = substitute(l[4:], ' =*$', '', '')
+				let h = '('.substitute(l[4:], ' =*$', ')', '')
 			elseif l[0] =~ '\a'
-				call extend(res, map(split(l, ', '), {_, val -> {'word': val, 'menu': '('.h.')'}}))
+				call extend(res, map(split(l, ', '), {_, val -> {'word': val, 'menu': h}}))
 			endif
 		endfor
 		return res
