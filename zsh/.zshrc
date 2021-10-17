@@ -134,8 +134,8 @@ function git-del-branch() {
 
 # rebase current branch on top of upstream remote changes
 function greb() {
-	DEFAULT_BRANCH="$(git branch -rl \*/HEAD | head -1 | rev | cut -d/ -f1 | rev)"
-	git fetch upstream && git --no-pager diff --stat "$(git merge-base HEAD upstream/$DEFAULT_BRANCH)" "upstream/$DEFAULT_BRANCH" && git rebase "upstream/$DEFAULT_BRANCH"
+	DEFAULT_BRANCH="upstream/$(git branch -rl \*/HEAD | head -1 | rev | cut -d/ -f1 | rev)"
+	git fetch upstream && git --no-pager log --reverse --pretty=tformat:%s "$(git merge-base HEAD $DEFAULT_BRANCH)".."$DEFAULT_BRANCH" && git --no-pager diff --stat "$(git merge-base HEAD $DEFAULT_BRANCH)" "$DEFAULT_BRANCH" && git rebase "$DEFAULT_BRANCH"
 }
 
 # complete autosuggestions with <c-space>
