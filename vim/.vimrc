@@ -161,8 +161,10 @@ func Thesaur(findstart, base)
 		for l in split(system('aiksaurus '.shellescape(a:base)), '\n')
 			if l[:3] == '=== '
 				let h = '('.substitute(l[4:], ' =*$', ')', '')
-			elseif l[0] =~ '\a'
-				call extend(res, map(split(l, ', '), {_, val -> {'word': val, 'menu': h}}))
+			elseif l ==# 'Alphabetically similar known words are: '
+				let h = '🔮'
+			elseif l[0] =~ '\a' || (h ==# '🔮' && l[0] ==# "\t")
+				call extend(res, map(split(substitute(l, '^\t', '', ''), ', '), {_, val -> {'word': val, 'menu': h}}))
 			endif
 		endfor
 		return res
