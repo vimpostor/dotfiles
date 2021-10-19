@@ -12,3 +12,7 @@
 	ff = only
 [init]
 	defaultBranch = master
+[mergetool "fugitive"]
+	cmd = vim -f -c \"Gvdiffsplit!\" \"$MERGED\"
+[merge]
+	tool = fugitive
