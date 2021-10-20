@@ -29,7 +29,7 @@ function decode() {
 
 # sends a notification with title and body
 function notify() {
-	notify-send -i mail-message -c email.arrived -h string:desktop-entry:org.kde.konsole "$1" "$2"
+	gdbus call --session --dest=org.freedesktop.Notifications --object-path=/org/freedesktop/Notifications --method=org.freedesktop.Notifications.Notify 'mutt' 0 'mail-message' "$1" "$2" '[]' '{"desktop-entry": <"org.kde.konsole">, "category": <"email.arrived">}' 5000
 }
 
 COUNT=$(ls -b1 "$MAILDIR_NEW" | wc -l)
