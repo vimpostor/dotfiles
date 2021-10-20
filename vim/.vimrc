@@ -54,7 +54,12 @@ set laststatus=2 "always show the statusline
 set noshowmode "dont show mode
 set noruler "no curser position
 set noshowcmd "don't show cmds
-set mouse=a "enable mouse input
+set mouse=a
+if has('mouse_sgr')
+	set ttymouse=sgr
+elseif !has('nvim')
+	set ttymouse=xterm2
+endif
 set t_ut="" "prevents a weird background on some terminals
 set lazyredraw
 set hidden "allow buffers to be hidden
