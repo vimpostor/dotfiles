@@ -44,7 +44,7 @@ elif [[ "$COUNT" -lt "$SUMMARY_THRESHOLD" ]]; then
 			SENDER="$(grep -E '^From: ' "$MSG" | sed 's/From: //')"
 			decode "$SENDER"
 			PARSED_SENDER="$(echo "$DECODED"| sed 's/ <.*>//g')"
-			SUBJECT="$(grep -E '^Subject: ' "$MSG" | sed 's/Subject: //')"
+			SUBJECT="$(grep -EA1 '^Subject:' "$MSG" | grep -E '^Subject: |^\s.' | sed 's/^Subject://' |  sed 's/^\s*\|\s*$//g')"
 			decode "$SUBJECT"
 			notify "$PARSED_SENDER" "$DECODED"
 		fi
