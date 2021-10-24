@@ -112,16 +112,16 @@ nnoremap p "+p
 nnoremap P "+P
 nmap Y yg_
 "move lines around
-nnoremap <silent> J :<C-U>exec "exec 'norm m`' \| move +" . v:count1<CR>==``
-nnoremap <silent> K :<C-U>exec "exec 'norm m`' \| move -" . (1+v:count1)<CR>==``
-xnoremap <silent> J :<C-U>exec "'<,'>move '>+" . v:count1<CR>gv=gv
-xnoremap <silent> K :<C-U>exec "'<,'>move '<-" . (1+v:count1)<CR>gv=gv
+nnoremap <silent> J :<C-U>exe "exec 'norm m`' \| move +" . v:count1<CR>==``
+nnoremap <silent> K :<C-U>exe "exec 'norm m`' \| move -" . (1+v:count1)<CR>==``
+xnoremap <silent> J :<C-U>exe "'<,'>move '>+" . v:count1<CR>gv=gv
+xnoremap <silent> K :<C-U>exe "'<,'>move '<-" . (1+v:count1)<CR>gv=gv
 "quickfix
 nmap <silent> <C-q> :call ToggleQf()<CR>
-nmap <silent> <Leader>J :cnext<CR>
-nmap <silent> <Leader>K :cprev<CR>
-nmap <silent> <Leader>j :lbelow<CR>
-nmap <silent> <Leader>k :labove<CR>
+nmap <silent> <Leader>J :<C-U>exe v:count1 . 'cnext'<CR>
+nmap <silent> <Leader>K :<C-U>exe v:count1 . 'cprev'<CR>
+nmap <silent> <Leader>j :<C-U>exe v:count1 . 'lbelow'<CR>
+nmap <silent> <Leader>k :<C-U>exe v:count1 . 'labove'<CR>
 "join lines
 nnoremap <LocalLeader>J J
 xnoremap <LocalLeader>J J
