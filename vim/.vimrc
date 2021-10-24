@@ -170,7 +170,7 @@ func Thesaur(findstart, base)
 		return res
 	endif
 endfunc
-if has('patch-8.2.3520')
+if exists('+thesaurusfunc')
 	set thesaurusfunc=Thesaur
 endif
 
