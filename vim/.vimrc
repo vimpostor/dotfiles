@@ -189,6 +189,9 @@ let g:ale_sign_warning = '⚠'
 let g:ale_virtualtext_cursor = 1
 let g:ale_virtualtext_prefix = "🔧 "
 
+"fugitive
+nnoremap <silent> <LocalLeader>Gb :0,3Git blame<CR>
+
 "coc.nvim
 let g:coc_global_extensions = [
 \ 'coc-snippets',
