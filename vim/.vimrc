@@ -214,8 +214,6 @@ function! s:check_back_space() abort
 endfunction
 inoremap <silent><expr> <c-space> coc#refresh()
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-nmap <silent> [g <Plug>(coc-diagnostic-prev)
-nmap <silent> ]g <Plug>(coc-diagnostic-next)
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
@@ -252,7 +250,6 @@ command! -nargs=? Fold :call CocAction('fold', <f-args>)
 nnoremap <silent> <Leader>e  :<C-u>CocList diagnostics<cr>
 nnoremap <silent> <Leader>o  :<C-u>CocList outline<cr>
 nnoremap <silent> <Leader>s  :<C-u>CocList -I symbols<cr>
-nnoremap <silent> <Leader>p  :<C-u>CocListResume<CR>
 "snippets
 imap <C-j> <Plug>(coc-snippets-expand-jump)
 "coc-texlab
