@@ -36,6 +36,7 @@ kubectl
 libappimage
 lldb
 llvm
+lua
 mariadb-libs
 molecule
 molecule-podman
