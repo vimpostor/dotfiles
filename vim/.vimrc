@@ -271,6 +271,7 @@ map <LocalLeader>j <Plug>(easymotion-j)
 map <LocalLeader>k <Plug>(easymotion-k)
 map <LocalLeader>h <Plug>(easymotion-linebackward)
 let g:EasyMotion_startofline = 0 "keep cursor column JK motion
+let g:EasyMotion_keys = 'asdghklqwertyuiopzxcvbnmfj,'
 
 "multiple cursors
 let g:multi_cursor_exit_from_insert_mode = 0
