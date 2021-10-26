@@ -108,7 +108,7 @@ function aurvote() {
 
 # modifies grep to highlight instead of filter
 function highlight() {
-	rg -e '^' $*
+	grep --color=auto -e '^' "$@"
 }
 
 # creates a file from a template
@@ -136,7 +136,7 @@ function git-del-branch() {
 function greb() {
 	UPSTREAM="$(git remote | grep upstream || git remote | grep origin)"
 	DEFAULT_BRANCH="$UPSTREAM/$(git branch -rl \*/HEAD | head -1 | rev | cut -d/ -f1 | rev)"
-	git fetch "$UPSTREAM" && git --no-pager log --reverse --pretty=tformat:%s "$(git merge-base HEAD $DEFAULT_BRANCH)".."$DEFAULT_BRANCH" && git --no-pager diff --stat "$(git merge-base HEAD $DEFAULT_BRANCH)" "$DEFAULT_BRANCH" && git rebase "$DEFAULT_BRANCH"
+	git fetch "$UPSTREAM" && git --no-pager log --reverse --pretty=tformat:%s "$(git merge-base HEAD "$DEFAULT_BRANCH")".."$DEFAULT_BRANCH" && git --no-pager diff --stat "$(git merge-base HEAD "$DEFAULT_BRANCH")" "$DEFAULT_BRANCH" && git rebase "$DEFAULT_BRANCH"
 }
 
 # complete autosuggestions with <c-space>
