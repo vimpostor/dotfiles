@@ -1,0 +1,6 @@
+set spoolfile = +{{ mail_account }}/INBOX
+set record = +{{ mail_account }}/Sent
+set sendmail = "/usr/bin/msmtp -a {{ mail_account }}"
+
+set realname = "{{ full_name }}"
+set from = "{{ email }}"
