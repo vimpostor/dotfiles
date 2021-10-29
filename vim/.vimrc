@@ -126,7 +126,7 @@ nmap <silent> <Leader>k :<C-U>exe v:count1 . 'labove'<CR>
 nnoremap <LocalLeader>J J
 xnoremap <LocalLeader>J J
 "clear search
-nnoremap <silent> <Leader>/ :nohl<CR>
+nnoremap <silent> <C-L> :nohl<CR>
 "switch to last buffer
 nnoremap <Leader><Leader> <c-^>
 "autocorrect last misspelling
