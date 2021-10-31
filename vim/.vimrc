@@ -182,6 +182,8 @@ let g:ale_sign_error = '✘'
 let g:ale_sign_warning = '⚠'
 let g:ale_virtualtext_cursor = 1
 let g:ale_virtualtext_prefix = "🔧 "
+let g:ale_floating_preview = 1
+let g:ale_floating_window_border = []
 
 "fugitive
 nnoremap <silent> <LocalLeader>Gb :0,3Git blame<CR>
