@@ -139,5 +139,10 @@ function greb() {
 	git fetch "$UPSTREAM" && git --no-pager log --reverse --pretty=tformat:%s "$(git merge-base HEAD "$DEFAULT_BRANCH")".."$DEFAULT_BRANCH" && git --no-pager diff --stat "$(git merge-base HEAD "$DEFAULT_BRANCH")" "$DEFAULT_BRANCH" && git rebase "$DEFAULT_BRANCH"
 }
 
+# checkout a PR without polluting local repo, takes the PR ID as single argument
+function gcpr() {
+	git fetch origin pull/"$*"/head || git fetch upstream pull/"$*"/head && git checkout FETCH_HEAD
+}
+
 # complete autosuggestions with <c-space>
 bindkey '^ ' autosuggest-accept
