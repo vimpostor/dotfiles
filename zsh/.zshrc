@@ -140,8 +140,8 @@ function greb() {
 }
 
 # checkout a PR without polluting local repo, takes the PR ID as single argument
-function gcpr() {
-	git fetch origin pull/"$*"/head 2>/dev/null || git fetch upstream pull/"$*"/head 2>/dev/null && git checkout FETCH_HEAD
+function gprc() {
+	git fetch -q origin pull/"$*"/head 2>/dev/null || git fetch -q upstream pull/"$*"/head && git checkout FETCH_HEAD
 }
 
 # complete autosuggestions with <c-space>
