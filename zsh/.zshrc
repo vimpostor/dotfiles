@@ -50,7 +50,6 @@ if ! zgen saved; then
 	zgen load zsh-users/zsh-completions
 	zgen load zsh-users/zsh-autosuggestions
 	zgen load zdharma/fast-syntax-highlighting
-
 	zgen load romkatv/powerlevel10k powerlevel10k
 	zgen save
 fi
@@ -58,7 +57,6 @@ fi
 # aliases
 alias vim='vim --servername vim'
 alias lazycommit='git commit -m "$(curl -s whatthecommit.com/index.txt)"'
-alias vi=vim
 alias diff='diff --color=auto'
 alias clipboard='xclip -selection c'
 alias ip='ip -c'
@@ -71,11 +69,6 @@ function o() {
 	for i in "$@"; do
 		xdg-open "$i"
 	done
-}
-
-# gource, but with sane defaults
-function autogource() {
-	git log --pretty='%at|%s' | sort -n > /tmp/gourceCaption.txt && gource -1920x1080 -r 25 -f -b 263238 --key --dir-colour cfd8dc -s 1 --highlight-dirs --caption-file /tmp/gourceCaption.txt --caption-duration 1 --caption-size 13
 }
 
 # man page for plebs
@@ -113,7 +106,8 @@ function gen-cmake-debug() {
 }
 
 # deletes a git branch
-function git-del-branch() {
+unalias gbd
+function gbd() {
 	git branch -D "$*" && git push origin --delete "$*"
 }
 
