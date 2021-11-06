@@ -79,9 +79,10 @@ function cheat() {
 	fi
 }
 
-# vote for AUR packages
+# vote for AUR package
 function aurvote() {
-	ssh aur@aur.archlinux.org vote "$*"
+	(($#)) && P="$*" || P="$(history| grep 'yay -S '| tail -1| sed 's/.*yay -S\s\+//')"
+	ssh aur@aur.archlinux.org vote "$P" && echo "👍 $P 👍"
 }
 
 # modifies grep to highlight instead of filter
