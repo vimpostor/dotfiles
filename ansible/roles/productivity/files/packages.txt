@@ -142,6 +142,8 @@ vlc
 vpnc
 w3m
 x86_energy_perf_policy
+xdg-desktop-portal
+xdg-desktop-portal-kde
 xdotool
 xorg-server
 xorg-xbacklight

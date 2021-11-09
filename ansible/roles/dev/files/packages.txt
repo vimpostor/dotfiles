@@ -38,6 +38,7 @@ lldb
 llvm
 lua
 mariadb-libs
+meson
 molecule
 molecule-podman
 ninja
@@ -48,6 +49,7 @@ parallel
 patch
 patchelf
 perf
+perl
 pkgconf
 podman
 podman-compose

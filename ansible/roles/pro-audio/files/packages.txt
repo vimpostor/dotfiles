@@ -6,6 +6,7 @@ dragonfly-reverb
 easyeffects
 gst-plugin-pipewire
 jack2
+libsmf
 linuxsampler
 minuet
 musescore
