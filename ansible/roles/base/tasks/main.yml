@@ -17,7 +17,6 @@
   copy:
     dest: /etc/locale.conf
     content: "{{ lookup('file', 'files/locale.conf') }}\n"
-    mode: preserve
 
 - name: Configure pacman options
   blockinfile:
@@ -34,7 +33,6 @@
   copy:
     dest: /etc/pacman.d/mirrorlist
     content: "{{ lookup('file', 'files/mirrorlist') }}\n"
-    mode: preserve
 - name: Update system
   pacman:
     update_cache: yes
