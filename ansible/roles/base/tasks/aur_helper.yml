@@ -1,9 +1,9 @@
 - name: Install AUR helper dependencies
   pacman:
-    name: go
-- name: Clone AUR helper (yay)
+    name: cargo
+- name: "Clone AUR helper ({{ aur_helper }})"
   git:
-    repo: 'https://aur.archlinux.org/yay.git'
+    repo: "https://aur.archlinux.org/{{ aur_helper }}.git"
     dest: "{{ aur_helper_dir }}"
   become: yes
   become_user: "{{ local_user }}"
@@ -16,5 +16,5 @@
   become_user: "{{ local_user }}"
 - name: Install AUR helper
   command:
-    cmd: "sh -c 'pacman -U --noconfirm {{ aur_helper_dir }}/yay-*.pkg.tar.zst'"
-    creates: /usr/bin/yay
+    cmd: "sh -c 'pacman -U --noconfirm {{ aur_helper_dir }}/{{ aur_helper }}-*.pkg.tar.zst'"
+    creates: "/usr/bin/{{ aur_helper }}"

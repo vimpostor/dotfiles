@@ -1,5 +1,6 @@
 android-tools
 ansible-lint
+asp
 bash-completion
 bash-language-server
 bat
