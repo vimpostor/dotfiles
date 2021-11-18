@@ -16,3 +16,5 @@
 	cmd = vim -f -c \"Gvdiffsplit!\" \"$MERGED\"
 [merge]
 	tool = fugitive
+[rebase]
+	stat = true

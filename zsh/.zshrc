@@ -116,7 +116,7 @@ function gbd() {
 function greb() {
 	UPSTREAM="$(git remote | grep upstream || git remote | grep origin)"
 	DEFAULT_BRANCH="$UPSTREAM/$(git branch -rl \*/HEAD | head -1 | rev | cut -d/ -f1 | rev)"
-	git fetch "$UPSTREAM" && git --no-pager log --reverse --pretty=tformat:%s "$(git merge-base HEAD "$DEFAULT_BRANCH")".."$DEFAULT_BRANCH" && git --no-pager diff --stat "$(git merge-base HEAD "$DEFAULT_BRANCH")" "$DEFAULT_BRANCH" && git rebase "$DEFAULT_BRANCH"
+	git fetch "$UPSTREAM" && git --no-pager log --reverse --pretty=tformat:%s "$(git merge-base HEAD "$DEFAULT_BRANCH")".."$DEFAULT_BRANCH" && git rebase "$DEFAULT_BRANCH"
 }
 
 # checkout a PR without polluting local repo, takes the PR ID as single argument
