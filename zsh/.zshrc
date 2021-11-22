@@ -79,9 +79,14 @@ function cheat() {
 	fi
 }
 
+# retreives a pkgbuild
+function get-pkgbuild() {
+	paru -G "$*" || asp export "$*" && cd "$*"
+}
+
 # vote for AUR package
 function aurvote() {
-	(($#)) && P="$*" || P="$(history| grep 'yay -S '| tail -1| sed 's/.*yay -S\s\+//')"
+	(($#)) && P="$*" || P="$(history| grep 'paru -S '| tail -1| sed 's/.*paru -S\s\+//')"
 	ssh aur@aur.archlinux.org vote "$P" && echo "👍 $P 👍"
 }
 
