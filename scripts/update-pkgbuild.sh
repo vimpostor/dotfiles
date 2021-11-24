@@ -7,6 +7,7 @@ function grep_srcinfo() {
 }
 
 makepkg -s
+updpkgsums
 makepkg --printsrcinfo > .SRCINFO
 
 PKGNAME="$(grep_srcinfo pkgname)"
