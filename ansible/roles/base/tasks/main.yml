@@ -56,7 +56,4 @@
     path: /etc/sudoers
     regexp: '^(# )?%wheel ALL=\(ALL\) ALL$'
     line: '%wheel ALL=(ALL) ALL'
-- include: user.yml
-  become: yes
-  become_user: "{{ local_user }}"
 - include: aur_helper.yml

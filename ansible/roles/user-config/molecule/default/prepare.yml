@@ -1,0 +1,7 @@
+- name: Prepare
+  hosts: all
+  tasks:
+    - name: Install git
+      pacman:
+        update_cache: yes
+        name: git
