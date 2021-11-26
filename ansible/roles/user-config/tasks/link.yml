@@ -1,0 +1,9 @@
+- name: Create parent directory
+  file:
+    path: "{{ item.split(None, 1)[1] | dirname }}"
+    state: directory
+- name: Link dotfile
+  file:
+    src: "{{ dotfiles_dir }}/{{ item.split(None, 1)[0] }}"
+    dest: "{{ item.split(None, 1)[1] }}"
+    state: link
