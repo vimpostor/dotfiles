@@ -23,13 +23,13 @@ fi
 
 # Decodes MIME RFC 2047 to UTF8
 function decode() {
-	DECODER="print decode(\"MIME-Header\", \"${*//\"/}\")"
+	DECODER="use utf8; print decode(\"MIME-Header\", \"${*//\"/}\")"
 	DECODED="$(echo "" | perl -CS -MEncode -ne "$DECODER" || echo 'Parse Error')"
 }
 
 # sends a notification with title and body
 function notify() {
-	gdbus call --session --dest=org.freedesktop.Notifications --object-path=/org/freedesktop/Notifications --method=org.freedesktop.Notifications.Notify 'mutt' 0 'mail-message' "$1" "$2" '[]' '{"desktop-entry": <"org.kde.konsole">, "category": <"email.arrived">}' 5000
+	gdbus call --session --dest=org.freedesktop.Notifications --object-path=/org/freedesktop/Notifications --method=org.freedesktop.Notifications.Notify 'mutt' 0 'mail-message' "$1" "$2" '[]' '{"desktop-entry": <"org.kde.konsole">, "category": <"email.arrived">}' 5000 > /dev/null
 }
 
 COUNT=$(ls -b1 "$MAILDIR_NEW" | wc -l)
