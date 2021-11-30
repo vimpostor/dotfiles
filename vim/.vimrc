@@ -10,6 +10,7 @@ Plug 'honza/vim-snippets' "snippets
 Plug 'tpope/vim-surround' "surround commands
 Plug 'easymotion/vim-easymotion' "even faster movement
 Plug 'tpope/vim-fugitive' "handy git tools
+Plug 'tpope/vim-rhubarb' "github integration
 Plug 'markonm/traces.vim' "pattern preview
 Plug 'vimpostor/vim-prism' "colorscheme
 Plug 'https://gitlab.com/dbeniamine/cheat.sh-vim.git' "cheat sheets
@@ -41,6 +42,8 @@ set showmatch "when inserting brackets, highlight the matching one
 syntax enable
 set wildmenu "better tab completion
 set wildmode=longest:full,full
+set completeopt+=menuone,popup
+set completepopup=highlight:Pmenu,border:off
 set ttyfast "fast terminal connection
 set gdefault "replace globally by default
 set encoding=utf-8 "latin1? what year is it? fuckin 1991?
