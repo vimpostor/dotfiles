@@ -42,8 +42,10 @@ set showmatch "when inserting brackets, highlight the matching one
 syntax enable
 set wildmenu "better tab completion
 set wildmode=longest:full,full
-set completeopt+=menuone,popup
-set completepopup=highlight:Pmenu,border:off
+if !has('nvim')
+	set completeopt+=menuone,popup
+	set completepopup=highlight:Pmenu,border:off
+endif
 set ttyfast "fast terminal connection
 set gdefault "replace globally by default
 set encoding=utf-8 "latin1? what year is it? fuckin 1991?
