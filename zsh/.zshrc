@@ -81,7 +81,7 @@ function cheat() {
 
 # retreives a pkgbuild
 function get-pkgbuild() {
-	paru -G "$*" || asp export "$*" && cd "$*"
+	asp export "$*" || paru -G "$*" && cd "$*"
 }
 
 # vote for AUR package
