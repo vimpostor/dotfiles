@@ -51,6 +51,7 @@ set gdefault "replace globally by default
 set encoding=utf-8 "latin1? what year is it? fuckin 1991?
 set autoindent
 set smartindent
+set breakindent
 set noexpandtab
 set shiftwidth=4 "tab = 4 spaces
 set tabstop=4
