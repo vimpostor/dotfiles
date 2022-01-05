@@ -19,6 +19,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'puremourning/vimspector' "debugging
 Plug 'vimpostor/vim-tpipeline' "outsource statusline to tmux
 Plug 'junegunn/fzf.vim' "fzf integration
+Plug 'mbbill/undotree' "undo history visualizer
 call plug#end()
 
 "color scheme
