@@ -3,6 +3,7 @@ bind index,pager R "group-reply"
 bind index,pager x "delete-message"
 bind index,pager X "undelete-message"
 bind index,pager N "search-opposite"
+bind index,pager \cl "list-action"
 
 bind attach <return> view-mailcap
 bind attach l view-mailcap
@@ -20,7 +21,6 @@ bind pager k "previous-line"
 bind pager h "exit"
 bind pager g "top"
 bind pager G "bottom"
-
 macro pager <up> <previous-line>
 macro pager <down> <next-line>
 macro pager d <next-line><next-line><next-line><next-line><next-line><next-line><next-line><next-line><next-line><next-line>
