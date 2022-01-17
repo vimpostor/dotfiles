@@ -38,7 +38,7 @@ set smartcase "case sensitive if search term contains capitals
 set hlsearch "highlight search
 set incsearch "highlight while you type
 set scrolloff=4 "start scrolling a few lines from the border
-set display+=lastline "always display the last line of the screen
+set display=lastline "always display the last line of the screen
 set showmatch "when inserting brackets, highlight the matching one
 syntax enable
 set wildmenu "better tab completion
@@ -49,7 +49,7 @@ if !has('nvim')
 endif
 set ttyfast "fast terminal connection
 set gdefault "replace globally by default
-set encoding=utf-8 "latin1? what year is it? fuckin 1991?
+set encoding=utf-8
 set autoindent
 set smartindent
 set breakindent
@@ -86,7 +86,7 @@ xnoremap < <gv
 xnoremap > >gv
 "allow completions from the dictionary
 set complete+=kspell
-set diffopt+=vertical
+set diffopt+=vertical,algorithm:patience
 "split like a normal human being
 set splitbelow
 set splitright
