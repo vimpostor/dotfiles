@@ -9,4 +9,3 @@ steam-native-runtime
 teeworlds
 ttf-liberation
 vulkan-tools
-wine

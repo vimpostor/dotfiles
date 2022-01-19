@@ -5,7 +5,7 @@ ardour
 dragonfly-reverb
 easyeffects
 gst-plugin-pipewire
-jack2
+lib32-pipewire-jack
 libsmf
 linuxsampler
 minuet
@@ -26,3 +26,5 @@ speech-dispatcher
 surge
 timidity++
 x42-plugins
+yabridge
+yabridgectl

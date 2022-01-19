@@ -44,6 +44,7 @@ konsole
 krita
 krita-plugin-gmic
 kscreen
+kteatime
 ktouch
 kwallet-pam
 kwalletmanager

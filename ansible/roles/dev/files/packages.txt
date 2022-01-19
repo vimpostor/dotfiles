@@ -11,6 +11,7 @@ clazy
 cmark
 cppcheck
 crun
+devtools
 dialog
 dos2unix
 doxygen
@@ -90,4 +91,5 @@ strace
 valgrind
 vulkan-headers
 wireshark-qt
+yamllint
 yarn
