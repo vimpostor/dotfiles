@@ -92,6 +92,8 @@ set splitbelow
 set splitright
 
 "file type specific settings
+let g:python_recommended_style = 0
+let g:rust_recommended_style = 0
 autocmd Filetype yaml setlocal ts=2 sw=2 et
 autocmd Filetype yaml if expand('%:p:h') =~# 'playbooks\|tasks\|handlers' | setlocal ft=yaml.ansible | endif
 autocmd Filetype tex setlocal conceallevel=1 spell
