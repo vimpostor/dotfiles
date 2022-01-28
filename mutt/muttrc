@@ -17,6 +17,12 @@ source ~/.mutt/bindings.rc
 source ~/.mutt/gpg.rc
 set pgp_use_gpg_agent
 
+# sorting
+set sort = threads
+set sort_aux = last-date-received
+# smooth scrolling
+set menu_scroll
+set menu_context = 4
 # preview pane
 # set pager_index_lines = 10
 set pager_context = 3
@@ -25,7 +31,7 @@ set tilde
 unset markers
 
 # Its not 1991 anymore, we can use UTF8
-set send_charset="utf-8"
+set send_charset = "utf-8"
 
 # HTML mails
 set mailcap_path = ~/.mutt/mailcap
@@ -37,10 +43,6 @@ set alias_file = "~/.mutt/aliases"
 set sort_alias = alias
 set reverse_alias = yes
 source $alias_file
-
-# smooth scrolling
-set menu_scroll
-set menu_context=4
 
 # don't bottleneck me with unnecessary messages
 set sleep_time = 0
