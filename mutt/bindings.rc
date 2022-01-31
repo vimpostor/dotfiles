@@ -4,6 +4,7 @@ bind index,pager x "delete-message"
 bind index,pager X "undelete-message"
 bind index,pager N "search-opposite"
 bind index,pager \cl "list-action"
+bind index,pager \cx "delete-thread"
 
 bind attach <return> view-mailcap
 bind attach l view-mailcap
