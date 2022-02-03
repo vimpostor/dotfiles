@@ -23,6 +23,7 @@ set sort_aux = last-date-received
 # smooth scrolling
 set menu_scroll
 set menu_context = 4
+set menu_move_off = no
 # preview pane
 # set pager_index_lines = 10
 set pager_context = 3
