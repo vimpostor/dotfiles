@@ -5,7 +5,7 @@ set -e
 
 # do not notify about individual messages, but summarize as soon as this number of new messages is reached
 SUMMARY_THRESHOLD=5
-MSG_CACHE="$HOME/.cache/mail-notify.cache"
+MSG_CACHE="/tmp/.mail-notify.cache"
 
 if [[ -z "$MAILDIR_INBOX" ]]; then
 	# use default maildir
@@ -29,7 +29,14 @@ function decode() {
 
 # sends a notification with title and body
 function notify() {
-	gdbus call --session --dest=org.freedesktop.Notifications --object-path=/org/freedesktop/Notifications --method=org.freedesktop.Notifications.Notify 'mutt' 0 'mail-message' "$1" "$2" '[]' '{"desktop-entry": <"org.kde.konsole">, "category": <"email.arrived">}' 5000 > /dev/null
+	NOTIFICATION_ID="$(gdbus call --session --dest=org.freedesktop.Notifications --object-path=/org/freedesktop/Notifications --method=org.freedesktop.Notifications.Notify 'mutt' 0 'mail-message' "$1" "$2" '[]' '{"desktop-entry": <"org.kde.konsole">, "category": <"email.arrived">}' 5000 2>/dev/null | grep -Eo 'uint32\s[[:digit:]]+'| cut -d' ' -f2)"
+}
+
+# dismisses a notification
+function notify-delete() {
+	if [ -n "$1" ]; then
+		gdbus call --session --dest=org.freedesktop.Notifications --object-path=/org/freedesktop/Notifications --method=org.freedesktop.Notifications.CloseNotification "$1" >/dev/null
+	fi
 }
 
 COUNT=$(ls -b1 "$MAILDIR_NEW" | wc -l)
@@ -39,14 +46,17 @@ if [[ "$COUNT" -eq 0 ]]; then
 elif [[ "$COUNT" -lt "$SUMMARY_THRESHOLD" ]]; then
 	# send a notification for each message
 	for MSG in "$MAILDIR_NEW"/*; do
+		MSG_ID="$(basename "$MSG")"
 		# only notify if we haven't already for this message
-		if ! grep -Fq "$(basename "$MSG")" "$MSG_CACHE"; then
+		if ! grep -Fq "$MSG_ID" "$MSG_CACHE"; then
 			SENDER="$(grep -E '^From: ' "$MSG" | sed 's/From: //')"
 			decode "$SENDER"
 			PARSED_SENDER="$(echo "$DECODED"| sed 's/ <.*>//g')"
 			SUBJECT="$(grep -EA1 '^Subject:' "$MSG" | grep -E '^Subject: |^\s.' | sed 's/^Subject://' |  sed 's/^\s*\|\s*$//g')"
 			decode "$SUBJECT"
 			notify "$PARSED_SENDER" "$DECODED"
+			# create cache
+			echo "$MSG_ID $NOTIFICATION_ID" >> "$MSG_CACHE"
 		fi
 	done
 else
@@ -54,5 +64,15 @@ else
 	notify "You have new mail!" "$COUNT new messages."
 fi
 
-# create cache
-ls -b1 "$MAILDIR_NEW" > "$MSG_CACHE"
+# delete previous notifications for messages that have been read by now and rebuild cache without them
+CACHED_MSGS=()
+while IFS= read -r LINE; do
+	MSG_ID="${LINE%% *}"
+	NOTIFICATION_ID="${LINE##* }"
+	if [ -f "$MAILDIR_NEW/$MSG_ID" ]; then
+		CACHED_MSGS+=("$MSG_ID $NOTIFICATION_ID")
+	else
+		notify-delete "$NOTIFICATION_ID"
+	fi
+done < "$MSG_CACHE"
+printf "%s\n" "${CACHED_MSGS[@]}" > "$MSG_CACHE"
