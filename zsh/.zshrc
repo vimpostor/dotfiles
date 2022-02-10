@@ -49,7 +49,7 @@ if ! zgen saved; then
 
 	zgen load zsh-users/zsh-completions
 	zgen load zsh-users/zsh-autosuggestions
-	zgen load zdharma/fast-syntax-highlighting
+	zgen load zdharma-continuum/fast-syntax-highlighting
 	zgen load romkatv/powerlevel10k powerlevel10k
 	zgen save
 fi
