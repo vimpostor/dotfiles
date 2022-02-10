@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Mutt
+Comment=Send and receive mail with Mutt
+Exec=mutt %u
+Terminal=true
+Type=Application
+Icon=email
+Categories=Network;Email;
+MimeType=message/rfc822;x-scheme-handler/mailto;
+StartupNotify=true
