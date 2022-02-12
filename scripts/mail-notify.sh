@@ -39,29 +39,31 @@ function notify-delete() {
 	fi
 }
 
-COUNT=$(ls -b1 "$MAILDIR_NEW" | wc -l)
+touch "$MSG_CACHE"
+# $MAILDIR_NEW \ $MSG_CACHE
+NEW_MSGS="$(grep -Fvf <(cut -d' ' -f1 "$MSG_CACHE"| sed '/^$/d') <(ls -b1 "$MAILDIR_NEW"))" || true
+COUNT="$(printf "%s" "$NEW_MSGS"| grep -c '^')" || true
 if [[ "$COUNT" -eq 0 ]]; then
-	# no new messages
 	echo 'No new messages.'
 elif [[ "$COUNT" -lt "$SUMMARY_THRESHOLD" ]]; then
 	# send a notification for each message
-	for MSG in "$MAILDIR_NEW"/*; do
-		MSG_ID="$(basename "$MSG")"
-		# only notify if we haven't already for this message
-		if ! grep -Fq "$MSG_ID" "$MSG_CACHE"; then
-			SENDER="$(grep -E '^From: ' "$MSG" | sed 's/From: //')"
-			decode "$SENDER"
-			PARSED_SENDER="$(echo "$DECODED"| sed 's/ <.*>//g')"
-			SUBJECT="$(grep -EA1 '^Subject:' "$MSG" | grep -E '^Subject: |^\s.' | sed 's/^Subject://' |  sed 's/^\s*\|\s*$//g')"
-			decode "$SUBJECT"
-			notify "$PARSED_SENDER" "$DECODED"
-			# create cache
-			echo "$MSG_ID $NOTIFICATION_ID" >> "$MSG_CACHE"
-		fi
-	done
+	while IFS= read -r MSG_ID; do
+		MSG="$MAILDIR_NEW/$MSG_ID"
+		SENDER="$(grep -E '^From: ' "$MSG" | sed 's/From: //')"
+		decode "$SENDER"
+		PARSED_SENDER="$(echo "$DECODED"| sed 's/ <.*>//g')"
+		SUBJECT="$(grep -EA1 '^Subject:' "$MSG" | grep -E '^Subject: |^\s.' | sed 's/^Subject://' |  sed 's/^\s*\|\s*$//g')"
+		decode "$SUBJECT"
+		notify "$PARSED_SENDER" "$DECODED"
+		# create cache
+		echo "$MSG_ID $NOTIFICATION_ID" >> "$MSG_CACHE"
+	done <<< "$NEW_MSGS"
 else
-	# print a summary (digest) message
+	# show a summary (digest) message
 	notify "You have new mail!" "$COUNT new messages."
+	# create cache, only append the notification ID to the first msg id
+	echo "${NEW_MSGS%%$'\n'*} $NOTIFICATION_ID" >> "$MSG_CACHE"
+	echo "${NEW_MSGS#*$'\n'}"| sed 's/$/ /' >> "$MSG_CACHE"
 fi
 
 # delete previous notifications for messages that have been read by now and rebuild cache without them
