@@ -5,7 +5,7 @@ set -e
 
 # do not notify about individual messages, but summarize as soon as this number of new messages is reached
 SUMMARY_THRESHOLD=5
-MSG_CACHE="/tmp/.mail-notify.cache"
+MSG_CACHE="/tmp/.mail-notify-$UID.cache"
 
 if [[ -z "$MAILDIR_INBOX" ]]; then
 	# use default maildir
