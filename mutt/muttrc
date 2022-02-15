@@ -50,6 +50,8 @@ source $alias_file
 set sleep_time = 0
 set wait_key = no
 set delete = yes
+set fast_reply = yes
+set include = yes
 # f=f, see https://nullprogram.com/blog/2017/06/15/
 set text_flowed
 set user_agent = yes
