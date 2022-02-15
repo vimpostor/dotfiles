@@ -3,18 +3,18 @@ set folder = ~/.local/share/mail
 set mbox_type = Maildir
 set mail_check = 0
 # Personal settings
-source ~/.mutt/personal.rc
+source ~/.config/mutt/personal.rc
 
 # Cache mails
 set header_cache = ~/.cache/mutt/headers
 set message_cachedir = ~/.cache/mutt/bodies
 
 # colors
-source ~/.mutt/colors.rc
+source ~/.config/mutt/colors.rc
 # key bindings
-source ~/.mutt/bindings.rc
+source ~/.config/mutt/bindings.rc
 # GnuPG
-source ~/.mutt/gpg.rc
+source ~/.config/mutt/gpg.rc
 set pgp_use_gpg_agent
 
 # sorting
@@ -36,12 +36,12 @@ unset markers
 set send_charset = "utf-8"
 
 # HTML mails
-set mailcap_path = ~/.mutt/mailcap
+set mailcap_path = ~/.config/mutt/mailcap
 auto_view text/html
 alternative_order text/plain text/html
 
 # Contacts
-set alias_file = "~/.mutt/aliases"
+set alias_file = "~/.config/mutt/aliases"
 set sort_alias = alias
 set reverse_alias = yes
 source $alias_file

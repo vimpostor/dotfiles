@@ -8,7 +8,7 @@ account name
 host mail.domain.com
 port 587
 user "username"
-passwordeval "gpg -dq ~/.mutt/mailpw.txt.gpg"
+passwordeval "gpg -dq ~/.config/mutt/mailpw.txt.gpg"
 from "name@domain.com"
 
 account default : name
