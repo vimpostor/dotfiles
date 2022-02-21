@@ -6,7 +6,7 @@ function grep_srcinfo() {
 	grep "^\s*$*" .SRCINFO | sed "s/^\s*$* = //"
 }
 
-makepkg -s
+makepkg -sf
 updpkgsums
 makepkg --printsrcinfo > .SRCINFO
 
