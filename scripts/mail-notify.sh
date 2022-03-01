@@ -17,9 +17,7 @@ if ! [[ -d "$MAILDIR_NEW" ]]; then
 	exit 1
 fi
 # create cache if it doesn't exist
-if ! [[ -f "$MSG_CACHE" ]]; then
-	touch "$MSG_CACHE"
-fi
+touch "$MSG_CACHE"
 
 # Decodes MIME RFC 2047 to UTF8
 function decode() {
@@ -39,7 +37,6 @@ function notify-delete() {
 	fi
 }
 
-touch "$MSG_CACHE"
 # $MAILDIR_NEW \ $MSG_CACHE
 NEW_MSGS="$(grep -Fvf <(cut -d' ' -f1 "$MSG_CACHE"| sed '/^$/d') <(ls -b1 "$MAILDIR_NEW"))" || true
 COUNT="$(printf "%s" "$NEW_MSGS"| grep -c '^')" || true
