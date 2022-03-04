@@ -46,10 +46,10 @@ elif [[ "$COUNT" -lt "$SUMMARY_THRESHOLD" ]]; then
 	# send a notification for each message
 	while IFS= read -r MSG_ID; do
 		MSG="$MAILDIR_NEW/$MSG_ID"
-		SENDER="$(grep -E '^From: ' "$MSG" | sed 's/From: //')"
+		SENDER="$(grep -E -m1 '^From: ' "$MSG" | sed 's/From: //')"
 		decode "$SENDER"
 		PARSED_SENDER="$(echo "$DECODED"| sed 's/ <.*>//g')"
-		SUBJECT="$(grep -EA1 '^Subject:' "$MSG" | grep -E '^Subject: |^\s.' | sed 's/^Subject://' |  sed 's/^\s*\|\s*$//g')"
+		SUBJECT="$(grep -A1 -m1 '^Subject:' "$MSG" | grep -E '^Subject: |^\s.' | sed 's/^Subject://' |  sed 's/^\s*\|\s*$//g' | tr '\n' ' ' | sed 's/ $//')"
 		decode "$SUBJECT"
 		notify "$PARSED_SENDER" "$DECODED"
 		# create cache

@@ -24,7 +24,7 @@ function decode() {
 declare -A CONTACTS
 
 for MAIL in "$MAILDIR_CUR"/*; do
-	TO="$(grep -EA1 '^To:' "$MAIL" | grep -E '^To: |^\s+.' | sed 's/^To://' | sed 's/^\s*\|\s*$//g' | tr '\n' ' ')"
+	TO="$(grep -EA1 -m1 '^To:' "$MAIL" | grep -E '^To: |^\s+.' | sed 's/^To://' | sed 's/^\s*\|\s*$//g' | tr '\n' ' ')"
 	# iterate over ", " separated To: addresses
 	while [ -n "$TO" ]; do
 		# Parse the next address and skip this mail if we get an error
@@ -36,16 +36,16 @@ for MAIL in "$MAILDIR_CUR"/*; do
 			LONG_NAME="${DECODED//\"/\\\"}"
 			LONG_NAME="$(echo "$LONG_NAME" | sed 's/\s*$//')"
 			MAIL_ADDRESS="$(echo "$NEXT" | grep -Eo '<\S*>')"
-			CONTACTS["$LONG_NAME $MAIL_ADDRESS"]=1
+			SUBJECT="$(grep -A1 -m1 '^Subject:' "$MAIL" | grep -E '^Subject: |^\s.' | sed 's/^Subject://' |  sed 's/^\s*\|\s*$//g' | tr '\n' ' ' | sed 's/ $//')"
+			decode "$SUBJECT"
+			CONTACTS["$MAIL_ADDRESS\t$LONG_NAME"]="$DECODED"
 		fi
 		TO="${TO##"$NEXT"}"
 	done
 done
 
-INDEX=0
 ALIASES=''
 for CONTACT in "${!CONTACTS[@]}"; do
-	ALIASES="$ALIASES\nalias $INDEX $CONTACT"
-	INDEX=$((INDEX + 1))
+	ALIASES="$ALIASES\n$CONTACT\t${CONTACTS["$CONTACT"]}"
 done
 echo -e "$ALIASES" > "$ALIASES_FILE"

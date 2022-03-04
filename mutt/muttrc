@@ -41,11 +41,7 @@ auto_view text/html
 alternative_order text/plain text/html
 
 # Contacts
-set sort_alias = address
-set reverse_alias = yes
-set alias_file = "~/.cache/mutt/aliases"
-source `FILE=~/.cache/mutt/aliases; if [ ! -s "$FILE" ]; then FILE=/dev/null;fi;echo "$FILE"`
-set query_command = "echo ''; sed 's/\\([^ ]* \\)\\{2\\}//' ~/.cache/mutt/aliases | grep -i '%s' | awk '{a=\$NF; \$NF=\"\"; print a\"\t\"\$0}' | sed 's/ $/\\t/'"
+set query_command = "echo ''; grep -i '%s' ~/.cache/mutt/aliases| sed 's/\\t\\t/\\t \\t/'"
 
 # don't bottleneck me with unnecessary messages
 set sleep_time = 0
