@@ -1,0 +1,11 @@
+[Unit]
+Description=Alias database generation timer
+
+[Timer]
+OnCalendar=monthly
+Persistent=true
+RandomizedDelaySec=60s
+Unit=alias-cache.service
+
+[Install]
+WantedBy=timers.target

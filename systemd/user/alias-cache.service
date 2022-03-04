@@ -1,0 +1,6 @@
+[Unit]
+Description=Generates an alias database for mutt
+
+[Service]
+Type=oneshot
+ExecStart=%h/Documents/scripts/aliases-gen.sh
