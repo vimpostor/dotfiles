@@ -14,7 +14,7 @@ source ~/.config/mutt/colors.rc
 # key bindings
 source ~/.config/mutt/bindings.rc
 # GnuPG
-source ~/.config/mutt/gpg.rc
+source `FILE=~/.config/mutt/gpg.rc; if [ ! -s "$FILE" ]; then FILE=/dev/null;fi;echo "$FILE"`
 set pgp_use_gpg_agent
 
 # sorting
@@ -41,10 +41,10 @@ auto_view text/html
 alternative_order text/plain text/html
 
 # Contacts
-set alias_file = "~/.config/mutt/aliases"
 set sort_alias = alias
 set reverse_alias = yes
-source $alias_file
+set alias_file = "~/.config/mutt/aliases"
+source `FILE=~/.config/mutt/aliases; if [ ! -s "$FILE" ]; then FILE=/dev/null;fi;echo "$FILE"`
 
 # don't bottleneck me with unnecessary messages
 set sleep_time = 0
