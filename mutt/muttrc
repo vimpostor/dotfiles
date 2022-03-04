@@ -41,10 +41,11 @@ auto_view text/html
 alternative_order text/plain text/html
 
 # Contacts
-set sort_alias = alias
+set sort_alias = address
 set reverse_alias = yes
 set alias_file = "~/.config/mutt/aliases"
 source `FILE=~/.config/mutt/aliases; if [ ! -s "$FILE" ]; then FILE=/dev/null;fi;echo "$FILE"`
+set query_command = "echo ''; sed 's/\\([^ ]* \\)\\{2\\}//' ~/.config/mutt/aliases | grep -i '%s' | awk '{a=\$NF; \$NF=\"\"; print a\"\t\"\$0\"\t\"}'"
 
 # don't bottleneck me with unnecessary messages
 set sleep_time = 0
