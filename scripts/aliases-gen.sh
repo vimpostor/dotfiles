@@ -2,6 +2,8 @@
 # This script parses all To: addresses from a Sent mail folder and adds them as aliases
 # Usage: MAILDIR_SENT=/path/to/inbox aliases-gen.sh
 
+ALIASES_FILE="$HOME/.cache/mutt/aliases"
+
 set -e
 # Do not expand * to itself when nothing matches
 shopt -s nullglob
@@ -46,4 +48,4 @@ for CONTACT in "${!CONTACTS[@]}"; do
 	ALIASES="$ALIASES\nalias $INDEX $CONTACT"
 	INDEX=$((INDEX + 1))
 done
-echo -e "$ALIASES" > ~/.config/mutt/aliases
+echo -e "$ALIASES" > "$ALIASES_FILE"
