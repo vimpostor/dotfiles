@@ -2,7 +2,7 @@
 # This script parses all To: addresses from a Sent mail folder and adds them as aliases
 # Usage: MAILDIR_SENT=/path/to/inbox aliases-gen.sh
 
-ALIASES_FILE="$HOME/.cache/mutt/aliases"
+MUTT_CACHE="$HOME/.cache/mutt"
 
 set -e
 # Do not expand * to itself when nothing matches
@@ -48,4 +48,5 @@ ALIASES=''
 for CONTACT in "${!CONTACTS[@]}"; do
 	ALIASES="$ALIASES\n$CONTACT\t${CONTACTS["$CONTACT"]}"
 done
-echo -e "$ALIASES" > "$ALIASES_FILE"
+mkdir -p "$MUTT_CACHE"
+echo -e "$ALIASES" > "$MUTT_CACHE/aliases"
