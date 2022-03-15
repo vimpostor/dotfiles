@@ -3,6 +3,8 @@
 # Usage: MAILDIR_SENT=/path/to/inbox aliases-gen.sh
 
 MUTT_CACHE="$HOME/.cache/mutt"
+MUTT_ALIASES_CACHE="$MUTT_CACHE/aliases"
+LAST_ID_CACHE="$MUTT_CACHE/last-id"
 
 set -e
 # Do not expand * to itself when nothing matches
@@ -23,7 +25,24 @@ function decode() {
 # we use associative arrays to get free deduplication
 declare -A CONTACTS
 
+touch "$MUTT_ALIASES_CACHE"
+# read old cache
+while IFS= read -r LINE; do
+	KEY="${LINE%$'\t'*}"
+	VALUE="${LINE##*$'\t'}"
+	if [ -n "$KEY" ]; then
+		CONTACTS["$KEY"]="$VALUE"
+	fi
+done < "$MUTT_ALIASES_CACHE"
+# read last id
+LAST_ID="$(cat "$LAST_ID_CACHE" 2>/dev/null)" || LAST_ID=""
+
+# parse new messages
 for MAIL in "$MAILDIR_CUR"/*; do
+	if [ ! "$MAIL" \> "$LAST_ID" ]; then
+		# skip, this one was cached already
+		continue
+	fi
 	TO="$(grep -EA1 -m1 '^To:' "$MAIL" | grep -E '^To: |^\s+.' | sed 's/^To://' | sed 's/^\s*\|\s*$//g' | tr '\n' ' ')"
 	# iterate over ", " separated To: addresses
 	while [ -n "$TO" ]; do
@@ -43,10 +62,11 @@ for MAIL in "$MAILDIR_CUR"/*; do
 		TO="${TO##"$NEXT"}"
 	done
 done
+echo "$MAIL" > "$LAST_ID_CACHE"
 
 ALIASES=''
 for CONTACT in "${!CONTACTS[@]}"; do
 	ALIASES="$ALIASES\n$CONTACT\t${CONTACTS["$CONTACT"]}"
 done
 mkdir -p "$MUTT_CACHE"
-echo -e "$ALIASES" > "$MUTT_CACHE/aliases"
+echo -e "$ALIASES" > "$MUTT_ALIASES_CACHE"
