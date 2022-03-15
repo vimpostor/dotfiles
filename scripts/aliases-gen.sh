@@ -25,6 +25,7 @@ function decode() {
 # we use associative arrays to get free deduplication
 declare -A CONTACTS
 
+mkdir -p "$MUTT_CACHE"
 touch "$MUTT_ALIASES_CACHE"
 # read old cache
 while IFS= read -r LINE; do
