@@ -4,6 +4,7 @@ asp
 bash-completion
 bash-language-server
 bat
+bear
 boost
 boost-libs
 buildah
@@ -24,6 +25,7 @@ gammaray
 gcovr
 gdb
 ghc
+gnu-netcat
 go
 go-tools
 gource

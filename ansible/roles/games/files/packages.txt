@@ -3,6 +3,7 @@ gamemode
 lib32-gamemode
 lib32-vulkan-icd-loader
 mesa-demos
+mesa-utils
 mumble
 steam
 steam-native-runtime
