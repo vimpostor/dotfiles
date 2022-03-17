@@ -6,3 +6,4 @@ Type=oneshot
 ExecStart=/usr/bin/mbsync -aq
 ExecStartPost=%h/Documents/scripts/mail-notify.sh
 ExecStartPost=%h/Documents/scripts/aliases-gen.sh
+ExecStartPost=%h/Documents/scripts/mail-queue-run.sh

@@ -46,6 +46,7 @@ set query_format = "%3c %t %-35.35a %-25.25n %?e?(%e)?"
 
 # don't bottleneck me with unnecessary messages
 set sleep_time = 0
+set sendmail_wait = -1
 set wait_key = no
 set delete = yes
 set fast_reply = yes

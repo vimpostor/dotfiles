@@ -15,3 +15,7 @@
     chdir: '~'
     cmd: mkdir -p Desktop Documents Downloads Music Pictures Public Templates Videos
     creates: '~/Downloads'
+- name: Create msmtp queue cache
+  file:
+    path: "~/.msmtp.queue"
+    state: directory
