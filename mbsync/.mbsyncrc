@@ -17,6 +17,6 @@ Inbox ~/.local/share/mail/name/INBOX
 Channel name
 Far :name-remote:
 Near :name-local:
-Patterns INBOX Sent
+Patterns *
 Create Both
 SyncState *
