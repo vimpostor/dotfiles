@@ -5,6 +5,7 @@ bind index,pager X "undelete-message"
 bind index,pager N "search-opposite"
 bind index,pager \cl "list-action"
 bind index,pager \cx "delete-thread"
+macro index,pager a "|git am<enter>:echo 'Patch applied 🚀'<enter>"
 
 bind attach <return> view-mailcap
 bind attach l view-mailcap
