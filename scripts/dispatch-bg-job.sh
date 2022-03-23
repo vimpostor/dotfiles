@@ -20,7 +20,7 @@ SUBJECT="$DECODED"
 SENDER="$(grep -E -m1 '^From: ' "$MAIL" | sed 's/From: //')"
 decode "$SENDER"
 SENDER="$DECODED"
-SENDER_NICK="${DECODED%%<*>}"
+SENDER_NICK="${DECODED%% <*>}"
 
 # AUR out of date notification
 if [ "$SENDER" = 'notify@aur.archlinux.org' ] && [[ "$SUBJECT" == 'AUR Out-of-date Notification for '* ]]; then

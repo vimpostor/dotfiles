@@ -50,7 +50,7 @@ elif [[ "$COUNT" -lt "$SUMMARY_THRESHOLD" ]]; then
 		MSG="$MAILDIR_NEW/$MSG_ID"
 		SENDER="$(grep -E -m1 '^From: ' "$MSG" | sed 's/From: //')"
 		decode "$SENDER"
-		SENDER_NICK="${DECODED%%<*>}"
+		SENDER_NICK="${DECODED%% <*>}"
 		SUBJECT="$(grep -A1 -m1 '^Subject:' "$MSG" | grep -E '^Subject: |^\s.' | sed 's/^Subject://' |  sed 's/^\s*\|\s*$//g' | tr '\n' ' ' | sed 's/ $//')"
 		decode "$SUBJECT"
 		notify "$SENDER_NICK" "$DECODED"
