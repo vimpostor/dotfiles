@@ -43,6 +43,7 @@ llvm
 lua
 mariadb-libs
 meson
+mold
 molecule
 molecule-podman
 ninja
