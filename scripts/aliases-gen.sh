@@ -18,7 +18,9 @@ MAILDIR_CUR="$MAILDIR_SENT/cur"
 
 # Decodes MIME RFC 2047 to UTF8
 function decode() {
-	DECODER="use utf8; print decode(\"MIME-Header\", \"${*//\"/}\")"
+	ESCAPED="${*//\"/}"
+	ESCAPED="${ESCAPED//\@/\\\@}"
+	DECODER="use utf8; print decode(\"MIME-Header\", \"$ESCAPED\")"
 	DECODED="$(echo "" | perl -CS -MEncode -ne "$DECODER" || echo 'Parse Error')"
 }
 

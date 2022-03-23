@@ -21,7 +21,9 @@ touch "$MSG_CACHE"
 
 # Decodes MIME RFC 2047 to UTF8
 function decode() {
-	DECODER="use utf8; print decode(\"MIME-Header\", \"${*//\"/}\")"
+	ESCAPED="${*//\"/}"
+	ESCAPED="${ESCAPED//\@/\\\@}"
+	DECODER="use utf8; print decode(\"MIME-Header\", \"$ESCAPED\")"
 	DECODED="$(echo "" | perl -CS -MEncode -ne "$DECODER" || echo 'Parse Error')"
 }
 
@@ -48,10 +50,10 @@ elif [[ "$COUNT" -lt "$SUMMARY_THRESHOLD" ]]; then
 		MSG="$MAILDIR_NEW/$MSG_ID"
 		SENDER="$(grep -E -m1 '^From: ' "$MSG" | sed 's/From: //')"
 		decode "$SENDER"
-		PARSED_SENDER="$(echo "$DECODED"| sed 's/ <.*>//g')"
+		SENDER_NICK="${DECODED%%<*>}"
 		SUBJECT="$(grep -A1 -m1 '^Subject:' "$MSG" | grep -E '^Subject: |^\s.' | sed 's/^Subject://' |  sed 's/^\s*\|\s*$//g' | tr '\n' ' ' | sed 's/ $//')"
 		decode "$SUBJECT"
-		notify "$PARSED_SENDER" "$DECODED"
+		notify "$SENDER_NICK" "$DECODED"
 		# create cache
 		echo "$MSG_ID $NOTIFICATION_ID" >> "$MSG_CACHE"
 	done <<< "$NEW_MSGS"
