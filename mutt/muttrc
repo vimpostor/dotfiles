@@ -20,10 +20,11 @@ set pgp_use_gpg_agent
 # sorting
 set sort = threads
 set sort_aux = last-date-received
+set strict_threads
 # smooth scrolling
 set menu_scroll
 set menu_context = 4
-set menu_move_off = no
+unset menu_move_off
 # preview pane
 # set pager_index_lines = 10
 set pager_context = 3
@@ -47,11 +48,11 @@ set query_format = "%3c %t %-35.35a %-25.25n %?e?(%e)?"
 # don't bottleneck me with unnecessary messages
 set sleep_time = 0
 set sendmail_wait = -1
-set wait_key = no
+unset wait_key
 set delete = yes
-set fast_reply = yes
+set fast_reply
 set include = yes
-set help = no
+unset help
 # f=f, see https://nullprogram.com/blog/2017/06/15/
 set text_flowed
 # include message in replies
