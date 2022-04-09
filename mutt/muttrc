@@ -14,8 +14,7 @@ source ~/.config/mutt/colors.rc
 # key bindings
 source ~/.config/mutt/bindings.rc
 # GnuPG
-source `FILE=~/.config/mutt/gpg.rc; if [ ! -s "$FILE" ]; then FILE=/dev/null;fi;echo "$FILE"`
-set pgp_use_gpg_agent
+source ~/.config/mutt/gpg.rc
 
 # sorting
 set sort = threads
