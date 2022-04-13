@@ -108,7 +108,7 @@ function gen-molecule() {
 
 # generate vim compatible cmake build
 function gen-cmake-debug() {
-	cmake -B build -G Ninja -DCMAKE_BUILD_TYPE=Debug -DCMAKE_EXPORT_COMPILE_COMMANDS=1 && ln -sf build/compile_commands.json .
+	cmake -B build -G Ninja -DCMAKE_BUILD_TYPE=Debug -DCMAKE_EXPORT_COMPILE_COMMANDS=1 "$@" && ln -sf build/compile_commands.json .
 }
 
 # deletes a git branch

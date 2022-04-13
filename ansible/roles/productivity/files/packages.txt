@@ -41,6 +41,7 @@ khotkeys
 kinfocenter
 kmag
 konsole
+krdc
 krita
 krita-plugin-gmic
 kscreen
@@ -102,7 +103,6 @@ python-pynvim
 qemu
 qt-gstreamer
 ranger
-remmina
 rofi
 s-nail
 samba
