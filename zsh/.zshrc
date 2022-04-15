@@ -125,7 +125,7 @@ function greb() {
 }
 
 # checkout a PR without polluting local repo, takes the PR ID as single argument
-function gprc() {
+function gcpr() {
 	git fetch -q origin pull/"$*"/head 2>/dev/null || git fetch -q upstream pull/"$*"/head && git checkout FETCH_HEAD
 }
 
