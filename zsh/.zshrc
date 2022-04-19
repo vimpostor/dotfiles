@@ -129,5 +129,10 @@ function gcpr() {
 	git fetch -q origin pull/"$*"/head 2>/dev/null || git fetch -q upstream pull/"$*"/head && git checkout FETCH_HEAD
 }
 
+# create a signed git tag, usage: gta v1.2
+function gta() {
+	git tag -s -m "$(basename "$(git rev-parse --show-toplevel)") ${*#v}" "$*" && git --no-pager tag -n "$*"
+}
+
 # complete autosuggestions with <c-space>
 bindkey '^ ' autosuggest-accept
