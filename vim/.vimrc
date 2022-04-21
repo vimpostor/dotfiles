@@ -12,14 +12,15 @@ Plug 'easymotion/vim-easymotion' "even faster movement
 Plug 'tpope/vim-fugitive' "handy git tools
 Plug 'tpope/vim-rhubarb' "github integration
 Plug 'markonm/traces.vim' "pattern preview
-Plug 'vimpostor/vim-prism' "colorscheme
 Plug 'https://gitlab.com/dbeniamine/cheat.sh-vim.git' "cheat sheets
 Plug 'dense-analysis/ale' "linting
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'puremourning/vimspector' "debugging
-Plug 'vimpostor/vim-tpipeline' "outsource statusline to tmux
 Plug 'junegunn/fzf.vim' "fzf integration
 Plug 'mbbill/undotree' "undo history visualizer
+Plug 'vimpostor/vim-prism' "colorscheme
+Plug 'vimpostor/vim-tpipeline' "outsource statusline to tmux
+Plug 'vimpostor/vim-lumen' "follow global darkmode
 call plug#end()
 
 "color scheme
