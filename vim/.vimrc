@@ -22,6 +22,7 @@ Plug 'vimpostor/vim-prism' "colorscheme
 Plug 'vimpostor/vim-tpipeline' "outsource statusline to tmux
 Plug 'vimpostor/vim-lumen' "follow global darkmode
 call plug#end()
+packadd! matchit "builtin plugin extends %
 
 "color scheme
 set background=dark
