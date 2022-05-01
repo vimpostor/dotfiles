@@ -53,7 +53,7 @@ set fast_reply
 set include = yes
 unset help
 # f=f, see https://nullprogram.com/blog/2017/06/15/
-set text_flowed
+source ~/.config/mutt/format_flowed.rc
 # include message in replies
 set include
 set attach_save_dir = "/tmp"

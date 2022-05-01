@@ -1,0 +1,3 @@
+set text_flowed
+set editor = 'vim -c "setlocal fo+=aw"'
+macro index,pager \cf "<enter-command>source ~/.config/mutt/format_unflowed.rc<enter><enter-command>echo 'Format is unflowed now! 📝'<enter>"

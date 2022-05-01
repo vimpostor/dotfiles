@@ -101,7 +101,7 @@ autocmd Filetype yaml if expand('%:p:h') =~# 'playbooks\|tasks\|handlers' | setl
 autocmd Filetype tex setlocal conceallevel=1 spell
 autocmd Filetype markdown setlocal spell
 autocmd Filetype gitcommit setlocal spell
-au BufRead /tmp/mutt-* setlocal fo+=aw spell spelllang=en,de
+au BufRead /tmp/mutt-* setlocal spell spelllang=en,de
 autocmd FileType haskell setlocal expandtab
 "switch between header and source
 autocmd Filetype c,cpp nnoremap <silent> <F4> :<C-u>CocCommand clangd.switchSourceHeader<CR>
