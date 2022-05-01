@@ -99,8 +99,7 @@ let g:rust_recommended_style = 0
 au Filetype yaml setlocal ts=2 sw=2 et
 au Filetype yaml if expand('%:p:h') =~# 'playbooks\|tasks\|handlers' | setlocal ft=yaml.ansible | endif
 au Filetype tex setlocal conceallevel=1 spell
-au Filetype markdown setlocal spell
-au Filetype gitcommit setlocal spell
+au Filetype markdown,gitcommit setlocal spell
 au FileType mail setlocal spell spelllang=en,de
 au FileType haskell setlocal expandtab
 au Filetype c,cpp nnoremap <silent> <F4> :<C-u>CocCommand clangd.switchSourceHeader<CR>
