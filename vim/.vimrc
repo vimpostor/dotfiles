@@ -1,7 +1,7 @@
 if !isdirectory(glob('~/.vim/plugged'))
 	"Install vim-plug
 	silent execute '!curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-	autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+	au VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 call plug#begin('~/.vim/plugged')
 Plug 'scrooloose/nerdcommenter' "easier commenting
@@ -96,19 +96,18 @@ set splitright
 "file type specific settings
 let g:python_recommended_style = 0
 let g:rust_recommended_style = 0
-autocmd Filetype yaml setlocal ts=2 sw=2 et
-autocmd Filetype yaml if expand('%:p:h') =~# 'playbooks\|tasks\|handlers' | setlocal ft=yaml.ansible | endif
-autocmd Filetype tex setlocal conceallevel=1 spell
-autocmd Filetype markdown setlocal spell
-autocmd Filetype gitcommit setlocal spell
+au Filetype yaml setlocal ts=2 sw=2 et
+au Filetype yaml if expand('%:p:h') =~# 'playbooks\|tasks\|handlers' | setlocal ft=yaml.ansible | endif
+au Filetype tex setlocal conceallevel=1 spell
+au Filetype markdown setlocal spell
+au Filetype gitcommit setlocal spell
 au FileType mail setlocal spell spelllang=en,de
-autocmd FileType haskell setlocal expandtab
-"switch between header and source
-autocmd Filetype c,cpp nnoremap <silent> <F4> :<C-u>CocCommand clangd.switchSourceHeader<CR>
+au FileType haskell setlocal expandtab
+au Filetype c,cpp nnoremap <silent> <F4> :<C-u>CocCommand clangd.switchSourceHeader<CR>
 
 "pandoc
-command PandocDisable autocmd! Pandoc BufWritePost *
-command PandocEnable exe 'silent! PandocDisable!' | exe 'augroup Pandoc' | exe 'silent !pandoc % -o /tmp/%:t.pdf && xdg-open /tmp/%:t.pdf' | exe 'autocmd BufWritePost * silent! !pandoc % -o /tmp/%:t.pdf' | exe 'augroup END' | exe 'redraw!'
+command PandocDisable au! Pandoc BufWritePost *
+command PandocEnable exe 'silent! PandocDisable!' | exe 'augroup Pandoc' | exe 'silent !pandoc % -o /tmp/%:t.pdf && xdg-open /tmp/%:t.pdf' | exe 'au BufWritePost * silent! !pandoc % -o /tmp/%:t.pdf' | exe 'augroup END' | exe 'redraw!'
 
 "general keybindings
 let mapleader = " "
@@ -233,14 +232,14 @@ function! s:show_documentation()
     call CocAction('doHover')
   endif
 endfunction
-autocmd CursorHold * silent call CocActionAsync('highlight') "highlight symbol on cursor hold
+au CursorHold * silent call CocActionAsync('highlight') "highlight symbol on cursor hold
 nmap <LocalLeader>rn <Plug>(coc-rename)
 xmap <LocalLeader>f  <Plug>(coc-format-selected)
 nmap <LocalLeader>f  <Plug>(coc-format-selected)
 augroup mygroup
-  autocmd!
-  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected') "Setup formatexpr specified filetype(s).
-  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp') "Update signature help on jump placeholder
+  au!
+  au FileType typescript,json setl formatexpr=CocAction('formatSelected') "Setup formatexpr specified filetype(s).
+  au User CocJumpPlaceholder call CocActionAsync('showSignatureHelp') "Update signature help on jump placeholder
 augroup end
 xmap <LocalLeader>a  <Plug>(coc-codeaction-selected)
 nmap <LocalLeader>a  <Plug>(coc-codeaction-selected)
