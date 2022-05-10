@@ -100,7 +100,7 @@ print-manager
 pv
 python-markdown
 python-pynvim
-qemu
+qemu-desktop
 qt-gstreamer
 ranger
 rofi
