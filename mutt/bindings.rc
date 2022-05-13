@@ -8,9 +8,6 @@ bind index,pager \cx "delete-thread"
 macro index,pager a "<pipe-message>git am<enter>:echo 'Patch applied 🚀'<enter>"
 macro index,pager \cv "<pipe-message>~/Documents/scripts/dispatch-bg-job.sh<enter>:echo 'Build job started... 🔨'<enter>"
 
-bind attach <return> view-mailcap
-bind attach l view-mailcap
-
 bind index l "display-message"
 bind index g "first-entry"
 bind index G "last-entry"
