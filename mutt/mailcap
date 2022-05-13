@@ -1,5 +1,6 @@
 text/html; w3m -I %{charset} -T text/html; copiousoutput;
 text/plain; less; copiousoutput;
-image/*; gwenview %s;
-application/pdf; okular %s;
-video/*; vlc %s;
+image/*; mkdir -p /tmp/.mutt \; cp %s /tmp/.mutt/ \; xdg-open /tmp/.mutt/"$(basename %s)" &>/dev/null
+application/*; mkdir -p /tmp/.mutt \; cp %s /tmp/.mutt/ \; xdg-open /tmp/.mutt/"$(basename %s)" &>/dev/null
+audio/*; mkdir -p /tmp/.mutt \; cp %s /tmp/.mutt/ \; xdg-open /tmp/.mutt/"$(basename %s)" &>/dev/null
+video/*; mkdir -p /tmp/.mutt \; cp %s /tmp/.mutt/ \; xdg-open /tmp/.mutt/"$(basename %s)" &>/dev/null
