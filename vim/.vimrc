@@ -144,6 +144,20 @@ imap <c-v> <c-g>u<Esc>[s1z=`]a<c-g>u
 let g:no_gitrebase_maps = 1
 "write with sudo
 command SudoWrite execute 'silent! write !sudo tee % >/dev/null' <bar> edit!
+"create new c style header-source file pair
+func HeaderCreate(n)
+	let h = ['hpp', 'h', 'hh', 'hxx', 'cpp', 'c', 'cc', 'cxx']
+	call mkdir(fnamemodify(a:n, ":h"), "p")
+	let f = fnamemodify(a:n, ":r") . "."
+	let i = index(h, fnamemodify(a:n, ":e")) % (len(h) / 2)
+	exec "edit " . f . h[i + len(h) / 2]
+	call setline(".", '#include "' . fnamemodify(f, ":t") . h[i] . '"')
+	norm 2o
+	exec "edit " . f . h[i]
+	call setline(".", "#pragma once")
+	norm 2o
+endfunc
+command -nargs=1 -complete=file Cunit call HeaderCreate(<args>)
 
 "netrw
 nnoremap <silent> <C-t> :Lexplore<CR>
