@@ -48,6 +48,7 @@ set wildmode=longest:full,full
 if !has('nvim')
 	set completeopt+=menuone,popup
 	set completepopup=highlight:Pmenu,border:off
+	set fo+=/
 endif
 set ttyfast "fast terminal connection
 set gdefault "replace globally by default
