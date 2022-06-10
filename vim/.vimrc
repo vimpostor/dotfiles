@@ -59,6 +59,7 @@ set breakindent
 set noexpandtab
 set shiftwidth=4 "tab = 4 spaces
 set tabstop=4
+set cino=:0,g0,N-s
 silent! set stl=%!tpipeline#stl#line()
 set laststatus=2 "always show the statusline
 set noshowmode "dont show mode
