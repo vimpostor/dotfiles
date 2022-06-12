@@ -56,4 +56,5 @@ source ~/.config/mutt/format_flowed.rc
 # include message in replies
 set include
 set attribution = "On %d, %n wrote:"
+unset use_domain
 set attach_save_dir = "/tmp"
