@@ -49,6 +49,9 @@ if !has('nvim')
 	set completeopt+=menuone,popup
 	set completepopup=highlight:Pmenu,border:off
 	set fo+=/
+elseif has('nvim-0.8')
+	set cmdheight=0
+	set shortmess+=S
 endif
 set ttyfast "fast terminal connection
 set gdefault "replace globally by default
