@@ -75,7 +75,6 @@ set t_ut="" "prevents a weird background on some terminals
 set lazyredraw
 set hidden "allow buffers to be hidden
 set shortmess+=c "don't give ins-completion-menu messages
-set shortmess-=S "show number of search matches
 "do not write backup files, they cause more problems than they solve
 set nobackup
 set nowritebackup
