@@ -50,14 +50,19 @@ for MAIL in "$MAILDIR_CUR"/*; do
 	# iterate over ", " separated To: addresses
 	while [ -n "$TO" ]; do
 		# Parse the next address and skip this mail if we get an error
-		NEXT="$(echo "$TO" | grep -Eo '^[^<]*<\S*>(, )?')" || TO=''
+		NEXT="$(echo "$TO" | grep -Eo '^[^<]*<\S*>[, ]?')" || NEXT="$(echo "$TO" | grep -Eo '^\S+@\S+[, ]?')" || TO=''
 		if [ -n "$NEXT" ]; then
 			COMPLETE_ADDRESS="${NEXT%, }"
-			LONG_NAME="${COMPLETE_ADDRESS%%<*}"
-			decode "$LONG_NAME"
-			LONG_NAME="${DECODED//\"/\\\"}"
-			LONG_NAME="$(echo "$LONG_NAME" | sed 's/\s*$//')"
-			MAIL_ADDRESS="$(echo "$NEXT" | grep -Eo '<\S*>')"
+			if [[ "$COMPLETE_ADDRESS" =~ '<' ]]; then
+				LONG_NAME="${COMPLETE_ADDRESS%%<*}"
+				decode "$LONG_NAME"
+				LONG_NAME="${DECODED//\"/\\\"}"
+				LONG_NAME="$(echo "$LONG_NAME" | sed 's/\s*$//')"
+				MAIL_ADDRESS="$(echo "$NEXT" | grep -Eo '<\S*>')"
+			else
+				LONG_NAME=''
+				MAIL_ADDRESS="$(echo "$NEXT" | grep -Eo '\S*')"
+			fi
 			SUBJECT="$(grep -A1 -m1 '^Subject:' "$MAIL" | grep -E '^Subject: |^\s.' | sed 's/^Subject://' |  sed 's/^\s*\|\s*$//g' | tr '\n' ' ' | sed 's/ $//')"
 			decode "$SUBJECT"
 			CONTACTS["$MAIL_ADDRESS\t$LONG_NAME"]="$DECODED"
