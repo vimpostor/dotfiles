@@ -19,6 +19,7 @@ flameshot
 freerdp
 fzf
 gnome-icon-theme
+gnuplot
 groff
 gst-libav
 gst-plugins-bad
@@ -127,6 +128,7 @@ texlive-bibtexextra
 texlive-core
 texlive-fontsextra
 texlive-latexextra
+texlive-music
 texlive-pictures
 texlive-science
 tk

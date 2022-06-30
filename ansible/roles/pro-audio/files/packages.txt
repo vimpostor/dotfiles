@@ -26,6 +26,7 @@ sox
 speech-dispatcher
 surge
 timidity++
+vorbis-tools
 x42-plugins
 yabridge
 yabridgectl
