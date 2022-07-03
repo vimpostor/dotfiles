@@ -160,6 +160,7 @@ func HeaderCreate(n)
 	exec "edit " . f . h[i]
 	call setline(".", "#pragma once")
 	norm 2o
+	wa
 endfunc
 command -nargs=1 -complete=file Cunit call HeaderCreate(<args>)
 
