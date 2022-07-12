@@ -277,7 +277,11 @@ nnoremap <silent> <Leader>s  :<C-u>CocList -I symbols<cr>
 "snippets
 imap <C-j> <Plug>(coc-snippets-expand-jump)
 "coc-texlab
-nnoremap <silent> <Leader>ll :<C-u>CocCommand latex.Build<CR>
+if has('nvim')
+	nnoremap <silent> <Leader>ll :<C-u>CocCommand latex.Build<CR>
+else
+	nnoremap <silent> <Leader>ll :<C-u>call remote_startserver("synctex")<CR>:CocCommand latex.Build<CR>
+endif
 nnoremap <silent> <Leader>lv :<C-u>CocCommand latex.ForwardSearch<CR>
 "lists
 nnoremap <silent> <Leader>P :<C-u>Files<CR>

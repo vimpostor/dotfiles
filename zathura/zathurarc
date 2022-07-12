@@ -19,4 +19,4 @@ map [fullscreen] <Left> navigate previous
 
 # latex reverse search
 set synctex true
-set synctex-editor-command "vim --remote-silent +%{line} %{input}"
+set synctex-editor-command "vim --servername synctex --remote-silent +%{line} %{input}"

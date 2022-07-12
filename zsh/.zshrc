@@ -55,7 +55,6 @@ if ! zgen saved; then
 fi
 
 # aliases
-alias vim='vim --servername vim'
 alias lazycommit='git commit -m "$(curl -s whatthecommit.com/index.txt)"'
 alias diff='diff --color=auto'
 alias clipboard='xclip -selection c'
