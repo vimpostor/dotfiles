@@ -1,8 +1,6 @@
 # See man zathurarc
 set adjust-open "width"
 set font "Roboto Mono 10"
-set recolor-lightcolor "#fdf6e3"
-set recolor-darkcolor "#002b36"
 set guioptions ""
 set selection-clipboard clipboard
 
