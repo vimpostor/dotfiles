@@ -42,11 +42,12 @@ function notify-delete() {
 # $MAILDIR_NEW \ $MSG_CACHE
 NEW_MSGS="$(grep -Fvf <(cut -d' ' -f1 "$MSG_CACHE"| sed '/^$/d') <(ls -b1 "$MAILDIR_NEW"))" || true
 COUNT="$(printf "%s" "$NEW_MSGS"| grep -c '^')" || true
-if [[ "$COUNT" -eq 0 ]]; then
-	echo 'No new messages.'
-elif [[ "$COUNT" -lt "$SUMMARY_THRESHOLD" ]]; then
+if [[ "$COUNT" -lt "$SUMMARY_THRESHOLD" ]]; then
 	# send a notification for each message
 	while IFS= read -r MSG_ID; do
+		if [ -z "$MSG_ID" ]; then
+			continue
+		fi
 		MSG="$MAILDIR_NEW/$MSG_ID"
 		SENDER="$(grep -E -m1 '^From: ' "$MSG" | sed 's/From: //')"
 		decode "$SENDER"
