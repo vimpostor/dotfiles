@@ -74,9 +74,6 @@ elseif !has('nvim')
 	set ttymouse=xterm2
 endif
 set t_ut="" "prevents a weird background on some terminals
-if exists("$TMUX")
-    let &t_RB = "\ePtmux;\e\e]11;?\007\e\\"
-endif
 if has('termguicolors') "true colors
 	let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 	let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
