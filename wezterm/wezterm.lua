@@ -8,17 +8,9 @@ function scheme_for_appearance(appearance)
 	end
 end
 
-wezterm.on("window-config-reloaded", function(window, pane)
-	local overrides = window:get_config_overrides() or {}
-	local scheme = scheme_for_appearance(window:get_appearance())
-	if overrides.color_scheme ~= scheme then
-		overrides.color_scheme = scheme
-		window:set_config_overrides(overrides)
-	end
-end)
-
 return {
 	check_for_updates = false,
+	color_scheme = scheme_for_appearance(wezterm.gui.get_appearance()),
 	enable_tab_bar = false,
 	exit_behavior = "Close",
 	font = wezterm.font("MesloLGS NF"),
