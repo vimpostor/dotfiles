@@ -15,6 +15,7 @@ return {
 	exit_behavior = "Close",
 	font = wezterm.font("MesloLGS NF"),
 	font_size = 10.0,
+	force_reverse_video_cursor = true,
 	keys = {
 		{key="UpArrow", mods="SHIFT", action=wezterm.action.ScrollToPrompt(-1)},
 		{key="DownArrow", mods="SHIFT", action=wezterm.action.ScrollToPrompt(1)},
