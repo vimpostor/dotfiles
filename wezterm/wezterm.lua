@@ -20,6 +20,7 @@ return {
 		{key="UpArrow", mods="SHIFT", action=wezterm.action.ScrollToPrompt(-1)},
 		{key="DownArrow", mods="SHIFT", action=wezterm.action.ScrollToPrompt(1)},
 	},
+	warn_about_missing_glyphs = false,
 	window_padding = {
 		left = 0,
 		right = 0,
