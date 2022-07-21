@@ -1,44 +1,38 @@
-color attachment color109 color234
-color bold color229 color234
-color compose header color223 color234
-color compose security_none color223 color234
-color compose security_sign color220 color234
-color compose security_both color142 color234
-color error color167 color234
-color hdrdefault color246 color234
-color header color108 color234 "^Date: "
-color header color214 color234 "^From: "
-color header color214 color234 "^To: "
-color header color142 color234 "^Subject: "
-color index color109 color234 "~P" # messages from me
-color index color143 color234 "~U" # unread
-color index color142 color234 "~N" # new
-color index bold magenta color234 "~v" # collapsed
-color index color237 color234 '~s ^\\*\\*\\*\\*\\*SPAM\\*\\*\\*\\*\\*' # spam messages
-color index color234 color167 "~D" # deleted
-color indicator bold default color237
-color markers color243 color234
-color message color223 color234
-color normal color223 color234
-color prompt color223 color234
-color quoted color250 color234
-color quoted0 color108 color234
-color quoted1 color108 color234
-color quoted2 color250 color234
-color quoted3 color108 color234
-color quoted4 color250 color234
-color quoted5 color108 color234
-color quoted6 yellow color234
-color quoted7 brightyellow color234
-color quoted8 magenta color234
-color quoted9 brightmagenta color234
-color search color234 color208
-color sidebar_divider color250 color234
-color sidebar_new color142 color234
-color signature color108 color234
-color status color234 color250
-color tilde color243 color234
-color tree color142 color234
-color underline color223 color239
+color attachment default default
+color bold default default
+color compose header default default
+color compose security_none default default
+color compose security_sign bold yellow default
+color compose security_both bold green default
+color error red default
+color hdrdefault magenta default
+color index blue default "~P" # messages from me
+color index green default "~U|~N" # unread or new
+color index bold yellow default "~v" # collapsed
+color index default red "~D" # deleted
+color indicator reverse default default
+color markers yellow default
+color message default default
+color normal default default
+color prompt default default
+color quoted green default
+color quoted0 green default
+color quoted1 brightgreen default
+color quoted2 yellow default
+color quoted3 brightyellow default
+color quoted4 magenta default
+color quoted5 brightmagenta default
+color quoted6 cyan default
+color quoted7 brightcyan default
+color quoted8 blue default
+color quoted9 brightblue default
+color search default yellow
+color sidebar_divider default default
+color sidebar_new default default
+color signature default default
+color status reverse default default
+color tilde default default
+color tree default default
+color underline default default
 
 set cursor_overlay
