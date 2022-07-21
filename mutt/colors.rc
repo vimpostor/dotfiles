@@ -13,6 +13,7 @@ color header color142 color234 "^Subject: "
 color index color109 color234 "~P" # messages from me
 color index color143 color234 "~U" # unread
 color index color142 color234 "~N" # new
+color index bold magenta color234 "~v" # collapsed
 color index color237 color234 '~s ^\\*\\*\\*\\*\\*SPAM\\*\\*\\*\\*\\*' # spam messages
 color index color234 color167 "~D" # deleted
 color indicator bold default color237

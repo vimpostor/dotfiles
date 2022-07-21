@@ -20,6 +20,8 @@ source ~/.config/mutt/gpg.rc
 set sort = threads
 set sort_aux = last-date-received
 set strict_threads
+unset collapse_unread
+folder-hook . "exec collapse-all"
 # smooth scrolling
 set menu_scroll
 set menu_context = 4

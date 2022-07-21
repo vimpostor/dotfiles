@@ -15,6 +15,7 @@ bind index d "half-down"
 bind index u "half-up"
 bind index U "toggle-new"
 bind index L "limit"
+bind index - "collapse-thread"
 macro index \cl "<limit>\cuall<enter>"
 macro index <F5> "<shell-escape>mbsync -a<enter>:echo 'Mail synced 📥'<enter>"
 
