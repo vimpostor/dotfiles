@@ -18,7 +18,6 @@ firefox
 flameshot
 freerdp
 fzf
-gnome-icon-theme
 gnuplot
 groff
 gst-libav
@@ -41,7 +40,6 @@ keepassxc
 khotkeys
 kinfocenter
 kmag
-konsole
 krdc
 krita
 krita-plugin-gmic
@@ -143,6 +141,7 @@ vim-spell-en
 vlc
 vpnc
 w3m
+wezterm
 x86_energy_perf_policy
 xdg-desktop-portal
 xdg-desktop-portal-kde
