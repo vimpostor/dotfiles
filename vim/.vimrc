@@ -138,6 +138,7 @@ nnoremap <LocalLeader>J J
 xnoremap <LocalLeader>J J
 "clear search
 nnoremap <silent> <C-L> :nohl<CR>
+nmap <silent> <Leader>u :UndotreeToggle<CR>
 "switch to last buffer
 nnoremap <Leader><Leader> <c-^>
 "autocorrect last misspelling
