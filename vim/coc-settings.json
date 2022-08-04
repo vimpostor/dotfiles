@@ -21,5 +21,6 @@
 	},
 	"lists.disabledLists": ["cmdhistory", "colors", "searchhistory", "sessions"],
 	"rust-analyzer.server.path": "/usr/bin/rust-analyzer",
-	"session.saveOnVimLeave": false
+	"session.saveOnVimLeave": false,
+	"suggest.noselect": true
 }
