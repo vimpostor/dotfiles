@@ -60,7 +60,6 @@ podman
 podman-compose
 podman-docker
 postgresql-libs
-python-language-server
 python-pip
 python-pipenv
 python-pylint

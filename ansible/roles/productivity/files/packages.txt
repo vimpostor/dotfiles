@@ -39,11 +39,13 @@ kdoctools
 keepassxc
 khotkeys
 kinfocenter
+kinit
 kmag
 krdc
 krita
 krita-plugin-gmic
 kscreen
+ksysguard
 kteatime
 ktouch
 kwallet-pam
@@ -135,6 +137,7 @@ ttf-joypixels
 ttf-opensans
 ttf-roboto
 urlscan
+usb_modeswitch
 vdpauinfo
 vim-spell-de
 vim-spell-en

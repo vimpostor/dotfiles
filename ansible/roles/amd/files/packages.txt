@@ -1,4 +1,5 @@
 amd-ucode
+corectrl
 lib32-vulkan-mesa-layers
 lib32-vulkan-radeon
 vulkan-mesa-layers
