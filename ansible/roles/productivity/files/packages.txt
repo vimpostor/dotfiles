@@ -94,7 +94,6 @@ plasma-nm
 plasma-pa
 plasma-sdk
 plasma-systemmonitor
-plasma-wayland-session
 powerdevil
 powertop
 print-manager
@@ -153,6 +152,7 @@ xorg-server
 xorg-xbacklight
 xorg-xev
 xorg-xinit
+xorg-xinput
 xorg-xwininfo
 youtube-dl
 zathura
