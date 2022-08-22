@@ -4,7 +4,7 @@ function scheme_for_appearance(appearance)
 	if appearance:find("Dark") then
 		return "Breeze"
 	else
-		return "PaperColorLight (Gogh)"
+		return "One Light (base16)"
 	end
 end
 
