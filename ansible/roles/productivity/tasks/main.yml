@@ -5,6 +5,10 @@
   systemd:
     name: NetworkManager.service
     enabled: yes
+- name: Use iwd as Wifi backend
+  copy:
+    dest: /etc/NetworkManager/conf.d/wifi_backend.conf
+    content: "{{ lookup('file', 'files/wifi_backend.conf') }}\n"
 - name: Enable sddm
   systemd:
     name: sddm.service
