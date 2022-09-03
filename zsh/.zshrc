@@ -131,7 +131,7 @@ function gcpr() {
 
 # create a signed git tag, usage: gta v1.2
 function gta() {
-	git tag -s -m "$(basename "$(git rev-parse --show-toplevel)") ${*#v}" "$*" && git --no-pager tag -n "$*"
+	git tag -se -m "$(basename "$(git rev-parse --show-toplevel)") ${*#v}" "$*" && git --no-pager tag -n "$*"
 }
 
 # complete autosuggestions with <c-space>
