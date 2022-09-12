@@ -29,7 +29,7 @@ set menu_context = 4
 unset menu_move_off
 set pager_index_lines = 4
 set pager_context = 3
-set index_format = "%4C %Z %[%b %d %R] %-15.15L (%?l?%4l&%4c?) %s"
+set index_format = "%4C %Z%?X?📎&  ? %[%b %d %R] %-15.15L (%?l?%4l&%4c?) %s"
 
 set tilde
 unset markers
@@ -61,3 +61,8 @@ set include
 set attribution = "On %d, %n wrote:"
 unset use_domain
 set attach_save_dir = "/tmp"
+
+attachments +A */.*
+attachments -A text/.*
+attachments +I */.*
+attachments -I text/.*
