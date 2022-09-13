@@ -293,8 +293,6 @@ nmap <Leader><F12> <Plug>VimspectorDownFrame
 nmap <silent> <Leader><F3> :<C-u>VimspectorReset<CR>
 
 "easy motion
-nmap s <Plug>(easymotion-s2)
-nmap t <Plug>(easymotion-t2)
 map <LocalLeader> <Plug>(easymotion-prefix)
 map <LocalLeader>l <Plug>(easymotion-lineforward)
 map <LocalLeader>j <Plug>(easymotion-j)
