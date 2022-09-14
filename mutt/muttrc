@@ -63,6 +63,8 @@ unset use_domain
 set attach_save_dir = "/tmp"
 
 attachments +A */.*
-attachments -A text/.*
 attachments +I */.*
+attachments -A text/.*
 attachments -I text/.*
+attachments -A application/pgp-signature
+attachments -I application/pgp-signature
