@@ -161,7 +161,7 @@ func HeaderCreate(n)
 	norm 2o
 	wa
 endfunc
-command -nargs=1 -complete=file Cunit call HeaderCreate(<args>)
+command -nargs=1 -complete=file Cunit call HeaderCreate(<q-args>)
 
 "netrw
 nnoremap <silent> <C-t> :Lexplore<CR>
