@@ -66,5 +66,5 @@ attachments +A */.*
 attachments +I */.*
 attachments -A text/.*
 attachments -I text/.*
-attachments -A application/pgp-signature
-attachments -I application/pgp-signature
+attachments -A application/.*-signature
+attachments -I application/.*-signature
