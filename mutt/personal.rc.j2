@@ -3,3 +3,9 @@ set sendmail = "/usr/share/doc/msmtp/msmtpq/msmtpq -a {{ mail_account }}"
 
 set realname = "{{ full_name }}"
 set from = "{{ email }}"
+
+# Unsubscribed mailing lists
+lists mutt-users@mutt.org
+
+# Subscribed mailing lists
+subscribe mutt-dev@mutt.org
