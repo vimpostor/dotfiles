@@ -109,6 +109,7 @@ samba
 sane
 scantailor-advanced
 scour
+scrcpy
 screen
 sddm
 sddm-kcm

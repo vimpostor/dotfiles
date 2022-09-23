@@ -85,7 +85,6 @@ qtcreator
 r2ghidra
 rust
 rust-analyzer
-rust-racer
 scanmem
 shellcheck
 sqlmap
