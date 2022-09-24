@@ -56,4 +56,4 @@
     path: /etc/sudoers
     regexp: '^(# )?%wheel ALL=\(ALL\) ALL$'
     line: '%wheel ALL=(ALL) ALL'
-- include: aur_helper.yml
+- include_tasks: aur_helper.yml
