@@ -199,6 +199,22 @@ endfunc
 if exists('+thesaurusfunc')
 	set thesaurusfunc=Thesaur
 endif
+"poor man's editorconfig
+func DetectIndent()
+	let tabs = len(filter(getline('1', '$'), 'v:val =~ "^\t"'))
+	let spaces = len(filter(getline('1', '$'), 'v:val =~ "^ "'))
+	if tabs && spaces
+		echohl ErrorMsg | echo 'Mixed indentation detected' | echohl None
+	endif
+	if tabs > spaces
+		set noet ts=4 sts=0 sw=4
+		echo 'Indenting with tabs'
+	else
+		set et ts=4 sts=4 sw=4
+		echo 'Indenting with spaces'
+	endif
+endfunction
+command DetectIndent call DetectIndent()
 
 "plugin settings
 "ale
@@ -229,8 +245,8 @@ let g:coc_global_extensions = [
 inoremap <silent><expr> <TAB> coc#pum#visible() ? coc#pum#next(1) : CheckBackspace() ? "\<Tab>" : coc#refresh()
 inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
 function! CheckBackspace() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
+	let col = col('.') - 1
+	return !col || getline('.')[col - 1] =~# '\s'
 endfunction
 inoremap <silent><expr> <c-space> coc#refresh()
 inoremap <silent><expr> <cr> coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
@@ -240,25 +256,25 @@ nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 nnoremap <silent> <LocalLeader>K :call <SID>show_documentation()<CR>
 function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  else
-    call CocAction('doHover')
-  endif
+	if (index(['vim','help'], &filetype) >= 0)
+	execute 'h '.expand('<cword>')
+	else
+		call CocAction('doHover')
+	endif
 endfunction
 au CursorHold * silent call CocActionAsync('highlight') "highlight symbol on cursor hold
 nmap <LocalLeader>rn <Plug>(coc-rename)
-xmap <LocalLeader>f  <Plug>(coc-format-selected)
-nmap <LocalLeader>f  <Plug>(coc-format-selected)
+xmap <LocalLeader>f <Plug>(coc-format-selected)
+nmap <LocalLeader>f <Plug>(coc-format-selected)
 augroup mygroup
-  au!
-  au FileType typescript,json setl formatexpr=CocAction('formatSelected') "Setup formatexpr specified filetype(s).
-  au User CocJumpPlaceholder call CocActionAsync('showSignatureHelp') "Update signature help on jump placeholder
+	au!
+	au FileType typescript,json setl formatexpr=CocAction('formatSelected') "Setup formatexpr specified filetype(s).
+	au User CocJumpPlaceholder call CocActionAsync('showSignatureHelp') "Update signature help on jump placeholder
 augroup end
-xmap <LocalLeader>a  <Plug>(coc-codeaction-selected)
-nmap <LocalLeader>a  <Plug>(coc-codeaction-selected)
-nmap <LocalLeader>ac  <Plug>(coc-codeaction)
-nmap <LocalLeader>qf  <Plug>(coc-fix-current)
+xmap <LocalLeader>a <Plug>(coc-codeaction-selected)
+nmap <LocalLeader>a <Plug>(coc-codeaction-selected)
+nmap <LocalLeader>ac <Plug>(coc-codeaction)
+nmap <LocalLeader>qf <Plug>(coc-fix-current)
 "function text objects
 xmap if <Plug>(coc-funcobj-i)
 xmap af <Plug>(coc-funcobj-a)
@@ -267,9 +283,9 @@ omap af <Plug>(coc-funcobj-a)
 xmap <silent> <Tab> <Plug>(coc-range-select)
 command! -nargs=0 Format :call CocAction('format')
 command! -nargs=? Fold :call CocAction('fold', <f-args>)
-nnoremap <silent> <Leader>e  :<C-u>CocList diagnostics<cr>
-nnoremap <silent> <Leader>o  :<C-u>CocList outline<cr>
-nnoremap <silent> <Leader>s  :<C-u>CocList -I symbols<cr>
+nnoremap <silent> <Leader>e :<C-u>CocList diagnostics<cr>
+nnoremap <silent> <Leader>o :<C-u>CocList outline<cr>
+nnoremap <silent> <Leader>s :<C-u>CocList -I symbols<cr>
 "snippets
 imap <C-j> <Plug>(coc-snippets-expand-jump)
 "coc-texlab

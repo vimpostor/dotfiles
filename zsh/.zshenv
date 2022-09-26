@@ -7,3 +7,4 @@ export KEYTIMEOUT=1
 export FZF_COMPLETION_TRIGGER='~~'
 export FZF_DEFAULT_OPTS="--history=$HOME/.cache/.fzf_history"
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
+export BAT_THEME=base16
