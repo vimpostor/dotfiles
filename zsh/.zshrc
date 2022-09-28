@@ -101,6 +101,16 @@ function templ() {
 	cp ~/Templates/.filetemplates/*."${*##*.}" "$*"
 }
 
+# start mutt in the correct mode
+function mutt() {
+	if pgrep -xu "$USER" mutt >/dev/null; then
+		echo 'Starting mutt in read-only mode 🔒' && sleep 0.2
+		command mutt -R "$@"
+	else
+		command mutt "$@"
+	fi
+}
+
 # generates an Ansible role using molecule
 function gen-molecule() {
 	molecule init role -d podman "$*" && cd "$*" && rm README.md .travis.yml meta/main.yml
