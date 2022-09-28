@@ -59,8 +59,8 @@ set autoindent
 set smartindent
 set breakindent
 set noexpandtab
-set shiftwidth=4 "tab = 4 spaces
-set tabstop=4
+set tabstop=4 "tab = 4 spaces
+set shiftwidth=0
 set cino=:0,g0,N-s
 silent! set stl=%!tpipeline#stl#line()
 set laststatus=2 "always show the statusline
@@ -200,21 +200,22 @@ if exists('+thesaurusfunc')
 	set thesaurusfunc=Thesaur
 endif
 "poor man's editorconfig
-func DetectIndent()
+func AutoIndent(...)
+	let n = get(a:, 1, 4) + 4 * !get(a:, 1, 4)
 	let tabs = len(filter(getline('1', '$'), 'v:val =~ "^\t"'))
 	let spaces = len(filter(getline('1', '$'), 'v:val =~ "^ "'))
 	if tabs && spaces
-		echohl ErrorMsg | echo 'Mixed indentation detected' | echohl None
+		echohl ErrorMsg | echo printf('Mixed indentation detected (%d tabs VS %d spaces)', tabs, spaces) | echohl None
 	endif
-	if tabs > spaces
-		set noet ts=4 sts=0 sw=4
-		echo 'Indenting with tabs'
+	if (tabs > spaces && (!a:0 || !a:1)) || (a:0 && !a:1)
+		exec printf('set noet ts=%d sts=0 sw=0', n)
+		echo printf('Indenting with tabs (ts=%d)', n)
 	else
-		set et ts=4 sts=4 sw=4
-		echo 'Indenting with spaces'
+		exec printf('set et ts=%d sts=0 sw=0', n)
+		echo printf('Indenting with spaces (ts=%d)', n)
 	endif
 endfunction
-command DetectIndent call DetectIndent()
+command -nargs=? AutoIndent call AutoIndent(<args>)
 
 "plugin settings
 "ale
