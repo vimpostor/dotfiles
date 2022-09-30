@@ -68,6 +68,8 @@ qt5-connectivity
 qt5-datavis3d
 qt5-doc
 qt5-examples
+qt6-languageserver
+qt6-lottie
 qt5-networkauth
 qt5-scxml
 qt5-virtualkeyboard

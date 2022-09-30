@@ -1,7 +1,8 @@
 ---
 - name: Converge
   hosts: all
-  tasks:
-    - name: "Include user-config"
-      include_role:
-        name: "user-config"
+  roles:
+  - role: user-config
+    vars:
+      myfullname: "John Doe"
+      myemail: "john@doe.com"

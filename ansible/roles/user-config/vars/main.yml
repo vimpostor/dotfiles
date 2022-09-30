@@ -1,1 +1,2 @@
 dotfiles_dir: '~/.dotfiles'
+gpg_batch_file: '/tmp/.gpg.batch'

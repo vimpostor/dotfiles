@@ -1,17 +1,17 @@
 - name: Clone dotfiles
   command:
     chdir: '~'
-    cmd: git clone 'https://gitlab.com/vimpostor/dotfiles.git' "{{ dotfiles_dir }}"
+    cmd: git clone 'https://github.com/vimpostor/dotfiles.git' "{{ dotfiles_dir }}"
     creates: "{{ dotfiles_dir }}"
 - name: Link dotfiles
   include_tasks:
     file: link.yml
   loop: "{{ lookup('file', 'files/link.conf').splitlines() }}"
-- name: Deploy templated configs
-  debug:
-    msg: "TODO"
 - name: Create XDG directories
   command:
     chdir: '~'
     cmd: mkdir -p Desktop Documents Downloads Music Pictures Public Templates Videos
     creates: '~/Downloads'
+- name: Include personal config
+  include_tasks: personal.yml
+  when: myfullname is defined and myemail is defined
