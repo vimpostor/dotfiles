@@ -6,6 +6,10 @@
   command:
     cmd: "gpg --batch --generate-key {{ gpg_batch_file }}"
     creates: '~/.gnupg/private-keys-v1.d'
+- name: Create .gitconfig
+  copy:
+    dest: "~/.gitconfig"
+    content: "{{ lookup('template', 'templates/.gitconfig.j2') }}"
 - name: Start mutt wizard
   include_tasks: mutt-wizard.yml
   when: mymailaccount is defined
