@@ -1,15 +1,15 @@
 - name: Create GPG batch file
-  copy:
+  template:
+    src: 'gpg-batch.j2'
     dest: "{{ gpg_batch_file }}"
-    content: "{{ lookup('template', 'templates/gpg-batch.j2') }}"
 - name: Generate GPG key
   command:
     cmd: "gpg --batch --generate-key {{ gpg_batch_file }}"
     creates: '~/.gnupg/private-keys-v1.d'
 - name: Create .gitconfig
-  copy:
+  template:
+    src: '.gitconfig.j2'
     dest: "~/.gitconfig"
-    content: "{{ lookup('template', 'templates/.gitconfig.j2') }}"
 - name: Start mutt wizard
   include_tasks: mutt-wizard.yml
   when: mymailaccount is defined

@@ -1,4 +1,4 @@
 - name: Create personal mutt config
-  copy:
+  template:
+    src: 'personal.rc.j2'
     dest: "{{ mutt_personal_file }}"
-    content: "{{ lookup('template', 'templates/personal.rc.j2') }}"
