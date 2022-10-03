@@ -17,6 +17,10 @@
 			"args": ["start"],
 			"filetypes": ["sh"],
 			"ignoredRootPaths": ["~"]
+		},
+		"qml": {
+			"command": "qmlls6",
+			"filetypes": ["qml"]
 		}
 	},
 	"lists.disabledLists": ["cmdhistory", "colors", "searchhistory", "sessions"],
