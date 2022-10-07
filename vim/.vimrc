@@ -211,7 +211,7 @@ func AutoIndent(...)
 		exec printf('set noet ts=%d sts=0 sw=0', n)
 		echo printf('Indenting with tabs (ts=%d)', n)
 	else
-		exec printf('set et ts=%d sts=0 sw=0', n)
+		exec printf('set et ts=%d sts=-1 sw=0', n)
 		echo printf('Indenting with spaces (ts=%d)', n)
 	endif
 endfunction

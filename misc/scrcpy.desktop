@@ -1,5 +1,5 @@
 [Desktop Entry]
-Name=Scrcpy
+Name=Android Scrcpy
 Comment=Display and control your Android device
 Exec=sh -c "scrcpy -b2M -m800 || kdialog --sorry 'scrcpy server connection failed'"
 Type=Application
