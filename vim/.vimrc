@@ -171,13 +171,13 @@ let g:netrw_browse_split = 4
 let g:netrw_winsize = 25
 
 "toggle qflist
-function! ToggleQf()
+func ToggleQf()
 	if getqflist({'winid': 0}).winid
 		cclose
 	else
 		copen
 	endif
-endfunction
+endfunc
 "thesaurus
 func Thesaur(findstart, base)
 	if a:findstart
@@ -214,7 +214,7 @@ func AutoIndent(...)
 		exec printf('set et ts=%d sts=-1 sw=0', n)
 		echo printf('Indenting with spaces (ts=%d)', n)
 	endif
-endfunction
+endfunc
 command -nargs=? AutoIndent call AutoIndent(<args>)
 
 "plugin settings
@@ -245,10 +245,10 @@ let g:coc_global_extensions = [
 \ ]
 inoremap <silent><expr> <TAB> coc#pum#visible() ? coc#pum#next(1) : CheckBackspace() ? "\<Tab>" : coc#refresh()
 inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
-function! CheckBackspace() abort
+func CheckBackspace() abort
 	let col = col('.') - 1
 	return !col || getline('.')[col - 1] =~# '\s'
-endfunction
+endfunc
 inoremap <silent><expr> <c-space> coc#refresh()
 inoremap <silent><expr> <cr> coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 nmap <silent> gd <Plug>(coc-definition)
@@ -256,13 +256,13 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 nnoremap <silent> <LocalLeader>K :call <SID>show_documentation()<CR>
-function! s:show_documentation()
+func s:show_documentation()
 	if (index(['vim','help'], &filetype) >= 0)
 	execute 'h '.expand('<cword>')
 	else
 		call CocAction('doHover')
 	endif
-endfunction
+endfunc
 au CursorHold * silent call CocActionAsync('highlight') "highlight symbol on cursor hold
 nmap <LocalLeader>rn <Plug>(coc-rename)
 xmap <LocalLeader>f <Plug>(coc-format-selected)
@@ -299,7 +299,15 @@ nnoremap <silent> <Leader>lv :<C-u>CocCommand latex.ForwardSearch<CR>
 "lists
 nnoremap <silent> <Leader>P :<C-u>Files<CR>
 nnoremap <silent> <Leader>b :<C-u>Buffers<CR>
-nnoremap <silent> <Leader>f :<C-u>Rg<CR>
+func RipgrepFzf(query, fullscreen)
+	let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case -- %s || true'
+	let initial_command = printf(command_fmt, shellescape(a:query))
+	let reload_command = printf(command_fmt, '{q}')
+	let spec = {'options': ['--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command]}
+	call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
+endfunc
+command! -nargs=* -bang RG call RipgrepFzf(<q-args>, <bang>0)
+nnoremap <silent> <Leader>f :<C-u>RG<CR>
 
 "vimspector
 let g:vimspector_enable_mappings = 'HUMAN'
