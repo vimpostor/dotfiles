@@ -1,4 +1,4 @@
-IMAPAccount name
+IMAPAccount maildir
 Host mail.domain.com
 User "username"
 PassCmd "gpg -dq ~/.config/mutt/mailpw.txt.gpg"
@@ -6,17 +6,17 @@ SSLType IMAPS
 CertificateFile /etc/ssl/certs/ca-certificates.crt
 PipelineDepth 1
 
-IMAPStore name-remote
-Account name
+IMAPStore maildir-remote
+Account maildir
 
-MaildirStore name-local
+MaildirStore maildir-local
 Flatten .
-Path ~/.local/share/mail/name/
-Inbox ~/.local/share/mail/name/INBOX
+Path ~/.local/share/mail/maildir/
+Inbox ~/.local/share/mail/maildir/INBOX
 
-Channel name
-Far :name-remote:
-Near :name-local:
+Channel maildir
+Far :maildir-remote:
+Near :maildir-local:
 Patterns *
 Create Both
 SyncState *

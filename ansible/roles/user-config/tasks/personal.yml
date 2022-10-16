@@ -12,4 +12,3 @@
     dest: "~/.gitconfig"
 - name: Start mutt wizard
   include_tasks: mutt-wizard.yml
-  when: mymailaccount is defined

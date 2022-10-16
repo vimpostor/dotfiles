@@ -4,11 +4,11 @@ tls on
 tls_trust_file /etc/ssl/certs/ca-certificates.crt
 protocol smtp
 
-account name
+account maildir
 host mail.domain.com
 port 587
 user "username"
 passwordeval "gpg -dq ~/.config/mutt/mailpw.txt.gpg"
 from "name@domain.com"
 
-account default : name
+account default : maildir
