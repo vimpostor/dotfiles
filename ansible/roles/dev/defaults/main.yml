@@ -1,2 +1,1 @@
----
-# defaults file for dev
+local_user: 'magnus'
