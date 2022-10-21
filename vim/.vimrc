@@ -275,6 +275,7 @@ augroup end
 xmap <LocalLeader>a <Plug>(coc-codeaction-selected)
 nmap <LocalLeader>a <Plug>(coc-codeaction-selected)
 nmap <LocalLeader>ac <Plug>(coc-codeaction)
+nmap <LocalLeader>al <Plug>(coc-codeaction-line)
 nmap <LocalLeader>qf <Plug>(coc-fix-current)
 "function text objects
 xmap if <Plug>(coc-funcobj-i)
