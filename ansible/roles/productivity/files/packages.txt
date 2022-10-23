@@ -134,6 +134,7 @@ texlive-pictures
 texlive-science
 tk
 tldr
+ttc-iosevka
 ttf-joypixels
 ttf-opensans
 ttf-roboto

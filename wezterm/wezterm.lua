@@ -13,7 +13,7 @@ return {
 	color_scheme = scheme_for_appearance(wezterm.gui.get_appearance()),
 	enable_tab_bar = false,
 	exit_behavior = "Close",
-	font = wezterm.font("MesloLGS NF"),
+	font = wezterm.font("Iosevka Extended"),
 	font_size = 10.0,
 	force_reverse_video_cursor = true,
 	keys = {
