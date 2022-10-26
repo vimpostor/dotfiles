@@ -31,6 +31,7 @@ go
 go-tools
 gource
 gperftools
+gradle
 gtest
 haskell-base-prelude
 haskell-prelude-extras
@@ -42,6 +43,7 @@ libappimage
 lldb
 llvm
 lua
+lua-language-server
 mariadb-libs
 meson
 mold
