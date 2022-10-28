@@ -50,6 +50,7 @@ mold
 molecule
 molecule-podman
 ninja
+nix
 nmap
 npm
 openmp

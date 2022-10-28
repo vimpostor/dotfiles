@@ -1,8 +1,10 @@
 - name: Install dev packages
   pacman:
     name: "{{ lookup('file', 'files/packages.txt').splitlines() | list }}"
-- name: Add to wireshark group
+- name: Add to missing groups
   user:
     name: "{{ local_user }}"
-    groups: wireshark
+    groups:
+      - wireshark
+      - nix-users
     append: yes
