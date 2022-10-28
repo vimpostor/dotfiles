@@ -3,7 +3,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 # powerlevel10k status prompt
 typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
-typeset -g POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(ssh context dir vcs kubecontext newline prompt_char)
+typeset -g POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(ssh nix_shell context dir vcs kubecontext newline prompt_char)
 typeset -g POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status command_execution_time root_indicator background_jobs)
 typeset -g POWERLEVEL9K_MODE=nerdfont-complete
 typeset -g POWERLEVEL9K_MULTILINE_FIRST_PROMPT_GAP_CHAR='·'
