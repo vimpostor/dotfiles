@@ -2,3 +2,11 @@
   template:
     src: 'personal.rc.j2'
     dest: "{{ mutt_personal_file }}"
+- name: Create parent directory
+  file:
+    path: "{{ notmuch_config | dirname }}"
+    state: directory
+- name: Create notmuch config
+  template:
+    src: 'config.j2'
+    dest: "{{ notmuch_config }}"

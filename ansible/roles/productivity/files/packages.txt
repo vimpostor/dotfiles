@@ -78,6 +78,8 @@ networkmanager-openvpn
 networkmanager-vpnc
 nextcloud-client
 nm-cloud-setup
+notmuch
+notmuch-mutt
 obs-studio
 octave
 okular

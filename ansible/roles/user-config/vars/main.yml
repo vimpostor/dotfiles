@@ -1,3 +1,4 @@
 dotfiles_dir: '~/.dotfiles'
 gpg_batch_file: '/tmp/.gpg.batch'
 mutt_personal_file: '~/.config/mutt/personal.rc'
+notmuch_config: '~/.config/notmuch/default/config'
