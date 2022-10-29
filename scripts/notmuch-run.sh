@@ -1,3 +1,6 @@
 #!/usr/bin/env sh
 
-notmuch new --quiet 2>&1 | grep -v 'Ignoring non-mail file'
+set -e
+
+OUTPUT="$(notmuch new --quiet 2>&1)"
+printf "$(printf "$OUTPUT" | grep -v 'Ignoring non-mail file')"
