@@ -8,5 +8,5 @@ ansible-playbook -K full.yml -e "myhostname=bogen"
 
 Apply the config for the current user:
 ```bash
-ansible-playbook user.yml -e "myfullname=John Doe" -e "myemail=john@doe.com"
+ansible-playbook user.yml -e "myfullname='John Doe'" -e "myemail='john@doe.com'"
 ```
