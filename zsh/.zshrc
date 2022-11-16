@@ -62,6 +62,7 @@ alias clipboard='xclip -selection c'
 alias ip='ip -c'
 alias ls='ls --color=auto'
 alias gce='git commit --amend --no-edit'
+alias gcea='gce -a'
 alias gpf='git push --force-with-lease --force-if-includes'
 
 # functions
