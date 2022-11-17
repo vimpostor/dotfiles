@@ -62,6 +62,7 @@ set attribution = "On %d, %n wrote:"
 unset use_domain
 set attach_save_dir = "/tmp"
 
+set count_alternatives
 attachments +A */.*
 attachments +I */.*
 attachments -A text/.*
