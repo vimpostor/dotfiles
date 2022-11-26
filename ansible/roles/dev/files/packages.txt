@@ -36,7 +36,9 @@ gtest
 haskell-base-prelude
 haskell-prelude-extras
 iaito
+jedi-language-server
 jq
+kate
 kcachegrind
 kubectl
 libappimage
@@ -84,10 +86,12 @@ qt6-declarative
 qt6-examples
 qt6-multimedia
 qt6-networkauth
+qt6-scxml
 qt6-shadertools
 qt6-svg
 qt6-tools
 qtcreator
+qtkeychain-qt6
 r2ghidra
 rust
 rust-analyzer
