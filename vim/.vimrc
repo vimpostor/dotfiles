@@ -78,7 +78,6 @@ if has('termguicolors') "true colors
 	let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 	set termguicolors
 endif
-set lazyredraw
 set hidden "allow buffers to be hidden
 set shortmess+=c "don't give ins-completion-menu messages
 "do not write backup files, they cause more problems than they solve
