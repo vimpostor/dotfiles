@@ -104,10 +104,6 @@ au FileType mail setlocal spell spelllang=en,de nojs
 au FileType haskell setlocal expandtab
 au Filetype c,cpp nnoremap <silent> <F4> :<C-u>CocCommand clangd.switchSourceHeader<CR>
 
-"pandoc
-command PandocDisable au! Pandoc BufWritePost *
-command PandocEnable exe 'silent! PandocDisable!' | exe 'augroup Pandoc' | exe 'silent !pandoc % -o /tmp/%:t.pdf && xdg-open /tmp/%:t.pdf' | exe 'au BufWritePost * silent! !pandoc % -o /tmp/%:t.pdf' | exe 'augroup END' | exe 'redraw!'
-
 "general keybindings
 let mapleader = " "
 let maplocalleader = ","
