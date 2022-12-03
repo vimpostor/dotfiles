@@ -27,6 +27,7 @@ gst-plugins-good
 gst-plugins-ugly
 gutenprint
 gwenview
+htop
 inkscape
 inotify-tools
 isync
@@ -153,6 +154,7 @@ x86_energy_perf_policy
 xdg-desktop-portal
 xdg-desktop-portal-kde
 xdotool
+xf86-input-synaptics
 xorg-server
 xorg-xbacklight
 xorg-xev

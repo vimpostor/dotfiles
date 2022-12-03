@@ -1,3 +1,7 @@
+- name: Create base maildir
+  file:
+    path: "{{ maildir_base_dir }}"
+    state: directory
 - name: Create personal mutt config
   template:
     src: 'personal.rc.j2'
