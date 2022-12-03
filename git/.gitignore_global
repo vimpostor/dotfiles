@@ -4,9 +4,9 @@
 
 *.swp
 .~lock.*.ods#
-.ccls-cache/
-.cache/
+/.ccls-cache/
+/.cache/
 compile_commands.json
 .vimspector.json
 Session.vim
-build/
+/build/

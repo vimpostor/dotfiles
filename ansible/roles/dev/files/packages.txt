@@ -82,6 +82,7 @@ qt5-virtualkeyboard
 qt5-webglplugin
 qt5-webview
 qt6-charts
+qt6-connectivity
 qt6-declarative
 qt6-examples
 qt6-multimedia
