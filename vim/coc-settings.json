@@ -9,6 +9,11 @@
 			"filetypes": ["sh"],
 			"ignoredRootPaths": ["~"]
 		},
+		"nix": {
+			"command": "nil",
+			"filetypes": ["nix"],
+			"rootPatterns": ["flake.nix"]
+		},
 		"qml": {
 			"command": "qmlls6",
 			"filetypes": ["qml"]

@@ -35,6 +35,7 @@ iwd
 kcalc
 kde-gtk-config
 kdeconnect
+kdenlive
 kdeplasma-addons
 kdialog
 kdoctools
