@@ -1,2 +1,4 @@
 set pagination off
 set debuginfod enabled off
+set index-cache enabled on
+maint set worker-threads 8
