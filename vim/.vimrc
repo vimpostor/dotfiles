@@ -93,6 +93,8 @@ set diffopt+=vertical,algorithm:patience
 "split like a normal human being
 set splitbelow
 set splitright
+set fcs+=stlnc:-
+set fcs+=stl:-
 
 "file type specific settings
 let g:python_recommended_style = 0
@@ -337,3 +339,6 @@ let g:fzf_layout = {'window': {'width': 1, 'height': 0.4, 'yoffset': 1, 'border'
 let g:CheatSheetDoNotMap = 1
 nnoremap <silent> <LocalLeader>KB :call cheat#cheat("", getcurpos()[1], getcurpos()[1], 0, 0, '!')<CR>
 vnoremap <silent> <LocalLeader>KB :call cheat#cheat("", -1, -1, 2, 0, '!')<CR>
+
+"tpipeline
+let g:tpipeline_clearstl = 1

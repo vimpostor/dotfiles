@@ -15,6 +15,7 @@ cpupower
 cups
 dolphin
 dolphin-plugins
+efivar
 firefox
 flameshot
 freerdp
@@ -116,6 +117,7 @@ scantailor-advanced
 scour
 scrcpy
 screen
+screenkey
 sddm
 sddm-kcm
 spectacle
