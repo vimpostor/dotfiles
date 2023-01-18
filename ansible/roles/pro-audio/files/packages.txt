@@ -24,6 +24,7 @@ sonic-pi
 sonic-visualiser
 sox
 speech-dispatcher
+spotify-launcher
 surge
 timidity++
 vorbis-tools
