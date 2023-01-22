@@ -93,7 +93,7 @@ set diffopt+=vertical,algorithm:patience
 "split like a normal human being
 set splitbelow
 set splitright
-set fcs+=stlnc:─,stl:─,vert:│
+set fcs=stlnc:─,stl:─,vert:│
 
 "file type specific settings
 let g:python_recommended_style = 0
