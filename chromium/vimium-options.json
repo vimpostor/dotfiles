@@ -1,6 +1,15 @@
 {
-  "settingsVersion": "1.64.6",
-  "exclusionRules": [],
+  "settingsVersion": "1.67.4",
+  "exclusionRules": [
+    {
+      "pattern": "https?://monkeytype.com/*",
+      "passKeys": ""
+    },
+    {
+      "pattern": "https?://configure.zsa.io/train/*",
+      "passKeys": ""
+    }
+  ],
   "filterLinkHints": false,
   "waitForEnterForFilteredHints": true,
   "hideHud": false,
