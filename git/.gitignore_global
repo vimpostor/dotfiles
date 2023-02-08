@@ -10,3 +10,4 @@ compile_commands.json
 .vimspector.json
 Session.vim
 /build/
+__pycache__/

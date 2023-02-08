@@ -19,4 +19,4 @@ More advanced configurations (e.g. system-wide settings and templated user confi
 
 # Keyboard
 
-I use an ortholinear split keyboard, specifically the [ZSA Moonlander Mark I](https://www.zsa.io/moonlander) with a [custom keyboard layout](https://configure.zsa.io/moonlander/layouts/P70zZ/latest/0).
+I use an ortholinear split keyboard, specifically the [ZSA Moonlander Mark I](https://www.zsa.io/moonlander) with [this custom keyboard layout](https://configure.zsa.io/moonlander/layouts/P70zZ/latest/0).
