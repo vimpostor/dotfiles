@@ -18,6 +18,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'puremourning/vimspector' "debugging
 Plug 'junegunn/fzf.vim' "fzf integration
 Plug 'mbbill/undotree' "undo history visualizer
+Plug 'KKoovalsky/TsepepeVim', { 'do': './build.py' }
 Plug 'vimpostor/vim-prism' "colorscheme
 Plug 'vimpostor/vim-tpipeline' "outsource statusline to tmux
 Plug 'vimpostor/vim-lumen' "follow global darkmode
