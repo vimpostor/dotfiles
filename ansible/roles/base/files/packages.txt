@@ -13,8 +13,6 @@ inetutils
 linux-firmware
 linux-lts
 linux-lts-headers
-linux-zen
-linux-zen-headers
 logrotate
 man-db
 man-pages
