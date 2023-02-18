@@ -58,7 +58,7 @@ fi
 # aliases
 alias lazycommit='git commit -m "$(curl -s whatthecommit.com/index.txt)"'
 alias diff='diff --color=auto'
-alias clipboard='xclip -selection c'
+alias cb='xclip -selection c'
 alias ip='ip -c'
 alias ls='ls --color=auto'
 alias gce='git commit --amend --no-edit'
