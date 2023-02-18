@@ -1,3 +1,4 @@
+aardvark-dns
 android-tools
 ansible-lint
 asp

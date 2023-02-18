@@ -20,3 +20,4 @@ Near :maildir-local:
 Patterns *
 Create Both
 SyncState *
+Expunge Both
