@@ -132,8 +132,8 @@ function gbd() {
 # rebase current branch on top of upstream remote changes
 function greb() {
 	UPSTREAM="$(git remote | grep upstream || git remote | grep origin)"
-	DEFAULT_BRANCH="$UPSTREAM/$(git branch -rl \*/HEAD | head -1 | rev | cut -d/ -f1 | rev)"
-	git fetch "$UPSTREAM" && git --no-pager log --reverse --pretty=tformat:%s "$(git merge-base HEAD "$DEFAULT_BRANCH")".."$DEFAULT_BRANCH" && git rebase "$DEFAULT_BRANCH"
+	BRANCH="$UPSTREAM/$(git branch -rl \*/HEAD | head -1 | rev | cut -d/ -f1 | rev)"
+	git fetch "$UPSTREAM" && git --no-pager log --reverse --pretty=tformat:%s "$(git merge-base HEAD "$BRANCH")".."$BRANCH" && git rebase "$BRANCH"
 }
 
 # checkout a PR without polluting local repo, takes the PR ID as single argument
