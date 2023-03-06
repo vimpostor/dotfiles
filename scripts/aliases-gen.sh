@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
-# This script parses all To: addresses from a Sent mail folder and adds them as aliases
-# Usage: MAILDIR_SENT=/path/to/inbox aliases-gen.sh
+# This script parses all addresses from a mail folder and adds them as aliases
+# Usage: MAILDIR=/path/to/inbox aliases-gen.sh
 
 MUTT_CACHE="$HOME/.cache/mutt"
 MUTT_ALIASES_CACHE="$MUTT_CACHE/aliases"
@@ -10,11 +10,11 @@ set -e
 # Do not expand * to itself when nothing matches
 shopt -s nullglob
 
-if [[ -z "$MAILDIR_SENT" ]]; then
+if [[ -z "$MAILDIR" ]]; then
 	# use default maildir
-	MAILDIR_SENT="$(find "$HOME/.local/share/mail/" -type d -name 'Sent' | head -1)"
+	MAILDIR="$(find "$HOME/.local/share/mail/" -type d -name 'INBOX' | head -1)"
 fi
-MAILDIR_CUR="$MAILDIR_SENT/cur"
+MAILDIR_CUR="$MAILDIR/cur"
 
 # Decodes MIME RFC 2047 to UTF8
 function decode() {
@@ -46,11 +46,13 @@ for MAIL in "$MAILDIR_CUR"/*; do
 		# skip, this one was cached already
 		continue
 	fi
+	FROM="$(grep -EA1 -m1 '^From:' "$MAIL" | grep -E '^From: |^\s+.' | sed 's/^From://' | sed 's/^\s*\|\s*$//g' | tr '\n' ' ')"
 	TO="$(grep -EA1 -m1 '^To:' "$MAIL" | grep -E '^To: |^\s+.' | sed 's/^To://' | sed 's/^\s*\|\s*$//g' | tr '\n' ' ')"
-	# iterate over ", " separated To: addresses
-	while [ -n "$TO" ]; do
+	ADDRESSES="$FROM, $TO"
+	# iterate over ", " separated addresses
+	while [ -n "$ADDRESSES" ]; do
 		# Parse the next address and skip this mail if we get an error
-		NEXT="$(echo "$TO" | grep -Eo '^[^<]*<\S*>[, ]?')" || NEXT="$(echo "$TO" | grep -Eo '^\S+@\S+[, ]?')" || TO=''
+		NEXT="$(echo "$ADDRESSES" | grep -Eo '^[^<]*<\S*>[, ]?')" || NEXT="$(echo "$ADDRESSES" | grep -Eo '^\S+@\S+[, ]?')" || ADDRESSES=''
 		if [ -n "$NEXT" ]; then
 			COMPLETE_ADDRESS="${NEXT%, }"
 			if [[ "$COMPLETE_ADDRESS" =~ '<' ]]; then
@@ -67,7 +69,7 @@ for MAIL in "$MAILDIR_CUR"/*; do
 			decode "$SUBJECT"
 			CONTACTS["$MAIL_ADDRESS\t$LONG_NAME"]="$DECODED"
 		fi
-		TO="${TO##"$NEXT"}"
+		ADDRESSES="${ADDRESSES##"$NEXT"}"
 	done
 done
 echo "$MAIL" > "$LAST_ID_CACHE"
