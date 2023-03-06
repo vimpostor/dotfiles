@@ -30,7 +30,7 @@ elif [[ "$SENDER" == *'notifications@github.com'* ]] && [[ "$SUBJECT" =~ ^\[.*/.
 	~/Documents/scripts/auto-build-github.sh < "$MAIL"
 # No matches
 else
-	gdbus call --session --dest=org.freedesktop.Notifications --object-path=/org/freedesktop/Notifications --method=org.freedesktop.Notifications.Notify 'Job Dispatcher' 0 'script-error' 'Dispatched job failed' 'Could not find any matching job rule.' '[]' '{"desktop-entry": <"org.kde.konsole">, "urgency": <"0">}' 5000 >/dev/null
+	gdbus call --session --dest=org.freedesktop.Notifications --object-path=/org/freedesktop/Notifications --method=org.freedesktop.Notifications.Notify 'Job Dispatcher' 0 'script-error' 'Dispatched job failed' 'Could not find any matching job rule.' '[]' '{"desktop-entry": <"org.wezfurlong.wezterm">, "urgency": <"0">}' 5000 >/dev/null
 fi
 
 rm "$MAIL"

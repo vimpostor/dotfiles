@@ -29,7 +29,7 @@ function decode() {
 
 # sends a notification with title and body
 function notify() {
-	NOTIFICATION_ID="$(gdbus call --session --dest=org.freedesktop.Notifications --object-path=/org/freedesktop/Notifications --method=org.freedesktop.Notifications.Notify 'mutt' 0 'mail-message' "$1" "${2//</&lt;}" '[]' '{"desktop-entry": <"org.kde.konsole">, "category": <"email.arrived">}' 5000 2>/dev/null | grep -Eo 'uint32\s[[:digit:]]+'| cut -d' ' -f2)"
+	NOTIFICATION_ID="$(gdbus call --session --dest=org.freedesktop.Notifications --object-path=/org/freedesktop/Notifications --method=org.freedesktop.Notifications.Notify 'mutt' 0 'mail-message' "$1" "${2//</&lt;}" '[]' '{"desktop-entry": <"org.wezfurlong.wezterm">, "category": <"email.arrived">}' 5000 2>/dev/null | grep -Eo 'uint32\s[[:digit:]]+'| cut -d' ' -f2)"
 }
 
 # dismisses a notification
