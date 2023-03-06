@@ -46,8 +46,8 @@ for MAIL in "$MAILDIR_CUR"/*; do
 		# skip, this one was cached already
 		continue
 	fi
-	FROM="$(grep -EA1 -m1 '^From:' "$MAIL" | grep -E '^From: |^\s+.' | sed 's/^From://' | sed 's/^\s*\|\s*$//g' | tr '\n' ' ')"
-	TO="$(grep -EA1 -m1 '^To:' "$MAIL" | grep -E '^To: |^\s+.' | sed 's/^To://' | sed 's/^\s*\|\s*$//g' | tr '\n' ' ')"
+	FROM="$(grep -EA1 -m1 '^From:' "$MAIL" | grep -E '^From: |^\s+.' | sed 's/^From://' | sed 's/^\s*\|\s*$//g' | tr '\n' ' ' | sed 's/^\s*\|\s*$//g')"
+	TO="$(grep -EA1 -m1 '^To:' "$MAIL" | grep -E '^To: |^\s+.' | sed 's/^To://' | sed 's/^\s*\|\s*$//g' | tr '\n' ' ' | sed 's/^\s*\|\s*$//g')"
 	ADDRESSES="$FROM, $TO"
 	# iterate over ", " separated addresses
 	while [ -n "$ADDRESSES" ]; do
