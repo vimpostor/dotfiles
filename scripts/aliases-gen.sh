@@ -60,13 +60,13 @@ for MAIL in "$MAILDIR_CUR"/*; do
 				LONG_NAME="${COMPLETE_ADDRESS%%<*}"
 				decode "$LONG_NAME"
 				LONG_NAME="${DECODED//\"/\\\"}"
-				LONG_NAME="$(echo "$LONG_NAME" | sed 's/\s*$//')"
+				LONG_NAME="$(echo "$LONG_NAME" | sed 's/^\s*\|\s*$//g')"
 				MAIL_ADDRESS="$(echo "$NEXT" | grep -Eo '<\S*>')"
 			else
 				LONG_NAME=''
 				MAIL_ADDRESS="$(echo "$NEXT" | grep -Eo '\S*')"
 			fi
-			SUBJECT="$(grep -A1 -m1 '^Subject:' "$MAIL" | grep -E '^Subject: |^\s.' | sed 's/^Subject://' |  sed 's/^\s*\|\s*$//g' | tr '\n' ' ' | sed 's/ $//')"
+			SUBJECT="$(grep -A1 -m1 '^Subject:' "$MAIL" | grep -E '^Subject: |^\s.' | sed 's/^Subject://' |  sed 's/^\s*\|\s*$//g' | tr '\n' ' ' | sed 's/^\s*\|\s*$//g')"
 			decode "$SUBJECT"
 
 			# check if address is in blacklist
