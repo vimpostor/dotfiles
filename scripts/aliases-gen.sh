@@ -92,4 +92,4 @@ for CONTACT in "${!CONTACTS[@]}"; do
 	ALIASES="$ALIASES\n$CONTACT\t${CONTACTS["$CONTACT"]}"
 done
 mkdir -p "$MUTT_CACHE"
-echo -e "$ALIASES" > "$MUTT_ALIASES_CACHE"
+echo -e "$ALIASES" | sed '/^$/d' > "$MUTT_ALIASES_CACHE"
