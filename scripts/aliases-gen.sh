@@ -61,10 +61,10 @@ for MAIL in "$MAILDIR_CUR"/*; do
 				decode "$LONG_NAME"
 				LONG_NAME="${DECODED//\"/\\\"}"
 				LONG_NAME="$(echo "$LONG_NAME" | sed 's/^\s*\|\s*$//g')"
-				MAIL_ADDRESS="$(echo "$NEXT" | grep -Eo '<\S*>')"
+				MAIL_ADDRESS="$(echo "$COMPLETE_ADDRESS" | grep -Eo '<\S*>')"
 			else
 				LONG_NAME=''
-				MAIL_ADDRESS="$(echo "$NEXT" | grep -Eo '\S*')"
+				MAIL_ADDRESS="$(echo "$COMPLETE_ADDRESS" | grep -Eo '\S*')"
 			fi
 			SUBJECT="$(grep -A1 -m1 '^Subject:' "$MAIL" | grep -E '^Subject: |^\s.' | sed 's/^Subject://' |  sed 's/^\s*\|\s*$//g' | tr '\n' ' ' | sed 's/^\s*\|\s*$//g')"
 			decode "$SUBJECT"
