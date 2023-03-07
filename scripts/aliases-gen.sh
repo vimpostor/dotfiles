@@ -5,7 +5,7 @@
 MUTT_CACHE="$HOME/.cache/mutt"
 MUTT_ALIASES_CACHE="$MUTT_CACHE/aliases"
 LAST_ID_CACHE="$MUTT_CACHE/last-id"
-MAIL_BLACKLIST=("notifications@github.com")
+MAIL_BLACKLIST=('notifications@github.com' '.*noreply.*')
 
 set -e
 # Do not expand * to itself when nothing matches
@@ -16,11 +16,6 @@ if [[ -z "$MAILDIR" ]]; then
 	MAILDIR="$(find "$HOME/.local/share/mail/" -type d -name 'INBOX' | head -1)"
 fi
 MAILDIR_CUR="$MAILDIR/cur"
-
-# canonicalize all addresses
-for ((i = 0; i < ${#MAIL_BLACKLIST[@]}; i++)); do
-	MAIL_BLACKLIST[i]="<${MAIL_BLACKLIST[i]}>"
-done
 
 # Decodes MIME RFC 2047 to UTF8
 function decode() {
@@ -73,8 +68,17 @@ for MAIL in "$MAILDIR_CUR"/*; do
 			fi
 			SUBJECT="$(grep -A1 -m1 '^Subject:' "$MAIL" | grep -E '^Subject: |^\s.' | sed 's/^Subject://' |  sed 's/^\s*\|\s*$//g' | tr '\n' ' ' | sed 's/ $//')"
 			decode "$SUBJECT"
-			# skip if address is in blacklist
-			if [[ ! " ${MAIL_BLACKLIST[*]} " =~ " ${MAIL_ADDRESS} " ]]; then
+
+			# check if address is in blacklist
+			BLACKLISTED=0
+			for BLACK in "${MAIL_BLACKLIST[@]}"; do
+				if [[ "$MAIL_ADDRESS" =~ $BLACK ]]; then
+					BLACKLISTED=1
+					break
+				fi
+			done
+
+			if [ "$BLACKLISTED" -eq 0 ]; then
 				CONTACTS["$MAIL_ADDRESS\t$LONG_NAME"]="$DECODED"
 			fi
 		fi
