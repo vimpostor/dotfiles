@@ -2,11 +2,15 @@
   "settingsVersion": "1.67.4",
   "exclusionRules": [
     {
-      "pattern": "https?://monkeytype.com/*",
+      "pattern": "https://monkeytype.com/*",
       "passKeys": ""
     },
     {
-      "pattern": "https?://configure.zsa.io/train/*",
+      "pattern": "https://configure.zsa.io/train/*",
+      "passKeys": ""
+    },
+    {
+      "pattern": "https://www.servercontrolpanel.de/SCP/VNCPopUp",
       "passKeys": ""
     }
   ],
