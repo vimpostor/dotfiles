@@ -27,31 +27,30 @@ packadd! matchit "builtin plugin extends %
 
 "color scheme
 silent! colorscheme prism
-"general vim options
-set noswapfile "no swap
+set noswapfile
 set updatetime=300 "updatetime for CursorHold
-set timeoutlen=1000 "mapping delays
-set ttimeoutlen=10 "keycode delays
-set cursorline "highlight current line
+set timeoutlen=1000
+set ttimeoutlen=10
+set cursorline
 set guicursor=
-set confirm "Ask to confirm instead of failing
-set ignorecase "case insensitive search
-set smartcase "case sensitive if search term contains capitals
-set hlsearch "highlight search
-set incsearch "highlight while you type
-set scrolloff=4 "start scrolling a few lines from the border
-set display=lastline "always display the last line of the screen
-set showmatch "when inserting brackets, highlight the matching one
+set confirm
+set ignorecase
+set smartcase
+set hlsearch
+set incsearch
+set scrolloff=4
+set display=lastline
+set showmatch
 syntax enable
-set wildmenu "better tab completion
+set wildmenu
 set wildmode=longest:full,full
-if !has('nvim')
+if has('nvim')
+	set cmdheight=0
+	set shortmess+=S
+else
 	set completeopt+=menuone,popup
 	set completepopup=highlight:Pmenu,border:off
 	set fo+=/
-elseif has('nvim-0.8')
-	set cmdheight=0
-	set shortmess+=S
 endif
 set gdefault "replace globally by default
 set encoding=utf-8
@@ -59,14 +58,14 @@ set autoindent
 set smartindent
 set breakindent
 set noexpandtab
-set tabstop=4 "tab = 4 spaces
+set tabstop=4
 set shiftwidth=0
 set cino=:0,g0,N-s
 silent! set stl=%!tpipeline#stl#line()
-set laststatus=2 "always show the statusline
-set noshowmode "dont show mode
-set noruler "no curser position
-set noshowcmd "don't show cmds
+set laststatus=2
+set noshowmode
+set noruler
+set noshowcmd
 set mouse=a
 if has('mouse_sgr')
 	set ttymouse=sgr
@@ -79,9 +78,8 @@ if has('termguicolors') "true colors
 	let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 	set termguicolors
 endif
-set hidden "allow buffers to be hidden
+set hidden
 set shortmess+=c "don't give ins-completion-menu messages
-"do not write backup files, they cause more problems than they solve
 set nobackup
 set nowritebackup
 set autoread
