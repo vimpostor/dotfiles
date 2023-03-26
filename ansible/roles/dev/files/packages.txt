@@ -103,6 +103,7 @@ shellcheck
 sqlmap
 strace
 valgrind
+vegeta
 vulkan-headers
 wireshark-qt
 yamllint

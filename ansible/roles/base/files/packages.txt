@@ -18,7 +18,6 @@ man-db
 man-pages
 net-tools
 openssh
-pacgraph
 pacman-contrib
 polkit
 ripgrep
