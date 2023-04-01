@@ -290,8 +290,8 @@ func RipgrepFzf(query, fullscreen)
 	let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case -- %s || true'
 	let initial_command = printf(command_fmt, shellescape(a:query))
 	let reload_command = printf(command_fmt, '{q}')
-	let spec = {'options': ['--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command]}
-	call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
+	let spec = {'options': ['--disabled', '--query', a:query, '--bind', 'change:reload:'.reload_command]}
+	call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec, 'right', 'ctrl-/'), a:fullscreen)
 endfunc
 command! -nargs=* -bang RG call RipgrepFzf(<q-args>, <bang>0)
 nnoremap <silent> <Leader>f :<C-u>RG<CR>
@@ -323,7 +323,7 @@ nmap <LocalLeader>c<Space> <Plug>NERDCommenterToggle
 xmap <LocalLeader>c<Space> <Plug>NERDCommenterToggle
 
 "fzf
-let g:fzf_layout = {'window': {'width': 1, 'height': 0.4, 'yoffset': 1, 'border': 'horizontal'}}
+let g:fzf_layout = {'window': {'width': 1, 'height': 0.5, 'yoffset': 1, 'border': 'horizontal'}}
 
 "cheat.sh
 let g:CheatSheetDoNotMap = 1
