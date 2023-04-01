@@ -260,12 +260,6 @@ endfunc
 au CursorHold * silent call CocActionAsync('highlight') "highlight symbol on cursor hold
 nmap <LocalLeader>rn <Plug>(coc-rename)
 xmap <LocalLeader>f <Plug>(coc-format-selected)
-nmap <LocalLeader>f <Plug>(coc-format-selected)
-augroup mygroup
-	au!
-	au FileType typescript,json setl formatexpr=CocAction('formatSelected') "Setup formatexpr specified filetype(s).
-	au User CocJumpPlaceholder call CocActionAsync('showSignatureHelp') "Update signature help on jump placeholder
-augroup end
 xmap <LocalLeader>a <Plug>(coc-codeaction-selected)
 nmap <LocalLeader>a <Plug>(coc-codeaction-selected)
 nmap <LocalLeader>ac <Plug>(coc-codeaction)
@@ -276,9 +270,7 @@ xmap if <Plug>(coc-funcobj-i)
 xmap af <Plug>(coc-funcobj-a)
 omap if <Plug>(coc-funcobj-i)
 omap af <Plug>(coc-funcobj-a)
-xmap <silent> <Tab> <Plug>(coc-range-select)
 command! -nargs=0 Format :call CocAction('format')
-command! -nargs=? Fold :call CocAction('fold', <f-args>)
 nnoremap <silent> <Leader>e :<C-u>CocList diagnostics<cr>
 nnoremap <silent> <Leader>o :<C-u>CocList outline<cr>
 nnoremap <silent> <Leader>s :<C-u>CocList -I symbols<cr>
