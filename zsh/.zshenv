@@ -11,3 +11,4 @@ export BAT_THEME=ansi
 export LDFLAGS="-fuse-ld=mold"
 export QT_FORCE_STDERR_LOGGING=1
 export PLASMA_USE_QT_SCALING=1
+export QT_USE_PHYSICAL_DPI=1
