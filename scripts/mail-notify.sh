@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-# Usage: MAILDIR_INBOX=/path/to/inbox mail-notify.sh
 
 set -e
 
@@ -7,25 +6,8 @@ set -e
 SUMMARY_THRESHOLD=5
 MSG_CACHE="/tmp/.mail-notify-$UID.cache"
 
-if [[ -z "$MAILDIR_INBOX" ]]; then
-	# use default maildir
-	MAILDIR_INBOX="$(find "$HOME/.local/share/mail/" -type d -name 'INBOX' | head -1)"
-fi
-MAILDIR_NEW="$MAILDIR_INBOX/new"
-if ! [[ -d "$MAILDIR_NEW" ]]; then
-	echo "Error: $MAILDIR_NEW is not a directory!"
-	exit 1
-fi
 # create cache if it doesn't exist
 touch "$MSG_CACHE"
-
-# Decodes MIME RFC 2047 to UTF8
-function decode() {
-	ESCAPED="${*//\"/}"
-	ESCAPED="${ESCAPED//\@/\\\@}"
-	DECODER="use utf8; print decode(\"MIME-Header\", \"$ESCAPED\")"
-	DECODED="$(echo "" | perl -CS -MEncode -ne "$DECODER" || echo 'Parse Error')"
-}
 
 # sends a notification with title and body
 function notify() {
@@ -39,8 +21,9 @@ function notify-delete() {
 	fi
 }
 
-# $MAILDIR_NEW \ $MSG_CACHE
-NEW_MSGS="$(grep -Fvf <(cut -d' ' -f1 "$MSG_CACHE"| sed '/^$/d') <(ls -b1 "$MAILDIR_NEW"))" || true
+UNREAD_MSGS="$(notmuch search --format=text --output=messages tag:unread)"
+# $UNREAD_MSGS \ $MSG_CACHE
+NEW_MSGS="$(printf "%s" "$UNREAD_MSGS" | grep -Fvf <(cut -d' ' -f1 "$MSG_CACHE"| sed '/^$/d'))" || true
 COUNT="$(printf "%s" "$NEW_MSGS"| grep -c '^')" || true
 if [[ "$COUNT" -lt "$SUMMARY_THRESHOLD" ]]; then
 	# send a notification for each message
@@ -48,13 +31,11 @@ if [[ "$COUNT" -lt "$SUMMARY_THRESHOLD" ]]; then
 		if [ -z "$MSG_ID" ]; then
 			continue
 		fi
-		MSG="$MAILDIR_NEW/$MSG_ID"
-		SENDER="$(grep -E -m1 '^From: ' "$MSG" | sed 's/From: //')"
-		decode "$SENDER"
-		SENDER_NICK="${DECODED%% <*>}"
-		SUBJECT="$(grep -A1 -m1 '^Subject:' "$MSG" | grep -E '^Subject: |^\s.' | sed 's/^Subject://' |  sed 's/^\s*\|\s*$//g' | tr '\n' ' ' | sed 's/ $//')"
-		decode "$SUBJECT"
-		notify "$SENDER_NICK" "$DECODED"
+		HEADERS="$(notmuch show --format=json --entire-thread=false --part=0 "$MSG_ID" | jq '.headers')"
+		SENDER="$(printf "%s" "$HEADERS" | jq -r '.From')"
+		SENDER_NICK="${SENDER%% <*>}"
+		SUBJECT="$(printf "%s" "$HEADERS" | jq -r '.Subject')"
+		notify "$SENDER_NICK" "$SUBJECT"
 		# create cache
 		echo "$MSG_ID $NOTIFICATION_ID" >> "$MSG_CACHE"
 	done <<< "$NEW_MSGS"
@@ -71,7 +52,7 @@ CACHED_MSGS=()
 while IFS= read -r LINE; do
 	MSG_ID="${LINE%% *}"
 	NOTIFICATION_ID="${LINE##* }"
-	if [ -f "$MAILDIR_NEW/$MSG_ID" ]; then
+	if echo "$UNREAD_MSGS" | grep -qF "$MSG_ID"; then
 		CACHED_MSGS+=("$MSG_ID $NOTIFICATION_ID")
 	else
 		notify-delete "$NOTIFICATION_ID"
