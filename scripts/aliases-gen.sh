@@ -1,29 +1,13 @@
 #!/usr/bin/env bash
-# This script parses all addresses from a mail folder and adds them as aliases
-# Usage: MAILDIR=/path/to/inbox aliases-gen.sh
 
 MUTT_CACHE="$HOME/.cache/mutt"
 MUTT_ALIASES_CACHE="$MUTT_CACHE/aliases"
-LAST_ID_CACHE="$MUTT_CACHE/last-id"
+LAST_TIMESTAMP_CACHE="$MUTT_CACHE/last-timestamp"
 MAIL_BLACKLIST=('notifications@github.com' '.*noreply.*')
 
 set -e
 # Do not expand * to itself when nothing matches
 shopt -s nullglob
-
-if [[ -z "$MAILDIR" ]]; then
-	# use default maildir
-	MAILDIR="$(find "$HOME/.local/share/mail/" -type d -name 'INBOX' | head -1)"
-fi
-MAILDIR_CUR="$MAILDIR/cur"
-
-# Decodes MIME RFC 2047 to UTF8
-function decode() {
-	ESCAPED="${*//\"/}"
-	ESCAPED="${ESCAPED//\@/\\\@}"
-	DECODER="use utf8; print decode(\"MIME-Header\", \"$ESCAPED\")"
-	DECODED="$(echo "" | perl -CS -MEncode -ne "$DECODER" || echo 'Parse Error')"
-}
 
 # we use associative arrays to get free deduplication
 declare -A CONTACTS
@@ -38,54 +22,53 @@ while IFS= read -r LINE; do
 		CONTACTS["$KEY"]="$VALUE"
 	fi
 done < "$MUTT_ALIASES_CACHE"
-# read last id
-LAST_ID="$(cat "$LAST_ID_CACHE" 2>/dev/null)" || LAST_ID=""
+# read last timestamp
+LAST_TIMESTAMP="$(cat "$LAST_TIMESTAMP_CACHE" 2>/dev/null)" || LAST_TIMESTAMP=""
 
+QUERY='*'
+if [ -n "$LAST_TIMESTAMP" ]; then
+	QUERY="date:@$LAST_TIMESTAMP.."
+fi
+MAILS="$(notmuch search --format=text --output=messages --sort=oldest-first "$QUERY")"
 # parse new messages
-for MAIL in "$MAILDIR_CUR"/*; do
-	if [ ! "$MAIL" \> "$LAST_ID" ]; then
-		# skip, this one was cached already
+for MAIL_ID in $MAILS; do
+	if [ -z "$MAIL_ID" ]; then
 		continue
 	fi
-	FROM="$(grep -EA1 -m1 '^From:' "$MAIL" | grep -E '^From: |^\s+.' | sed 's/^From://' | sed 's/^\s*\|\s*$//g' | tr '\n' ' ' | sed 's/^\s*\|\s*$//g')"
-	TO="$(grep -EA1 -m1 '^To:' "$MAIL" | grep -E '^To: |^\s+.' | sed 's/^To://' | sed 's/^\s*\|\s*$//g' | tr '\n' ' ' | sed 's/^\s*\|\s*$//g')"
-	ADDRESSES="$FROM, $TO"
-	# iterate over ", " separated addresses
-	while [ -n "$ADDRESSES" ]; do
-		# Parse the next address and skip this mail if we get an error
-		NEXT="$(echo "$ADDRESSES" | grep -Eo '^[^<]*<\S*>[, ]?')" || NEXT="$(echo "$ADDRESSES" | grep -Eo '^\S+@\S+[, ]?')" || ADDRESSES=''
-		if [ -n "$NEXT" ]; then
-			COMPLETE_ADDRESS="${NEXT%, }"
-			if [[ "$COMPLETE_ADDRESS" =~ '<' ]]; then
-				LONG_NAME="${COMPLETE_ADDRESS%%<*}"
-				decode "$LONG_NAME"
-				LONG_NAME="${DECODED//\"/\\\"}"
-				LONG_NAME="$(echo "$LONG_NAME" | sed 's/^\s*\|\s*$//g')"
-				MAIL_ADDRESS="$(echo "$COMPLETE_ADDRESS" | grep -Eo '<\S*>')"
-			else
-				LONG_NAME=''
-				MAIL_ADDRESS="$(echo "$COMPLETE_ADDRESS" | grep -Eo '\S*')"
-			fi
-			SUBJECT="$(grep -A1 -m1 '^Subject:' "$MAIL" | grep -E '^Subject: |^\s.' | sed 's/^Subject://' |  sed 's/^\s*\|\s*$//g' | tr '\n' ' ' | sed 's/^\s*\|\s*$//g')"
-			decode "$SUBJECT"
 
-			# check if address is in blacklist
-			BLACKLISTED=0
-			for BLACK in "${MAIL_BLACKLIST[@]}"; do
-				if [[ "$MAIL_ADDRESS" =~ $BLACK ]]; then
-					BLACKLISTED=1
-					break
-				fi
-			done
+	MAIL="$(notmuch show --format=json --entire-thread=false --part=0 "$MAIL_ID")"
+	TIMESTAMP="$(echo "$MAIL" | jq -r '.timestamp')"
+	SUBJECT="$(echo "$MAIL" | jq -r '.headers.Subject')"
+	ADDRESSES="$(notmuch address --output=sender --output=recipients "$MAIL_ID")"
 
-			if [ "$BLACKLISTED" -eq 0 ]; then
-				CONTACTS["$MAIL_ADDRESS\t$LONG_NAME"]="$DECODED"
-			fi
+	# iterate over newline separated addresses
+	while IFS= read -r COMPLETE_ADDRESS; do
+		if [ -z "$COMPLETE_ADDRESS" ]; then
+			continue
 		fi
-		ADDRESSES="${ADDRESSES##"$NEXT"}"
-	done
+
+		if [[ "$COMPLETE_ADDRESS" =~ '<' ]]; then
+			LONG_NAME="${COMPLETE_ADDRESS%% <*}"
+			MAIL_ADDRESS="$(echo "$COMPLETE_ADDRESS" | grep -Eo '<\S*>')"
+		else
+			LONG_NAME=''
+			MAIL_ADDRESS="$(echo "$COMPLETE_ADDRESS" | grep -Eo '\S*')"
+		fi
+		# check if address is in blacklist
+		BLACKLISTED=0
+		for BLACK in "${MAIL_BLACKLIST[@]}"; do
+			if [[ "$MAIL_ADDRESS" =~ $BLACK ]]; then
+				BLACKLISTED=1
+				break
+			fi
+		done
+
+		if [ "$BLACKLISTED" -eq 0 ]; then
+			CONTACTS["$MAIL_ADDRESS\t$LONG_NAME"]="$SUBJECT"
+		fi
+	done <<< "$ADDRESSES"
 done
-echo "$MAIL" > "$LAST_ID_CACHE"
+echo "$TIMESTAMP" > "$LAST_TIMESTAMP_CACHE"
 
 ALIASES=''
 for CONTACT in "${!CONTACTS[@]}"; do
