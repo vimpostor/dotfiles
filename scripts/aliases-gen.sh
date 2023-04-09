@@ -25,9 +25,11 @@ done < "$MUTT_ALIASES_CACHE"
 # read last timestamp
 LAST_TIMESTAMP="$(cat "$LAST_TIMESTAMP_CACHE" 2>/dev/null)" || LAST_TIMESTAMP=""
 
-QUERY='*'
 if [ -n "$LAST_TIMESTAMP" ]; then
 	QUERY="date:@$LAST_TIMESTAMP.."
+else
+	QUERY='*'
+	echo 'Indexing for the first time, this may take a while... (subsequent runs will be substantially faster)'
 fi
 MAILS="$(notmuch search --format=text --output=messages --sort=oldest-first "$QUERY")"
 # parse new messages
