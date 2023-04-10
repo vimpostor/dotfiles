@@ -7,9 +7,9 @@ yad --notification --image mail-inbox --listen &
 PID=$!
 
 mbsync -aq
-~/Documents/scripts/mail-notify.sh
-~/Documents/scripts/aliases-gen.sh
-~/Documents/scripts/mail-queue-run.sh
 ~/Documents/scripts/notmuch-run.sh
+~/Documents/scripts/mail-queue-run.sh
+~/Documents/scripts/aliases-gen.sh
+~/Documents/scripts/mail-notify.sh
 
 kill "$PID"
