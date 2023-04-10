@@ -2,7 +2,7 @@
 
 Run the system-wide setup:
 ```bash
-ansible-playbook -K full.yml -e "myhostname=bogen"
+ansible-playbook -K full.yml -e "myhostname=bogen.localdomain"
 # you can alternatively use sudo instead of -K
 ```
 

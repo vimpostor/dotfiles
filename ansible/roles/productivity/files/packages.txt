@@ -164,6 +164,7 @@ xorg-xev
 xorg-xinit
 xorg-xinput
 xorg-xwininfo
+yad
 youtube-dl
 zathura
 zathura-pdf-poppler

@@ -5,7 +5,7 @@
 - name: Configure hostname
   copy:
     dest: /etc/hostname
-    content: "{{ myhostname }}\n"
+    content: "{{ myhostname | split(\".\") | first }}\n"
 - name: Ensure hosts contains localhost
   blockinfile:
     path: /etc/hosts
