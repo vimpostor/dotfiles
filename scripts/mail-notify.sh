@@ -31,7 +31,14 @@ if [[ "$COUNT" -lt "$SUMMARY_THRESHOLD" ]]; then
 		if [ -z "$MSG_ID" ]; then
 			continue
 		fi
-		HEADERS="$(notmuch show --format=json --entire-thread=false --part=0 "$MSG_ID" | jq '.headers')"
+		MAIL="$(notmuch show --format=json --entire-thread=false --part=0 "$MSG_ID")"
+
+		if ! echo "$MAIL" | jq -r '.filename[0]' | grep -q INBOX; then
+			# skip if not in INBOX
+			continue
+		fi
+
+		HEADERS="$(echo "$MAIL" | jq '.headers')"
 		SENDER="$(printf "%s" "$HEADERS" | jq -r '.From')"
 		SENDER_NICK="${SENDER%% <*>}"
 		SUBJECT="$(printf "%s" "$HEADERS" | jq -r '.Subject')"
