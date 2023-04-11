@@ -34,6 +34,9 @@ if [[ "$COUNT" -lt "$SUMMARY_THRESHOLD" ]]; then
 		HEADERS="$(notmuch show --format=json --entire-thread=false --part=0 "$MSG_ID" | jq '.headers')"
 		SENDER="$(printf "%s" "$HEADERS" | jq -r '.From')"
 		SENDER_NICK="${SENDER%% <*>}"
+		if [ -z "$SENDER_NICK" ]; then
+			continue
+		fi
 		SUBJECT="$(printf "%s" "$HEADERS" | jq -r '.Subject')"
 		notify "$SENDER_NICK" "$SUBJECT"
 		# create cache
