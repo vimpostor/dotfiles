@@ -21,7 +21,7 @@ function notify-delete() {
 	fi
 }
 
-UNREAD_MSGS="$(notmuch search --format=text --output=messages tag:unread)"
+UNREAD_MSGS="$(notmuch search --format=text --output=messages -- tag:unread 'path:maildir/INBOX/**')"
 # $UNREAD_MSGS \ $MSG_CACHE
 NEW_MSGS="$(printf "%s" "$UNREAD_MSGS" | grep -Fvf <(cut -d' ' -f1 "$MSG_CACHE"| sed '/^$/d'))" || true
 COUNT="$(printf "%s" "$NEW_MSGS"| grep -c '^')" || true
