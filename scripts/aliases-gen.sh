@@ -3,7 +3,7 @@
 MUTT_CACHE="$HOME/.cache/mutt"
 MUTT_ALIASES_CACHE="$MUTT_CACHE/aliases"
 LAST_TIMESTAMP_CACHE="$MUTT_CACHE/last-timestamp"
-MAIL_BLACKLIST=('notifications@github.com' '.*noreply.*')
+MAIL_BLACKLIST=('notifications@github.com' '.*not?-?reply.*')
 
 set -e
 # Do not expand * to itself when nothing matches
