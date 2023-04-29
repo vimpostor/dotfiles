@@ -43,7 +43,7 @@ auto_view text/html
 alternative_order text/plain text/html
 
 # Contacts
-set query_command = "echo ; grep -i %s ~/.cache/mutt/aliases
+set query_command = "echo ; grep -i %s ~/.cache/mutt/aliases"
 set query_format = "%3c %t %-35.35a %-25.25n %?e?(%e)?"
 
 # don't bottleneck me with unnecessary messages
