@@ -104,6 +104,7 @@ powerdevil
 powertop
 print-manager
 pv
+python-icalendar
 python-markdown
 python-pynvim
 qemu-desktop
