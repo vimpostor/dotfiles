@@ -26,6 +26,7 @@ gammaray
 gcovr
 gdb
 ghc
+ghc-static
 git-absorb
 github-cli
 gnu-netcat

@@ -29,7 +29,6 @@ repository hackage.haskell.org
 -- verbose: 1
 -- compiler: ghc
 -- cabal-file:
-with-compiler: /usr/share/ghc-pristine/bin/ghc
 -- with-hc-pkg:
 -- program-prefix: 
 -- program-suffix: 
