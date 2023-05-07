@@ -9,8 +9,8 @@
 --
 -- This config file was generated using the following versions
 -- of Cabal and cabal-install:
--- Cabal library version: 2.4.0.1
--- cabal-install version: 2.4.0.0
+-- Cabal library version: 3.4.1.0
+-- cabal-install version: 3.4.1.0
 
 
 repository hackage.haskell.org
@@ -20,16 +20,15 @@ repository hackage.haskell.org
   -- key-threshold: 3
 
 -- default-user-config:
--- require-sandbox: False
--- ignore-sandbox: False
 -- ignore-expiry: False
 -- http-transport:
 -- nix: False
+-- local-no-index-repo:
 remote-repo-cache: /home/magnus/.cabal/packages
--- local-repo:
 -- logs-dir: /home/magnus/.cabal/logs
 world-file: /home/magnus/.cabal/world
 -- store-dir:
+-- active-repositories:
 -- verbose: 1
 -- compiler: ghc
 -- cabal-file:
@@ -37,11 +36,12 @@ with-compiler: /usr/share/ghc-pristine/bin/ghc
 -- with-hc-pkg:
 -- program-prefix: 
 -- program-suffix: 
--- library-vanilla: False
+-- library-vanilla: True
 -- library-profiling:
--- shared: True
+-- shared:
 -- static:
--- executable-dynamic: True
+-- executable-dynamic: False
+-- executable-static: False
 -- profiling:
 -- executable-profiling:
 -- profiling-detail:
@@ -51,8 +51,8 @@ with-compiler: /usr/share/ghc-pristine/bin/ghc
 -- library-for-ghci:
 -- split-sections: False
 -- split-objs: False
--- executable-stripping: True
--- library-stripping: True
+-- executable-stripping:
+-- library-stripping:
 -- configure-option:
 -- user-install: True
 -- package-db:
@@ -71,22 +71,27 @@ extra-prog-path: /home/magnus/.cabal/bin
 -- benchmarks: False
 -- relocatable: False
 -- response-files:
+-- allow-depending-on-private-libs:
 -- cabal-lib-version:
 -- constraint:
 -- preference:
 -- solver: modular
 -- allow-older: False
 -- allow-newer: False
+-- write-ghc-environment-files:
 -- documentation: False
 -- doc-index-file: $datadir/doc/$arch-$os-$compiler/index.html
 -- target-package-db:
--- max-backjumps: 2000
+-- max-backjumps: 4000
 -- reorder-goals: False
 -- count-conflicts: True
+-- fine-grained-conflicts: True
+-- minimize-conflict-set: False
 -- independent-goals: False
 -- shadow-installed-packages: False
 -- strong-flags: False
 -- allow-boot-library-installs: False
+-- reject-unconstrained-dependencies: none
 -- reinstall: False
 -- avoid-reinstalls: False
 -- force-reinstalls: False
@@ -104,7 +109,11 @@ remote-build-reporting: anonymous
 jobs: $ncpus
 -- keep-going: False
 -- offline: False
--- project-file:
+-- lib: False
+-- package-env:
+-- overwrite-policy:
+-- install-method:
+installdir: /home/magnus/.cabal/bin
 -- username:
 -- password:
 -- password-command:
@@ -126,6 +135,16 @@ haddock
   -- quickjump: False
   -- hscolour-css:
   -- contents-location:
+
+init
+  -- interactive: False
+  -- cabal-version: 2.4
+  -- license:
+  -- tests:
+  -- test-dir:
+  -- language: Haskell2010
+  -- application-dir: app
+  -- source-dir: src
 
 install-dirs user
   -- prefix: /home/magnus/.cabal
@@ -192,7 +211,7 @@ program-default-options
   -- cpphs-options:
   -- doctest-options:
   -- gcc-options:
-  -- ghc-options: -dynamic
+  -- ghc-options:
   -- ghc-pkg-options:
   -- ghcjs-options:
   -- ghcjs-pkg-options:
