@@ -24,9 +24,6 @@ repository hackage.haskell.org
 -- http-transport:
 -- nix: False
 -- local-no-index-repo:
-remote-repo-cache: /home/magnus/.cabal/packages
--- logs-dir: /home/magnus/.cabal/logs
-world-file: /home/magnus/.cabal/world
 -- store-dir:
 -- active-repositories:
 -- verbose: 1
@@ -62,7 +59,6 @@ with-compiler: /usr/share/ghc-pristine/bin/ghc
 -- cid:
 -- extra-lib-dirs:
 -- extra-framework-dirs:
-extra-prog-path: /home/magnus/.cabal/bin
 -- instantiate-with:
 -- tests: False
 -- coverage: False
@@ -98,8 +94,6 @@ extra-prog-path: /home/magnus/.cabal/bin
 -- upgrade-dependencies: False
 -- index-state:
 -- root-cmd:
-symlink-bindir: /home/magnus/.cabal/bin
-build-summary: /home/magnus/.cabal/logs/build.log
 -- build-log:
 remote-build-reporting: anonymous
 -- report-planning-failure: False
@@ -113,7 +107,6 @@ jobs: $ncpus
 -- package-env:
 -- overwrite-policy:
 -- install-method:
-installdir: /home/magnus/.cabal/bin
 -- username:
 -- password:
 -- password-command:
@@ -147,7 +140,6 @@ init
   -- source-dir: src
 
 install-dirs user
-  -- prefix: /home/magnus/.cabal
   -- bindir: $prefix/bin
   -- libdir: $prefix/lib
   -- libsubdir: $abi/$libname
