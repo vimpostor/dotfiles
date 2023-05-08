@@ -37,6 +37,7 @@ gperftools
 gradle
 gtest
 haskell-base-prelude
+haskell-language-server
 haskell-prelude-extras
 iaito
 jedi-language-server

@@ -9,6 +9,11 @@
 			"filetypes": ["sh"],
 			"ignoredRootPaths": ["~"]
 		},
+		"haskell": {
+			"command": "haskell-language-server",
+			"args": ["--lsp"],
+			"filetypes": ["haskell"]
+		},
 		"nix": {
 			"command": "nil",
 			"filetypes": ["nix"],
