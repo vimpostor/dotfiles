@@ -28,6 +28,7 @@ spotify-launcher
 surge
 timidity++
 vorbis-tools
+wireplumber
 x42-plugins
 yabridge
 yabridgectl

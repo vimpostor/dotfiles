@@ -83,7 +83,7 @@ function cheat() {
 
 # retreives a pkgbuild
 function get-pkgbuild() {
-	asp export "$*" || paru -G "$*" && cd "$*"
+	GIT_TERMINAL_PROMPT=0 git clone "https://gitlab.archlinux.org/archlinux/packaging/packages/$*.git" || paru -G "$*" && cd "$*"
 }
 
 # vote for AUR package

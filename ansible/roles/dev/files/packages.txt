@@ -1,13 +1,13 @@
 aardvark-dns
 android-tools
 ansible-lint
-asp
 bash-completion
 bash-language-server
 bat
 bear
 boost
 buildah
+cabal-install
 ccache
 clazy
 cmark
