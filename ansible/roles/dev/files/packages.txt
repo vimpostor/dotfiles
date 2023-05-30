@@ -104,6 +104,7 @@ scanmem
 shellcheck
 sqlmap
 strace
+tig
 valgrind
 vegeta
 vulkan-headers

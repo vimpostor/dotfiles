@@ -1,0 +1,4 @@
+set diff-highlight = /usr/share/git/diff-highlight/diff-highlight
+set history-size = 0
+set ignore-case = smart-case
+set tab-size = 4
