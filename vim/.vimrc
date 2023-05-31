@@ -4,6 +4,11 @@ if !isdirectory(glob('~/.vim/plugged'))
 	au VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 call plug#begin('~/.vim/plugged')
+" Plug 'dense-analysis/ale' "linting
+if has('vim9script')
+	Plug 'yegappan/lsp'
+	Plug 'KKoovalsky/TsepepeVim', { 'do': './build.py' }
+endif
 Plug 'scrooloose/nerdcommenter' "easier commenting
 Plug 'terryma/vim-multiple-cursors' "multiple cursors
 Plug 'honza/vim-snippets' "snippets
@@ -13,12 +18,9 @@ Plug 'tpope/vim-fugitive' "handy git tools
 Plug 'tpope/vim-rhubarb' "github integration
 Plug 'markonm/traces.vim' "pattern preview
 Plug 'https://gitlab.com/dbeniamine/cheat.sh-vim.git' "cheat sheets
-Plug 'dense-analysis/ale' "linting
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'puremourning/vimspector' "debugging
 Plug 'junegunn/fzf.vim' "fzf integration
 Plug 'mbbill/undotree' "undo history visualizer
-Plug 'KKoovalsky/TsepepeVim', { 'do': './build.py' }
 Plug 'vimpostor/vim-prism' "colorscheme
 Plug 'vimpostor/vim-tpipeline' "outsource statusline to tmux
 Plug 'vimpostor/vim-lumen' "follow global darkmode
@@ -102,13 +104,16 @@ au Filetype yaml if expand('%:p:h') =~# 'playbooks\|tasks\|handlers' | setlocal 
 au Filetype markdown,gitcommit,tex setlocal spell
 au FileType mail setlocal spell spelllang=en,de nojs
 au FileType haskell setlocal expandtab
-au Filetype c,cpp nnoremap <silent> <F4> :<C-u>CocCommand clangd.switchSourceHeader<CR>
+au Filetype c,cpp nnoremap <silent> <F4> <Cmd>LspSwitchSourceHeader<CR>
 
 "general keybindings
 let mapleader = " "
 let maplocalleader = ","
 map j gj
 map k gk
+inoremap <expr> <Tab> pumvisible() ? "\<C-N>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-P>" : "\<C-D>"
+inoremap <expr> <CR> pumvisible() ? "\<C-Y>" : "\<CR>"
 nnoremap Q @@
 "Use the system clipboard only when explicitly yanking
 xnoremap y "+y
@@ -226,63 +231,6 @@ let g:ale_floating_window_border = []
 "fugitive
 nnoremap <silent> <LocalLeader>Gb :0,3Git blame<CR>
 
-"coc.nvim
-let g:coc_global_extensions = [
-\ 'coc-snippets',
-\ 'coc-texlab',
-\ 'coc-python',
-\ 'coc-json',
-\ 'coc-yaml',
-\ 'coc-lists',
-\ 'coc-clangd',
-\ 'coc-rust-analyzer',
-\ ]
-inoremap <silent><expr> <TAB> coc#pum#visible() ? coc#pum#next(1) : CheckBackspace() ? "\<Tab>" : coc#refresh()
-inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
-func CheckBackspace() abort
-	let col = col('.') - 1
-	return !col || getline('.')[col - 1] =~# '\s'
-endfunc
-inoremap <silent><expr> <c-space> coc#refresh()
-inoremap <silent><expr> <cr> coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-nnoremap <silent> <LocalLeader>K :call <SID>show_documentation()<CR>
-func s:show_documentation()
-	if (index(['vim','help'], &filetype) >= 0)
-	execute 'h '.expand('<cword>')
-	else
-		call CocAction('doHover')
-	endif
-endfunc
-au CursorHold * silent call CocActionAsync('highlight') "highlight symbol on cursor hold
-nmap <LocalLeader>rn <Plug>(coc-rename)
-xmap <LocalLeader>f <Plug>(coc-format-selected)
-xmap <LocalLeader>a <Plug>(coc-codeaction-selected)
-nmap <LocalLeader>a <Plug>(coc-codeaction-selected)
-nmap <LocalLeader>ac <Plug>(coc-codeaction)
-nmap <LocalLeader>al <Plug>(coc-codeaction-line)
-nmap <LocalLeader>qf <Plug>(coc-fix-current)
-"function text objects
-xmap if <Plug>(coc-funcobj-i)
-xmap af <Plug>(coc-funcobj-a)
-omap if <Plug>(coc-funcobj-i)
-omap af <Plug>(coc-funcobj-a)
-command! -nargs=0 Format :call CocAction('format')
-nnoremap <silent> <Leader>e :<C-u>CocList diagnostics<cr>
-nnoremap <silent> <Leader>o :<C-u>CocList outline<cr>
-nnoremap <silent> <Leader>s :<C-u>CocList -I symbols<cr>
-"snippets
-imap <C-j> <Plug>(coc-snippets-expand-jump)
-"coc-texlab
-if has('nvim')
-	nnoremap <silent> <Leader>ll :<C-u>CocCommand latex.Build<CR>
-else
-	nnoremap <silent> <Leader>ll :<C-u>call remote_startserver("synctex")<CR>:CocCommand latex.Build<CR>
-endif
-nnoremap <silent> <Leader>lv :<C-u>CocCommand latex.ForwardSearch<CR>
 "lists
 nnoremap <silent> <Leader>P :<C-u>Files<CR>
 nnoremap <silent> <Leader>b :<C-u>Buffers<CR>
@@ -332,3 +280,24 @@ vnoremap <silent> <LocalLeader>KB :call cheat#cheat("", -1, -1, 2, 0, '!')<CR>
 
 "tpipeline
 let g:tpipeline_clearstl = 1
+
+"lsp
+if has('vim9script')
+au VimEnter * hi link LspDiagLine NONE | hi link LspDiagVirtualText ALEVirtualTextWarning
+au VimEnter * call LspOptionsSet(#{showDiagWithVirtualText: 1, diagVirtualTextAlign: 'after', usePopupInCodeAction: 1, ignoreMissingServer: 1, noNewlineInCompletion: 1, diagSignErrorText: "\Uea87", diagSignHintText:  "\U1f527", diagSignInfoText:  "\U1f527", diagSignWarningText:  "\U26a0"})
+au VimEnter * call LspAddServer([
+	\ #{ name: 'bash', filetype: ['sh'], path: 'bash-language-server', args: ['start'] },
+	\ #{ name: 'cpp', filetype: ['c', 'cpp'], path: 'clangd', args: ['--background-index'] },
+	\ #{ name: 'haskell', filetype: ['haskell'], path: 'haskell-language-server', args: ['--lsp'] },
+	\ #{ name: 'nix', filetype: ['nix'], path: 'nil' },
+	\ #{ name: 'qml', filetype: ['qml'], path: 'qmlls6' },
+	\ #{ name: 'rust', filetype: ['rust'], path: 'rust-analyzer', syncInit: 1 },
+\ ])
+nmap <LocalLeader>qf <Cmd>LspCodeAction<CR>
+nmap gd <Cmd>LspGotoDefinition<CR>
+nmap <LocalLeader>gd <Cmd>tab LspGotoDefinition<CR>
+nmap gr <Cmd>LspPeekReferences<CR>
+nmap <LocalLeader>gr <Cmd>LspShowReferences<CR>
+nnoremap <LocalLeader>K <Cmd>LspHover<CR>
+nmap <LocalLeader>rn <Cmd>LspRename<CR>
+endif
