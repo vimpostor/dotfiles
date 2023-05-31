@@ -232,8 +232,8 @@ let g:ale_floating_window_border = []
 nnoremap <silent> <LocalLeader>Gb :0,3Git blame<CR>
 
 "lists
-nnoremap <silent> <Leader>P :<C-u>Files<CR>
-nnoremap <silent> <Leader>b :<C-u>Buffers<CR>
+nnoremap <silent> <Leader>P <Cmd>Files<CR>
+nnoremap <silent> <Leader>b <Cmd>Buffers<CR>
 func RipgrepFzf(query, fullscreen)
 	let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case -- %s || true'
 	let initial_command = printf(command_fmt, shellescape(a:query))
@@ -242,7 +242,7 @@ func RipgrepFzf(query, fullscreen)
 	call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec, 'right', 'ctrl-/'), a:fullscreen)
 endfunc
 command! -nargs=* -bang RG call RipgrepFzf(<q-args>, <bang>0)
-nnoremap <silent> <Leader>f :<C-u>RG<CR>
+nnoremap <silent> <Leader>f <Cmd>RG<CR>
 
 "vimspector
 let g:vimspector_enable_mappings = 'HUMAN'
@@ -250,7 +250,7 @@ nmap <LocalLeader>di <Plug>VimspectorBalloonEval
 xmap <LocalLeader>di <Plug>VimspectorBalloonEval
 nmap <Leader><F11> <Plug>VimspectorUpFrame
 nmap <Leader><F12> <Plug>VimspectorDownFrame
-nmap <silent> <Leader><F3> :<C-u>VimspectorReset<CR>
+nmap <silent> <Leader><F3> <Cmd>VimspectorReset<CR>
 
 "easy motion
 map <LocalLeader> <Plug>(easymotion-prefix)
