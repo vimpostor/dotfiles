@@ -4,7 +4,7 @@ if !isdirectory(glob('~/.vim/plugged'))
 	au VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 call plug#begin('~/.vim/plugged')
-" Plug 'dense-analysis/ale' "linting
+Plug 'dense-analysis/ale' "linting
 if has('vim9script')
 	Plug 'yegappan/lsp'
 	Plug 'KKoovalsky/TsepepeVim', { 'do': './build.py' }
@@ -283,8 +283,7 @@ let g:tpipeline_clearstl = 1
 
 "lsp
 if has('vim9script')
-au VimEnter * hi link LspDiagLine NONE | hi link LspDiagVirtualText ALEVirtualTextWarning
-au VimEnter * call LspOptionsSet(#{showDiagWithVirtualText: 1, diagVirtualTextAlign: 'after', usePopupInCodeAction: 1, ignoreMissingServer: 1, noNewlineInCompletion: 1, diagSignErrorText: "\Uea87", diagSignHintText:  "\U1f527", diagSignInfoText:  "\U1f527", diagSignWarningText:  "\U26a0"})
+au VimEnter * call LspOptionsSet(#{aleSupport: 1, usePopupInCodeAction: 1, ignoreMissingServer: 1, noNewlineInCompletion: 1})
 au VimEnter * call LspAddServer([
 	\ #{ name: 'bash', filetype: ['sh'], path: 'bash-language-server', args: ['start'] },
 	\ #{ name: 'cpp', filetype: ['c', 'cpp'], path: 'clangd', args: ['--background-index'] },
