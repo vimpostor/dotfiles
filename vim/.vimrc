@@ -114,7 +114,7 @@ map k gk
 inoremap <expr> <Tab> pumvisible() ? "\<C-N>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-P>" : "\<C-D>"
 inoremap <expr> <CR> pumvisible() ? "\<C-Y>" : "\<CR>"
-nnoremap Q @@
+nnoremap Q @q
 "Use the system clipboard only when explicitly yanking
 xnoremap y "+y
 nnoremap y "+y
