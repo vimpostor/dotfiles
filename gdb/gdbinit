@@ -2,3 +2,10 @@ set pagination off
 set debuginfod enabled off
 set index-cache enabled on
 maint set worker-threads 8
+
+python
+import glob, sys
+sys.path.extend(glob.glob('/usr/share/gcc-*/python'))
+from libstdcxx.v6.printers import register_libstdcxx_printers
+register_libstdcxx_printers (None)
+end
