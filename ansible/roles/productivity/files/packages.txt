@@ -91,6 +91,7 @@ openldap
 openvpn
 p7zip
 pandoc
+pandoc-cli
 papirus-icon-theme
 partitionmanager
 pdfgrep
@@ -133,16 +134,16 @@ tesseract-data-eng
 texinfo
 texlab
 texlive-bibtexextra
-texlive-core
 texlive-fontsextra
 texlive-latexextra
 texlive-music
 texlive-pictures
-texlive-science
+texlive-mathscience
 tk
 tldr
 ttc-iosevka
 ttf-joypixels
+ttf-nerd-fonts-symbols-mono
 ttf-opensans
 ttf-roboto
 urlscan

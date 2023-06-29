@@ -300,4 +300,5 @@ nmap <LocalLeader>gr <Cmd>LspShowReferences<CR>
 nnoremap <LocalLeader>K <Cmd>LspHover<CR>
 nmap <LocalLeader>rn <Cmd>LspRename<CR>
 nmap <Leader>o <Cmd>LspDocumentSymbol<CR>
+nmap <Leader>O <Cmd>LspSymbolSearch<CR>
 endif

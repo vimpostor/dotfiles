@@ -25,7 +25,7 @@ sonic-visualiser
 sox
 speech-dispatcher
 spotify-launcher
-surge
+surge-xt
 timidity++
 vorbis-tools
 wireplumber

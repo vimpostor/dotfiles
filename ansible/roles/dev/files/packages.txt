@@ -8,6 +8,7 @@ bear
 boost
 buildah
 cabal-install
+cargo-watch
 ccache
 clazy
 cmark
@@ -18,6 +19,7 @@ dialog
 dos2unix
 doxygen
 eigen
+emscripten
 eslint
 extra-cmake-modules
 fakeroot
@@ -31,6 +33,7 @@ git-absorb
 github-cli
 gnu-netcat
 go
+goaccess
 go-tools
 gource
 gperftools
@@ -46,15 +49,19 @@ kate
 kcachegrind
 kubectl
 libappimage
+libc++
+libvirt
 lldb
 llvm
 lua
 lua-language-server
 mariadb-libs
+mdbook
+mdbook-linkcheck
 meson
 mold
 molecule
-molecule-podman
+molecule-plugins
 ninja
 nix
 nmap
@@ -78,6 +85,7 @@ qt5-connectivity
 qt5-datavis3d
 qt5-doc
 qt5-examples
+qt6-3d
 qt6-languageserver
 qt6-lottie
 qt5-networkauth
@@ -98,8 +106,8 @@ qt6-tools
 qtcreator
 qtkeychain-qt6
 r2ghidra
-rust
 rust-analyzer
+rustup
 scanmem
 shellcheck
 sqlmap
@@ -107,7 +115,10 @@ strace
 tig
 valgrind
 vegeta
+vulkan-extra-layers
 vulkan-headers
+wasi-libc++
+wasi-libc++abi
 wireshark-qt
 yamllint
 yarn
