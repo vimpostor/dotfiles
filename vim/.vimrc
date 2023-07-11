@@ -200,9 +200,9 @@ if exists('+thesaurusfunc')
 endif
 "poor man's editorconfig
 func AutoIndent(...)
-	let n = get(a:, 1, 4) + 4 * !get(a:, 1, 4)
 	let tabs = len(filter(getline('1', '$'), 'v:val =~ "^\t"'))
 	let spaces = len(filter(getline('1', '$'), 'v:val =~ "^ "'))
+	let n = get(a:, 1, 0) + get(filter(map(getline('1', '$'), 'len(matchstr(v:val, "^ \\+"))'), 'v:val != 0'), 0, 4) * !a:0 + 4 * !get(a:, 1, 0) * a:0
 	if tabs && spaces
 		echohl ErrorMsg | echo printf('Mixed indentation detected (%d tabs VS %d spaces)', tabs, spaces) | echohl None
 	endif
