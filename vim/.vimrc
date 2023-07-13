@@ -13,7 +13,6 @@ Plug 'scrooloose/nerdcommenter' "easier commenting
 Plug 'terryma/vim-multiple-cursors' "multiple cursors
 Plug 'honza/vim-snippets' "snippets
 Plug 'tpope/vim-surround' "surround commands
-Plug 'easymotion/vim-easymotion' "even faster movement
 Plug 'tpope/vim-fugitive' "handy git tools
 Plug 'tpope/vim-rhubarb' "github integration
 Plug 'markonm/traces.vim' "pattern preview
@@ -24,6 +23,7 @@ Plug 'mbbill/undotree' "undo history visualizer
 Plug 'vimpostor/vim-prism' "colorscheme
 Plug 'vimpostor/vim-tpipeline' "outsource statusline to tmux
 Plug 'vimpostor/vim-lumen' "follow global darkmode
+Plug 'vimpostor/vim-gallop' "even faster movement
 call plug#end()
 packadd! matchit "builtin plugin extends %
 
