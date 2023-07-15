@@ -53,6 +53,7 @@ else
 	set completeopt+=menuone,popup
 	set completepopup=highlight:Pmenu,border:off
 	set fo+=/
+	set ttymouse=sgr
 endif
 set gdefault "replace globally by default
 set encoding=utf-8
@@ -69,11 +70,6 @@ set noshowmode
 set noruler
 set noshowcmd
 set mouse=a
-if has('mouse_sgr')
-	set ttymouse=sgr
-elseif !has('nvim')
-	set ttymouse=xterm2
-endif
 set t_ut="" "prevents a weird background on some terminals
 if has('termguicolors') "true colors
 	let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
