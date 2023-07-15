@@ -221,10 +221,10 @@ command -nargs=? AutoIndent call AutoIndent(<args>)
 let g:ale_disable_lsp = 1
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_insert_leave = 0
-let g:ale_sign_error = "\Uea87"
-let g:ale_sign_warning = "\U26a0\Ufe0f"
+let g:ale_sign_error = '✘'
+let g:ale_sign_warning = '⚠️'
 let g:ale_virtualtext_cursor = 1
-let g:ale_virtualtext_prefix = "\U0001f527"
+let g:ale_virtualtext_prefix = "🔧 "
 let g:ale_floating_preview = 1
 let g:ale_floating_window_border = []
 
