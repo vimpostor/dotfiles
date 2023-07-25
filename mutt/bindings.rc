@@ -17,7 +17,7 @@ bind index u "half-up"
 bind index U "toggle-new"
 bind index - "collapse-thread"
 macro index <F5> "<shell-escape>mbsync -a<enter>:echo 'Mail synced 📥'<enter>"
-macro index L "<shell-escape>read -p 'notmuch query: ' x; echo \$x >~/.cache/mutt_terms<enter><limit>~i \"\`notmuch search --output=messages \$(cat ~/.cache/mutt_terms) | perl -le '@a=<>;chomp@a;s/\^id:// for@a;$,=\"|\";print@a'\`\"<enter>"
+macro index L "<shell-escape>read -p 'notmuch query: ' x; echo \$x >~/.cache/mutt_terms<enter><limit>~i \"\`notmuch search --output=messages \$(cat ~/.cache/mutt_terms) | perl -le '@a=<>;chomp@a;s/\^id:// for@a;$,=\"|\";print@a'\`\"<enter><last-entry>"
 macro index \cl "<limit>\cuall<enter>"
 
 bind pager j "next-line"
