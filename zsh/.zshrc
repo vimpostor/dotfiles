@@ -131,7 +131,7 @@ function gbd() {
 # rebase current branch on top of upstream remote changes
 function greb() {
 	UPSTREAM="$(git remote | grep upstream || git remote | grep origin)"
-	BRANCH="$UPSTREAM/$(git branch -rl \*/HEAD | head -1 | rev | cut -d/ -f1 | rev)"
+	BRANCH="$UPSTREAM/${$(git branch -rl \*/HEAD | head -1 | rev | cut -d/ -f1 | rev):-master}"
 	git fetch "$UPSTREAM" && git --no-pager log --reverse --pretty=tformat:%s "$(git merge-base HEAD "$BRANCH")".."$BRANCH" && git rebase "$BRANCH"
 }
 
