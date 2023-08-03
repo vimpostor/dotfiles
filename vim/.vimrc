@@ -282,7 +282,7 @@ if has('vim9script')
 au VimEnter * call LspOptionsSet(#{aleSupport: 1, usePopupInCodeAction: 1, highlightDiagInline: v:false, autoHighlightDiags: 0, ignoreMissingServer: 1, noNewlineInCompletion: 1, useQuickfixForLocations: 1, completionMatcher: "icase"})
 au VimEnter * call LspAddServer([
 	\ #{ name: 'bash', filetype: ['sh'], path: 'bash-language-server', args: ['start'] },
-	\ #{ name: 'cpp', filetype: ['c', 'cpp'], path: 'clangd', args: ['--background-index'] },
+	\ #{ name: 'cpp', filetype: ['c', 'cpp'], path: 'clangd', args: ['--background-index', '--header-insertion=never'] },
 	\ #{ name: 'haskell', filetype: ['haskell'], path: 'haskell-language-server', args: ['--lsp'] },
 	\ #{ name: 'nix', filetype: ['nix'], path: 'nil' },
 	\ #{ name: 'qml', filetype: ['qml'], path: 'qmlls6' },
