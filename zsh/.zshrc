@@ -49,6 +49,7 @@ if ! zgenom saved; then
 	zgenom load zsh-users/zsh-completions
 	zgenom load zsh-users/zsh-autosuggestions
 	zgenom load zdharma-continuum/fast-syntax-highlighting
+	zgenom load atuinsh/atuin
 	zgenom load romkatv/powerlevel10k powerlevel10k
 	zgenom save
 	zgenom compile ~/.zshrc
