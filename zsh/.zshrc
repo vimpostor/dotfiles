@@ -146,5 +146,6 @@ function gta() {
 	git tag -se -m "$(basename "$(git rev-parse --show-toplevel)") ${*#v}" "$*" && git --no-pager tag -n "$*"
 }
 
+bindkey '^r' _atuin_search_widget
 # complete autosuggestions with <c-space>
 bindkey '^ ' autosuggest-accept
