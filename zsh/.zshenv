@@ -8,7 +8,6 @@ export TDESKTOP_DISABLE_TRAY_COUNTER=1
 export KEYTIMEOUT=1
 export FZF_COMPLETION_TRIGGER='~~'
 export FZF_DEFAULT_OPTS="--history=$HOME/.cache/.fzf_history"
-export ATUIN_NOBIND=1
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 export BAT_THEME=ansi
 export LDFLAGS="-fuse-ld=mold"
