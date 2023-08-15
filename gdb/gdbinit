@@ -1,4 +1,6 @@
 set pagination off
+set history filename ~/.cache/gdb/.gdb_history
+set history save on
 set debuginfod enabled off
 set index-cache enabled on
 maint set worker-threads 8
