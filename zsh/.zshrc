@@ -82,7 +82,7 @@ function cheat() {
 
 # retreives a pkgbuild
 function get-pkgbuild() {
-	GIT_TERMINAL_PROMPT=0 git clone "https://gitlab.archlinux.org/archlinux/packaging/packages/$*.git" || paru -G "$*" && cd "$*"
+	GIT_TERMINAL_PROMPT=0 pkgctl repo clone --protocol https "$*" || paru -G "$*" && cd "$*"
 }
 
 # vote for AUR package
