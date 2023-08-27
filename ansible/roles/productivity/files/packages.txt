@@ -63,6 +63,7 @@ libreoffice-still
 libva-mesa-driver
 libva-utils
 libvdpau-va-gl
+libvncserver
 lilypond
 lrzip
 lshw
