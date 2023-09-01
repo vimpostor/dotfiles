@@ -1,5 +1,5 @@
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+  . "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 # powerlevel10k status prompt
 typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
@@ -37,7 +37,7 @@ if [[ ! -d ~/.zgenom ]]; then
 	echo 'Installing zgenom...'
 	git clone -q https://github.com/jandamm/zgenom.git ~/.zgenom
 fi
-source ~/.zgenom/zgenom.zsh
+. ~/.zgenom/zgenom.zsh
 if ! zgenom saved; then
 	echo 'Installing plugins...'
 
