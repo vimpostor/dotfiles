@@ -6,9 +6,9 @@
   command:
     cmd: "gpg --batch --generate-key {{ gpg_batch_file }}"
     creates: '~/.gnupg/private-keys-v1.d'
-- name: Create .gitconfig
+- name: Create git config
   template:
     src: '.gitconfig.j2'
-    dest: "~/.gitconfig"
+    dest: "~/.config/git/config"
 - name: Start mutt wizard
   include_tasks: mutt-wizard.yml
