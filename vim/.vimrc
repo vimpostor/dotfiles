@@ -131,16 +131,13 @@ nmap <silent> <Leader>k :<C-U>exe v:count1 . 'labove'<CR>
 "join lines
 nnoremap <LocalLeader>J J
 xnoremap <LocalLeader>J J
-"clear search
 nnoremap <silent> <C-L> :nohl<CR>
 nmap <silent> <Leader>u :UndotreeToggle<CR>
 "switch to last buffer
 nnoremap <Leader><Leader> <c-^>
 "autocorrect last misspelling
 imap <c-v> <c-g>u<Esc>[s1z=`]a<c-g>u
-"do not overwrite my keybindings in rebase mode
 let g:no_gitrebase_maps = 1
-"write with sudo
 command SudoWrite execute 'silent! write !sudo tee % >/dev/null' <bar> edit!
 "create new c style header-source file pair
 func HeaderCreate(n)
@@ -191,9 +188,7 @@ func Thesaur(findstart, base)
 	endfor
 	return res
 endfunc
-if exists('+thesaurusfunc')
-	set thesaurusfunc=Thesaur
-endif
+set thesaurusfunc=Thesaur
 "poor man's editorconfig
 func AutoIndent(...)
 	let tabs = len(filter(getline('1', '$'), 'v:val =~ "^\t"'))
