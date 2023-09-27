@@ -40,8 +40,7 @@ set send_charset = "utf-8"
 # HTML mails
 alternative_order text/plain text/html
 set mailcap_path = ~/.config/mutt/mailcap
-auto_view text/html
-auto_view text/calendar;
+auto_view text/html text/calendar application/ics
 
 # Contacts
 set query_command = "echo ; grep -i %s ~/.cache/mutt/aliases"
