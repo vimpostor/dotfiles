@@ -3,7 +3,11 @@
 # Usage: android-repack-super.sh -s super.img -g gsi.zip -o out/super.img
 
 ARGS="hs:g:o:fy"
-HELPMSG='This script unpacks a stock firmware super image, replaces its contained system image with the system image of a provided Android GSI and repacks it into a new super.img, that can usually be flashed on Samsung devices with "heimdall flash --SUPER super.img".
+HELPMSG='This script unpacks a stock firmware super image, replaces its contained system image with the system image of a provided Android GSI and repacks it into a new super.img.
+
+The source super file can be either lz4 compressed (super.img.lz4), an Android sparse image (super.img) or a raw super file (super.raw).
+
+The source GSI file can be either zip compressed (gsi.zip) or an already uncompressed single file (system.img).
 
 Usage:
 android-repack-super.sh -s super.img -g gsi.zip -o out/super.img
@@ -21,7 +25,8 @@ SUPER_OUTPUT="out/super.img"
 AUTO_FLASH=false
 CONFIRM=true
 WORK_DIR="$HOME/.cache/.super"
-SUPER_RAW="$WORK_DIR/super.raw"
+SUPER_COPY="$WORK_DIR/super.img"
+WORK_TEMP="$WORK_DIR/temp"
 SUPER_DIR="$WORK_DIR/super"
 GSI_DIR="$WORK_DIR/gsi"
 STOCK_SYSTEM_IMG="$SUPER_DIR/system.img"
@@ -38,7 +43,7 @@ error() {
 }
 
 lpget() {
-	LPGET="$(lpdump "$SUPER_RAW" -j | jq -r '.'"$1"'[] | select(.name == "'"$2"'") | .'"$3")"
+	LPGET="$(lpdump "$SUPER_COPY" -j | jq -r '.'"$1"'[] | select(.name == "'"$2"'") | .'"$3")"
 }
 
 commandcheck() {
@@ -88,7 +93,7 @@ elif ! [ -f "$GSI_SOURCE" ]; then
 fi
 
 # Check that dependencies are installed
-commandcheck unzip simg2img lpdump lpunpack lpmake jq
+commandcheck unzip lz4 simg2img lpdump lpunpack lpmake jq
 if "$AUTO_FLASH"; then
 	commandcheck heimdall
 fi
@@ -97,17 +102,38 @@ rm -rf "$WORK_DIR"
 mkdir -p "$WORK_DIR"
 mkdir -p "$SUPER_DIR"
 
-echo -e "${GREEN}Extracting the stock sparse super.img file to a raw super.raw file$WHITE"
-simg2img "$SUPER_SOURCE" "$SUPER_RAW"
+# We want to keep referencing the same file later, while also not overwriting the source file
+ln -s "$SUPER_SOURCE" "$SUPER_COPY"
 
-echo -e "${GREEN}Unpacking the super.raw file to a super directory$WHITE"
-lpunpack "$SUPER_RAW" "$SUPER_DIR"
+# Convert the super.img to the correct format
+if file -Lb "$SUPER_COPY" | grep -iq 'lz4 compressed data'; then
+	# super.img.lz4 -> super.img
+	echo -e "${GREEN}Extracting the lz4 compressed super.img$WHITE"
+	lz4 -d "$SUPER_COPY" "$WORK_TEMP"
+	mv "$WORK_TEMP" "$SUPER_COPY"
+fi
+if file -Lb "$SUPER_COPY" | grep -iq 'android sparse image'; then
+	# super.img -> super.raw
+	echo -e "${GREEN}Extracting the stock sparse super.img file to a raw super file$WHITE"
+	simg2img "$SUPER_COPY" "$WORK_TEMP"
+	mv "$WORK_TEMP" "$SUPER_COPY"
+fi
+
+echo -e "${GREEN}Unpacking the raw super file to a super directory$WHITE"
+lpunpack "$SUPER_COPY" "$SUPER_DIR"
 
 test -f "$STOCK_SYSTEM_IMG" || error "Stock firmware does not contain a system.img file."
 
-echo -e "${GREEN}Unpacking the GSI ROM$WHITE"
-unzip "$GSI_SOURCE" -d "$GSI_DIR"
-test -f "$GSI_SYSTEM_IMG" || error "GSI archive does not contain a system.img file."
+if file -b "$GSI_SOURCE" | grep -iq 'zip archive'; then
+	# zip archive containing the system.img
+	echo -e "${GREEN}Decompressing the GSI archive$WHITE"
+	unzip "$GSI_SOURCE" -d "$GSI_DIR"
+else
+	# GSI source already is system.img
+	mkdir -p "$GSI_DIR"
+	cp "$GSI_SOURCE" "$GSI_SYSTEM_IMG"
+fi
+file -b "$GSI_SYSTEM_IMG" | grep -iq 'ext[2-4] filesystem data' || error "GSI archive does not contain a system.img file."
 
 echo -e "${GREEN}Replacing stock system.img with GSI system.img$WHITE"
 mv "$GSI_SYSTEM_IMG" "$STOCK_SYSTEM_IMG"
