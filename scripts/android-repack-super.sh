@@ -184,8 +184,7 @@ if "$AUTO_FLASH"; then
 		echo -e "${GREEN}Press any key to start...$WHITE"
 		read -rs
 	fi
-	heimdall flash --SUPER "$SUPER_OUTPUT"
-	echo -e "${GREEN}Successfully flashed the super image$WHITE"
+	heimdall flash --SUPER "$SUPER_OUTPUT" || true
 else
 	echo "Flash this by using: heimdall flash --SUPER $SUPER_OUTPUT"
 fi
