@@ -138,7 +138,7 @@ function greb() {
 
 # checkout a PR without polluting local repo, takes the PR ID as single argument
 function gcpr() {
-	git fetch -q origin pull/"$*"/head 2>/dev/null || git fetch -q upstream pull/"$*"/head 2>/dev/null || git fetch -q origin merge-requests/"$*"/head 2>/dev/null || git fetch -q upstream merge-requests/"$*"/head && git checkout FETCH_HEAD
+	git fetch -q origin pull/"$*"/head 2>/dev/null || git fetch -q upstream pull/"$*"/head 2>/dev/null || git fetch -q origin merge-requests/"$*"/head 2>/dev/null || git fetch -q upstream merge-requests/"$*"/head 2>/dev/null || git fetch -q origin "refs/changes/${1: -2}/$1/$(git fetch -q origin "refs/changes/${1: -2}/$1/meta" && git show -s --format='%b' FETCH_HEAD | grep '^Patch-set: [0-9]*$' | grep -oE '[0-9]*$')" && git checkout FETCH_HEAD
 }
 
 # create a signed git tag, usage: gta v1.2
