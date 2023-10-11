@@ -1,7 +1,7 @@
 *.swp
 .~lock.*.ods#
 /.ccls-cache/
-/.cache/
+.cache/
 compile_commands.json
 .vimspector.json
 Session.vim
