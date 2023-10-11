@@ -28,6 +28,9 @@ if [ "$SENDER" = 'notify@aur.archlinux.org' ] && [[ "$SUBJECT" == 'AUR Out-of-da
 # Github PR
 elif [[ "$SENDER" == *'notifications@github.com'* ]] && [[ "$SUBJECT" =~ ^\[.*/.*\]\ .*\ \(PR\ \#[0-9]*\) ]]; then
 	~/Documents/scripts/auto-build-github.sh < "$MAIL"
+# Gerrit patchset
+elif [[ "$SUBJECT" == *'Change in '* ]] && grep -E -m1 '^X-Gerrit-MessageType: newchange$' "$MAIL"; then
+	~/Documents/scripts/auto-build-gerrit.sh < "$MAIL"
 # No matches
 else
 	gdbus call --session --dest=org.freedesktop.Notifications --object-path=/org/freedesktop/Notifications --method=org.freedesktop.Notifications.Notify 'Job Dispatcher' 0 'script-error' 'Dispatched job failed' 'Could not find any matching job rule.' '[]' '{"desktop-entry": <"org.wezfurlong.wezterm">, "urgency": <"0">}' 5000 >/dev/null
