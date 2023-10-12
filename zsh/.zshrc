@@ -64,6 +64,7 @@ alias rga='rg --no-ignore --hidden -i'
 alias gce='git commit --amend --no-edit'
 alias gcea='gce -a'
 alias gpf='git push --force-with-lease --force-if-includes'
+alias gpr='git push origin "HEAD:refs/for/${$(git branch -rl \*/HEAD | head -1 | rev | cut -d/ -f1 | rev):-master}"'
 
 # functions
 # use xdg-open to open all passed files
