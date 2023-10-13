@@ -2,9 +2,11 @@ a2jmidid
 aeolus
 alsa-utils
 ardour
+carla
 dragonfly-reverb
 easyeffects
 gst-plugin-pipewire
+helm-synth
 lib32-pipewire-jack
 libsmf
 linuxsampler

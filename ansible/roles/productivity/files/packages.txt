@@ -110,7 +110,6 @@ python-icalendar
 python-markdown
 python-pynvim
 qemu-desktop
-qt-gstreamer
 ranger
 rofi
 s-nail

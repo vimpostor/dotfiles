@@ -43,6 +43,7 @@ haskell-base-prelude
 haskell-language-server
 haskell-prelude-extras
 iaito
+ipython
 jedi-language-server
 jq
 kate
@@ -80,6 +81,7 @@ postgresql-libs
 python-lsp-server
 python-pip
 python-pipenv
+python-pipx
 python-pylint
 qt5-charts
 qt5-connectivity
@@ -98,7 +100,10 @@ qt6-charts
 qt6-connectivity
 qt6-declarative
 qt6-examples
+qt6-grpc
 qt6-multimedia
+qt6-multimedia-ffmpeg
+qt6-multimedia-gstreamer
 qt6-networkauth
 qt6-scxml
 qt6-shadertools
