@@ -29,7 +29,7 @@ if [ "$SENDER" = 'notify@aur.archlinux.org' ] && [[ "$SUBJECT" == 'AUR Out-of-da
 elif [[ "$SENDER" == *'notifications@github.com'* ]] && [[ "$SUBJECT" =~ ^\[.*/.*\]\ .*\ \(PR\ \#[0-9]*\) ]]; then
 	~/Documents/scripts/auto-build-github.sh < "$MAIL"
 # Gerrit patchset
-elif [[ "$SUBJECT" == *'Change in '* ]] && grep -E -m1 '^X-Gerrit-MessageType: newchange$' "$MAIL"; then
+elif [[ "$SUBJECT" == *'Change in '* ]] && grep -qE '^X-Gerrit-MessageType: newchange$' "$MAIL"; then
 	~/Documents/scripts/auto-build-gerrit.sh < "$MAIL"
 # No matches
 else
