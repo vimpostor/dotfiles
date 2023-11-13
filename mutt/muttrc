@@ -33,6 +33,7 @@ set index_format = "%4C %Z%?X?📎&  ? %[%b %d %R] %-15.15L (%?l?%4l&%4c?) %s"
 
 set tilde
 unset markers
+unset mark_old
 
 # Its not 1991 anymore, we can use UTF8
 set send_charset = "utf-8"
