@@ -7,3 +7,4 @@ compile_commands.json
 Session.vim
 /build/
 __pycache__/
+*.AppImage
