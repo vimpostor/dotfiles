@@ -21,7 +21,7 @@ if [ -n "$NO_GERRIT" ]; then
 	exit 0
 fi
 # Pushed refs must contain a "refs/for/" ref, otherwise we are not pushing for review
-grep -q "refs/for/" || die "Error: You are pushing to git directly, which would skip the Gerrit review process entirely. Set the NO_GERRIT=1 environment variable, if this is intended. Please use the gpr alias instead, if you want to push for Gerrit review."
+grep -q "refs/for/" || die "Error: You are pushing to git directly, which would skip the Gerrit review process entirely. Set the NO_GERRIT=1 environment variable, if this is intended. Please push to the HEAD:refs/for/master ref instead, if you want to push for Gerrit review."
 EOF
 chmod +x .git/hooks/pre-push
 echo 'Created .git/hooks/pre-push to prevent direct pushes skipping Gerrit review.'
