@@ -37,7 +37,6 @@ func s:show_documentation()
 		call CocAction('doHover')
 	endif
 endfunc
-au CursorHold * silent call CocActionAsync('highlight') "highlight symbol on cursor hold
 nmap <LocalLeader>rn <Plug>(coc-rename)
 xmap <LocalLeader>f <Plug>(coc-format-selected)
 xmap <LocalLeader>a <Plug>(coc-codeaction-selected)
@@ -57,9 +56,5 @@ nnoremap <silent> <Leader>s :<C-u>CocList -I symbols<cr>
 "snippets
 imap <C-j> <Plug>(coc-snippets-expand-jump)
 "coc-texlab
-if has('nvim')
-	nnoremap <silent> <Leader>ll :<C-u>CocCommand latex.Build<CR>
-else
-	nnoremap <silent> <Leader>ll :<C-u>call remote_startserver("synctex")<CR>:CocCommand latex.Build<CR>
-endif
+nnoremap <silent> <Leader>ll :<C-u>CocCommand latex.Build<CR>
 nnoremap <silent> <Leader>lv :<C-u>CocCommand latex.ForwardSearch<CR>
