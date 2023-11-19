@@ -1,4 +1,5 @@
 local wezterm = require 'wezterm';
+local default_font_size = 14.0;
 
 function scheme_for_appearance(appearance)
 	if appearance:find("Dark") then
@@ -8,6 +9,14 @@ function scheme_for_appearance(appearance)
 	end
 end
 
+function compute_font_size(window)
+	local overrides = window:get_config_overrides() or {}
+	overrides.font_size = math.ceil(default_font_size * 96 / window:get_dimensions().dpi)
+	window:set_config_overrides(overrides)
+end
+
+wezterm.on('window-resized', function(window) compute_font_size() end)
+
 return {
 	adjust_window_size_when_changing_font_size = false,
 	check_for_updates = false,
@@ -15,7 +24,7 @@ return {
 	enable_tab_bar = false,
 	exit_behavior = "Close",
 	font = wezterm.font_with_fallback{"Iosevka Extended", "Twemoji"},
-	font_size = 10.0,
+	font_size = default_font_size,
 	force_reverse_video_cursor = true,
 	keys = {
 		{key="UpArrow", mods="SHIFT", action=wezterm.action.ScrollToPrompt(-1)},
