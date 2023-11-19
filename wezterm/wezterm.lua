@@ -19,6 +19,7 @@ wezterm.on('window-resized', function(window) compute_font_size() end)
 
 return {
 	adjust_window_size_when_changing_font_size = false,
+	automatically_reload_config = false,
 	check_for_updates = false,
 	color_scheme = scheme_for_appearance(wezterm.gui.get_appearance()),
 	enable_tab_bar = false,
