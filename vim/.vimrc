@@ -240,8 +240,8 @@ nnoremap <silent> <Leader>f <Cmd>RG<CR>
 let g:vimspector_enable_mappings = 'HUMAN'
 nmap <LocalLeader>di <Plug>VimspectorBalloonEval
 xmap <LocalLeader>di <Plug>VimspectorBalloonEval
-nmap <Leader><F11> <Plug>VimspectorUpFrame
-nmap <Leader><F12> <Plug>VimspectorDownFrame
+nmap <Leader><F11> <Plug>VimspectorDownFrame
+nmap <Leader><F12> <Plug>VimspectorUpFrame
 nmap <silent> <Leader><F3> <Cmd>VimspectorReset<CR>
 
 "easy motion
