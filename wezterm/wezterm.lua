@@ -22,6 +22,7 @@ return {
 	automatically_reload_config = false,
 	check_for_updates = false,
 	color_scheme = scheme_for_appearance(wezterm.gui.get_appearance()),
+	cursor_blink_rate = 0,
 	enable_tab_bar = false,
 	exit_behavior = "Close",
 	font = wezterm.font_with_fallback{"Iosevka Extended", "Twemoji"},
