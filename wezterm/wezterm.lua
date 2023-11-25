@@ -15,7 +15,7 @@ function compute_font_size(window)
 	window:set_config_overrides(overrides)
 end
 
-wezterm.on('window-resized', function(window) compute_font_size() end)
+wezterm.on('window-resized', function(window) compute_font_size(window) end)
 
 return {
 	adjust_window_size_when_changing_font_size = false,
