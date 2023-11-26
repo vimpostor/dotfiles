@@ -143,6 +143,7 @@ function gcpr() {
 }
 
 # create a signed git tag, usage: gta v1.2
+unalias gta
 function gta() {
 	git tag -se -m "$(basename "$(git rev-parse --show-toplevel)") ${*#v}" "$*" && git --no-pager tag -n "$*"
 }
