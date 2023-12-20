@@ -93,6 +93,7 @@ set splitright
 set fcs=stlnc:─,stl:─,vert:│
 
 "file type specific settings
+let g:markdown_recommended_style = 0
 let g:python_recommended_style = 0
 let g:rust_recommended_style = 0
 au Filetype yaml setlocal ts=2 sw=2 et
