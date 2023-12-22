@@ -1,3 +1,4 @@
+# TODO: msmtp
 - name: Create base maildir
   file:
     path: "{{ maildir_base_dir }}"

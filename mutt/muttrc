@@ -7,7 +7,6 @@ source ~/.config/mutt/personal.rc
 
 # Cache mails
 set header_cache = ~/.cache/mutt/headers
-set message_cachedir = ~/.cache/mutt/bodies
 
 # colors
 source ~/.config/mutt/colors.rc
