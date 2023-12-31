@@ -86,7 +86,7 @@ xnoremap < <gv
 xnoremap > >gv
 "allow completions from the dictionary
 set complete+=kspell
-set diffopt+=vertical,algorithm:patience
+set diffopt+=vertical,internal,algorithm:patience
 "split like a normal human being
 set splitbelow
 set splitright
