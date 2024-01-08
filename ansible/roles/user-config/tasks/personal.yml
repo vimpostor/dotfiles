@@ -8,7 +8,7 @@
     creates: '~/.gnupg/private-keys-v1.d'
 - name: Create git config
   template:
-    src: '.gitconfig.j2'
-    dest: "~/.config/git/config"
+    src: 'personal.gitconfig.j2'
+    dest: "~/.config/git/personal.gitconfig"
 - name: Start mutt wizard
   include_tasks: mutt-wizard.yml

@@ -1,6 +1,5 @@
-[user]
-	email = {{ myemail }}
-	name = {{ myfullname }}
+[include]
+	path = personal.gitconfig
 [core]
 	pager = /usr/share/git/diff-highlight/diff-highlight| less -x4
 [diff]
