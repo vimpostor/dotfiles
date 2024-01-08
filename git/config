@@ -1,13 +1,13 @@
 [include]
 	path = personal.gitconfig
 [core]
-	pager = /usr/share/git/diff-highlight/diff-highlight| less -x4
+	pager = /usr/share/git/diff-highlight/diff-highlight| less
 [diff]
 	algorithm = patience
 	colormoved = dimmed-zebra
 	colormovedws = ignore-all-space
 [interactive]
-	diffFilter = /usr/share/git/diff-highlight/diff-highlight| less -x4
+	diffFilter = /usr/share/git/diff-highlight/diff-highlight| less
 [stash]
 	showPatch = true
 [commit]

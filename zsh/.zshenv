@@ -1,5 +1,5 @@
 export XDG_CONFIG_HOME="$HOME/.config"
-export LESS='-Ric --use-color -Dd+r$Du+b'
+export LESS='-Ric -x4 --use-color -Dd+r$Du+b'
 export MANROFFOPT='-c'
 export EDITOR='vim'
 export DISABLE_AUTO_UPDATE=true
