@@ -91,11 +91,11 @@ openconnect
 openldap
 openvpn
 p7zip
-pandoc
 pandoc-cli
 papirus-icon-theme
 partitionmanager
 pdfgrep
+pdftk
 plasma-browser-integration
 plasma-desktop
 plasma-nm
@@ -167,6 +167,6 @@ xorg-xinit
 xorg-xinput
 xorg-xwininfo
 yad
-youtube-dl
+yt-dlp
 zathura
 zathura-pdf-poppler

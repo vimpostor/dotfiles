@@ -2,7 +2,6 @@ a2jmidid
 aeolus
 alsa-utils
 ardour
-carla
 dragonfly-reverb
 easyeffects
 gst-plugin-pipewire

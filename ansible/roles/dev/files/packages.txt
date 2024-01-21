@@ -128,4 +128,5 @@ wasi-libc++abi
 wireshark-qt
 yamllint
 yarn
+zeal
 zola
