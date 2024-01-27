@@ -12,6 +12,7 @@ export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 export BAT_THEME=ansi
 export LDFLAGS="-fuse-ld=mold"
 export CMAKE_COLOR_DIAGNOSTICS=ON
+export ASAN_OPTIONS='abort_on_error=1'
 export QT_FORCE_STDERR_LOGGING=1
 export PLASMA_USE_QT_SCALING=1
 export QT_USE_PHYSICAL_DPI=1
