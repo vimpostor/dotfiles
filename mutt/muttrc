@@ -29,6 +29,7 @@ unset menu_move_off
 set pager_index_lines = 4
 set pager_context = 3
 set index_format = "%4C %Z%?X?📎&  ? %[%b %d %R] %-15.15F (%?l?%4l&%4c?) %s"
+set message_id_format = "sh -c 'echo \"<%Y%02m%02d%c%02H%02M%02S%x%x%x%x.$USER@$(hostname -f|sed \"s/^[^\\\\.]*\\\\.//\")>\"'|"
 
 set tilde
 unset markers
