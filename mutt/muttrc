@@ -35,10 +35,7 @@ set tilde
 unset markers
 unset mark_old
 
-# Its not 1991 anymore, we can use UTF8
 set send_charset = "utf-8"
-
-# HTML mails
 alternative_order text/plain text/html
 set mailcap_path = ~/.config/mutt/mailcap
 auto_view text/html text/calendar application/ics
