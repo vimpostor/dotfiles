@@ -31,3 +31,5 @@
 [sendemail]
 	sendmailcmd = /usr/share/doc/msmtp/msmtpq/msmtpq
 	confirm = auto
+[advice]
+	detachedHead = false
