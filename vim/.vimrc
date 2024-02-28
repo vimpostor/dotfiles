@@ -219,7 +219,7 @@ let g:ale_virtualtext_cursor = 1
 let g:ale_virtualtext_prefix = "🔧 "
 let g:ale_floating_preview = 1
 let g:ale_floating_window_border = []
-let g:ale_linters = #{python: []}
+let g:ale_linters = #{python: [], rust: []}
 
 "fugitive
 nnoremap <silent> <LocalLeader>Gb :0,3Git blame<CR>
@@ -284,7 +284,7 @@ au VimEnter * call LspAddServer([
 	\ #{ name: 'nix', filetype: ['nix'], path: 'nil' },
 	\ #{ name: 'python', filetype: ['python'], path: 'pylsp' },
 	\ #{ name: 'qml', filetype: ['qml'], path: 'qmlls6' },
-	\ #{ name: 'rust', filetype: ['rust'], path: 'rust-analyzer', syncInit: 1 },
+	\ #{ name: 'rust', filetype: ['rust'], path: 'rust-analyzer', syncInit: 1, initializationOptions: #{ checkOnSave: v:false } },
 \ ])
 nmap <LocalLeader>qf <Cmd>LspCodeAction<CR>
 nmap gd <Cmd>LspGotoDefinition<CR>
