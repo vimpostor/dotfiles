@@ -272,6 +272,7 @@ au VimEnter * call LspAddServer([
 	\ #{ name: 'bash', filetype: ['sh'], path: 'bash-language-server', args: ['start'] },
 	\ #{ name: 'cpp', filetype: ['c', 'cpp'], path: 'clangd', args: ['--background-index', '--header-insertion=never'] },
 	\ #{ name: 'haskell', filetype: ['haskell'], path: 'haskell-language-server-wrapper', args: ['--lsp'] },
+	\ #{ name: 'lua', filetype: ['lua'], path: 'lua-language-server' },
 	\ #{ name: 'nix', filetype: ['nix'], path: 'nil' },
 	\ #{ name: 'python', filetype: ['python'], path: 'pylsp' },
 	\ #{ name: 'qml', filetype: ['qml'], path: 'qmlls6' },
