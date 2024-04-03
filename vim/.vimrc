@@ -264,6 +264,7 @@ vnoremap <silent> <LocalLeader>KB :call cheat#cheat("", -1, -1, 2, 0, '!')<CR>
 
 "tpipeline
 let g:tpipeline_clearstl = 1
+let g:tpipeline_autoembed = 0
 
 "lsp
 if has('vim9script')
