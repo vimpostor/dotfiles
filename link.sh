@@ -120,7 +120,7 @@ for ((i = 1; i <= $(echo "$SOURCES"| wc -l); i++)); do
 		answer="n"
 	fi
 	if [ "$answer" == "y" ]; then
-		if ! [ -e "$DEST" ]; then
+		if ! { [ -e "$DEST" ] || [ -h "$DEST" ]; }; then
 			mkdir -p "$DEST" || echo -e "${RED}ERROR$WHITE: No permission in this directory"
 		fi
 		rm -r "$DEST" || echo -e "${RED}ERROR$WHITE: No permission to delete this file"
