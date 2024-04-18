@@ -227,15 +227,14 @@ nnoremap <silent> <LocalLeader>Gb :0,3Git blame<CR>
 "lists
 nnoremap <silent> <Leader>P <Cmd>Files<CR>
 nnoremap <silent> <Leader>b <Cmd>Buffers<CR>
-func RipgrepFzf(query, fullscreen)
+func RipgrepFzf()
 	let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case --hidden -- %s || true'
-	let initial_command = printf(command_fmt, shellescape(a:query))
+	let initial_command = printf(command_fmt, "''")
 	let reload_command = printf(command_fmt, '{q}')
-	let spec = {'options': ['--disabled', '--query', a:query, '--bind', 'change:reload:'.reload_command]}
-	call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec, 'right', 'ctrl-/'), a:fullscreen)
+	let spec = {'options': ['--disabled', '--query', '', '--bind', 'change:reload:'.reload_command]}
+	call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec, 'right', 'ctrl-/'), 0)
 endfunc
-command! -nargs=* -bang RG call RipgrepFzf(<q-args>, <bang>0)
-nnoremap <silent> <Leader>f <Cmd>RG<CR>
+nnoremap <silent> <Leader>f <Cmd>call RipgrepFzf()<CR>
 
 "vimspector
 let g:vimspector_enable_mappings = 'HUMAN'
