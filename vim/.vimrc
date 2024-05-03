@@ -235,14 +235,6 @@ func RipgrepFzf()
 	call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec, 'right', 'ctrl-/'), 0)
 endfunc
 nnoremap <silent> <Leader>f <Cmd>call RipgrepFzf()<CR>
-func AstgrepFzf()
-	let command_fmt = 'ast-grep run --heading never --color always --pattern %s || true'
-	let initial_command = printf(command_fmt, '')
-	let reload_command = printf(command_fmt, '{q}')
-	let spec = {'options': ['--disabled', '--query', '', '--bind', 'change:reload:'.reload_command]}
-	call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec, 'right', 'ctrl-/'), 0)
-endfunc
-nnoremap <silent> <Leader>g <Cmd>call AstgrepFzf()<CR>
 
 "vimspector
 let g:vimspector_enable_mappings = 'HUMAN'
