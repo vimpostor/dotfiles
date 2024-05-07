@@ -50,6 +50,7 @@ if ! zgenom saved; then
 	zgenom load zsh-users/zsh-autosuggestions
 	zgenom load zdharma-continuum/fast-syntax-highlighting
 	zgenom load romkatv/powerlevel10k powerlevel10k
+	zgenom load chisui/zsh-nix-shell
 	zgenom save
 	zgenom compile ~/.zshrc
 fi
