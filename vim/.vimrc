@@ -224,9 +224,9 @@ let g:ale_linters = #{python: [], rust: []}
 "fugitive
 nnoremap <silent> <LocalLeader>Gb :0,3Git blame<CR>
 " yank Github permalink
-nnoremap <Leader>gy :GBrowse!<CR>
-nnoremap <LocalLeader>gy :.GBrowse!<CR>
-xnoremap <LocalLeader>gy :'<'>GBrowse!<CR>
+nnoremap <Leader>yg :GBrowse!<CR>
+nnoremap <LocalLeader>yg :.GBrowse!<CR>
+xnoremap <LocalLeader>yg :'<'>GBrowse!<CR>
 
 "lists
 nnoremap <silent> <Leader>P <Cmd>Files<CR>
