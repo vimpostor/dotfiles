@@ -220,6 +220,7 @@ let g:ale_virtualtext_prefix = "🔧 "
 let g:ale_floating_preview = 1
 let g:ale_floating_window_border = []
 let g:ale_linters = #{python: [], rust: []}
+nmap <LocalLeader>i <Cmd>ALEDetail<CR>
 
 "fugitive
 nnoremap <silent> <LocalLeader>Gb :0,3Git blame<CR>
