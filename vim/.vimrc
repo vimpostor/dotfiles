@@ -282,6 +282,7 @@ au VimEnter * call LspAddServer([
 	\ #{ name: 'python', filetype: ['python'], path: 'pylsp' },
 	\ #{ name: 'qml', filetype: ['qml'], path: 'qmlls6' },
 	\ #{ name: 'rust', filetype: ['rust'], path: 'rust-analyzer', syncInit: 1, initializationOptions: #{ checkOnSave: v:false } },
+	\ #{ name: 'slint', filetype: ['slint'], path: 'slint-lsp' },
 \ ])
 nmap <LocalLeader>qf <Cmd>LspCodeAction<CR>
 nmap gd <Cmd>LspGotoDefinition<CR>
