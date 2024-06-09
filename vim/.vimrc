@@ -9,7 +9,6 @@ if has('vim9script')
 	Plug 'yegappan/lsp'
 	Plug 'KKoovalsky/TsepepeVim', { 'do': './build.py' }
 endif
-Plug 'scrooloose/nerdcommenter' "easier commenting
 Plug 'terryma/vim-multiple-cursors' "multiple cursors
 Plug 'honza/vim-snippets' "snippets
 Plug 'tpope/vim-surround' "surround commands
@@ -26,6 +25,9 @@ Plug 'vimpostor/vim-lumen' "follow global darkmode
 Plug 'vimpostor/vim-gallop' "even faster movement
 call plug#end()
 packadd! matchit "builtin plugin extends %
+if !has('nvim')
+	packadd! comment "easier commenting
+endif
 
 "color scheme
 silent! colorscheme prism
@@ -251,12 +253,6 @@ nmap <silent> <Leader><F3> <Cmd>VimspectorReset<CR>
 
 "multiple cursors
 let g:multi_cursor_exit_from_insert_mode = 0
-
-"nerdcommenter
-let g:NERDCreateDefaultMappings = 0
-let g:NERDSpaceDelims = 1
-nmap <LocalLeader>c<Space> <Plug>NERDCommenterToggle
-xmap <LocalLeader>c<Space> <Plug>NERDCommenterToggle
 
 "fzf
 let g:fzf_layout = {'window': {'width': 1, 'height': 0.5, 'yoffset': 1, 'border': 'horizontal'}}
