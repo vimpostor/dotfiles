@@ -103,7 +103,7 @@ au Filetype yaml if expand('%:p:h') =~# 'playbooks\|tasks\|handlers' | setlocal 
 au Filetype markdown,gitcommit,tex setlocal spell
 au FileType mail setlocal spell spelllang=en,de nojs
 au FileType haskell setlocal expandtab
-au Filetype c,cpp nnoremap <silent> <F4> <Cmd>LspSwitchSourceHeader<CR>
+au Filetype c,cpp nnoremap <silent> <F4> <Cmd>LspSwitchSourceHeader<CR> | setlocal commentstring=//\ %s
 
 "general keybindings
 let mapleader = " "
