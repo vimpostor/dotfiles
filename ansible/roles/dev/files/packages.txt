@@ -37,7 +37,6 @@ goaccess
 go-tools
 gource
 gperftools
-gradle
 gtest
 haskell-base-prelude
 haskell-language-server

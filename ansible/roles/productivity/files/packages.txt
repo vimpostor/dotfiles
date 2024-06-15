@@ -39,7 +39,6 @@ kdeconnect
 kdenlive
 kdeplasma-addons
 kdialog
-kdoctools
 keepassxc
 khotkeys
 kinfocenter
@@ -49,13 +48,11 @@ krdc
 krita
 krita-plugin-gmic
 kscreen
-ksysguard
 kteatime
 ktouch
 kwallet-pam
 kwalletmanager
 kwin
-latte-dock
 lib32-libva-mesa-driver
 lib32-mesa-vdpau
 libnotify
