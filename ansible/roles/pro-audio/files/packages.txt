@@ -2,6 +2,7 @@ a2jmidid
 aeolus
 alsa-utils
 ardour
+avldrums.lv2
 dragonfly-reverb
 easyeffects
 gst-plugin-pipewire

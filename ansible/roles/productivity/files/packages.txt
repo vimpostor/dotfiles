@@ -119,6 +119,7 @@ screen
 screenkey
 sddm
 sddm-kcm
+senpai
 spectacle
 sshfs
 sxhkd
@@ -156,8 +157,8 @@ x86_energy_perf_policy
 xdg-desktop-portal
 xdg-desktop-portal-kde
 xdotool
-xf86-input-synaptics
 xorg-server
+xorg-server-xephyr
 xorg-xbacklight
 xorg-xev
 xorg-xinit
