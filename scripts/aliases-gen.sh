@@ -38,9 +38,9 @@ for MAIL_ID in $MAILS; do
 		continue
 	fi
 
-	MAIL="$(notmuch show --format=json --entire-thread=false --part=0 "$MAIL_ID")"
-	TIMESTAMP="$(echo "$MAIL" | jq -r '.timestamp')"
-	SUBJECT="$(echo "$MAIL" | jq -r '.headers.Subject')"
+	MAILJSON="$(notmuch show --format=json --entire-thread=false --part=0 "$MAIL_ID")"
+	TIMESTAMP="$(echo "$MAILJSON" | jq -r '.timestamp')"
+	SUBJECT="$(echo "$MAILJSON" | jq -r '.headers.Subject')"
 	ADDRESSES="$(notmuch address --output=sender --output=recipients "$MAIL_ID")"
 
 	# iterate over newline separated addresses

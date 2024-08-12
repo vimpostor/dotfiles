@@ -3,16 +3,16 @@
 
 set -e
 
-MAIL="$(mktemp)"
-cat - > "$MAIL"
+MAILFILE="$(mktemp)"
+cat - > "$MAILFILE"
 
 # Gerrit patchset
-if grep -q '^X-Gerrit-Commit: [[:alnum:]]\{40\}$' "$MAIL"; then
+if grep -q '^X-Gerrit-Commit: [[:alnum:]]\{40\}$' "$MAILFILE"; then
 	# submit the Gerrit patch
-	~/Documents/scripts/gerrit-review.sh -s < "$MAIL"
+	~/Documents/scripts/gerrit-review.sh -s < "$MAILFILE"
 else
 	# just apply the patch as mail
-	git am < "$MAIL"
+	git am < "$MAILFILE"
 fi
 
-rm "$MAIL"
+rm "$MAILFILE"
