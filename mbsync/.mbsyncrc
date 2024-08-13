@@ -2,7 +2,7 @@ IMAPAccount maildir
 Host mail.domain.com
 User "username"
 PassCmd "gpg -dq ~/.config/mutt/mailpw.txt.gpg"
-SSLType IMAPS
+TLSType IMAPS
 CertificateFile /etc/ssl/certs/ca-certificates.crt
 PipelineDepth 1
 
