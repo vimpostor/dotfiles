@@ -23,6 +23,7 @@ Plug 'vimpostor/vim-prism' "colorscheme
 Plug 'vimpostor/vim-tpipeline' "outsource statusline to tmux
 Plug 'vimpostor/vim-lumen' "follow global darkmode
 Plug 'vimpostor/vim-gallop' "even faster movement
+Plug 'vimpostor/vim-clue' "documentation
 call plug#end()
 packadd! matchit "builtin plugin extends %
 if !has('nvim')
