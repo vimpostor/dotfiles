@@ -16,3 +16,4 @@ export ASAN_OPTIONS='abort_on_error=1'
 export QT_FORCE_STDERR_LOGGING=1
 export PLASMA_USE_QT_SCALING=1
 export QT_USE_PHYSICAL_DPI=1
+export MSMTPQ_LOG=~/.cache/mutt/msmtpq/msmtp.queue.log
