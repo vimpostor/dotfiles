@@ -240,7 +240,7 @@ func RipgrepFzf()
 	let initial_command = printf(command_fmt, "''")
 	let reload_command = printf(command_fmt, '{q}')
 	let spec = {'options': ['--disabled', '--query', '', '--bind', 'change:reload:'.reload_command]}
-	call fzf#vim#grep(initial_command, fzf#vim#with_preview(spec), 0)
+	call fzf#vim#grep(initial_command, fzf#vim#with_preview(spec))
 endfunc
 nnoremap <silent> <Leader>f <Cmd>call RipgrepFzf()<CR>
 
