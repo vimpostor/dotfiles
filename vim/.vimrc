@@ -273,7 +273,7 @@ if has('vim9script')
 au VimEnter * call LspOptionsSet(#{aleSupport: 1, usePopupInCodeAction: 1, highlightDiagInline: v:false, autoHighlightDiags: 0, ignoreMissingServer: 1, noNewlineInCompletion: 1, useQuickfixForLocations: 1, completionMatcher: "icase"})
 au VimEnter * call LspAddServer([
 	\ #{ name: 'bash', filetype: ['sh'], path: 'bash-language-server', args: ['start'] },
-	\ #{ name: 'cmake', filetype: ['cmake'], path: 'cmake-language-server' },
+	\ #{ name: 'cmake', filetype: ['cmake'], path: 'neocmakelsp', args: ['--stdio'] },
 	\ #{ name: 'cpp', filetype: ['c', 'cpp'], path: 'clangd', args: ['--background-index', '--header-insertion=never'] },
 	\ #{ name: 'haskell', filetype: ['haskell'], path: 'haskell-language-server-wrapper', args: ['--lsp'] },
 	\ #{ name: 'lua', filetype: ['lua'], path: 'lua-language-server' },
