@@ -102,7 +102,7 @@ let g:rust_recommended_style = 0
 au Filetype yaml setlocal ts=2 sw=2 et
 au Filetype yaml if expand('%:p:h') =~# 'playbooks\|tasks\|handlers' | setlocal ft=yaml.ansible | endif
 au Filetype markdown,gitcommit,tex setlocal spell
-au Filetype gitrebase nnoremap <silent> <LocalLeader>b 0W"ayE{:call append(line('.') - 1, printf("\nt onto\np %1$s\nu refs/heads/%2$s\nl %2$s", getreg('a'), input('Branch name: '))->split("\n", 1))<CR>
+au Filetype gitrebase nnoremap <silent> <LocalLeader>b 0W"ayE{:call append(line('.') - 1, printf("\nreset onto\npick %1$s\nupdate-ref refs/heads/%2$s\nlabel %2$s", getreg('a'), input('Branch name: '))->split("\n", 1))<CR>
 au FileType mail setlocal spell spelllang=en,de nojs
 au FileType haskell setlocal expandtab
 au Filetype c,cpp nnoremap <silent> <F4> <Cmd>LspSwitchSourceHeader<CR> | setlocal commentstring=//\ %s
