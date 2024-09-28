@@ -64,7 +64,6 @@ alias ls='ls --color=auto'
 alias rga='rg --no-ignore --hidden -i'
 alias gce='git commit --amend --no-edit'
 alias gcea='gce -a'
-alias gres='git rebase -i origin/master --autosquash --rebase-merges --update-refs'
 alias gpf='git push --force-with-lease --force-if-includes'
 alias gpr='git push origin "HEAD:refs/for/${$(git branch -rl \*/HEAD | head -1 | rev | cut -d/ -f1 | rev):-master}"'
 
@@ -132,6 +131,13 @@ function greb() {
 	UPSTREAM="$(git remote | grep upstream || git remote | grep origin)"
 	BRANCH="$UPSTREAM/${$(git branch -rl \*/HEAD | head -1 | rev | cut -d/ -f1 | rev):-master}"
 	git fetch "$UPSTREAM" && git --no-pager log --reverse --pretty=tformat:%s "$(git merge-base HEAD "$BRANCH")".."$BRANCH" && git rebase "$BRANCH"
+}
+
+# rebase with a branchless workflow, allowing to edit branches declaratively in the rebase todo list
+function gret() {
+	UPSTREAM="$(git remote | grep upstream || git remote | grep origin)"
+	BRANCH="$UPSTREAM/${$(git branch -rl \*/HEAD | head -1 | rev | cut -d/ -f1 | rev):-master}"
+	git rebase -i "$BRANCH" --autosquash --rebase-merges --update-refs
 }
 
 # checkout a PR without polluting local repo, takes the PR ID as single argument
