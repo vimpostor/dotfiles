@@ -96,16 +96,27 @@ set splitright
 set fcs=stlnc:─,stl:─,vert:│
 
 "file type specific settings
+func GitRebaseTodoNewBranch(v)
+	let b = input('Branch name: ')
+	let x = line(".'<"[a:v:2*a:v])
+	let y = line(".'>"[a:v:2*a:v])
+	let c = getbufline(bufnr('%'), x, y)
+	call deletebufline('%', x, y)
+	call append(x - 1, printf("merge %1$s # Merge branch '%1$s'", b))
+	keepjumps norm! {
+	call append(line('.') - 1, printf("\n# Branch %1$s\nreset onto\n%2$s\nupdate-ref refs/heads/%1$s\nlabel %1$s", b, c->join("\n"))->split("\n", 1))
+	call cursor(x + len(c) + 6, 1)
+endfunc
 let g:markdown_recommended_style = 0
 let g:python_recommended_style = 0
 let g:rust_recommended_style = 0
 au Filetype yaml setlocal ts=2 sw=2 et
 au Filetype yaml if expand('%:p:h') =~# 'playbooks\|tasks\|handlers' | setlocal ft=yaml.ansible | endif
 au Filetype markdown,gitcommit,tex setlocal spell
-au Filetype gitrebase nnoremap <silent> <LocalLeader>b 0W"ayE{:call append(line('.') - 1, printf("\nreset onto\npick %1$s\nupdate-ref refs/heads/%2$s\nlabel %2$s", getreg('a'), input('Branch name: '))->split("\n", 1))<CR>
+au Filetype gitrebase nnoremap <silent> <LocalLeader>n :call GitRebaseTodoNewBranch(0)<CR>| xnoremap <silent> <LocalLeader>n :<C-U>call GitRebaseTodoNewBranch(1)<CR>
 au FileType mail setlocal spell spelllang=en,de nojs
 au FileType haskell setlocal expandtab
-au Filetype c,cpp nnoremap <silent> <F4> <Cmd>LspSwitchSourceHeader<CR> | setlocal commentstring=//\ %s
+au Filetype c,cpp setlocal commentstring=//\ %s| nnoremap <silent> <F4> <Cmd>LspSwitchSourceHeader<CR>
 
 "general keybindings
 let mapleader = " "
