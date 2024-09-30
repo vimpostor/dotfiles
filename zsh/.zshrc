@@ -65,6 +65,7 @@ alias rga='rg --no-ignore --hidden -i'
 alias gce='git commit --amend --no-edit'
 alias gcea='gce -a'
 alias gpf='git push --force-with-lease --force-if-includes'
+alias gpbf='gpb --force-with-lease --force-if-includes'
 alias gpr='git push origin "HEAD:refs/for/${$(git branch -rl \*/HEAD | head -1 | rev | cut -d/ -f1 | rev):-master}"'
 
 # functions
@@ -138,6 +139,13 @@ function gret() {
 	UPSTREAM="$(git remote | grep upstream || git remote | grep origin)"
 	BRANCH="${$(git symbolic-ref -q --short "refs/remotes/$UPSTREAM/HEAD"):-"$UPSTREAM/master"}"
 	git rebase -i "$BRANCH" --autosquash --rebase-merges --update-refs
+}
+
+# push all branches with changes in the branchless workflow, extra arguments will be passed to the internal git push
+function gpb() {
+	UPSTREAM="$(git remote | grep upstream || git remote | grep origin)"
+	BRANCH="${$(git symbolic-ref -q --short "refs/remotes/$UPSTREAM/HEAD"):-"$UPSTREAM/master"}"
+	git rev-list --ancestry-path "$(git merge-base HEAD "$BRANCH")"..HEAD | xargs git name-rev --refs='refs/heads/*' --name-only | sed '/~[0-9]\+$/d' | while read r; do o="$(git rev-parse -q --verify "origin/$r")"; test -n "$o" -a "$o" != "$(git rev-parse -q --verify "$r")" && git push $* origin "$r" || true; done
 }
 
 # checkout a PR without polluting local repo, takes the PR ID as single argument
