@@ -141,7 +141,7 @@ function gret() {
 	git rebase -i "$BRANCH" --autosquash --rebase-merges --update-refs
 }
 
-# push all branches with changes in the branchless workflow, extra arguments will be passed to the internal git push
+# push all changed branches in the branchless workflow, extra arguments will be passed to the internal git push
 function gpb() {
 	UPSTREAM="$(git remote | grep upstream || git remote | grep origin)"
 	BRANCH="${$(git symbolic-ref -q --short "refs/remotes/$UPSTREAM/HEAD"):-"$UPSTREAM/master"}"
