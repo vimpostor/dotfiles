@@ -55,6 +55,9 @@ if ! zgenom saved; then
 	zgenom compile ~/.zshrc
 fi
 
+# options
+setopt SH_WORD_SPLIT
+
 # aliases
 alias lazycommit='git commit -m "$(curl -s whatthecommit.com/index.txt)"'
 alias diff='diff --color=auto'
