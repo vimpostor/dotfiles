@@ -33,3 +33,4 @@
 	confirm = auto
 [advice]
 	detachedHead = false
+	skippedCherryPicks = false
