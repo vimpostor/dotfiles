@@ -1,5 +1,3 @@
-[include]
-	path = personal.gitconfig
 [core]
 	pager = /usr/share/git/diff-highlight/diff-highlight| less
 [diff]
@@ -34,3 +32,5 @@
 [advice]
 	detachedHead = false
 	skippedCherryPicks = false
+[include]
+	path = personal.gitconfig
