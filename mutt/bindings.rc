@@ -33,3 +33,5 @@ macro pager u <previous-line><previous-line><previous-line><previous-line><previ
 macro pager \cb "<pipe-message> urlscan<Enter>" "call urlscan to extract URLs out of a message"
 
 bind editor <Tab> complete-query
+
+macro attach \ce "<pipe-entry>khal import --batch<enter>:echo 'Calendar updated 📆'<enter>"
