@@ -34,3 +34,5 @@
 	skippedCherryPicks = false
 [include]
 	path = personal.gitconfig
+[rerere]
+	enabled = true
