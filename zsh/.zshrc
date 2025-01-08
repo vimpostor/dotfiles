@@ -134,7 +134,7 @@ function gbd() {
 function greb() {
 	UPSTREAM="$(git remote | grep upstream || git remote | grep origin)"
 	BRANCH="${$(git symbolic-ref -q --short "refs/remotes/$UPSTREAM/HEAD"):-"$UPSTREAM/master"}"
-	git fetch "$UPSTREAM" && git --no-pager log --reverse --pretty=tformat:%s "$(git merge-base HEAD "$BRANCH")".."$BRANCH" && git rebase "$BRANCH"
+	git fetch "$UPSTREAM" && git --no-pager log --reverse --pretty=tformat:%s "$(git merge-base HEAD "$BRANCH")".."$BRANCH" && git rebase --rebase-merges --update-refs "$BRANCH"
 }
 
 # rebase with a branchless workflow, allowing to edit branches declaratively in the rebase todo list
