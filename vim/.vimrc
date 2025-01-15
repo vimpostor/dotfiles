@@ -248,7 +248,7 @@ xnoremap <LocalLeader>yg :'<'>GBrowse!<CR>
 nnoremap <silent> <Leader>P <Cmd>Files<CR>
 nnoremap <silent> <Leader>b <Cmd>Buffers<CR>
 func RipgrepFzf()
-	let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case --hidden -- %s || true'
+	let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case -- %s || true'
 	let initial_command = printf(command_fmt, "''")
 	let reload_command = printf(command_fmt, '{q}')
 	let spec = {'options': ['--disabled', '--query', '', '--bind', 'change:reload:'.reload_command]}
