@@ -25,6 +25,8 @@
 [merge]
 	tool = fugitive
 [rebase]
+	updateRefs = true
+	rebaseMerges = true
 	stat = true
 [sendemail]
 	sendmailcmd = /usr/share/doc/msmtp/msmtpq/msmtpq
