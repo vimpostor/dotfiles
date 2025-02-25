@@ -39,6 +39,7 @@
 	path = personal.gitconfig
 [rerere]
 	enabled = true
+	autoUpdate = true
 [branch]
 	sort = -committerdate
 [tag]
