@@ -1,7 +1,7 @@
 [core]
 	pager = /usr/share/git/diff-highlight/diff-highlight| less
 [diff]
-	algorithm = patience
+	algorithm = histogram
 	colormoved = dimmed-zebra
 	colormovedws = ignore-all-space
 [interactive]
