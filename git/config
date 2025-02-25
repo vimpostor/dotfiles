@@ -28,6 +28,7 @@
 [rebase]
 	updateRefs = true
 	rebaseMerges = true
+	autoStash = true
 	stat = true
 [sendemail]
 	sendmailcmd = /usr/share/doc/msmtp/msmtpq/msmtpq
