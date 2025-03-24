@@ -60,6 +60,7 @@ setopt SH_WORD_SPLIT
 
 # aliases
 alias lazycommit='git commit -m "$(curl -s whatthecommit.com/index.txt)"'
+alias setupasan='export CFLAGS="-fsanitize=address" CXXFLAGS="-fsanitize=address" ASAN_OPTIONS="abort_on_error=1" LD_PRELOAD=libasan.so'
 alias diff='diff --color=auto'
 alias cb='xclip -selection c'
 alias ip='ip -c'
