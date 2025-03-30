@@ -24,6 +24,7 @@ Plug 'vimpostor/vim-tpipeline' "outsource statusline to tmux
 Plug 'vimpostor/vim-lumen' "follow global darkmode
 Plug 'vimpostor/vim-gallop' "even faster movement
 Plug 'vimpostor/vim-clue' "documentation
+Plug 'vimpostor/vim-launchpad' "launching
 call plug#end()
 packadd! matchit "builtin plugin extends %
 if !has('nvim')
