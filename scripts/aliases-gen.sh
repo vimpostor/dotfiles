@@ -23,11 +23,11 @@ while IFS= read -r LINE; do
 	fi
 done < "$MUTT_ALIASES_CACHE"
 # read last timestamp
-LAST_TIMESTAMP="$(cat "$LAST_TIMESTAMP_CACHE" 2>/dev/null)" || LAST_TIMESTAMP=""
+TIMESTAMP="$(cat "$LAST_TIMESTAMP_CACHE" 2>/dev/null)" || TIMESTAMP=""
 
 QUERY='path:maildir/INBOX/**'
-if [ -n "$LAST_TIMESTAMP" ]; then
-	QUERY="date:@$LAST_TIMESTAMP.. $QUERY"
+if [ -n "$TIMESTAMP" ]; then
+	QUERY="date:@$TIMESTAMP.. $QUERY"
 else
 	echo 'Indexing for the first time, this may take a while... (subsequent runs will be substantially faster)'
 fi
