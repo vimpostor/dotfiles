@@ -161,7 +161,8 @@ endfunc
 command -nargs=1 -complete=file Cunit call HeaderCreate(<q-args>)
 
 "netrw
-nnoremap <silent> <C-t> :Lexplore<CR>
+nnoremap <silent> <Leader>t :Lexplore<CR>
+nnoremap <silent> <LocalLeader>t :Lexplore %:h<CR>
 let g:netrw_banner = 0
 let g:netrw_liststyle = 3
 let g:netrw_browse_split = 4
