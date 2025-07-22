@@ -17,3 +17,15 @@ export QT_FORCE_STDERR_LOGGING=1
 export PLASMA_USE_QT_SCALING=1
 export QT_USE_PHYSICAL_DPI=1
 export MSMTPQ_LOG=~/.cache/mutt/msmtpq/msmtp.queue.log
+
+export LANG=en_US.UTF-8
+export LANGUAGE=en_US
+export LC_ADDRESS=de_DE.UTF-8
+export LC_CTYPE=de_DE.UTF-8
+export LC_MEASUREMENT=de_DE.UTF-8
+export LC_MONETARY=de_DE.UTF-8
+export LC_NAME=de_DE.UTF-8
+export LC_NUMERIC=de_DE.UTF-8
+export LC_PAPER=de_DE.UTF-8
+export LC_TELEPHONE=de_DE.UTF-8
+export LC_TIME=de_DE.UTF-8
