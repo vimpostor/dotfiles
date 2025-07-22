@@ -1,7 +1,7 @@
 #! /bin/sh
 
 sxhkd &
-#compton -b
+picom -b
 
 ~/Documents/scripts/map-keys.sh
 bspc monitor -d 1 2 3 4

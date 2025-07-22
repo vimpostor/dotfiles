@@ -1,10 +1,72 @@
+* {
+	selected: #FAFAFA;
+	foreground: #FAFAFA;
+	alternate-normal-background: #212121;
+	background: #212121;
+}
+
 configuration {
-	modi: "drun,ssh,window";
-	font: "Roboto 24";
+	modi: "drun,ssh";
+	font: "Roboto 12";
 	location: 0;
 	show-icons: true;
 	terminal: "konsole";
 	ssh-command: "{terminal} -e {ssh-client} {host}";
-	eh: 1;
 	parse-known-hosts: false;
+}
+
+window {
+	width: 800px;
+	padding: 0px;
+	border: 0px solid;
+	border-radius: 12px;
+}
+
+inputbar {
+	spacing: 16px;
+	padding: 15px;
+	border-color: @selected;
+	background-color: @selected;
+	text-color: @background;
+	children: [ "prompt", "entry" ];
+}
+
+prompt {
+	background-color: inherit;
+	text-color: inherit;
+}
+
+entry {
+	text-color: inherit;
+}
+
+listview {
+	enabled: true;
+	columns: 5;
+	lines: 3;
+	cycle: true;
+	scrollbar: false;
+	fixed-columns: true;
+	fixed-height: true;
+	layout: vertical;
+	border: 0px solid;
+}
+
+element {
+	enabled: true;
+	spacing: 16px;
+	margin: 0px;
+	padding: 20px 10px;
+	border: 0px solid;
+	border-radius: 12px;
+	orientation: vertical;
+}
+
+element-text {
+	vertical-align: 0.5;
+	horizontal-align: 0.5;
+}
+
+element-icon {
+	size: 64px;
 }
