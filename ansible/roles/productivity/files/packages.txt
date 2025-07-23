@@ -160,7 +160,6 @@ xdg-desktop-portal-kde
 xdotool
 xorg-server
 xorg-server-xephyr
-xorg-xbacklight
 xorg-xev
 xorg-xinit
 xorg-xinput

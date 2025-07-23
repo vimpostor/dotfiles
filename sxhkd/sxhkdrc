@@ -141,10 +141,10 @@ XF86AudioMute
 
 # brightness keys
 XF86MonBrightnessUp
-	xbacklight -inc 10
+	brightnessctl set +10%
 
 XF86MonBrightnessDown
-	xbacklight -dec 10
+	brightnessctl set 10%-
 
 # Rotate focused node layout
 super + r
