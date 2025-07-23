@@ -1,10 +1,12 @@
 a2jmidid
 aeolus
 alsa-utils
+ambix-lv2
 ardour
 avldrums.lv2
 dragonfly-reverb
 easyeffects
+geonkick
 gst-plugin-pipewire
 helm-synth
 lib32-pipewire-jack

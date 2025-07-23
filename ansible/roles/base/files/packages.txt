@@ -5,7 +5,6 @@ arch-wiki-lite
 base
 base-devel
 bind
-brightnessctl
 fd
 git
 gvim

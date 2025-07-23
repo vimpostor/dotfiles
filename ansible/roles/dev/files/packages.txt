@@ -1,6 +1,7 @@
 aardvark-dns
 android-tools
 ansible-lint
+apitrace
 babeltrace2
 bash-completion
 bash-language-server
@@ -12,6 +13,7 @@ cabal-install
 cargo-watch
 ccache
 clazy
+cloc
 cmark
 cppcheck
 crun
@@ -24,6 +26,7 @@ emscripten
 eslint
 extra-cmake-modules
 fakeroot
+fossil
 fuse-overlayfs
 gammaray
 gcovr
@@ -60,10 +63,12 @@ lua-language-server
 mariadb-libs
 mdbook
 mdbook-linkcheck
+mergiraf
 meson
 mold
 molecule
 molecule-plugins
+mosquitto
 ninja
 nix
 nmap
@@ -86,7 +91,6 @@ python-pipx
 python-pylint
 qt5-charts
 qt5-connectivity
-qt5-datavis3d
 qt5-doc
 qt5-examples
 qt6-3d
@@ -95,13 +99,13 @@ qt6-lottie
 qt5-networkauth
 qt5-scxml
 qt5-virtualkeyboard
-qt5-webglplugin
-qt5-webview
 qt6-charts
 qt6-connectivity
 qt6-declarative
 qt6-examples
 qt6-grpc
+qt6-imageformats
+qt6-location
 qt6-multimedia
 qt6-multimedia-ffmpeg
 qt6-networkauth
@@ -109,6 +113,7 @@ qt6-scxml
 qt6-shadertools
 qt6-svg
 qt6-tools
+qt6-websockets
 qtcreator
 qtkeychain-qt6
 r2ghidra
@@ -130,4 +135,5 @@ wireshark-qt
 yamllint
 yarn
 zeal
+zig
 zola
