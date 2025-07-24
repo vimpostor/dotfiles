@@ -1,8 +1,10 @@
 * {
 	selected: #FAFAFA;
-	foreground: #FAFAFA;
-	alternate-normal-background: #212121;
-	background: #212121;
+	background: #FFFFFF50;
+	normal-background: #FFFFFF00;
+	alternate-normal-background: #FFFFFF00;
+	normal-foreground: #212121;
+	alternate-normal-foreground: #212121;
 }
 
 configuration {
@@ -19,7 +21,6 @@ window {
 	width: 800px;
 	padding: 0px;
 	border: 0px solid;
-	border-radius: 12px;
 }
 
 inputbar {
@@ -27,7 +28,7 @@ inputbar {
 	padding: 15px;
 	border-color: @selected;
 	background-color: @selected;
-	text-color: @background;
+	text-color: @normal-foreground;
 	children: [ "prompt", "entry" ];
 }
 
