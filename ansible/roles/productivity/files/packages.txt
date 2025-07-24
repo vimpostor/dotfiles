@@ -168,6 +168,7 @@ xorg-xev
 xorg-xinit
 xorg-xinput
 xorg-xwininfo
+xscreensaver
 yad
 yt-dlp
 zathura

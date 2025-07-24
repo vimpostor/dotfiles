@@ -181,3 +181,6 @@ super + {_,shift +} e
 # swap window manager
 super + shift + s
 	~/Documents/scripts/swap-wm.sh
+
+super + ctrl + alt + l
+	xscreensaver-command --lock

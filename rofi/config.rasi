@@ -42,7 +42,6 @@ entry {
 }
 
 listview {
-	enabled: true;
 	columns: 5;
 	lines: 3;
 	cycle: true;
@@ -54,7 +53,6 @@ listview {
 }
 
 element {
-	enabled: true;
 	spacing: 16px;
 	margin: 0px;
 	padding: 20px 10px;

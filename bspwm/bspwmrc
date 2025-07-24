@@ -3,6 +3,7 @@
 sxhkd &
 picom -b
 darkman run &
+xscreensaver --no-splash &
 
 ~/Documents/scripts/map-keys.sh
 bspc monitor -d 1 2 3 4
