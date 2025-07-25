@@ -2,11 +2,14 @@
 
 sxhkd &
 picom -b
+dunst &
 darkman run &
 xscreensaver --no-splash &
 
 ~/Documents/scripts/map-keys.sh
-bspc monitor -d 1 2 3 4
+for mon in $(bspc query -M); do
+	bspc monitor "$mon" -d 1 2 3 4
+done
 
 bspc rule -a feh state=floating
 bspc rule -a plasmashell state=floating
@@ -24,9 +27,9 @@ bspc config borderless_monocle   true
 bspc config gapless_monocle      true
 bspc config single_monocle       true
 
-bspc config pointer_action1 resize_corner
+bspc config pointer_action1 move
 bspc config pointer_action2 none
-bspc config pointer_action3 move
+bspc config pointer_action3 resize_corner
 
 bspc config presel_feedback_color "#FFFFFF"
 bspc config normal_border_color "#78909C"

@@ -18,6 +18,7 @@ cups
 darkman
 dolphin
 dolphin-plugins
+dunst
 efivar
 firefox
 flameshot

@@ -130,21 +130,33 @@ super + {Left,Down,Up,Right}
 # Miscellaneous
 
 # volume keys
-XF86AudioRaiseVolume
-	amixer set Master 5%+
+XF86AudioMute
+	pactl set-sink-mute @DEFAULT_SINK@ toggle
 
 XF86AudioLowerVolume
-	amixer set Master 5%-
+	pactl set-sink-volume @DEFAULT_SINK@ -10%
 
-XF86AudioMute
-	amixer set Master toggle
+XF86AudioRaiseVolume
+	pactl set-sink-volume @DEFAULT_SINK@ +10%
+
+XF86AudioMicMute
+	pactl set-source-mute @DEFAULT_SOURCE@ toggle
+
+XF86AudioPlay
+	dbus-send --session --print-reply=literal --dest=org.freedesktop.DBus /org/freedesktop/DBus org.freedesktop.DBus.ListNames | grep -m 1 -o 'org.mpris.MediaPlayer2.[^[:space:]]*' | xargs -I@ dbus-send --print-reply --dest=@ /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
+
+XF86AudioPrev
+	dbus-send --session --print-reply=literal --dest=org.freedesktop.DBus /org/freedesktop/DBus org.freedesktop.DBus.ListNames | grep -m 1 -o 'org.mpris.MediaPlayer2.[^[:space:]]*' | xargs -I@ dbus-send --print-reply --dest=@ /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
+
+XF86AudioNext
+	dbus-send --session --print-reply=literal --dest=org.freedesktop.DBus /org/freedesktop/DBus org.freedesktop.DBus.ListNames | grep -m 1 -o 'org.mpris.MediaPlayer2.[^[:space:]]*' | xargs -I@ dbus-send --print-reply --dest=@ /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
 
 # brightness keys
-XF86MonBrightnessUp
-	brightnessctl set +10%
-
 XF86MonBrightnessDown
 	brightnessctl set 10%-
+
+XF86MonBrightnessUp
+	brightnessctl set +10%
 
 # Rotate focused node layout
 super + r
