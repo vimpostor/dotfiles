@@ -1,0 +1,12 @@
+[global]
+offset = (16, 32)
+icon_corner_radius = 2
+separator_height = 16
+frame_width = 0
+font = "Roboto 12"
+icon_theme = "Papirus"
+enable_recursive_icon_lookup = true
+background = "#FFFFFF50"
+foreground = "#000000"
+frame_color = "#FFFFFF00"
+default_icon = "info-outline-symbolic"
