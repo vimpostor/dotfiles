@@ -1,12 +1,12 @@
 #! /bin/sh
 
+~/Documents/scripts/map-keys.sh
 sxhkd &
 picom -b
 dunst &
 darkman run &
 xscreensaver --no-splash &
-
-~/Documents/scripts/map-keys.sh
+xsetroot -xcf /usr/share/icons/Adwaita/cursors/left_ptr 32
 
 for mon in $(bspc query -M); do
 	bspc monitor "$mon" -d 1 2 3 4
@@ -22,7 +22,7 @@ bspc rule -a Steam state=floating
 bspc rule -a Zathura state=tiled
 
 bspc config border_width         1
-bspc config window_gap           2
+bspc config window_gap           5
 
 bspc config borderless_monocle   true
 bspc config gapless_monocle      true
