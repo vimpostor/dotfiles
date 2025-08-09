@@ -54,7 +54,7 @@ if has('nvim')
 	set cmdheight=0
 	set shortmess+=S
 else
-	set completeopt+=menuone,popup
+	set completeopt+=menuone,popup,noselect
 	set completepopup=highlight:Pmenu,border:off
 	set fo+=/
 	set ttymouse=sgr
