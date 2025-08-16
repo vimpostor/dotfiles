@@ -27,6 +27,7 @@ Plug 'vimpostor/vim-clue' "documentation
 Plug 'vimpostor/vim-launchpad' "launching
 call plug#end()
 packadd! matchit "builtin plugin extends %
+packadd! cfilter "quickfix filtering
 if !has('nvim')
 	packadd! comment "easier commenting
 endif
