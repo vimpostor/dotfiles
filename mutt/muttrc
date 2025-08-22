@@ -35,6 +35,7 @@ set tilde
 unset markers
 unset mark_old
 
+set signature = "~/.config/mutt/signature.txt"
 set send_charset = "utf-8"
 alternative_order text/plain text/html
 set mailcap_path = ~/.config/mutt/mailcap
