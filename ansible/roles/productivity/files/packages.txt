@@ -166,6 +166,7 @@ xdotool
 xorg-server
 xorg-server-xephyr
 xorg-xev
+xorg-xclipboard
 xorg-xinit
 xorg-xinput
 xorg-xwininfo
