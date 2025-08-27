@@ -4,6 +4,7 @@ icon_corner_radius = 2
 separator_height = 16
 frame_width = 0
 font = "Roboto 12"
+stack_duplicates = false
 icon_theme = "Papirus"
 enable_recursive_icon_lookup = true
 background = "#FFFFFF50"

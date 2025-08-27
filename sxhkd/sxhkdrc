@@ -131,7 +131,7 @@ super + {Left,Down,Up,Right}
 
 # volume keys
 XF86AudioMute
-	pactl set-sink-mute @DEFAULT_SINK@ toggle
+	pactl set-sink-mute @DEFAULT_SINK@ toggle && pactl get-sink-mute @DEFAULT_SINK@ | xargs -I@ -- sh -c 'notify-send "$(sh -c "printf $'\''\Uf02$((8-$(printf "@" | wc -m)/9*2))'\''") Volume" '\''@'\'''
 
 XF86AudioLowerVolume
 	pactl set-sink-volume @DEFAULT_SINK@ -10%
@@ -140,7 +140,7 @@ XF86AudioRaiseVolume
 	pactl set-sink-volume @DEFAULT_SINK@ +10%
 
 XF86AudioMicMute
-	pactl set-source-mute @DEFAULT_SOURCE@ toggle
+	pactl set-source-mute @DEFAULT_SOURCE@ toggle && pactl get-source-mute @DEFAULT_SOURCE@ | xargs -I@ -- sh -c 'notify-send "$(sh -c "printf $'\''\Uf13$(($(printf "@" | wc -m)-8))'\''") Microphone" '\''@'\'''
 
 XF86AudioPlay
 	dbus-send --session --print-reply=literal --dest=org.freedesktop.DBus /org/freedesktop/DBus org.freedesktop.DBus.ListNames | grep -m 1 -o 'org.mpris.MediaPlayer2.[^[:space:]]*' | xargs -I@ dbus-send --print-reply --dest=@ /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
