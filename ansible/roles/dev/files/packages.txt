@@ -91,8 +91,6 @@ python-pipx
 python-pylint
 qt5-charts
 qt5-connectivity
-qt5-doc
-qt5-examples
 qt6-3d
 qt6-languageserver
 qt6-lottie

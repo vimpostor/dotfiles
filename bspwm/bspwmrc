@@ -3,10 +3,8 @@
 bspc rule -a XClipboard hidden=on
 bspc rule -a feh state=floating
 bspc rule -a plasmashell state=floating
-bspc rule -a latte-dock state=floating border=off
-bspc rule -a lattedock state=floating border=off
 bspc rule -a Pinentry state=floating
-bspc rule -a Steam state=floating
+bspc rule -a steam state=floating
 bspc rule -a Zathura state=tiled
 
 ~/Documents/scripts/map-keys.sh
