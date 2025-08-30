@@ -12,7 +12,7 @@ sxhkd &
 picom -b
 dunst &
 darkman run &
-xscreensaver --no-splash &
+xscreensaver &
 xsetroot -xcf /usr/share/icons/Adwaita/cursors/left_ptr 32
 xclipboard &
 
