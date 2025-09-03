@@ -118,10 +118,9 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-P>" : "\<C-D>"
 inoremap <expr> <CR> pumvisible() ? "\<C-Y>" : "\<CR>"
 nnoremap Q @q
 "Use the system clipboard only when explicitly yanking
-xnoremap y "+y
-nnoremap y "+y
-nnoremap p "+p
-nnoremap P "+P
+for r in "ypP"
+	exe printf("noremap <expr> %1$s v:register == '\"' ? '\"+%1$s' : '%1$s'", r)
+endfor
 nmap Y yg_
 "move lines around
 nnoremap <silent> J :<C-U>exe "exec 'norm m`' \| move +" . v:count1<CR>==``
