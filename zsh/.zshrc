@@ -77,7 +77,7 @@ alias gpr='git push origin "HEAD:refs/for/${$(git branch -rl \*/HEAD | head -1 |
 # use xdg-open to open all passed files
 function o() {
 	for i in "$@"; do
-		xdg-open "$i"
+		xdg-open "$i" &disown
 	done
 }
 
