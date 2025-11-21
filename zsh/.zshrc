@@ -91,7 +91,7 @@ function cheat() {
 
 # retreives a pkgbuild
 function get-pkgbuild() {
-	GIT_TERMINAL_PROMPT=0 pkgctl repo clone --protocol https "$*" || paru -G "$*" && cd "$*"
+	cd /tmp && GIT_TERMINAL_PROMPT=0 pkgctl repo clone --protocol https "$*" || paru -G "$*" && cd "$*"
 }
 
 # vote for AUR package
