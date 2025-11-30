@@ -11,6 +11,7 @@ bspc rule -a Zathura state=tiled
 sxhkd &
 picom -b
 dunst &
+/usr/lib/geoclue-2.0/demos/agent &
 darkman run &
 xscreensaver &
 xsetroot -xcf /usr/share/icons/Adwaita/cursors/left_ptr 32
