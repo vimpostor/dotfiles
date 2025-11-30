@@ -38,6 +38,7 @@ github-cli
 gnu-netcat
 go
 goaccess
+gopls
 go-tools
 gource
 gperftools
