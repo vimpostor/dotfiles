@@ -7,6 +7,14 @@ set debuginfod enabled off
 set index-cache enabled on
 maint set worker-threads 8
 
+define reproduce-crash
+	b _exit
+	commands
+		r
+	end
+	r
+end
+
 python
 import glob, sys
 sys.path.extend(glob.glob('/usr/share/gcc-*/python'))
