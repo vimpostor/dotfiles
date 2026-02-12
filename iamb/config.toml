@@ -1,3 +1,6 @@
 [settings.notifications]
 enabled = true
 via = "desktop"
+
+[dirs]
+downloads = "/tmp"
