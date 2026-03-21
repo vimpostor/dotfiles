@@ -6,6 +6,7 @@ compile_commands.json
 .launchpad.json
 .vimspector.json
 Session.vim
+a.out
 /build/
 __pycache__/
 *.AppImage
