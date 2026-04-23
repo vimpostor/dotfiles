@@ -1,5 +1,5 @@
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  . "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+	. "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 # powerlevel10k status prompt
 typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
@@ -109,6 +109,11 @@ function highlight() {
 # Usage: templ newscript.sh
 function templ() {
 	cp ~/Templates/.filetemplates/*."${*##*.}" "$*"
+}
+
+# run a given command until it succeeds
+function fixpoint() {
+	until $*; do :; done
 }
 
 # start mutt in the correct mode
