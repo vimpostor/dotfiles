@@ -1,3 +1,7 @@
+[settings]
+typing_notice_send = false
+username_display = "displayname"
+
 [settings.notifications]
 enabled = true
 via = "desktop"
