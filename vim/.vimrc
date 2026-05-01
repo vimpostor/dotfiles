@@ -35,7 +35,7 @@ endif
 "color scheme
 silent! colorscheme prism
 set noswapfile
-set updatetime=300 "updatetime for CursorHold
+set updatetime=300
 set timeoutlen=1000
 set ttimeoutlen=10
 set cursorline
@@ -49,8 +49,8 @@ set scrolloff=4
 set display=lastline
 set showmatch
 syntax enable
-set wildmenu
 set wildmode=longest:full,full
+set wildoptions=pum
 if has('nvim')
 	set cmdheight=0
 	set shortmess+=S
