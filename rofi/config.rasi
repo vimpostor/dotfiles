@@ -49,6 +49,7 @@ listview {
 	fixed-columns: true;
 	fixed-height: true;
 	layout: vertical;
+	flow: horizontal;
 	border: 0px solid;
 }
 

@@ -16,6 +16,7 @@ darkman run &
 xscreensaver &
 xsetroot -xcf /usr/share/icons/Adwaita/cursors/left_ptr 32
 xclipboard &
+xwallpaper --clear
 
 for mon in $(bspc query -M); do
 	bspc monitor "$mon" -d 1 2 3 4
