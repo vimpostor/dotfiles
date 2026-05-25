@@ -176,6 +176,19 @@ func ToggleQf()
 		copen
 	endif
 endfunc
+"file completion
+func ComplF()
+	let f = matchstr(strpart(getline('.'), 0, col('.')-1), '\f\+$')
+	if (!get(g:, 'file_complete_s') || len(f)) && !get(g:, 'file_complete_a')
+		call complete(col('.')-len(f), map(getcompletion(f, 'file'), 'v:val[:-1-(v:val[-1:]=="/")]'))
+		let g:file_complete_a = 1
+	endif
+	let g:file_complete_s = 0
+	return ''
+endfunc
+inoremap <silent> <C-X><C-F> <C-R>=ComplF()<CR>
+nnoremap <silent> <C-X><C-F> :let g:file_complete_s = 0<CR>
+au CompleteDone * if get(g:, 'file_complete_a') | let g:file_complete_a = 0 | let g:file_complete_s = 1 | call feedkeys("\<C-X>\<C-F>") | endif
 "thesaurus
 func Thesaur(findstart, base)
 	if a:findstart
