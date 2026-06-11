@@ -66,7 +66,6 @@ mdbook
 mdbook-linkcheck
 mergiraf
 meson
-mold
 molecule
 molecule-plugins
 mosquitto
@@ -130,6 +129,7 @@ vulkan-extra-layers
 vulkan-headers
 wasi-libc++
 wasi-libc++abi
+wild
 wireshark-qt
 yamllint
 yarn

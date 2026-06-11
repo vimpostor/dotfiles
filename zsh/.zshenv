@@ -11,7 +11,7 @@ export FZF_COMPLETION_TRIGGER='~~'
 export FZF_DEFAULT_OPTS="--history=$HOME/.cache/.fzf_history"
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 export BAT_THEME=ansi
-export LDFLAGS="-fuse-ld=mold"
+export LDFLAGS="-fuse-ld=wild"
 export CMAKE_COLOR_DIAGNOSTICS=ON
 export ASAN_OPTIONS='abort_on_error=1'
 export QT_FORCE_STDERR_LOGGING=1
