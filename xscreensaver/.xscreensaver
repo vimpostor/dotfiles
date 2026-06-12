@@ -1,5 +1,5 @@
 # XScreenSaver Preferences File
-# Written by xscreensaver-settings 6.10
+# Written by xscreensaver-settings 6.15
 # https://www.jwz.org/xscreensaver/
 
 timeout:	0:10:00
@@ -75,7 +75,7 @@ programs:								      \
 -				moire --root				    \n\
 - GL: 				morph3d --root				    \n\
 				mountain --root				    \n\
-				munch --root				    \n\
+-				munch --root				    \n\
 -				penrose --root				    \n\
 - GL: 				pipes --root				    \n\
 				rdbomb --root				    \n\
@@ -88,18 +88,18 @@ programs:								      \
 				swirl --root				    \n\
 				triangle --root				    \n\
 -				xjack --root				    \n\
-				xlyap --root				    \n\
+-				xlyap --root				    \n\
 - GL: 				atlantis --root				    \n\
 -				bsod --root				    \n\
 - GL: 				bubble3d --root				    \n\
-  GL: 				cage --root				    \n\
+- GL: 				cage --root				    \n\
 -				crystal --root				    \n\
-				cynosure --root				    \n\
+-				cynosure --root				    \n\
 -				discrete --root				    \n\
 				distort --root				    \n\
 -				epicycle --root				    \n\
 				flow --root				    \n\
-  GL: 				glplanet --root				    \n\
+- GL: 				glplanet --root				    \n\
 -				interference --root			    \n\
 -				kumppa --root				    \n\
 - GL: 				lament --root				    \n\
@@ -156,7 +156,7 @@ programs:								      \
 - GL: 				endgame --root				    \n\
 				euler2d --root				    \n\
 				fluidballs --root			    \n\
-  GL: 				flurry --root				    \n\
+- GL: 				flurry --root				    \n\
 - GL: 				glblur --root				    \n\
 - GL: 				glsnake --root				    \n\
 				halftone --root				    \n\
@@ -174,7 +174,7 @@ programs:								      \
 - GL: 				blinkbox --root				    \n\
 - GL: 				blocktube --root			    \n\
 - GL: 				bouncingcow --root			    \n\
-				cloudlife --root			    \n\
+-					cloudlife --root			    \n\
 - GL: 				cubestorm --root			    \n\
 				eruption --root				    \n\
 - GL: 				flipflop --root				    \n\
@@ -190,20 +190,20 @@ programs:								      \
 - GL: 				mirrorblob --root			    \n\
 -				piecewise --root			    \n\
 - GL: 				polytopes --root			    \n\
-				pong --root				    \n\
+-				pong --root				    \n\
 -				popsquares --root			    \n\
   GL: 				surfaces --root				    \n\
 -				xanalogtv --root			    \n\
 				abstractile --root			    \n\
 				anemotaxis --root			    \n\
 - GL: 				antinspect --root			    \n\
-				fireworkx --root			    \n\
+-				fireworkx --root			    \n\
 -				fuzzyflakes --root			    \n\
 				interaggregate --root			    \n\
 -				intermomentary --root			    \n\
-				memscroller --root			    \n\
+-				memscroller --root			    \n\
 - GL: 				noof --root				    \n\
-				pacman --root				    \n\
+-				pacman --root				    \n\
 - GL: 				pinion --root				    \n\
 - GL: 				polyhedra --root			    \n\
 - GL: 				providence --root			    \n\
@@ -237,7 +237,7 @@ programs:								      \
 - GL: 				photopile --root			    \n\
 - GL: 				skytentacles --root			    \n\
 - GL: 				rubikblocks --root			    \n\
-  GL: 				companioncube --root			    \n\
+- GL: 				companioncube --root			    \n\
 - GL: 				hilbert --root				    \n\
 - GL: 				tronbit --root				    \n\
 - GL: 				geodesic --root				    \n\
@@ -262,7 +262,7 @@ programs:								      \
   GL: 				hydrostat --root			    \n\
 - GL: 				raverhoop --root			    \n\
   GL: 				splodesic --root			    \n\
-  GL: 				unicrud --root				    \n\
+- GL: 				unicrud --root				    \n\
 - GL: 				esper --root				    \n\
 - GL: 				vigilance --root			    \n\
 - GL: 				crumbler --root				    \n\
@@ -277,7 +277,7 @@ programs:								      \
   GL: 				gravitywell --root			    \n\
 - GL: 				beats --root				    \n\
 - GL: 				covid19 --root				    \n\
-  GL: 				etruscanvenus --root			    \n\
+- GL: 				etruscanvenus --root			    \n\
 - GL: 				gibson --root				    \n\
 - GL: 				headroom --root				    \n\
 - GL: 				sphereeversion --root			    \n\
@@ -288,7 +288,7 @@ programs:								      \
 - GL: 				mapscroller --root			    \n\
 - GL: 				nakagin --root				    \n\
 - GL: 				squirtorus --root			    \n\
-  GL: 				cubocteversion --root			    \n\
+- GL: 				cubocteversion --root			    \n\
 -				droste --root				    \n\
 - GL: 				papercube --root			    \n\
 - GL: 				skulloop --root				    \n\
@@ -298,6 +298,37 @@ programs:								      \
 - GL: 				dumpsterfire --root			    \n\
 - GL: 				hopffibration --root			    \n\
 - GL: 				platonicfolding --root			    \n\
+- GL: 				starnest --root				    \n\
+- GL: 				alienbeacon --root			    \n\
+- GL: 				topologica --root			    \n\
+- GL: 				fluxcore --root				    \n\
+- GL: 				gimbalharmonics --root			    \n\
+- GL: 				protophore --root			    \n\
+- GL: 				skyline --root				    \n\
+- GL: 				driftclouds --root			    \n\
+- GL: 				elementalring --root			    \n\
+- GL: 				prococean --root			    \n\
+- GL: 				synthwavecity --root			    \n\
+- GL: 				batteredplanet --root			    \n\
+- GL: 				goldenapollian --root			    \n\
+- GL: 				neontriangulator --root			    \n\
+- GL: 				stripeytorus --root			    \n\
+- GL: 				stardome --root				    \n\
+- GL: 				logarithmiccircles --root		    \n\
+- GL: 				neongravity --root			    \n\
+- GL: 				trainmandala --root			    \n\
+- GL: 				selfreflect --root			    \n\
+  GL: 				truchetzoom --root			    \n\
+- GL: 				bestill --root				    \n\
+- GL: 				bubblecolors --root			    \n\
+- GL: 				darktransit --root			    \n\
+- GL: 				downfall --root				    \n\
+- GL: 				hexplasma --root			    \n\
+- GL: 				noxfire --root				    \n\
+- GL: 				rigrekt --root				    \n\
+- GL: 				trizm --root				    \n\
+- GL: 				universeball --root			    \n\
+- GL: 				worldpieces --root			    \n\
 
 
 pointerHysteresis:  10
