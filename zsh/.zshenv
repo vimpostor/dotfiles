@@ -12,7 +12,10 @@ export FZF_DEFAULT_OPTS="--history=$HOME/.cache/.fzf_history"
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 export BAT_THEME=ansi
 export LDFLAGS="-fuse-ld=wild"
+export CMAKE_EXPORT_COMPILE_COMMANDS=ON
+export CMAKE_GENERATOR=Ninja
 export CMAKE_COLOR_DIAGNOSTICS=ON
+export CTEST_OUTPUT_ON_FAILURE=1
 export ASAN_OPTIONS='abort_on_error=1'
 export QT_FORCE_STDERR_LOGGING=1
 export PLASMA_USE_QT_SCALING=1
