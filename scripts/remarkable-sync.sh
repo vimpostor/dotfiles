@@ -4,7 +4,7 @@ ARGS="hp:s:"
 HELPMSG='This script copies a directory structure containing PDF files to a Remarkable and automatically imports it into the library.
 
 Usage:
-remarkable-sync.sh -s HOST /path/to/sync
+remarkable-sync.sh -s HOST -p Sheets /path/to/sync
 
 -h: Show help
 -p PREFIX: Directory to use for target install
