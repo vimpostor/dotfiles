@@ -140,7 +140,8 @@ EOF
 	"fontName": "",
 	"lineHeight": -1,
 	"pageCount": 0,
-	"textScale": 1
+	"textScale": 1,
+	"viewBackgroundFilter": "fullpage"
 }
 EOF
 	cp "$PDF" "$CACHE_DIR/$UUID.pdf"
