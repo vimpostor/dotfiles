@@ -93,6 +93,7 @@ TARGET_DIR="/home/root/.local/share/remarkable"
 rm -rf "$CACHE_DIR"
 mkdir -p "$CACHE_DIR"
 
+# compute optimal viewport using mupdf
 g++ -DNDEBUG -std=c++23 -O3 -lmupdfcpp -o "$CROP" -x c++ - <<'EOF'
 #include <print>
 #include <mupdf/classes2.h>
@@ -128,11 +129,16 @@ double box(mupdf::FzPixmap& p, const int dir) {
 	return static_cast<double>(r) / (mask ? h : w);
 }
 
+void cb(void*, const char*) {
+}
+
 int main(int argc, char *argv[])
 {
 	if (argc < 2) {
 		return 1;
 	}
+	mupdf::fz_set_warning_callback(&cb, nullptr);
+	mupdf::fz_set_error_callback(&cb, nullptr);
 	mupdf::FzMatrix ctm;
 	mupdf::FzDocument f = mupdf::fz_open_document(argv[1]);
 	double b[4] {1, 1, 1, 1};
@@ -202,6 +208,7 @@ EOF
 	echo "Blank" > "$CACHE_DIR/$UUID.pagedata"
 done < <(find "$SYNC_DIR" -type f -name '*.pdf' -print0)
 
+echo ''
 if [ -n "$SSH_HOST" ]; then
 	scp -r "$CACHE_DIR" "root@$SSH_HOST:$TARGET_DIR"
 	ssh "root@$SSH_HOST" 'systemctl restart xochitl'
