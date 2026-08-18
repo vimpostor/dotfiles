@@ -12,10 +12,12 @@ remarkable-sync.sh -s HOST -p Sheets /path/to/sync
 
 If no trailing argument is provided, the current directory is synced.
 '
-CACHE_DIR="/tmp/.remarkable/xochitl"
-SSH_HOST=""
+CACHE_BASE="/tmp/.remarkable"
+CACHE_DIR="$CACHE_BASE/xochitl"
+CROP="$CACHE_BASE/crop"
 PREFIX=""
 PREFIX_DIRS=()
+SSH_HOST=""
 
 set -e
 uuid() {
@@ -91,6 +93,68 @@ TARGET_DIR="/home/root/.local/share/remarkable"
 rm -rf "$CACHE_DIR"
 mkdir -p "$CACHE_DIR"
 
+g++ -DNDEBUG -std=c++23 -O3 -lmupdfcpp -o "$CROP" -x c++ - <<'EOF'
+#include <print>
+#include <mupdf/classes2.h>
+
+constexpr const double customZoomPageFactor = 3.153;
+constexpr const double customZoomScale = 0.813669990687162;
+
+int scale(int n, int old) {
+	return std::max(old, static_cast<int>(std::lround(n * customZoomPageFactor)));
+}
+
+bool blank(const unsigned char* p) {
+	constexpr const int threshold = 3 * 0xFF - 0x40;
+	return static_cast<int>(p[0]) + p[1] + p[2] > threshold;
+}
+
+double box(mupdf::FzPixmap& p, const int dir) {
+	const bool mask = dir % 2;
+	const int h = p.h();
+	const int w = p.w();
+	const int ydir = 1 - 2 * ((dir + (dir > 1)) % 2);
+	const int xdir = 1 - 2 * (dir > 1);
+	int y = (ydir < 0) * (h - 1);
+	int x = (xdir < 0) * (w - 1);
+	int r = 0;
+	while (y >= 0 && y < h && x >= 0 && x < w && blank(&p.samples()[y * p.stride()] + x * p.n())) {
+		y = (y + ydir * !mask + h) % h;
+		x = (x + xdir * mask + w) % w;
+		y = y + ydir * mask * !x;
+		x = x + xdir * !mask * !y;
+		r += mask * !x + !mask * !y;
+	}
+	return static_cast<double>(r) / (mask ? h : w);
+}
+
+int main(int argc, char *argv[])
+{
+	if (argc < 2) {
+		return 1;
+	}
+	mupdf::FzMatrix ctm;
+	mupdf::FzDocument f = mupdf::fz_open_document(argv[1]);
+	double b[4] {1, 1, 1, 1};
+	int height = 0, width = 0;
+	const int n = f.fz_count_pages();
+	for (int i = 0; i < n; ++i) {
+		auto pix = f.fz_new_pixmap_from_page_number(i, ctm, mupdf::fz_device_rgb(), 0);
+		height = scale(pix.h(), height);
+		width = scale(pix.w(), width);
+		for (int j = 0; j < 4; j++) {
+			b[j] = std::min(b[j], box(pix, j));
+		}
+	}
+	const double ycenter = (1 + b[3] - b[1]) / 2 * height;
+	const double xcenter = (b[0] - b[2]) / 2 * width;
+	const double diff = std::min(b[0] + b[2], b[1] + b[3]);
+	const double zoom = customZoomScale / (1 - diff);
+	std::println(R"({{"coverPageNumber": -1,"documentMetadata": {{}},"customZoomCenterX": {},"customZoomCenterY": {},"customZoomOrientation": "portrait","customZoomPageHeight": {},"customZoomPageWidth": {},"customZoomScale": {},"dummyDocument": false,"extraMetadata": {{}},"fileType": "pdf","fontName": "","lineHeight": -1,"pageCount": 0,"textScale": 1,"viewBackgroundFilter": "fullpage","zoomMode": "customFit"}})", xcenter, ycenter, height, width, zoom);
+	return 0;
+}
+EOF
+
 # first create folders
 for D in "${PREFIX_DIRS[@]}"; do
 	folder "$D" 0
@@ -111,6 +175,7 @@ while IFS= read -r -d '' PDF; do
 	uuid "$(dirname "$F")"
 	PARENT="$UUID"
 	uuid "$F"
+	printf '\r' && tput el && printf '%s' "$F"
 	cat > "$CACHE_DIR/$UUID.metadata" <<EOF
 {
 	"createdTime": "$CREATED",
@@ -130,20 +195,7 @@ while IFS= read -r -d '' PDF; do
 	"visibleName": "${BASENAME%.pdf}"
 }
 EOF
-	cat > "$CACHE_DIR/$UUID.content" <<EOF
-{
-	"coverPageNumber": -1,
-	"documentMetadata": {},
-	"dummyDocument": false,
-	"extraMetadata": {},
-	"fileType": "pdf",
-	"fontName": "",
-	"lineHeight": -1,
-	"pageCount": 0,
-	"textScale": 1,
-	"viewBackgroundFilter": "fullpage"
-}
-EOF
+	"$CROP" "$PDF" > "$CACHE_DIR/$UUID.content"
 	cp "$PDF" "$CACHE_DIR/$UUID.pdf"
 	mkdir -p "$CACHE_DIR/$UUID"
 	mkdir -p "$CACHE_DIR/$UUID.thumbnails"
