@@ -10,6 +10,7 @@ remarkable-sync.sh -s HOST -p Sheets /path/to/sync
 -p PREFIX: Directory to use for target install
 -s HOST: SSH host name
 
+In case the trailing argument is a regular file, only the given file will be synced into the target directory given by PREFIX.
 If no trailing argument is provided, the current directory is synced.
 '
 CACHE_BASE="/tmp/.remarkable"
@@ -112,21 +113,19 @@ bool blank(const unsigned char* p) {
 
 double box(mupdf::FzPixmap& p, const int dir) {
 	const bool mask = dir % 2;
-	const int h = p.h();
-	const int w = p.w();
 	const int ydir = 1 - 2 * ((dir + (dir > 1)) % 2);
 	const int xdir = 1 - 2 * (dir > 1);
-	int y = (ydir < 0) * (h - 1);
-	int x = (xdir < 0) * (w - 1);
+	int y = (ydir < 0) * (p.h() - 1);
+	int x = (xdir < 0) * (p.w() - 1);
 	int r = 0;
-	while (y >= 0 && y < h && x >= 0 && x < w && blank(&p.samples()[y * p.stride()] + x * p.n())) {
-		y = (y + ydir * !mask + h) % h;
-		x = (x + xdir * mask + w) % w;
+	while (y >= 0 && y < p.h() && x >= 0 && x < p.w() && blank(&p.samples()[y * p.stride()] + x * p.n())) {
+		y = (y + ydir * !mask + p.h()) % p.h();
+		x = (x + xdir * mask + p.w()) % p.w();
 		y = y + ydir * mask * !x;
 		x = x + xdir * !mask * !y;
 		r += mask * !x + !mask * !y;
 	}
-	return static_cast<double>(r) / (mask ? h : w);
+	return static_cast<double>(r) / (mask ? p.h() : p.w());
 }
 
 void cb(void*, const char*) {
@@ -148,7 +147,7 @@ int main(int argc, char *argv[])
 		auto pix = f.fz_new_pixmap_from_page_number(i, ctm, mupdf::fz_device_rgb(), 0);
 		height = scale(pix.h(), height);
 		width = scale(pix.w(), width);
-		for (int j = 0; j < 4; j++) {
+		for (int j = 0; j < 4; ++j) {
 			b[j] = std::min(b[j], box(pix, j));
 		}
 	}
@@ -174,10 +173,16 @@ while IFS= read -r -d '' D; do
 	folder "$D" 1
 done < <(find "$SYNC_DIR" -mindepth 1 -type d -print0)
 
+SOURCE_PREFIX="$SYNC_DIR"
+if [ -f "$SOURCE_PREFIX" ]; then
+	# not a directory
+	SOURCE_PREFIX="$(dirname "$SOURCE_PREFIX")"
+fi
+
 # copy all files
 while IFS= read -r -d '' PDF; do
 	fileinfo "$PDF"
-	F="$PREFIX${PDF#"$SYNC_DIR/"}"
+	F="$PREFIX${PDF#"$SOURCE_PREFIX/"}"
 	uuid "$(dirname "$F")"
 	PARENT="$UUID"
 	uuid "$F"
