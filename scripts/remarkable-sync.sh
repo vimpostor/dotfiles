@@ -76,6 +76,7 @@ while getopts $ARGS OPT; do
 		;;
 	s)
 		SSH_HOST="$OPTARG"
+		[ "$SSH_HOST" == 'auto' ] && SSH_HOST="10.11.99.1"
 		;;
 	:)
 		echo "Error: -$OPT requires an argument"
@@ -100,7 +101,8 @@ g++ -DNDEBUG -std=c++23 -O3 -lmupdfcpp -o "$CROP" -x c++ - <<'EOF'
 #include <mupdf/classes2.h>
 
 constexpr const double customZoomPageFactor = 3.153;
-constexpr const double customZoomScale = 0.813669990687162;
+constexpr const int a4HeightScaled = 842 * customZoomPageFactor;
+constexpr const double customZoomScale = 0.813669990687162; // reference scale for A4 height
 
 int scale(int n, int old) {
 	return std::max(old, static_cast<int>(std::lround(n * customZoomPageFactor)));
@@ -154,7 +156,7 @@ int main(int argc, char *argv[])
 	const double ycenter = (1 + b[3] - b[1]) / 2 * height;
 	const double xcenter = (b[0] - b[2]) / 2 * width;
 	const double diff = std::min(b[0] + b[2], b[1] + b[3]);
-	const double zoom = customZoomScale / (1 - diff);
+	const double zoom = customZoomScale * a4HeightScaled / height / (1 - diff);
 	std::println(R"({{"coverPageNumber": -1,"documentMetadata": {{}},"customZoomCenterX": {},"customZoomCenterY": {},"customZoomOrientation": "portrait","customZoomPageHeight": {},"customZoomPageWidth": {},"customZoomScale": {},"dummyDocument": false,"extraMetadata": {{}},"fileType": "pdf","fontName": "","lineHeight": -1,"pageCount": 0,"textScale": 1,"viewBackgroundFilter": "fullpage","zoomMode": "customFit"}})", xcenter, ycenter, height, width, zoom);
 	return 0;
 }
