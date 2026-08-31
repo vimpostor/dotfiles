@@ -156,7 +156,7 @@ int main(int argc, char *argv[])
 	const double ycenter = (1 + b[3] - b[1]) / 2 * height;
 	const double xcenter = (b[0] - b[2]) / 2 * width;
 	const double diff = std::min(b[0] + b[2], b[1] + b[3]);
-	const double zoom = customZoomScale * a4HeightScaled / height / (1 - diff);
+	const double zoom = customZoomScale * a4HeightScaled / std::max(height, width) / (1 - diff);
 	std::println(R"({{"coverPageNumber": -1,"documentMetadata": {{}},"customZoomCenterX": {},"customZoomCenterY": {},"customZoomOrientation": "portrait","customZoomPageHeight": {},"customZoomPageWidth": {},"customZoomScale": {},"dummyDocument": false,"extraMetadata": {{}},"fileType": "pdf","fontName": "","lineHeight": -1,"pageCount": 0,"textScale": 1,"viewBackgroundFilter": "fullpage","zoomMode": "customFit"}})", xcenter, ycenter, height, width, zoom);
 	return 0;
 }
