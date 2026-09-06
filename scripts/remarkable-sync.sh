@@ -217,6 +217,7 @@ done < <(find "$SYNC_DIR" -type f -name '*.pdf' -print0)
 
 echo ''
 if [ -n "$SSH_HOST" ]; then
+	ssh "root@$SSH_HOST" 'systemctl stop xochitl'
 	scp -r "$CACHE_DIR" "root@$SSH_HOST:$TARGET_DIR"
-	ssh "root@$SSH_HOST" 'systemctl restart xochitl'
+	ssh "root@$SSH_HOST" 'systemctl start xochitl'
 fi
