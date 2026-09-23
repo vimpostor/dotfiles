@@ -11,3 +11,4 @@ a.out
 __pycache__/
 *.AppImage
 clipboard.log
+spec.lua
