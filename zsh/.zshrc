@@ -169,5 +169,10 @@ function gta() {
 	git tag -se -m "$(basename "$(git rev-parse --show-toplevel)") ${*#v}" "$*" && git --no-pager tag -n "$*"
 }
 
+# show fossil diff in working tree or from a given commit
+function fdiff() {
+	fossil diff ${*/*/--checkin $*}
+}
+
 # complete autosuggestions with <c-space>
 bindkey '^ ' autosuggest-accept
