@@ -7,7 +7,6 @@ call plug#begin('~/.vim/plugged')
 Plug 'dense-analysis/ale' "linting
 if has('vim9script')
 	Plug 'yegappan/lsp'
-	Plug 'KKoovalsky/TsepepeVim', { 'do': './build.py' }
 endif
 Plug 'terryma/vim-multiple-cursors' "multiple cursors
 Plug 'honza/vim-snippets' "snippets
