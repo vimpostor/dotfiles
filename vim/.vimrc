@@ -24,6 +24,7 @@ Plug 'vimpostor/vim-lumen' "follow global darkmode
 Plug 'vimpostor/vim-gallop' "even faster movement
 Plug 'vimpostor/vim-clue' "documentation
 Plug 'vimpostor/vim-launchpad' "launching
+Plug 'vimpostor/vim-misc' "miscellaneous
 call plug#end()
 packadd! matchit "builtin plugin extends %
 packadd! cfilter "quickfix filtering
@@ -143,21 +144,6 @@ nnoremap <Leader><Leader> <c-^>
 imap <c-v> <c-g>u<Esc>[s1z=`]a<c-g>u
 let g:no_gitrebase_maps = 1
 command SudoWrite execute 'silent! write !sudo tee % >/dev/null' <bar> edit!
-"create new c style header-source file pair
-func HeaderCreate(n)
-	let h = ['hpp', 'h', 'hh', 'hxx', 'cpp', 'c', 'cc', 'cxx']
-	call mkdir(fnamemodify(a:n, ":h"), "p")
-	let f = fnamemodify(a:n, ":r") . "."
-	let i = index(h, fnamemodify(a:n, ":e")) % (len(h) / 2)
-	exec "edit " . f . h[i + len(h) / 2]
-	call setline(".", '#include "' . fnamemodify(f, ":t") . h[i] . '"')
-	norm 2o
-	exec "edit " . f . h[i]
-	call setline(".", "#pragma once")
-	norm 2o
-	wa
-endfunc
-command -nargs=1 -complete=file Cunit call HeaderCreate(<q-args>)
 
 "netrw
 nnoremap <silent> <Leader>t :Lexplore<CR>
@@ -175,55 +161,6 @@ func ToggleQf()
 		copen
 	endif
 endfunc
-"file completion
-func ComplF()
-	let f = matchstr(strpart(getline('.'), 0, col('.')-1), '\f\+$')
-	if (!get(g:, 'file_complete_s') || len(f)) && !get(g:, 'file_complete_a')
-		call complete(col('.')-len(f), map(getcompletion(f, 'file'), 'v:val[:-1-(v:val[-1:]=="/")]'))
-		let g:file_complete_a = 1
-	endif
-	let g:file_complete_s = 0
-	return ''
-endfunc
-inoremap <silent> <C-X><C-F> <C-R>=ComplF()<CR>
-nnoremap <silent> <C-X><C-F> :let g:file_complete_s = 0<CR>
-au CompleteDone * if get(g:, 'file_complete_a') | let g:file_complete_a = 0 | let g:file_complete_s = 1 | call feedkeys("\<C-X>\<C-F>") | endif
-"thesaurus
-func Thesaur(findstart, base)
-	if a:findstart
-		return searchpos('\<', 'bnW', line('.'))[1] - 1
-	endif
-	let res = []
-	let h = ''
-	for l in systemlist('aiksaurus '.shellescape(a:base))
-		if l[:3] == '=== '
-			let h = '('.substitute(l[4:], ' =*$', ')', '')
-		elseif l ==# 'Alphabetically similar known words are: '
-			let h = "\U0001f52e"
-		elseif l[0] =~ '\a' || (h ==# "\U0001f52e" && l[0] ==# "\t")
-			call extend(res, map(split(substitute(l, '^\t', '', ''), ', '), {_, val -> {'word': val, 'menu': h}}))
-		endif
-	endfor
-	return res
-endfunc
-set thesaurusfunc=Thesaur
-"poor man's editorconfig
-func AutoIndent(...)
-	let tabs = len(filter(getline('1', '$'), 'v:val =~ "^\t"'))
-	let spaces = len(filter(getline('1', '$'), 'v:val =~ "^ "'))
-	let n = get(a:, 1, 0) + get(filter(map(getline('1', '$'), 'len(matchstr(v:val, "^ \\+"))'), 'v:val != 0'), 0, 4) * !a:0 + 4 * !get(a:, 1, 0) * a:0
-	if tabs && spaces
-		echohl ErrorMsg | echo printf('Mixed indentation detected (%d tabs VS %d spaces)', tabs, spaces) | echohl None
-	endif
-	if (tabs > spaces && (!a:0 || !a:1)) || (a:0 && !a:1)
-		exec printf('set noet ts=%d sts=0 sw=0', n)
-		echo printf('Indenting with tabs (ts=%d)', n)
-	else
-		exec printf('set et ts=%d sts=-1 sw=0', n)
-		echo printf('Indenting with spaces (ts=%d)', n)
-	endif
-endfunc
-command -nargs=? AutoIndent call AutoIndent(<args>)
 
 "plugin settings
 "ale
