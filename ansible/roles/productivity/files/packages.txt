@@ -171,7 +171,6 @@ xorg-xinit
 xorg-xinput
 xorg-xwininfo
 xscreensaver
-yad
 yt-dlp
 zathura
 zathura-pdf-poppler
