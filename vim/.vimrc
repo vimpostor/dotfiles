@@ -92,6 +92,8 @@ xnoremap > >gv
 "allow completions from the dictionary
 set complete+=kspell
 set diffopt+=vertical,internal,algorithm:patience
+"do not match = for filenames
+set isfname-==
 "split like a normal human being
 set splitbelow
 set splitright
